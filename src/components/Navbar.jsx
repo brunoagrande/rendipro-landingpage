@@ -36,13 +36,13 @@ export function Navbar() {
 
                 <div className="flex items-center gap-4">
                     <a
-                        href="https://app.rendipro.com.br/login"
+                        href="https://app.rendipro.com.br"
                         className="hidden text-sm font-medium text-white/70 transition-colors hover:text-white sm:block"
                     >
                         Entrar
                     </a>
                     <a
-                        href="https://app.rendipro.com.br/signup"
+                        href="https://app.rendipro.com.br/register"
                         className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-surface-950 transition-all active:scale-95 hover:bg-white/90"
                     >
                         Começar Grátis
@@ -76,7 +76,7 @@ export function Navbar() {
                             ))}
                             <li className="pt-4 border-t border-white/5">
                                 <a
-                                    href="https://app.rendipro.com.br/login"
+                                    href="https://app.rendipro.com.br"
                                     className="block text-lg font-medium text-white/70"
                                 >
                                     Entrar no sistema

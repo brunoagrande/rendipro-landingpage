@@ -47,7 +47,7 @@ export function Hero() {
                         className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
                     >
                         <a
-                            href="https://app.rendipro.com.br/signup"
+                            href="https://app.rendipro.com.br/register"
                             className="group relative inline-flex h-14 items-center justify-center rounded-full bg-primary-600 px-10 text-lg font-bold text-white transition-all active:scale-95 hover:bg-primary-500 hover:shadow-2xl hover:shadow-primary-600/30"
                         >
                             Começar Agora

@@ -110,7 +110,7 @@ export function Pricing() {
                                     </ul>
 
                                     <a
-                                        href={`https://app.rendipro.com.br/signup?plan=${plan.slug}`}
+                                        href={`https://app.rendipro.com.br/register?plan=${plan.slug}`}
                                         className={`flex h-12 items-center justify-center rounded-xl text-sm font-bold transition-all active:scale-95 ${isPopular
                                             ? 'bg-primary-500 text-white hover:bg-primary-400 shadow-lg shadow-primary-500/30'
                                             : 'bg-white/10 text-white hover:bg-white/20'
