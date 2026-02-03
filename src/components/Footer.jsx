@@ -4,8 +4,8 @@ export function Footer() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid gap-12 md:grid-cols-4">
                     <div className="col-span-2">
-                        <div className="flex items-center gap-2 mb-6">
-                            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary-400 to-primary-600" />
+                        <div className="flex items-center gap-2">
+                            <img src="/logo-new.png" alt="RendiPro Logo" className="h-8 w-8 object-contain" />
                             <span className="text-xl font-bold tracking-tight text-white">RendiPro</span>
                         </div>
                         <p className="max-w-sm text-white/50 text-sm leading-relaxed">

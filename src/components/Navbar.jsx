@@ -14,7 +14,7 @@ export function Navbar() {
         <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-surface-950/80 backdrop-blur-md">
             <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary-400 to-primary-600 shadow-lg shadow-primary-500/20" />
+                    <img src="/logo-new.png" alt="RendiPro Logo" className="h-8 w-8 object-contain" />
                     <span className="text-xl font-bold tracking-tight">RendiPro</span>
                 </div>
 
