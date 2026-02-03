@@ -1,6 +1,8 @@
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
+import { TrustBar } from './components/TrustBar'
 import { Features } from './components/Features'
+import { Testimonials } from './components/Testimonials'
 import { Pricing } from './components/Pricing'
 import { FAQ } from './components/FAQ'
 import { FinalCTA } from './components/FinalCTA'
@@ -12,7 +14,9 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <TrustBar />
         <Features />
+        <Testimonials />
         <Pricing />
         <FAQ />
         <FinalCTA />

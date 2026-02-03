@@ -28,7 +28,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="mx-auto max-w-5xl text-5xl font-extrabold tracking-tight sm:text-7xl lg:text-8xl"
                     >
-                        Estude com <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-primary-500 to-indigo-400">alta performance</span>
+                        Conquiste sua <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-primary-500 to-indigo-400">aprovação</span> com organização impecável
                     </motion.h1>
 
                     <motion.p
@@ -37,28 +37,34 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="mx-auto mt-8 max-w-2xl text-lg text-white/50 md:text-xl"
                     >
-                        A plataforma completa que organiza sua rotina, gerencia seu ciclo de estudos e acelera sua aprovação com métodos cientificamente comprovados.
+                        Pare de se sentir perdido no edital. O RendiPro automatiza seus ciclos de estudo e gerencia suas revisões para você focar apenas no que importa: aprender.
                     </motion.p>
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
+                        className="mt-12 flex flex-col items-center justify-center gap-6"
                     >
-                        <a
-                            href="https://app.rendipro.com.br/register"
-                            className="group relative inline-flex h-14 items-center justify-center rounded-full bg-primary-600 px-10 text-lg font-bold text-white transition-all active:scale-95 hover:bg-primary-500 hover:shadow-2xl hover:shadow-primary-600/30"
-                        >
-                            Começar Agora
-                            <Rocket size={20} className="ml-2 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-                        </a>
-                        <a
-                            href="#features"
-                            className="inline-flex h-14 items-center justify-center rounded-full border border-white/10 bg-white/5 px-10 text-lg font-semibold text-white backdrop-blur-sm transition-all active:scale-95 hover:bg-white/10"
-                        >
-                            Ver Recursos
-                        </a>
+                        <div className="flex flex-col items-center gap-4 sm:flex-row">
+                            <a
+                                href="https://app.rendipro.com.br/register"
+                                className="group relative inline-flex h-14 items-center justify-center rounded-full bg-primary-600 px-10 text-lg font-bold text-white transition-all active:scale-95 hover:bg-primary-500 hover:shadow-2xl hover:shadow-primary-600/30"
+                            >
+                                Começar Agora Grátis
+                                <Rocket size={20} className="ml-2 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                            </a>
+                            <a
+                                href="#features"
+                                className="inline-flex h-14 items-center justify-center rounded-full border border-white/10 bg-white/5 px-10 text-lg font-semibold text-white backdrop-blur-sm transition-all active:scale-95 hover:bg-white/10"
+                            >
+                                Ver Recursos
+                            </a>
+                        </div>
+                        <p className="flex items-center gap-2 text-sm text-white/30">
+                            <span className="flex h-1.5 w-1.5 rounded-full bg-green-500" />
+                            Teste grátis por 7 dias • Sem cartão de crédito
+                        </p>
                     </motion.div>
                 </div>
             </div>
