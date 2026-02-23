@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, Loader2 } from 'lucide-react'
 import { supabase } from '../lib/supabase'
+import { useInfluencer } from '../contexts/InfluencerContext'
 
 export function Pricing() {
     const [plans, setPlans] = useState([])
     const [loading, setLoading] = useState(true)
     const [billingPeriod, setBillingPeriod] = useState('anual')
+    const { influencerData, applyDiscount, getCheckoutUrl } = useInfluencer()
 
     useEffect(() => {
         async function fetchPlans() {
@@ -49,7 +51,7 @@ export function Pricing() {
                         Escolha seu plano
                     </h2>
                     <p className="mx-auto mt-4 max-w-2xl text-lg text-white/50">
-                        O investimento ideal para sua aprovação. Comece com 7 dias grátis.
+                        O investimento ideal para sua aprovação. Com garantia incondicional de 7 dias.
                     </p>
 
                     {/* Billing Toggle */}
@@ -110,8 +112,8 @@ export function Pricing() {
                                             exit={{ opacity: 0, x: -20 }}
                                             transition={{ duration: 0.3, delay: index * 0.1 }}
                                             className={`relative min-w-[300px] flex-shrink-0 snap-center flex flex-col rounded-3xl border transition-all duration-300 ${isPopular
-                                                    ? 'border-primary-500/50 bg-primary-500/5 shadow-2xl shadow-primary-500/10 lg:scale-105 z-10'
-                                                    : 'border-white/5 bg-white/5'
+                                                ? 'border-primary-500/50 bg-primary-500/5 shadow-2xl shadow-primary-500/10 lg:scale-105 z-10'
+                                                : 'border-white/5 bg-white/5'
                                                 } p-8 lg:min-w-0`}
                                         >
                                             {isPopular && (
@@ -126,15 +128,20 @@ export function Pricing() {
                                                     {plan.descricao}
                                                 </p>
                                                 <div className="mt-8">
+                                                    {influencerData && plan.preco_centavos > 0 && (
+                                                        <div className="mb-2 text-sm font-medium text-white/50 bg-white/5 inline-block px-2 py-0.5 rounded-md border border-white/10">
+                                                            De <span className="line-through">{formatPrice(plan.preco_centavos)}</span>
+                                                        </div>
+                                                    )}
                                                     <div className="flex items-baseline gap-1">
-                                                        <span className="text-4xl font-extrabold text-white">
-                                                            {formatPrice(plan.preco_centavos)}
+                                                        <span className={`text-4xl font-extrabold ${influencerData && plan.preco_centavos > 0 ? 'text-green-400' : 'text-white'}`}>
+                                                            {formatPrice(applyDiscount(plan.preco_centavos))}
                                                         </span>
                                                         <span className="text-white/50 text-sm">/{plan.tipo === 'anual' ? 'ano' : 'mês'}</span>
                                                     </div>
-                                                    {plan.tipo === 'anual' && plan.preco_centavos > 0 && (
+                                                    {plan.tipo === 'anual' && applyDiscount(plan.preco_centavos) > 0 && (
                                                         <p className="mt-1 text-xs text-primary-400 font-medium">
-                                                            Equivalente a {formatPrice(plan.preco_centavos / 12)}/mês
+                                                            Equivalente a {formatPrice(applyDiscount(plan.preco_centavos) / 12)}/mês
                                                         </p>
                                                     )}
                                                 </div>
@@ -162,10 +169,10 @@ export function Pricing() {
                                             </ul>
 
                                             <a
-                                                href={`https://app.rendipro.com.br/register?plan=${plan.slug}`}
+                                                href={getCheckoutUrl(`https://app.rendipro.com.br/register?plan=${plan.slug}`)}
                                                 className={`flex h-12 items-center justify-center rounded-xl text-sm font-bold transition-all active:scale-95 ${isPopular
-                                                        ? 'bg-primary-500 text-white hover:bg-primary-400 shadow-lg shadow-primary-500/30'
-                                                        : 'bg-white/10 text-white hover:bg-white/20'
+                                                    ? 'bg-primary-500 text-white hover:bg-primary-400 shadow-lg shadow-primary-500/30'
+                                                    : 'bg-white/10 text-white hover:bg-white/20'
                                                     }`}
                                             >
                                                 Escolher Plano

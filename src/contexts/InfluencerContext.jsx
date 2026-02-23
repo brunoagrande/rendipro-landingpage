@@ -1,0 +1,123 @@
+import { createContext, useContext, useState, useEffect } from 'react'
+import { supabase } from '../lib/supabase'
+
+const InfluencerContext = createContext()
+
+export function InfluencerProvider({ children }) {
+    const [influencerData, setInfluencerData] = useState(null)
+    const [isLoadingInfluencer, setIsLoadingInfluencer] = useState(true)
+    const [isInvalidOrExpired, setIsInvalidOrExpired] = useState(false)
+
+    useEffect(() => {
+        async function fetchInfluencer() {
+            try {
+                // Capturar o slug da URL (?ref=slug)
+                const urlParams = new URLSearchParams(window.location.search)
+                let slug = urlParams.get('ref')
+
+                // Ou pela rota (/i/slug) caso necessário
+                if (!slug && window.location.pathname.startsWith('/i/')) {
+                    const parts = window.location.pathname.split('/')
+                    if (parts.length >= 3) {
+                        slug = decodeURIComponent(parts[2])
+                    }
+                }
+
+                console.log("InfluencerContext: Slug parsed from URL ->", slug);
+
+                if (!slug) {
+                    setIsLoadingInfluencer(false)
+                    return
+                }
+
+                const { data, error } = await supabase
+                    .from('tbcupons')
+                    .select('desconto_porcentagem, desconto_valor_fixo, nome_influencer, data_expiracao, slug')
+                    .eq('slug', slug)
+                    .eq('tipo', 'influencer')
+                    .eq('ativo', true)
+                    .single()
+
+                if (error) {
+                    if (error.code === 'PGRST116') {
+                        setIsInvalidOrExpired(true) // Not found
+                    } else {
+                        throw error
+                    }
+                } else if (data) {
+                    // Validar se não está expirado
+                    const dataExpiracao = new Date(data.data_expiracao)
+                    if (dataExpiracao > new Date()) {
+                        setInfluencerData(data)
+                    } else {
+                        setIsInvalidOrExpired(true) // Expired
+                    }
+                }
+            } catch (err) {
+                console.error('Erro ao buscar cupom:', err.message)
+                // Se der erro de query, também consideramos inválido
+                setIsInvalidOrExpired(true)
+            } finally {
+                setIsLoadingInfluencer(false)
+            }
+        }
+
+        fetchInfluencer()
+    }, [])
+
+    const dismissInvalidModal = () => {
+        setIsInvalidOrExpired(false)
+        // Remove from URL without reloading
+        const urlParams = new URLSearchParams(window.location.search)
+        urlParams.delete('ref')
+        const newUrl = window.location.pathname + (urlParams.toString() ? `?${urlParams.toString()}` : '') + window.location.hash
+        window.history.replaceState({}, '', newUrl)
+    }
+
+    const applyDiscount = (originalPriceCents) => {
+        if (!influencerData) return originalPriceCents
+
+        let newPrice = originalPriceCents
+
+        // Priorizar a porcentagem se ambos vierem (ou você pode ajustar a regra de negócio)
+        if (influencerData.desconto_porcentagem > 0) {
+            newPrice = originalPriceCents * (1 - (influencerData.desconto_porcentagem / 100))
+        } else if (influencerData.desconto_valor_fixo > 0) {
+            // Assumiremos que desconto_valor_fixo está em REAIS, então precisamos converter para centavos
+            const descontoCentavos = Math.round(influencerData.desconto_valor_fixo * 100)
+            newPrice = Math.max(0, originalPriceCents - descontoCentavos)
+        }
+
+        return Math.round(newPrice)
+    }
+
+    const getCheckoutUrl = (baseUrl) => {
+        if (!influencerData?.slug) return baseUrl
+
+        try {
+            const url = new URL(baseUrl)
+            url.searchParams.append('influencerSlug', influencerData.slug)
+            return url.toString()
+        } catch (e) {
+            const separator = baseUrl.includes('?') ? '&' : '?'
+            return `${baseUrl}${separator}influencerSlug=${influencerData.slug}`
+        }
+    }
+
+    return (
+        <InfluencerContext.Provider value={{
+            influencerData,
+            isLoadingInfluencer,
+            isInvalidOrExpired,
+            dismissInvalidModal,
+            applyDiscount,
+            getCheckoutUrl
+        }}>
+            {children}
+        </InfluencerContext.Provider>
+    )
+}
+
+export function useInfluencer() {
+    return useContext(InfluencerContext)
+}

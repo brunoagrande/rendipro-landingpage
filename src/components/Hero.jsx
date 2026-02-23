@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { Rocket, Sparkles } from 'lucide-react'
+import { useInfluencer } from '../contexts/InfluencerContext'
 
 export function Hero() {
+    const { getCheckoutUrl } = useInfluencer()
     return (
         <section className="relative overflow-hidden pt-32 pb-24 md:pt-48 md:pb-32">
             {/* Background Glows */}
@@ -48,10 +50,10 @@ export function Hero() {
                     >
                         <div className="flex flex-col items-center gap-4 sm:flex-row">
                             <a
-                                href="https://app.rendipro.com.br/register"
+                                href={getCheckoutUrl("https://app.rendipro.com.br/register")}
                                 className="group relative inline-flex h-14 items-center justify-center rounded-full bg-primary-600 px-10 text-lg font-bold text-white transition-all active:scale-95 hover:bg-primary-500 hover:shadow-2xl hover:shadow-primary-600/30"
                             >
-                                Começar Agora Grátis
+                                Assinar Agora
                                 <Rocket size={20} className="ml-2 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                             </a>
                             <a
@@ -63,7 +65,7 @@ export function Hero() {
                         </div>
                         <p className="flex items-center gap-2 text-sm text-white/30">
                             <span className="flex h-1.5 w-1.5 rounded-full bg-green-500" />
-                            Teste grátis por 7 dias • Sem cartão de crédito
+                            Garantia Incondicional de 7 Dias • Acesso Imediato
                         </p>
                     </motion.div>
                 </div>
