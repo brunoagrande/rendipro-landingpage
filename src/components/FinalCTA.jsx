@@ -17,17 +17,17 @@ export function FinalCTA() {
                         transition={{ duration: 0.5 }}
                     >
                         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
-                            Pronto para acelerar sua <span className="text-primary-500">aprovação</span>?
+                            Pronto para acelerar seus <span className="text-primary-500">resultados</span>?
                         </h2>
                         <p className="mx-auto mt-6 max-w-2xl text-lg text-white/50">
-                            Junte-se a milhares de concurseiros que já utilizam o RendiPro para organizar seus estudos e conquistar a vaga dos sonhos.
+                            Uma plataforma nascida de uma necessidade real de organização para provas de alto rendimento. Teste agora e sinta a diferença no seu dia a dia.
                         </p>
                         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                             <a
                                 href={getCheckoutUrl("https://app.rendipro.com.br/register")}
                                 className="group relative inline-flex h-14 items-center justify-center rounded-full bg-primary-600 px-10 text-lg font-bold text-white transition-all active:scale-95 hover:bg-primary-500 hover:shadow-2xl hover:shadow-primary-600/30"
                             >
-                                Assinar Agora
+                                Comece Agora
                                 <Rocket size={20} className="ml-2 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                             </a>
                             <p className="text-sm text-white/30">

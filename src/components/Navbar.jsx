@@ -16,7 +16,7 @@ export function Navbar() {
         <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-surface-950/80 backdrop-blur-md">
             <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center gap-2">
-                    <img src="/logo-new.png" alt="RendiPro Logo" className="h-8 w-8 object-contain" />
+                    <img src="/logo-rendipro.svg" alt="RendiPro Logo" className="h-8 w-8 object-contain" />
                     <span className="text-xl font-bold tracking-tight">RendiPro</span>
                 </div>
 
@@ -47,7 +47,7 @@ export function Navbar() {
                         href={getCheckoutUrl("https://app.rendipro.com.br/register")}
                         className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-surface-950 transition-all active:scale-95 hover:bg-white/90"
                     >
-                        Assinar Agora
+                        Comece Agora
                     </a>
 
                     {/* Mobile Menu Button */}

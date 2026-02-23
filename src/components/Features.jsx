@@ -1,24 +1,24 @@
 import { motion } from 'framer-motion'
-import { BookOpen, Brain, ClipboardCheck, Clock, LineChart, Target } from 'lucide-react'
+import { BookOpen, Brain, ClipboardCheck, Clock, LineChart, Target, PenTool } from 'lucide-react'
 
 const features = [
     {
         title: 'Estudo com Propósito',
-        description: 'Organização automática baseada na sua disponibilidade real e peso de cada matéria no edital.',
+        description: 'Organização automática baseada na sua disponibilidade real e peso de cada matéria no seu plano de estudos.',
         icon: Clock,
         color: 'text-blue-400',
         bg: 'bg-blue-500/10',
     },
     {
         title: 'Flashcards de Elite',
-        description: 'Memorize 3x mais rápido com nosso algoritmo de repetição espaçada otimizado para concursos.',
+        description: 'Memorize 3x mais rápido com nosso algoritmo de repetição espaçada otimizado para qualquer tipo de prova.',
         icon: Brain,
         color: 'text-purple-400',
         bg: 'bg-purple-500/10',
     },
     {
-        title: 'Domínio do Edital',
-        description: 'Visualize seu progresso em cada tópico e saiba exatamente o que falta para sua aprovação.',
+        title: 'Mapa de Progresso',
+        description: 'Visualize seu progresso em cada tópico e saiba exatamente o que falta para alcançar seus objetivos.',
         icon: BookOpen,
         color: 'text-indigo-400',
         bg: 'bg-indigo-500/10',
@@ -44,6 +44,13 @@ const features = [
         color: 'text-rose-400',
         bg: 'bg-rose-500/10',
     },
+    {
+        title: 'Redações Corrigidas',
+        description: 'Receba correções detalhadas feitas por especialistas seguindo os critérios oficiais do seu exame.',
+        icon: PenTool,
+        color: 'text-red-400',
+        bg: 'bg-red-500/10',
+    },
 ]
 
 export function Features() {
@@ -55,7 +62,7 @@ export function Features() {
                         Tudo o que você precisa para a <span className="text-primary-500">aprovação</span>
                     </h2>
                     <p className="mx-auto mt-4 max-w-2xl text-lg text-white/50">
-                        Ferramentas profissionais desenhadas por quem entende de concursos públicos.
+                        Ferramentas profissionais desenhadas para quem leva os estudos a sério.
                     </p>
                 </div>
 

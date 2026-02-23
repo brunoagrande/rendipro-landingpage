@@ -16,12 +16,25 @@ export function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="mb-6 flex justify-center"
+                        className="mb-8 flex justify-center"
                     >
                         <span className="inline-flex items-center gap-2 rounded-full border border-primary-500/20 bg-primary-500/10 px-4 py-1.5 text-xs font-semibold text-primary-400 backdrop-blur-md">
                             <Sparkles size={14} />
-                            Otimizado para Concursos de 2026
+                            A plataforma nº1 de organização de estudos
                         </span>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.05 }}
+                        className="mb-8 flex justify-center"
+                    >
+                        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+                            <span className="text-sm font-medium text-white/70">
+                                🚀 Vagas limitadas para membros fundadores
+                            </span>
+                        </div>
                     </motion.div>
 
                     <motion.h1
@@ -39,7 +52,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="mx-auto mt-8 max-w-2xl text-lg text-white/50 md:text-xl"
                     >
-                        Pare de se sentir perdido no edital. O RendiPro automatiza seus ciclos de estudo e gerencia suas revisões para você focar apenas no que importa: aprender.
+                        Pare de perder tempo com planilhas e métodos desorganizados. O RendiPro organiza automaticamente seus ciclos de estudo e revisões para você focar apenas no que importa: aprender.
                     </motion.p>
 
                     <motion.div
@@ -53,7 +66,7 @@ export function Hero() {
                                 href={getCheckoutUrl("https://app.rendipro.com.br/register")}
                                 className="group relative inline-flex h-14 items-center justify-center rounded-full bg-primary-600 px-10 text-lg font-bold text-white transition-all active:scale-95 hover:bg-primary-500 hover:shadow-2xl hover:shadow-primary-600/30"
                             >
-                                Assinar Agora
+                                Comece Agora
                                 <Rocket size={20} className="ml-2 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                             </a>
                             <a

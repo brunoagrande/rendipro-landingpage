@@ -50,9 +50,26 @@ export function Pricing() {
                     <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
                         Escolha seu plano
                     </h2>
-                    <p className="mx-auto mt-4 max-w-2xl text-lg text-white/50">
-                        O investimento ideal para sua aprovação. Com garantia incondicional de 7 dias.
-                    </p>
+
+                    <div className="mx-auto mt-6 max-w-3xl">
+                        <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-400 mb-4">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            Invista menos de R$ 1/dia na sua organização
+                        </div>
+                        <p className="text-xl text-white/90 font-medium">
+                            Quanto custa adiar a sua aprovação? <br className="hidden sm:block" />
+                            <span className="text-primary-400 font-bold">Invista hoje e acelere seus resultados.</span>
+                        </p>
+
+                        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-white/60 font-medium">
+                            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary-500" /> Criado a partir de necessidades reais</span>
+                            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary-500" /> Acesso imediato após o pagamento</span>
+                            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary-500" /> Garantia de 7 dias</span>
+                        </div>
+                    </div>
 
                     {/* Billing Toggle */}
                     <div className="mt-10 flex justify-center">
@@ -99,10 +116,17 @@ export function Pricing() {
                 ) : (
                     <div className="relative">
                         {/* Horizontal Scroll Container for Mobile / Grid for Desktop */}
-                        <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-8 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 scrollbar-hide">
+                        <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-8 lg:grid lg:grid-cols-4 xl:gap-8 lg:overflow-visible lg:pb-0 scrollbar-hide">
                             <AnimatePresence mode="wait">
                                 {filteredPlans.map((plan, index) => {
-                                    const isPopular = plan.slug.includes('anual') && plan.slug.includes('essencial') || plan.slug === 'essencial-anual';
+                                    const baseName = plan.nome.replace(' Anual', '').replace(' Mensal', '');
+                                    const monthlyEquivalent = plans.find(p => p.tipo === 'mensal' && p.nome.includes(baseName));
+                                    let savings = 0;
+                                    if (monthlyEquivalent && plan.tipo === 'anual') {
+                                        savings = (monthlyEquivalent.preco_centavos * 12) - plan.preco_centavos;
+                                    }
+
+                                    const isPopular = plan.slug.includes('pro') && plan.slug.includes('anual') || plan.slug === 'pro-anual';
 
                                     return (
                                         <motion.div
@@ -133,16 +157,34 @@ export function Pricing() {
                                                             De <span className="line-through">{formatPrice(plan.preco_centavos)}</span>
                                                         </div>
                                                     )}
-                                                    <div className="flex items-baseline gap-1">
-                                                        <span className={`text-4xl font-extrabold ${influencerData && plan.preco_centavos > 0 ? 'text-green-400' : 'text-white'}`}>
-                                                            {formatPrice(applyDiscount(plan.preco_centavos))}
-                                                        </span>
-                                                        <span className="text-white/50 text-sm">/{plan.tipo === 'anual' ? 'ano' : 'mês'}</span>
-                                                    </div>
-                                                    {plan.tipo === 'anual' && applyDiscount(plan.preco_centavos) > 0 && (
-                                                        <p className="mt-1 text-xs text-primary-400 font-medium">
-                                                            Equivalente a {formatPrice(applyDiscount(plan.preco_centavos) / 12)}/mês
-                                                        </p>
+
+                                                    {plan.tipo === 'anual' && applyDiscount(plan.preco_centavos) > 0 ? (
+                                                        <div className="flex flex-col items-start gap-1">
+                                                            <div className="flex items-baseline gap-1">
+                                                                <span className="text-white/60 text-sm font-medium mr-1">12x de</span>
+                                                                <span className={`text-4xl font-extrabold ${influencerData && plan.preco_centavos > 0 ? 'text-green-400' : 'text-white'}`}>
+                                                                    {formatPrice(applyDiscount(plan.preco_centavos) / 12)}
+                                                                </span>
+                                                                <span className="text-white/50 text-sm">/mês*</span>
+                                                            </div>
+                                                            <div className="mt-1 flex flex-col items-start gap-1">
+                                                                <span className="text-xs text-white/40 bg-white/5 px-2 py-0.5 rounded border border-white/10">
+                                                                    ou {formatPrice(applyDiscount(plan.preco_centavos))} à vista/ano
+                                                                </span>
+                                                                {savings > 0 && (
+                                                                    <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 mt-1">
+                                                                        Economize {formatPrice(savings)}/ano
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                        <div className="flex items-baseline gap-1">
+                                                            <span className={`text-4xl font-extrabold ${influencerData && plan.preco_centavos > 0 ? 'text-green-400' : 'text-white'}`}>
+                                                                {formatPrice(applyDiscount(plan.preco_centavos))}
+                                                            </span>
+                                                            <span className="text-white/50 text-sm">/mês</span>
+                                                        </div>
                                                     )}
                                                 </div>
                                             </div>
@@ -161,9 +203,14 @@ export function Pricing() {
                                                         <div className="mt-1 rounded-full bg-primary-500/10 p-0.5">
                                                             <Check className="h-3.5 w-3.5 text-primary-400" />
                                                         </div>
-                                                        <span className="text-sm text-white/70 font-medium">
-                                                            {plan.redacoes_por_mes} Redações inclusas/mês
-                                                        </span>
+                                                        <div className="flex flex-col">
+                                                            <span className="text-sm text-white/70 font-medium">
+                                                                {plan.redacoes_por_mes} Redações inclusas/mês
+                                                            </span>
+                                                            <span className="text-[11px] text-emerald-400/90 mt-0.5 font-medium">
+                                                                (Avulsa: R$ 40 x {plan.redacoes_por_mes} = {formatPrice(plan.redacoes_por_mes * 4000)})
+                                                            </span>
+                                                        </div>
                                                     </li>
                                                 )}
                                             </ul>
@@ -175,7 +222,7 @@ export function Pricing() {
                                                     : 'bg-white/10 text-white hover:bg-white/20'
                                                     }`}
                                             >
-                                                Escolher Plano
+                                                Começar Agora
                                             </a>
                                         </motion.div>
                                     )

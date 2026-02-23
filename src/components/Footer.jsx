@@ -5,11 +5,11 @@ export function Footer() {
                 <div className="grid gap-12 md:grid-cols-4">
                     <div className="col-span-2">
                         <div className="flex items-center gap-2">
-                            <img src="/logo-new.png" alt="RendiPro Logo" className="h-8 w-8 object-contain" />
+                            <img src="/logo-rendipro.svg" alt="RendiPro Logo" className="h-8 w-8 object-contain" />
                             <span className="text-xl font-bold tracking-tight text-white">RendiPro</span>
                         </div>
                         <p className="max-w-sm text-white/50 text-sm leading-relaxed">
-                            Transformando a forma como concurseiros estudam. Tecnologia e ciência a serviço da sua aprovação.
+                            Transformando a forma como os estudantes organizam seus estudos. Tecnologia e ciência a serviço dos seus objetivos.
                         </p>
                     </div>
                     <div>
@@ -23,8 +23,8 @@ export function Footer() {
                     <div>
                         <h4 className="mb-6 text-sm font-bold uppercase tracking-wider text-white">Legal</h4>
                         <ul className="space-y-4">
-                            <li><a href="#" className="text-sm text-white/50 hover:text-white transition-colors">Termos de Uso</a></li>
-                            <li><a href="#" className="text-sm text-white/50 hover:text-white transition-colors">Privacidade</a></li>
+                            <li><a href="https://app.rendipro.com.br/termos" target="_blank" rel="noopener noreferrer" className="text-sm text-white/50 hover:text-white transition-colors">Termos de Uso</a></li>
+                            <li><a href="https://app.rendipro.com.br/privacidade" target="_blank" rel="noopener noreferrer" className="text-sm text-white/50 hover:text-white transition-colors">Privacidade</a></li>
                             <li><a href="mailto:contato@rendipro.com.br" className="text-sm text-white/50 hover:text-white transition-colors">Contato</a></li>
                         </ul>
                     </div>
