@@ -18,7 +18,7 @@ const benefits = [
 ]
 
 const requirements = [
-    'Usar a plataforma pelo menos 3 vezes por semana durante os 60 dias.',
+    'Usar a plataforma pelo menos 3 vezes por semana durante os 30 dias.',
     'Responder um formulário rápido a cada 2 semanas com suas impressões (10 minutos).',
     'Participar de uma call de 30 minutos ao final do período com o fundador.',
     'Avisar quando algo não funcionar — bugs, travamentos, confusões na interface.',
@@ -191,7 +191,7 @@ export function BetaLanding() {
                     </div>
                     <div className="flex flex-col gap-1 sm:text-right">
                         <span className="text-[0.7rem] uppercase tracking-widest text-white/30 font-medium">Período de acesso</span>
-                        <span className="text-lg font-medium text-white/60">60 dias grátis</span>
+                        <span className="text-lg font-medium text-white/60">30 dias grátis</span>
                     </div>
                 </motion.div>
 
