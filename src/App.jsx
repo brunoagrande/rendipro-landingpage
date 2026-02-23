@@ -10,8 +10,20 @@ import { Footer } from './components/Footer'
 import { InfluencerProvider } from './contexts/InfluencerContext'
 import { TopBanner } from './components/TopBanner'
 import { InvalidInfluencerModal } from './components/InvalidInfluencerModal'
+import { BetaLanding } from './components/BetaLanding'
+
+// ┌─────────────────────────────────────────────────────┐
+// │  BETA_MODE: true  → Página de recrutamento de beta  │
+// │  BETA_MODE: false → Landing page de vendas original  │
+// │  Para restaurar a landing original: mude para false  │
+// └─────────────────────────────────────────────────────┘
+const BETA_MODE = true
 
 function App() {
+  if (BETA_MODE) {
+    return <BetaLanding />
+  }
+
   return (
     <InfluencerProvider>
       <div className="min-h-screen bg-surface-950 text-white selection:bg-primary-500/30">
@@ -34,3 +46,4 @@ function App() {
 }
 
 export default App
+
