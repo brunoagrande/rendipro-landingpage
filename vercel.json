@@ -8,13 +8,5 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.rendipro.com.br" }],
-      "destination": "https://rendipro.com.br/:path*",
-      "permanent": true
-    }
   ]
 }
