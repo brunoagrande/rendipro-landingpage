@@ -15,8 +15,21 @@
     gtag('config', 'G-XCS1ES8VZY');
   </script>
 
-  <!-- title, description, og:*, twitter:*, canonical, robots e schema.org
-       são injetados dinamicamente pelo componente SEOHead (react-helmet-async) -->
+  <!-- Fallback estático para crawlers sociais (Facebook, WhatsApp, Instagram)
+       que não executam JavaScript. O SEOHead sobrescreve no browser. -->
+  <title>Seja Beta Tester do rendiPRO — Plataforma de Estudos com IA</title>
+  <meta name="description" content="Acesse gratuitamente o rendiPRO antes de todo mundo. Flashcards inteligentes, cronograma de estudos e correção de redações — em troca da sua opinião honesta." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://rendipro.com.br/" />
+  <meta property="og:title" content="Seja Beta Tester do rendiPRO — Plataforma de Estudos com IA" />
+  <meta property="og:description" content="Acesse gratuitamente o rendiPRO antes de todo mundo. Flashcards inteligentes, cronograma de estudos e correção de redações — em troca da sua opinião honesta." />
+  <meta property="og:image" content="https://rendipro.com.br/og-beta.png" />
+  <meta property="og:url" content="https://rendipro.com.br/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://rendipro.com.br/og-beta.png" />
+
 </head>
 
 <body>
