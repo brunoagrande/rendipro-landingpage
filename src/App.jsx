@@ -12,12 +12,15 @@ import { TopBanner } from './components/TopBanner'
 import { InvalidInfluencerModal } from './components/InvalidInfluencerModal'
 import { BetaLanding } from './components/BetaLanding'
 
-// ┌─────────────────────────────────────────────────────┐
-// │  BETA_MODE: true  → Página de recrutamento de beta  │
-// │  BETA_MODE: false → Landing page de vendas original  │
-// │  Para restaurar a landing original: mude para false  │
-// └─────────────────────────────────────────────────────┘
-const BETA_MODE = true
+// ┌────────────────────────────────────────────────────────────────────┐
+// │  Controle de modo via variável de ambiente (Vercel + .env.local)  │
+// │  VITE_BETA_MODE=true  → Página de recrutamento de beta (no ar)    │
+// │  VITE_BETA_MODE=false → Landing page de vendas original            │
+// │                                                                    │
+// │  Para lançar: mude VITE_BETA_MODE para false no painel Vercel     │
+// │  e faça um novo deploy — sem precisar alterar código.             │
+// └────────────────────────────────────────────────────────────────────┘
+const BETA_MODE = import.meta.env.VITE_BETA_MODE === 'true'
 
 function App() {
   if (BETA_MODE) {

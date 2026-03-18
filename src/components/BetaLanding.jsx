@@ -5,6 +5,7 @@ import {
     Check, X, ChevronRight, Rocket, Shield, Clock, Sparkles
 } from 'lucide-react'
 import { submitBetaApplication } from '../lib/betaService'
+import { SEOHead } from './SEOHead'
 
 const TOTAL_SPOTS = 20
 
@@ -101,6 +102,13 @@ export function BetaLanding() {
 
     return (
         <div className="min-h-screen bg-surface-950 text-white">
+            <SEOHead
+                title="Seja Beta Tester do rendiPRO — Plataforma de Estudos com IA"
+                description="Acesse gratuitamente o rendiPRO antes de todo mundo. Flashcards inteligentes, cronograma de estudos e correção de redações — em troca da sua opinião honesta."
+                ogImage="/og-beta.png"
+                canonical="https://rendipro.com.br/"
+                noindex={true}
+            />
             {/* Ambient Glow */}
             <div className="fixed top-[-200px] right-[-100px] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.06)_0%,transparent_70%)] pointer-events-none z-0" />
             <div className="fixed bottom-[-200px] left-[-200px] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.04)_0%,transparent_70%)] pointer-events-none z-0 opacity-50" />
