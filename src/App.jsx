@@ -11,6 +11,8 @@ import { InfluencerProvider } from './contexts/InfluencerContext'
 import { TopBanner } from './components/TopBanner'
 import { InvalidInfluencerModal } from './components/InvalidInfluencerModal'
 import { BetaLanding } from './components/BetaLanding'
+import { SEOHead } from './components/SEOHead'
+import { SchemaMarkup } from './components/SchemaMarkup'
 
 // ┌────────────────────────────────────────────────────────────────────┐
 // │  Controle de modo via variável de ambiente (Vercel + .env.local)  │
@@ -29,6 +31,14 @@ function App() {
 
   return (
     <InfluencerProvider>
+      <SEOHead
+        title="rendiPRO — Questões, Flashcards e Cronograma com IA para Vestibular e Concursos"
+        description="Pare de perder tempo com planilhas. O rendiPRO organiza automaticamente seus ciclos de estudo e revisões com IA. Flashcards, questões comentadas e cronograma personalizado. Comece grátis por 30 dias."
+        ogImage="/og-oficial.png"
+        canonical="https://rendipro.com.br/"
+        noindex={false}
+      />
+      <SchemaMarkup />
       <div className="min-h-screen bg-surface-950 text-white selection:bg-primary-500/30">
         <TopBanner />
         <InvalidInfluencerModal />
