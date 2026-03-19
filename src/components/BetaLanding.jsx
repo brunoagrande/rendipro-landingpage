@@ -1,28 +1,110 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-    PenTool, Brain, BarChart3, CalendarDays, MessageCircle, Gift,
-    Check, X, ChevronRight, Rocket, Shield, Clock, Sparkles
+    PenTool, Brain, BarChart3, CalendarDays, MessageCircle, BadgePercent,
+    Check, X, ChevronRight, Shield, Clock, ListChecks, RotateCcw,
+    BookOpen, Info, Star, Trophy, Zap
 } from 'lucide-react'
 import { submitBetaApplication } from '../lib/betaService'
 import { SEOHead } from './SEOHead'
 
-const TOTAL_SPOTS = 20
-
 const benefits = [
-    { icon: PenTool, title: 'Redações corrigidas', desc: 'Envie suas redações e receba correções detalhadas de professores reais.', color: 'text-rose-400', bg: 'bg-rose-500/10' },
-    { icon: Brain, title: 'Flashcards inteligentes', desc: 'Crie e estude flashcards com repetição espaçada para fixar o conteúdo.', color: 'text-purple-400', bg: 'bg-purple-500/10' },
-    { icon: BarChart3, title: 'Simulados com análise', desc: 'Faça simulados e veja exatamente onde está errando mais.', color: 'text-orange-400', bg: 'bg-orange-500/10' },
-    { icon: CalendarDays, title: 'Cronograma de estudos', desc: 'Organize sua rotina com planos baseados no que você está estudando.', color: 'text-blue-400', bg: 'bg-blue-500/10' },
-    { icon: MessageCircle, title: 'Acesso direto ao fundador', desc: 'Canal exclusivo para reportar bugs e sugerir melhorias diretamente.', color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
-    { icon: Gift, title: 'Desconto de fundador', desc: 'Ao final do beta, oferta especial para continuar com desconto permanente.', color: 'text-yellow-400', bg: 'bg-yellow-500/10' },
+    {
+        icon: PenTool,
+        title: 'Redações Corrigidas',
+        desc: 'Envie sua redação e receba uma correção detalhada com nota e comentários reais — sem esperar dias.',
+        color: 'text-rose-400',
+        bg: 'bg-rose-500/10'
+    },
+    {
+        icon: BarChart3,
+        title: 'Provas e Simulados',
+        desc: 'Resolva provas e simulados reais para sentir o ritmo da sua prova. Veja onde você erra mais.',
+        color: 'text-orange-400',
+        bg: 'bg-orange-500/10'
+    },
+    {
+        icon: ListChecks,
+        title: 'Questões para Praticar',
+        desc: 'Banco de questões organizado por matéria e tema. Treine com o que de fato cai na sua prova.',
+        color: 'text-blue-400',
+        bg: 'bg-blue-500/10'
+    },
+    {
+        icon: Brain,
+        title: 'Flashcards Inteligentes',
+        desc: 'Sistema de repetição espaçada que decide o que você precisa revisar — sem você precisar pensar nisso.',
+        color: 'text-purple-400',
+        bg: 'bg-purple-500/10'
+    },
+    {
+        icon: CalendarDays,
+        title: 'Cronograma de Estudos',
+        desc: 'Organize sua semana com um plano adaptado ao seu ritmo e ao seu edital. Sem planilhas.',
+        color: 'text-teal-400',
+        bg: 'bg-teal-500/10'
+    },
+    {
+        icon: RotateCcw,
+        title: 'Revisões Inteligentes',
+        desc: 'O sistema identifica o que você está esquecendo e agenda revisões automáticas. Memorização real.',
+        color: 'text-cyan-400',
+        bg: 'bg-cyan-500/10'
+    },
+    {
+        icon: BadgePercent,
+        title: 'Desconto de Fundador',
+        desc: 'Ao final do beta, você garante uma oferta exclusiva e permanente — condição que não volta mais.',
+        color: 'text-yellow-400',
+        bg: 'bg-yellow-500/10'
+    },
+    {
+        icon: MessageCircle,
+        title: 'Acesso Direto ao Fundador',
+        desc: 'Canal exclusivo com o criador da plataforma. Sua voz molda o produto antes de qualquer outra pessoa.',
+        color: 'text-emerald-400',
+        bg: 'bg-emerald-500/10'
+    },
 ]
 
 const requirements = [
     'Usar a plataforma pelo menos 3 vezes por semana durante os 30 dias.',
-    'Responder um formulário rápido a cada 2 semanas com suas impressões (10 minutos).',
+    'Responder um formulário rápido a cada 2 semanas com suas impressões (≈10 minutos).',
     'Participar de uma call de 30 minutos ao final do período com o fundador.',
-    'Avisar quando algo não funcionar — bugs, travamentos, confusões na interface.',
+    'Reportar bugs, travamentos ou confusões assim que encontrar — sem filtro.',
+]
+
+const rewards = [
+    {
+        icon: Check,
+        level: 'Tester',
+        condition: 'Cumprir os comprometimentos do beta',
+        reward: 'Desconto de fundador permanente na assinatura.',
+        color: 'text-emerald-400',
+        border: 'border-emerald-500/25',
+        bg: 'bg-emerald-500/8',
+        iconBg: 'bg-emerald-500/15',
+    },
+    {
+        icon: Zap,
+        level: 'Top Tester',
+        condition: 'Uso frequente + feedback qualificado acima da média',
+        reward: 'Desconto ainda maior — condição exclusiva para quem se destacar.',
+        color: 'text-primary-400',
+        border: 'border-primary-500/30',
+        bg: 'bg-primary-500/8',
+        iconBg: 'bg-primary-500/15',
+    },
+    {
+        icon: Trophy,
+        level: 'Embaixador',
+        condition: 'Indicar alunos que se tornarem assinantes',
+        reward: 'Comissão sobre cada indicado que virar assinante — vira uma parceria real.',
+        color: 'text-yellow-400',
+        border: 'border-yellow-500/25',
+        bg: 'bg-yellow-500/8',
+        iconBg: 'bg-yellow-500/15',
+    },
 ]
 
 const idealProfile = [
@@ -40,7 +122,7 @@ const notForYou = [
     'Não estuda ativamente no momento',
 ]
 
-const modules = ['Redações + Correção', 'Flashcards', 'Questões', 'Simulados', 'Revisões', 'Cronograma de Estudos', 'Planos de Editais']
+const modules = ['Redações + Correção', 'Flashcards', 'Questões', 'Simulados', 'Revisões Inteligentes', 'Cronograma de Estudos', 'Planos de Editais']
 
 const perfilOptions = [
     { value: 'concurso', label: 'Estudando para concurso público' },
@@ -84,7 +166,7 @@ export function BetaLanding() {
         const response = await submitBetaApplication(formData)
 
         if (response.success) {
-            setResult({ type: 'success', message: 'Candidatura recebida! Respondemos em até 48 horas.' })
+            setResult({ type: 'success' })
             setFormData({ nome: '', email: '', perfil: '', objetivo: '', tempo_estudo: '', horas_semana: '', motivacao: '' })
         } else if (response.isDuplicate) {
             setResult({ type: 'duplicate', message: response.error })
@@ -136,7 +218,7 @@ export function BetaLanding() {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
                                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary-500" />
                             </span>
-                            🔬 Programa de Testers — {TOTAL_SPOTS} vagas
+                            🔬 Pré-Cadastro Aberto — Vagas Limitadas
                         </span>
                     </motion.div>
 
@@ -168,40 +250,28 @@ export function BetaLanding() {
                             onClick={scrollToForm}
                             className="group inline-flex items-center gap-2.5 rounded-full bg-primary-600 px-8 py-4 text-lg font-bold text-white transition-all active:scale-95 hover:bg-primary-500 hover:shadow-2xl hover:shadow-primary-600/25"
                         >
-                            Quero ser tester
+                            Fazer Pré-Cadastro
                             <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
                         </a>
                         <div className="flex items-center gap-5 text-xs text-white/30">
                             <span className="flex items-center gap-1.5"><Check size={12} /> Gratuito</span>
                             <span className="flex items-center gap-1.5"><Check size={12} /> Sem cartão</span>
-                            <span className="flex items-center gap-1.5"><Check size={12} /> Resposta em 48h</span>
+                            <span className="flex items-center gap-1.5"><Check size={12} /> Selecionamos e avisamos por email</span>
                         </div>
                     </motion.div>
-                </section>
 
-                {/* Spots Bar */}
-                <motion.div
-                    initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                    className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-16"
-                >
-                    <div className="flex flex-col gap-1">
-                        <span className="text-[0.7rem] uppercase tracking-widest text-white/30 font-medium">Vagas disponíveis</span>
-                        <span className="text-2xl font-bold"><span className="text-primary-500">{TOTAL_SPOTS}</span> vagas no total</span>
-                    </div>
-                    <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden w-full sm:max-w-[200px]">
-                        <motion.div
-                            initial={{ width: '0%' }}
-                            whileInView={{ width: '30%' }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1.5, delay: 0.5, ease: 'easeOut' }}
-                            className="h-full bg-gradient-to-r from-primary-600 to-primary-400 rounded-full"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-1 sm:text-right">
-                        <span className="text-[0.7rem] uppercase tracking-widest text-white/30 font-medium">Período de acesso</span>
-                        <span className="text-lg font-medium text-white/60">30 dias grátis</span>
-                    </div>
-                </motion.div>
+                    {/* Pre-registration notice */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.45 }}
+                        className="mt-8 inline-flex items-start gap-3 rounded-2xl border border-white/8 bg-white/[0.03] px-5 py-4 text-left max-w-lg mx-auto"
+                    >
+                        <Info size={16} className="text-primary-400 shrink-0 mt-0.5" />
+                        <p className="text-xs text-white/45 leading-relaxed">
+                            <span className="text-white/70 font-medium">Como funciona a seleção:</span> Ao preencher o formulário, você faz um pré-cadastro. Analisamos os perfis com cuidado e avisamos por email quem foi selecionado — em até 48 horas.
+                        </p>
+                    </motion.div>
+                </section>
 
                 {/* What you get */}
                 <Section title="O que você recebe" sub="Acesso completo à plataforma, sem pagar nada.">
@@ -224,8 +294,8 @@ export function BetaLanding() {
                 </Section>
 
                 {/* What we ask */}
-                <Section title="O que pedimos em troca" sub="Nada complicado — só precisamos da sua opinião.">
-                    <div className="flex flex-col gap-2">
+                <Section title="O que pedimos em troca" sub="Uso constante e feedback real — é isso que torna o beta útil pra gente (e pra você).">
+                    <div className="flex flex-col gap-2 mb-6">
                         {requirements.map((r, i) => (
                             <motion.div
                                 key={i}
@@ -240,6 +310,42 @@ export function BetaLanding() {
                             </motion.div>
                         ))}
                     </div>
+
+                    {/* Engagement Rewards */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+                    >
+                        <div className="flex items-center gap-2 mb-1">
+                            <Star size={15} className="text-yellow-400" />
+                            <h3 className="font-bold text-white text-sm">Quanto mais você contribuir, mais você ganha</h3>
+                        </div>
+                        <p className="text-xs text-white/40 mb-5 leading-relaxed">
+                            Quem usar de verdade, der feedback real e indicar outras pessoas tem tudo a ganhar. Não é só um beta — pode virar uma parceria real.
+                        </p>
+                        <div className="flex flex-col gap-3">
+                            {rewards.map((rw, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, x: -8 }} whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }} transition={{ delay: i * 0.07 }}
+                                    className={`flex items-start gap-4 rounded-xl border ${rw.border} ${rw.bg} p-4`}
+                                >
+                                    <div className={`w-8 h-8 rounded-lg ${rw.iconBg} flex items-center justify-center shrink-0`}>
+                                        <rw.icon size={16} className={rw.color} />
+                                    </div>
+                                    <div>
+                                        <div className="flex items-center gap-2 mb-0.5">
+                                            <span className={`text-xs font-bold uppercase tracking-widest ${rw.color}`}>{rw.level}</span>
+                                        </div>
+                                        <p className="text-xs text-white/40 mb-1">{rw.condition}</p>
+                                        <p className="text-sm text-white/70 font-medium leading-snug">{rw.reward}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
                 </Section>
 
                 {/* For whom */}
@@ -286,8 +392,8 @@ export function BetaLanding() {
                 <section ref={formRef} id="formulario" className="pb-20">
                     <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 sm:p-10">
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-white mb-2">Candidatar-se ao beta</h2>
-                            <p className="text-sm text-white/50">Preencha abaixo. Respondemos em até 48 horas.</p>
+                            <h2 className="text-2xl font-bold text-white mb-2">Fazer Pré-Cadastro</h2>
+                            <p className="text-sm text-white/50">Preencha abaixo. Analisamos seu perfil e <strong className="text-white/70">avisamos por email</strong> em até 48h se você for selecionado.</p>
                         </div>
 
                         <AnimatePresence mode="wait">
@@ -301,9 +407,9 @@ export function BetaLanding() {
                                     <div className="w-20 h-20 rounded-full bg-emerald-500/10 border-2 border-emerald-500 flex items-center justify-center mx-auto mb-6">
                                         <Check size={36} className="text-emerald-400" />
                                     </div>
-                                    <h3 className="text-2xl font-bold text-white mb-3">Candidatura enviada!</h3>
-                                    <p className="text-white/50 max-w-sm mx-auto mb-2">
-                                        Recebemos sua candidatura. Vamos analisar o seu perfil e responder por email em até <strong className="text-primary-400">48 horas</strong>.
+                                    <h3 className="text-2xl font-bold text-white mb-3">Pré-cadastro enviado!</h3>
+                                    <p className="text-white/50 max-w-sm mx-auto mb-3">
+                                        Recebemos sua candidatura. Analisamos os perfis com cuidado e, se você for selecionado, avisamos por email em até <strong className="text-primary-400">48 horas</strong>.
                                     </p>
                                     <p className="text-xs text-white/30">Verifique também sua caixa de spam.</p>
                                 </motion.div>
@@ -358,13 +464,21 @@ export function BetaLanding() {
                                         />
                                     </div>
 
+                                    {/* Pre-registration notice above submit */}
+                                    <div className="flex items-start gap-2.5 rounded-xl border border-primary-500/15 bg-primary-500/5 px-4 py-3">
+                                        <Info size={14} className="text-primary-400 shrink-0 mt-0.5" />
+                                        <p className="text-xs text-white/40 leading-relaxed">
+                                            Ao enviar, você faz um <span className="text-white/60 font-medium">pré-cadastro</span>. Se selecionado, receberá as instruções de acesso por email.
+                                        </p>
+                                    </div>
+
                                     {/* Submit */}
                                     <button
                                         type="submit"
                                         disabled={submitting}
                                         className="w-full flex items-center justify-center gap-2.5 rounded-xl bg-primary-600 py-4 font-bold text-white transition-all active:scale-[0.98] hover:bg-primary-500 hover:shadow-lg hover:shadow-primary-600/20 disabled:opacity-50 disabled:cursor-not-allowed mt-2"
                                     >
-                                        {submitting ? 'Enviando...' : 'Enviar candidatura'}
+                                        {submitting ? 'Enviando...' : 'Fazer Pré-Cadastro'}
                                         {!submitting && <ChevronRight size={16} />}
                                     </button>
 
