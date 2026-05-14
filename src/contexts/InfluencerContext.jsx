@@ -92,13 +92,35 @@ export function InfluencerProvider({ children }) {
     }
 
     const getCheckoutUrl = (baseUrl) => {
-        if (!influencerData?.slug) return baseUrl
+        // Parâmetros de atribuição que devem ser propagados ao checkout para
+        // que o Meta/Google consigam fechar o loop de conversão. Sem isso, a
+        // verba paga é gasta às cegas — o anúncio que trouxe a venda fica órfão.
+        const TRACKING_PARAMS = [
+            'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+            'fbclid', 'gclid', 'gad_source', 'gbraid', 'wbraid', 'msclkid', 'ttclid',
+        ]
 
         try {
             const url = new URL(baseUrl)
-            url.searchParams.append('influencerSlug', influencerData.slug)
+
+            if (typeof window !== 'undefined') {
+                const currentParams = new URLSearchParams(window.location.search)
+                TRACKING_PARAMS.forEach((param) => {
+                    const value = currentParams.get(param)
+                    if (value && !url.searchParams.has(param)) {
+                        url.searchParams.append(param, value)
+                    }
+                })
+            }
+
+            if (influencerData?.slug) {
+                url.searchParams.append('influencerSlug', influencerData.slug)
+            }
+
             return url.toString()
         } catch (e) {
+            // Fallback para URLs malformadas (caso raríssimo)
+            if (!influencerData?.slug) return baseUrl
             const separator = baseUrl.includes('?') ? '&' : '?'
             return `${baseUrl}${separator}influencerSlug=${influencerData.slug}`
         }

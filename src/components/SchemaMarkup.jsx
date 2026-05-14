@@ -9,6 +9,21 @@ import { faqItems } from '../data/faq-data'
  * O FAQPage é gerado automaticamente de faq-data.js — nunca fica desatualizado.
  */
 export function SchemaMarkup() {
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'rendiPRO',
+    url: 'https://rendipro.com.br',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://app.rendipro.com.br/buscar?q={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  }
+
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -16,8 +31,21 @@ export function SchemaMarkup() {
     url: 'https://rendipro.com.br',
     logo: 'https://rendipro.com.br/logo.png',
     description: 'Plataforma de estudos com IA para vestibular, ENEM e concursos públicos.',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'BR',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer Support',
+      email: 'contato@rendipro.com.br',
+    },
+    foundingDate: '2024',
     sameAs: [
       'https://www.instagram.com/rendipro',
+      'https://www.twitter.com/rendipro',
+      'https://www.linkedin.com/company/rendipro',
+      'https://www.youtube.com/@rendipro',
     ],
   }
 
@@ -36,11 +64,6 @@ export function SchemaMarkup() {
       priceValidUntil: '2026-12-31',
       availability: 'https://schema.org/InStock',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '48',
-    },
   }
 
   const faqSchema = {
@@ -58,6 +81,9 @@ export function SchemaMarkup() {
 
   return (
     <Helmet>
+      <script type="application/ld+json">
+        {JSON.stringify(websiteSchema)}
+      </script>
       <script type="application/ld+json">
         {JSON.stringify(organizationSchema)}
       </script>

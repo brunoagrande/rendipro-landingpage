@@ -15,8 +15,11 @@ export function SEOHead({
   title,
   description,
   ogImage = '/og-oficial.png',
+  ogImageWidth = '1200',
+  ogImageHeight = '630',
   canonical = 'https://rendipro.com.br/',
   noindex = false,
+  twitterCreator = '',
 }) {
   const robots = noindex ? 'noindex, nofollow' : 'index, follow'
   const ogImageUrl = `https://rendipro.com.br${ogImage}`
@@ -33,6 +36,9 @@ export function SEOHead({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImageUrl} />
+      <meta property="og:image:width" content={ogImageWidth} />
+      <meta property="og:image:height" content={ogImageHeight} />
+      <meta property="og:image:type" content="image/png" />
       <meta property="og:url" content={canonical} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="rendiPRO" />
@@ -40,6 +46,8 @@ export function SEOHead({
 
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@rendipro" />
+      {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImageUrl} />

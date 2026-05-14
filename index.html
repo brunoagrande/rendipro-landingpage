@@ -3,38 +3,84 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/logo-rendipro.svg" />
+  <link rel="icon" type="image/png" href="/favicon-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Analytics 4 — todas as páginas (beta e oficial) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XCS1ES8VZY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XCS1ES8VZY');
-  </script>
+  <!-- Meta tags de identidade e PWA -->
+  <meta name="theme-color" content="#1a1f36" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="author" content="rendiPRO" />
+
+  <!-- Preconnect para recursos externos críticos -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://www.google-analytics.com" />
+  <link rel="dns-prefetch" href="https://app.rendipro.com.br" />
+
+  <!-- Fontes via Bunny Fonts (espelho privacy-friendly do Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+  <link rel="preload" as="style"
+    href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800|jetbrains-mono:400,500&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800|jetbrains-mono:400,500&display=swap" />
 
   <!-- Fallback estático para crawlers sociais (Facebook, WhatsApp, Instagram)
        que não executam JavaScript. O SEOHead sobrescreve no browser. -->
-  <title>Seja Beta Tester do rendiPRO — Plataforma de Estudos com IA</title>
-  <meta name="description" content="Acesse gratuitamente o rendiPRO antes de todo mundo. Flashcards inteligentes, cronograma de estudos e correção de redações — em troca da sua opinião honesta." />
-  <meta name="robots" content="noindex, nofollow" />
+  <title>Estude para ENEM e Vestibular com IA | rendiPRO</title>
+  <meta name="description" content="App para organizar estudos do ENEM, vestibulares e concursos com IA. Cronograma automático, flashcards e questões comentadas. Garantia de 7 dias." />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://rendipro.com.br/" />
-  <meta property="og:title" content="Seja Beta Tester do rendiPRO — Plataforma de Estudos com IA" />
-  <meta property="og:description" content="Acesse gratuitamente o rendiPRO antes de todo mundo. Flashcards inteligentes, cronograma de estudos e correção de redações — em troca da sua opinião honesta." />
-  <meta property="og:image" content="https://rendipro.com.br/og-beta.png" />
+  <meta property="og:title" content="Estude para ENEM e Vestibular com IA | rendiPRO" />
+  <meta property="og:description" content="App para organizar estudos do ENEM, vestibulares e concursos com IA. Cronograma automático, flashcards e questões comentadas. Garantia de 7 dias." />
+  <meta property="og:image" content="https://rendipro.com.br/og-oficial.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:url" content="https://rendipro.com.br/" />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="rendiPRO" />
   <meta property="og:locale" content="pt_BR" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://rendipro.com.br/og-beta.png" />
+  <meta name="twitter:image" content="https://rendipro.com.br/og-oficial.png" />
+  <meta name="twitter:site" content="@rendipro" />
 
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+
+  <!-- Meta Pixel — carregado de forma assíncrona após o conteúdo para preservar LCP.
+       O snippet padrão da Meta é síncrono no <head>; aqui adiamos para não bloquear render
+       e o PageView dispara assim que o pixel termina de carregar. -->
+  <script>
+    window.addEventListener('load', function () {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '837651288891822');
+      fbq('track', 'PageView');
+    });
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=837651288891822&ev=PageView&noscript=1"
+  /></noscript>
+
+  <!-- Google Analytics 4 — carregado após o conteúdo principal para não bloquear LCP -->
+  <script>
+    window.addEventListener('load', function () {
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XCS1ES8VZY';
+      s.async = true;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XCS1ES8VZY');
+    });
+  </script>
 </body>
 
 </html>

@@ -15,10 +15,13 @@ export function Navbar() {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-surface-950/80 backdrop-blur-md">
             <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center gap-2">
-                    <img src="/logo-rendipro.svg" alt="RendiPro Logo" className="h-8 w-8 object-contain" />
-                    <span className="text-xl font-bold tracking-tight">RendiPro</span>
-                </div>
+                <a href="/" className="flex items-center">
+                    <img
+                        src="/LogoRendiPro-v05-2026-sem-fundo.png"
+                        alt="RendiPro"
+                        className="h-9 w-auto object-contain"
+                    />
+                </a>
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:block">
@@ -54,6 +57,8 @@ export function Navbar() {
                     <button
                         className="text-white/70 md:hidden"
                         onClick={() => setIsOpen(!isOpen)}
+                        aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+                        aria-expanded={isOpen}
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>

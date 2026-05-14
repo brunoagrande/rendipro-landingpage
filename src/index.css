@@ -1,35 +1,206 @@
 @import "tailwindcss";
 
-@theme {
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
-  --color-primary-950: #172554;
+/* ═══════════════════════════════════════════════════════════════════════════════
+   RENDIPRO DESIGN SYSTEM v3 — premium dark mode, cyan-teal primary
+   Fonts loaded via index.html (Bunny Fonts CDN, privacy-friendly).
+   All tokens via @theme generate Tailwind v4 utilities automatically.
+   ═══════════════════════════════════════════════════════════════════════════════ */
 
+@theme {
+  /* ─── COLOR · PRIMARY (cyan-teal) ─────────────────────────────────────── */
+  --color-primary-50:  #ecfeff;
+  --color-primary-100: #cffafe;
+  --color-primary-200: #a5f3fc;
+  --color-primary-300: #67e8f9;
+  --color-primary-400: #22d3ee;
+  --color-primary-500: #06b6d4;
+  --color-primary-600: #0891b2;
+  --color-primary-700: #0e7490;
+  --color-primary-800: #155e75;
+  --color-primary-900: #164e63;
+  --color-primary-950: #083344;
+
+  /* ─── COLOR · ACCENT (indigo, gradient partner) ───────────────────────── */
+  --color-accent-50:  #eef2ff;
+  --color-accent-100: #e0e7ff;
+  --color-accent-200: #c7d2fe;
+  --color-accent-300: #a5b4fc;
+  --color-accent-400: #818cf8;
+  --color-accent-500: #6366f1;
+  --color-accent-600: #4f46e5;
+  --color-accent-700: #4338ca;
+  --color-accent-800: #3730a3;
+  --color-accent-900: #312e81;
+  --color-accent-950: #1e1b4b;
+
+  /* ─── COLOR · SURFACE (slate-tinted neutrals, cool premium) ───────────── */
+  --color-surface-50:  #f8fafc;
+  --color-surface-100: #f1f5f9;
+  --color-surface-200: #e2e8f0;
+  --color-surface-300: #cbd5e1;
+  --color-surface-400: #94a3b8;
+  --color-surface-500: #64748b;
+  --color-surface-600: #475569;
+  --color-surface-700: #334155;
+  --color-surface-800: #1e293b;
   --color-surface-900: #0f172a;
   --color-surface-950: #020617;
+
+  /* ─── COLOR · SEMANTIC ────────────────────────────────────────────────── */
+  --color-success-400: #34d399;
+  --color-success-500: #10b981;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-danger-400:  #f87171;
+  --color-danger-500:  #ef4444;
+  --color-info-400:    #60a5fa;
+  --color-info-500:    #3b82f6;
+
+  /* ─── FONTS ───────────────────────────────────────────────────────────── */
+  /* Inter is loaded via index.html. "Inter Display" effect is achieved via
+     tighter letter-spacing at display sizes (see --text-display-* below). */
+  --font-sans:    Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: Inter, system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'Menlo', 'Consolas', monospace;
+
+  /* ─── TYPE SCALE ──────────────────────────────────────────────────────── */
+  /* Display sizes (hero, section headlines) — tight tracking */
+  --text-display-2xl: 5rem;
+  --text-display-2xl--line-height: 1.0;
+  --text-display-2xl--letter-spacing: -0.045em;
+  --text-display-2xl--font-weight: 800;
+
+  --text-display-xl: 4rem;
+  --text-display-xl--line-height: 1.05;
+  --text-display-xl--letter-spacing: -0.04em;
+  --text-display-xl--font-weight: 800;
+
+  --text-display-lg: 3.25rem;
+  --text-display-lg--line-height: 1.08;
+  --text-display-lg--letter-spacing: -0.035em;
+  --text-display-lg--font-weight: 700;
+
+  --text-display-md: 2.5rem;
+  --text-display-md--line-height: 1.12;
+  --text-display-md--letter-spacing: -0.03em;
+  --text-display-md--font-weight: 700;
+
+  --text-display-sm: 2rem;
+  --text-display-sm--line-height: 1.18;
+  --text-display-sm--letter-spacing: -0.025em;
+  --text-display-sm--font-weight: 700;
+
+  /* Section headings */
+  --text-h1: 2.25rem;
+  --text-h1--line-height: 1.18;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h1--font-weight: 700;
+
+  --text-h2: 1.875rem;
+  --text-h2--line-height: 1.25;
+  --text-h2--letter-spacing: -0.018em;
+  --text-h2--font-weight: 700;
+
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.012em;
+  --text-h3--font-weight: 600;
+
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.4;
+  --text-h4--letter-spacing: -0.008em;
+  --text-h4--font-weight: 600;
+
+  /* Body */
+  --text-body-xl: 1.25rem;
+  --text-body-xl--line-height: 1.55;
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.55;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.55;
+
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.5;
+  --text-caption--letter-spacing: 0.01em;
+
+  --text-micro: 0.6875rem;
+  --text-micro--line-height: 1.45;
+  --text-micro--letter-spacing: 0.06em;
+  --text-micro--font-weight: 600;
+
+  /* ─── RADIUS ──────────────────────────────────────────────────────────── */
+  --radius-xs:  4px;
+  --radius-sm:  6px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-4xl: 40px;
+
+  /* ─── SHADOWS (tinted with surface-950 for premium depth) ─────────────── */
+  --shadow-elevation-1: 0 1px 2px 0 rgb(2 6 23 / 0.20);
+  --shadow-elevation-2: 0 4px 12px -2px rgb(2 6 23 / 0.30);
+  --shadow-elevation-3: 0 12px 28px -8px rgb(2 6 23 / 0.40), 0 4px 8px -4px rgb(2 6 23 / 0.25);
+  --shadow-elevation-4: 0 24px 48px -12px rgb(2 6 23 / 0.50), 0 8px 16px -8px rgb(2 6 23 / 0.30);
+  --shadow-elevation-5: 0 40px 80px -20px rgb(2 6 23 / 0.60), 0 16px 24px -8px rgb(2 6 23 / 0.40);
+  --shadow-glow-primary: 0 0 60px -8px rgb(6 182 212 / 0.40);
+  --shadow-glow-accent:  0 0 60px -8px rgb(99 102 241 / 0.40);
+  --shadow-inset-1:      inset 0 1px 0 0 rgb(255 255 255 / 0.06);
+
+  /* ─── MOTION · easing ─────────────────────────────────────────────────── */
+  --ease-spring:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-quint:  cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-smooth:    cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ─── ANIMATIONS ──────────────────────────────────────────────────────── */
+  --animate-shimmer: shimmer 8s linear infinite;
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-float:   float 6s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
 }
 
+/* ─── KEYFRAMES ─────────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 50%; }
+  100% { background-position:  200% 50%; }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.7; }
+}
+
+/* ─── GLOBAL ────────────────────────────────────────────────────────────── */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: dark light;
-  color: rgba(255, 255, 255, 0.87);
+  color-scheme: dark;
+  color: #f8fafc;
   background-color: #020617;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -38,13 +209,51 @@ body {
   min-height: 100vh;
 }
 
+/* ─── UTILITIES ─────────────────────────────────────────────────────────── */
 @layer utilities {
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Gradient text helper — used in Hero highlight ("professor humano") */
+  .text-gradient-primary {
+    background-image: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-400));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  /* Shimmer text — subtle moving gradient (used sparingly, only in Hero highlight) */
+  .text-shimmer {
+    background-image: linear-gradient(110deg,
+      var(--color-primary-400) 0%,
+      var(--color-accent-400) 50%,
+      var(--color-primary-400) 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: var(--animate-shimmer);
+  }
+
+  /* Gradient border card — premium feel without owning borders */
+  .border-gradient-primary {
+    background:
+      linear-gradient(var(--color-surface-900), var(--color-surface-900)) padding-box,
+      linear-gradient(135deg, var(--color-primary-500), var(--color-accent-500)) border-box;
+    border: 1px solid transparent;
+  }
+}
+
+/* ─── ACCESSIBILITY · prefers-reduced-motion ────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
