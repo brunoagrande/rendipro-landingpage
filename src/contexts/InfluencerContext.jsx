@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
+import { isFoundersActive } from '../lib/founders'
 
 const InfluencerContext = createContext()
 
@@ -115,6 +116,15 @@ export function InfluencerProvider({ children }) {
 
             if (influencerData?.slug) {
                 url.searchParams.append('influencerSlug', influencerData.slug)
+            }
+
+            // Durante a janela da promo Fundadores, qualquer CTA que não
+            // carregue cupom próprio (founder= ou cupom=) ganha founder=true
+            // — assim o desconto vale pra qualquer caminho do funil, não
+            // só pra quem clicou no card da seção Fundadores.
+            const hasOwnCoupon = url.searchParams.has('founder') || url.searchParams.has('cupom')
+            if (!hasOwnCoupon && !influencerData?.slug && isFoundersActive()) {
+                url.searchParams.append('founder', 'true')
             }
 
             return url.toString()

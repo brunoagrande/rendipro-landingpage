@@ -397,7 +397,7 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
             <Button
                 as="a"
                 href={getCheckoutUrl(
-                    `https://app.rendipro.com.br/register?plan=${plan.slug}`
+                    `https://app.rendipro.com.br/register?plano=${plan.slug}`
                 )}
                 onClick={() => trackInitiateCheckout(plan)}
                 variant={isPopular ? 'primary' : 'secondary'}

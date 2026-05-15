@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Medal } from 'lucide-react'
-
-const DEADLINE = new Date('2026-06-06T23:59:59-03:00')
+import { FOUNDERS_DEADLINE } from '../lib/founders'
 
 function getTimeLeft() {
-    const diff = DEADLINE - new Date()
+    const diff = FOUNDERS_DEADLINE - new Date()
     if (diff <= 0) return null
     return {
         days: Math.floor(diff / 864e5),
