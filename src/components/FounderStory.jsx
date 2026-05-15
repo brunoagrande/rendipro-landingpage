@@ -84,13 +84,8 @@ export function FounderStory() {
                         </blockquote>
 
                         <div className="mt-8 flex items-center gap-4">
-                            {/* TODO Bruno: substituir o avatar de iniciais pela foto headshot.
-                                Quando tiver, troca pra:
-                                <img src="/founder-bruno.jpg" alt="Bruno Grande, fundador do RendiPro"
-                                     className="h-14 w-14 shrink-0 rounded-full object-cover" /> */}
-                            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary-500 to-primary-700 text-h3 font-bold text-surface-950">
-                                B
-                            </div>
+                            <img src="/founder-bruno.png" alt="Bruno Grande, fundador do RendiPro"
+                                 className="h-14 w-14 shrink-0 rounded-full object-cover" />
                             <div className="min-w-0">
                                 <p className="font-bold text-white">Bruno Grande</p>
                                 <p className="text-body-sm text-white/50">
@@ -122,12 +117,8 @@ export function FounderStory() {
                         </blockquote>
 
                         <div className="mt-8 flex items-center gap-4">
-                            {/* TODO Bruno: substituir o avatar pela foto da Jessica.
-                                <img src="/founder-jessica.jpg" alt="Jessica Marques, Promotora de Justiça MP-RS"
-                                     className="h-14 w-14 shrink-0 rounded-full object-cover" /> */}
-                            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent-500 to-accent-700 text-h3 font-bold text-surface-950">
-                                J
-                            </div>
+                            <img src="/founder-jessica.png" alt="Jessica Marques, Promotora de Justiça MP-RS"
+                                 className="h-14 w-14 shrink-0 rounded-full object-cover" />
                             <div className="min-w-0">
                                 <p className="font-bold text-white">Jessica Marques</p>
                                 <p className="text-body-sm text-white/50">
