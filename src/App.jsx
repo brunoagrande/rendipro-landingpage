@@ -50,10 +50,12 @@ function App() {
       />
       <SchemaMarkup />
       <div className="min-h-screen bg-surface-950 text-white selection:bg-primary-500/30">
-        <FoundersBanner />
-        <TopBanner />
+        <div className="sticky top-0 z-50">
+          <FoundersBanner />
+          <TopBanner />
+          <Navbar />
+        </div>
         <InvalidInfluencerModal />
-        <Navbar />
         <main>
           <Hero />
           <TrustBar />
