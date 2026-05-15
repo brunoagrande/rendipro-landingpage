@@ -80,7 +80,7 @@ export function FounderStory() {
                             Fundador
                         </div>
                         <blockquote className="mt-4 text-body-lg italic leading-relaxed text-white/85">
-                            "Acompanhei a Jessica estudando pra concursos de MPs do Brasil por anos. Vi as horas perdidas, as revisões esquecidas. Trabalho com software há 20 anos, sabia que dava pra resolver. Construí o RendiPro pra que nenhum concurseiro precisasse perder dois, três anos de estudo por falta de método — e não por falta de inteligência."
+                            "Acompanhei a Jessica estudando pra provas difíceis por anos. Vi as horas perdidas, as revisões esquecidas, o cronograma refeito do zero toda semana. Trabalho com software há 20 anos, sabia que dava pra resolver. Construí o RendiPro pra que ninguém precisasse perder dois, três anos de estudo por falta de método — e não por falta de inteligência."
                         </blockquote>
 
                         <div className="mt-8 flex items-center gap-4">
@@ -113,7 +113,7 @@ export function FounderStory() {
                             Co-criadora · A inspiração
                         </div>
                         <blockquote className="mt-4 text-body-lg italic leading-relaxed text-white/85">
-                            "Passei no MP-RS em 2023 — mas foram anos perdendo tempo com planilha, esquecendo revisão, refazendo cronograma do zero. Quando o Bruno me mostrou a primeira versão do RendiPro, falei: 'é exatamente o que eu precisei nesses 4 anos de preparação'. Hoje recomendo pra todo concurseiro sério que conheço."
+                            "Estudei por 4 anos sem método. Sabia o conteúdo, mas não sabia organizar o que estudar nem quando revisar. Quando o Bruno me mostrou o RendiPro, reconheci imediatamente: é exatamente o que eu precisei desde o início. O cronograma, os flashcards, a correção de redação — tudo que eu montava na mão de forma imperfeita, ali estava pronto."
                         </blockquote>
 
                         <div className="mt-8 flex items-center gap-4">
@@ -122,7 +122,7 @@ export function FounderStory() {
                             <div className="min-w-0">
                                 <p className="font-bold text-white">Jessica Marques</p>
                                 <p className="text-body-sm text-white/50">
-                                    Promotora de Justiça · MP-RS (posse em 03/2023)
+                                    Promotora de Justiça · aprovada após 4 anos de preparação
                                 </p>
                                 <a href="https://www.mprs.mp.br/media/areas/concursos/arquivos/xlix/ed_051_2023_resultado_definitivo_concurso.pdf" target="_blank" rel="noopener noreferrer"
                                    className="mt-1 inline-block text-caption text-accent-300 hover:underline">
