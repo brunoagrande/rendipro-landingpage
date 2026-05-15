@@ -133,14 +133,10 @@ export function FounderStory() {
                                 <p className="text-body-sm text-white/50">
                                     Promotora de Justiça · MP-RS (posse em 03/2023)
                                 </p>
-                                {/* TODO Bruno: assim que tiver o link público da nomeação dela
-                                    no Diário Oficial, adicionar aqui pra credibilidade verificável:
-
-                                <a href="[LINK_DOU]" target="_blank" rel="noopener noreferrer"
+                                <a href="https://www.mprs.mp.br/media/areas/concursos/arquivos/xlix/ed_051_2023_resultado_definitivo_concurso.pdf" target="_blank" rel="noopener noreferrer"
                                    className="mt-1 inline-block text-caption text-accent-300 hover:underline">
-                                    Verificar nomeação no Diário Oficial →
+                                    Verificar nomeação no MP-RS →
                                 </a>
-                                */}
                             </div>
                         </div>
                     </motion.article>
