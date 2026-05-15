@@ -30,7 +30,7 @@ export function SchemaMarkup() {
     name: 'rendiPRO',
     url: 'https://rendipro.com.br',
     logo: 'https://rendipro.com.br/logo.png',
-    description: 'Plataforma de estudos com IA para vestibular, ENEM e concursos públicos.',
+    description: 'Plataforma de estudos para ENEM e vestibular com correção de redação por professor humano, cronograma adaptado e +8.000 flashcards.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'BR',

@@ -42,8 +42,8 @@ function App() {
   return (
     <InfluencerProvider>
       <SEOHead
-        title="Passe na sua prova com cronograma + redação humana | RendiPro"
-        description="Cronograma adaptado, +6.000 questões comentadas, +8.000 flashcards e correção de redação manuscrita por professor humano em até 72h. Garantia 7 dias."
+        title="Passe no ENEM com redação corrigida por professor humano | RendiPro"
+        description="Correção de redação manuscrita por professor humano em até 72h + cronograma adaptado para o ENEM e vestibulares. +6.000 questões comentadas, +8.000 flashcards. Garantia 7 dias."
         ogImage="/og-oficial.png"
         canonical="https://rendipro.com.br/"
         noindex={false}

@@ -152,7 +152,7 @@ export function Features() {
                                 <span className="text-gradient-primary">3 cronogramas</span> paralelos.
                             </h3>
                             <p className="mt-4 text-body text-white/70">
-                                ENEM e concurso na mira ao mesmo tempo? OAB depois da faculdade? Dois editais de concursos diferentes? Cada objetivo no seu próprio plano — sem misturar, sem perder o foco. Alternância em 1 clique.
+                                ENEM e vestibular ao mesmo tempo? Cursinho e concurso em paralelo? Cada objetivo no seu próprio plano — sem misturar, sem perder o foco. Alternância em 1 clique.
                             </p>
                         </div>
                         <div className="mt-6 flex-1">
