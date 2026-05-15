@@ -45,29 +45,25 @@
   <meta name="twitter:image" content="https://rendipro.com.br/og-oficial.png" />
   <meta name="twitter:site" content="@rendipro" />
 
+  <!-- Meta Pixel — snippet padrão posicionado no <head> conforme recomendação Meta -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '963747769968663');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=963747769968663&ev=PageView&noscript=1"
+  /></noscript>
+
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
-
-  <!-- Meta Pixel — carregado de forma assíncrona após o conteúdo para preservar LCP.
-       O snippet padrão da Meta é síncrono no <head>; aqui adiamos para não bloquear render
-       e o PageView dispara assim que o pixel termina de carregar. -->
-  <script>
-    window.addEventListener('load', function () {
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-      document,'script','https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '963747769968663');
-      fbq('track', 'PageView');
-    });
-  </script>
-  <noscript><img height="1" width="1" style="display:none" alt=""
-    src="https://www.facebook.com/tr?id=963747769968663&ev=PageView&noscript=1"
-  /></noscript>
 
   <!-- Google Analytics 4 — carregado após o conteúdo principal para não bloquear LCP -->
   <script>
