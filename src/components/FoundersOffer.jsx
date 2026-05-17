@@ -6,7 +6,7 @@ import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
 import { cn } from '../lib/utils'
 
-const DEADLINE = new Date('2026-06-06T23:59:59-03:00')
+const DEADLINE = new Date('2026-06-14T23:59:59-03:00')
 
 function getTimeLeft() {
     const diff = DEADLINE - new Date()
@@ -22,7 +22,7 @@ function getTimeLeft() {
 const BENEFITS = [
     { Icon: Lock,   text: 'Preço travado para sempre' },
     { Icon: Medal,  text: 'Selo Fundador no perfil' },
-    { Icon: Users,  text: 'Grupo privado com o Bruno' },
+    { Icon: Users,  text: 'Canal direto com o fundador' },
     { Icon: Zap,    text: 'Acesso antecipado a novas features' },
     { Icon: Shield, text: 'Garantia de 7 dias' },
 ]
