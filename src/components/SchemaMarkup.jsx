@@ -12,7 +12,7 @@ export function SchemaMarkup() {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'rendiPRO',
+    name: 'RendiPro',
     url: 'https://rendipro.com.br',
     potentialAction: {
       '@type': 'SearchAction',
@@ -27,7 +27,7 @@ export function SchemaMarkup() {
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'rendiPRO',
+    name: 'RendiPro',
     url: 'https://rendipro.com.br',
     logo: 'https://rendipro.com.br/logo.png',
     description: 'Plataforma de estudos para ENEM e vestibular com correção de redação por professor humano, cronograma adaptado e +8.000 flashcards.',
@@ -42,7 +42,7 @@ export function SchemaMarkup() {
     },
     foundingDate: '2024',
     sameAs: [
-      'https://www.instagram.com/rendipro',
+      'https://www.instagram.com/rendipro_br',
       'https://www.twitter.com/rendipro',
       'https://www.linkedin.com/company/rendipro',
       'https://www.youtube.com/@rendipro',
@@ -52,7 +52,7 @@ export function SchemaMarkup() {
   const softwareSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'rendiPRO',
+    name: 'RendiPro',
     applicationCategory: 'EducationalApplication',
     operatingSystem: 'Web',
     url: 'https://rendipro.com.br',
