@@ -141,7 +141,7 @@ export function Hero() {
                             aria-hidden="true"
                         >
                             <img
-                                src="/screenshots/redacao-manuscrita.png"
+                                src="/screenshots/redacao-manuscrita.webp"
                                 alt=""
                                 className="h-[260px] w-auto rounded-xl shadow-elevation-3"
                             />
@@ -159,7 +159,7 @@ export function Hero() {
                                 className="relative z-10"
                             >
                                 <img
-                                    src="/screenshots/cronograma-semana.png"
+                                    src="/screenshots/cronograma-semana.webp"
                                     alt="Cronograma semanal personalizado de estudos no RendiPro — visão semanal com matérias coloridas"
                                     className="block h-auto w-full"
                                     loading="eager"

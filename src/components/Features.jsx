@@ -115,13 +115,13 @@ export function Features() {
                         {/* Asset: redação manuscrita + radar overlay */}
                         <div className="relative mt-8">
                             <img
-                                src="/screenshots/redacao-manuscrita.png"
+                                src="/screenshots/redacao-manuscrita.webp"
                                 alt="Foto da redação manuscrita corrigida por professor humano, com marcações em laranja circulando trechos com problemas"
                                 className="w-full rounded-xl border border-white/10 shadow-elevation-4"
                                 loading="lazy"
                             />
                             <img
-                                src="/screenshots/redacao-radar.png"
+                                src="/screenshots/redacao-radar.webp"
                                 alt="Radar de evolução nas 5 competências do ENEM"
                                 className="absolute -bottom-6 -right-4 hidden w-2/5 rounded-lg border border-white/10 shadow-elevation-5 sm:block"
                                 loading="lazy"
@@ -158,7 +158,7 @@ export function Features() {
                         <div className="mt-6 flex-1">
                             <ProductWindow url="app.rendipro.com.br/planos-estudo" className="h-full">
                                 <img
-                                    src="/screenshots/planos-estudo.png"
+                                    src="/screenshots/planos-estudo.webp"
                                     alt="Tela de Planos de Estudo do RendiPro mostrando 3 planos paralelos ativos"
                                     className="block h-auto w-full"
                                     loading="lazy"
@@ -208,7 +208,7 @@ export function Features() {
                         <div className="mt-6 flex-1">
                             <ProductWindow url="app.rendipro.com.br/cronograma" className="h-full">
                                 <img
-                                    src="/screenshots/cronograma-dia.png"
+                                    src="/screenshots/cronograma-dia.webp"
                                     alt="Visão diária do cronograma adaptado: sessões de revisão, próxima sessão recomendada e resumo do dia"
                                     className="block h-auto w-full"
                                     loading="lazy"
@@ -243,7 +243,7 @@ export function Features() {
                         <div className="mt-6">
                             <ProductWindow url="app.rendipro.com.br/provas">
                                 <img
-                                    src="/screenshots/prova-cronometro.png"
+                                    src="/screenshots/prova-cronometro.webp"
                                     alt="Prova oficial do ENEM 2025 com cronômetro de 3h56min restantes e cartão de respostas sincronizado"
                                     className="block h-auto w-full"
                                     loading="lazy"
@@ -283,13 +283,13 @@ export function Features() {
                         </div>
                         <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4">
                             <img
-                                src="/screenshots/flashcard-pergunta.png"
+                                src="/screenshots/flashcard-pergunta.webp"
                                 alt="Flashcard mostrando pergunta sobre Física com botão Revelar Resposta"
                                 className="block h-auto w-full rounded-xl border border-white/10 shadow-elevation-3"
                                 loading="lazy"
                             />
                             <img
-                                src="/screenshots/flashcard-resposta.png"
+                                src="/screenshots/flashcard-resposta.webp"
                                 alt="Flashcard revelado mostrando resposta E=mc² com 4 botões SM-2: Não lembrei, Difícil, Bom, Fácil"
                                 className="block h-auto w-full rounded-xl border border-white/10 shadow-elevation-3"
                                 loading="lazy"
@@ -322,7 +322,7 @@ export function Features() {
                         <div className="mt-6 flex-1">
                             <ProductWindow url="app.rendipro.com.br/questoes" className="h-full">
                                 <img
-                                    src="/screenshots/questao-comentada.png"
+                                    src="/screenshots/questao-comentada.webp"
                                     alt="Questão de Português com alternativas e comentário detalhado explicando por que B é correta e A, C, D, E estão erradas"
                                     className="block h-auto w-full"
                                     loading="lazy"

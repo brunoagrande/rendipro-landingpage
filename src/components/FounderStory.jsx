@@ -84,7 +84,7 @@ export function FounderStory() {
                         </blockquote>
 
                         <div className="mt-8 flex items-center gap-4">
-                            <img src="/founder-bruno.png" alt="Bruno Grande, fundador do RendiPro"
+                            <img src="/founder-bruno.webp" alt="Bruno Grande, fundador do RendiPro"
                                  className="h-14 w-14 shrink-0 rounded-full object-cover" />
                             <div className="min-w-0">
                                 <p className="font-bold text-white">Bruno Grande</p>
@@ -117,7 +117,7 @@ export function FounderStory() {
                         </blockquote>
 
                         <div className="mt-8 flex items-center gap-4">
-                            <img src="/founder-jessica.png" alt="Jessica Marques, Promotora de Justiça MP-RS"
+                            <img src="/founder-jessica.webp" alt="Jessica Marques, Promotora de Justiça MP-RS"
                                  className="h-14 w-14 shrink-0 rounded-full object-cover" />
                             <div className="min-w-0">
                                 <p className="font-bold text-white">Jessica Marques</p>

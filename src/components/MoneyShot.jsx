@@ -55,7 +55,7 @@ export function MoneyShot() {
                 >
                     <ProductWindow url="app.rendipro.com.br/inicio" glow>
                         <img
-                            src="/screenshots/dashboard-final.png"
+                            src="/screenshots/dashboard-final.webp"
                             alt="Dashboard do RendiPro: cronograma, próxima missão, agenda do dia, sequência de 31 dias, missões e liga semanal"
                             className="block h-auto w-full"
                             loading="lazy"

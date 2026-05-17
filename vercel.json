@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/termos",
+      "destination": "https://app.rendipro.com.br/termos",
+      "permanent": true
+    },
+    {
+      "source": "/privacidade",
+      "destination": "https://app.rendipro.com.br/privacidade",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
