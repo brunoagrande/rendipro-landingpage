@@ -8,10 +8,14 @@ import { InfluencerProvider } from './contexts/InfluencerContext'
 import { TopBanner } from './components/TopBanner'
 import { FoundersBanner } from './components/FoundersBanner'
 import { InvalidInfluencerModal } from './components/InvalidInfluencerModal'
-import { BetaLanding } from './components/BetaLanding'
 import { SEOHead } from './components/SEOHead'
 import { SchemaMarkup } from './components/SchemaMarkup'
 import { CookieBanner } from './components/CookieBanner'
+
+// BetaLanding é lazy: carrega Supabase (~170KB) e só é renderizado quando
+// VITE_BETA_MODE=true. Mantê-lo como import estático custava 170KB no
+// bundle principal mesmo na landing de vendas (modo produção atual).
+const BetaLanding = lazy(() => import('./components/BetaLanding').then(m => ({ default: m.BetaLanding })))
 
 const MoneyShot     = lazy(() => import('./components/MoneyShot').then(m => ({ default: m.MoneyShot })))
 const Features      = lazy(() => import('./components/Features').then(m => ({ default: m.Features })))
@@ -36,7 +40,11 @@ const BETA_MODE = import.meta.env.VITE_BETA_MODE === 'true'
 
 function App() {
   if (BETA_MODE) {
-    return <BetaLanding />
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-surface-950" />}>
+        <BetaLanding />
+      </Suspense>
+    )
   }
 
   return (

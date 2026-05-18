@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { supabase } from '../lib/supabase'
 import { isFoundersActive } from '../lib/founders'
 
 const InfluencerContext = createContext()
@@ -24,12 +23,15 @@ export function InfluencerProvider({ children }) {
                     }
                 }
 
-                console.log("InfluencerContext: Slug parsed from URL ->", slug);
-
                 if (!slug) {
                     setIsLoadingInfluencer(false)
                     return
                 }
+
+                // Import dinâmico: o cliente Supabase (~167KB) só é baixado
+                // quando o visitante chega via link de influenciador. Em 99%
+                // das visitas (tráfego direto/orgânico) esse custo é zero.
+                const { supabase } = await import('../lib/supabase')
 
                 const { data, error } = await supabase
                     .from('tbcupons')
