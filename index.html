@@ -59,6 +59,23 @@
     src="https://www.facebook.com/tr?id=963747769968663&ev=PageView&noscript=1"
   /></noscript>
 
+  <!-- Meta CAPI: captura fbclid no carregamento inicial e persiste em localStorage (90 dias).
+       Necessário porque o usuário pode navegar pela landing antes de clicar no CTA,
+       perdendo o fbclid da URL original. O React lê este valor em getCheckoutUrl(). -->
+  <script>
+    (function () {
+      try {
+        var fbclid = new URLSearchParams(window.location.search).get('fbclid');
+        if (fbclid) {
+          localStorage.setItem('rp_landing_fbclid', JSON.stringify({
+            value: fbclid,
+            expiresAt: Date.now() + 90 * 24 * 60 * 60 * 1000
+          }));
+        }
+      } catch (_) {}
+    })();
+  </script>
+
 </head>
 
 <body>

@@ -112,6 +112,32 @@ export function InfluencerProvider({ children }) {
                         url.searchParams.append(param, value)
                     }
                 })
+
+                // Fallback: fbclid pode ter sumido da URL se o usuário navegou
+                // pela landing antes de clicar no CTA. Recupera do localStorage
+                // onde foi salvo no carregamento inicial (index.html).
+                if (!url.searchParams.has('fbclid')) {
+                    try {
+                        const raw = localStorage.getItem('rp_landing_fbclid')
+                        if (raw) {
+                            const parsed = JSON.parse(raw)
+                            if (parsed.expiresAt && Date.now() < parsed.expiresAt) {
+                                url.searchParams.append('fbclid', parsed.value)
+                            } else {
+                                localStorage.removeItem('rp_landing_fbclid')
+                            }
+                        }
+                    } catch (_) {}
+                }
+
+                // _fbp: cookie criado pelo Pixel. O app repassa ao CAPI server-side
+                // para melhorar a qualidade de correspondência da atribuição.
+                try {
+                    const match = document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/)
+                    if (match && !url.searchParams.has('_fbp')) {
+                        url.searchParams.append('_fbp', match[1])
+                    }
+                } catch (_) {}
             }
 
             if (influencerData?.slug) {
