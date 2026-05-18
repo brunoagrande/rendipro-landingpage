@@ -61,9 +61,9 @@ export function Hero() {
                         </motion.div>
 
                         <motion.h1
-                            initial={{ opacity: 0, y: 24 }}
+                            initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.1, ease: easeSpring }}
+                            transition={{ duration: 0.3, delay: 0, ease: easeSpring }}
                             className="mt-6 text-display-md sm:text-display-lg lg:text-display-xl text-white"
                         >
                             <span className="text-gradient-primary">Professor humano</span>{' '}
