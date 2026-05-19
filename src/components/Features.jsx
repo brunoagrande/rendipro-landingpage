@@ -93,7 +93,7 @@ export function Features() {
                             </p>
                             <ul className="mt-6 space-y-2.5">
                                 {[
-                                    'Correção por professor humano com formação em Letras — não é IA, não é bot',
+                                    'Correção por professor humano com formação em Letras. Não é IA, não é bot.',
                                     'Marcações em laranja circulando trecho por trecho do seu texto',
                                     'Nota nas 5 competências (C1 a C5) com radar de evolução',
                                     'De 2 a 8 redações por mês conforme o plano',
@@ -152,7 +152,7 @@ export function Features() {
                                 <span className="text-gradient-primary">3 cronogramas</span> paralelos.
                             </h3>
                             <p className="mt-4 text-body text-white/70">
-                                ENEM e vestibular ao mesmo tempo? Cursinho e concurso em paralelo? Cada objetivo no seu próprio plano — sem misturar, sem perder o foco. Alternância em 1 clique.
+                                ENEM e vestibular ao mesmo tempo? Cursinho e concurso em paralelo? Cada objetivo no seu próprio plano. Você alterna em 1 clique e a matéria de uma prova não aparece no plano da outra.
                             </p>
                         </div>
                         <div className="mt-6 flex-1">
@@ -185,7 +185,7 @@ export function Features() {
                                 Seu cronograma <span className="text-gradient-primary">do jeito que combina</span> com você.
                             </h3>
                             <p className="mt-4 text-body text-white/70">
-                                Três jeitos de começar — escolhe o que cabe na sua rotina:
+                                Três jeitos de começar. Escolhe o que cabe na sua rotina:
                             </p>
                             <ul className="mt-5 space-y-2.5">
                                 <li className="flex items-start gap-2.5 text-body-sm text-white/70">
@@ -237,7 +237,7 @@ export function Features() {
                                 e cartão sincronizado.
                             </h3>
                             <p className="mt-4 max-w-2xl text-body text-white/70">
-                                Você abre uma prova real (ENEM 2025, por exemplo), o cronômetro inicia em 5h30, e ao marcar a questão 11 no cartão, o PDF rola sozinho até a página onde ela está. O mais próximo possível do dia da prova.
+                                Você abre uma prova real (ENEM 2025, por exemplo), o cronômetro inicia em 5h30, e ao marcar a questão 11 no cartão, o PDF rola sozinho até a página onde ela está.
                             </p>
                         </div>
                         <div className="mt-6">
@@ -271,7 +271,7 @@ export function Features() {
                                 <span className="text-gradient-primary">Algoritmo do Anki</span>.
                             </h3>
                             <p className="mt-4 text-body text-white/70">
-                                Algoritmo SM-2 cientificamente validado decide quando você deve revisar cada card pra fixar na memória de longo prazo — em vez de revisar tudo toda noite antes de esquecer. 69 baralhos cobrindo todas as matérias do ENEM e ensino médio.
+                                Algoritmo SM-2 cientificamente validado decide quando você deve revisar cada card pra fixar na memória de longo prazo, em vez de você revisar tudo toda noite antes de esquecer. 69 baralhos cobrindo todas as matérias do ENEM e ensino médio.
                             </p>
                             <div className="mt-5 flex flex-wrap items-center gap-2 text-caption text-white/60">
                                 <span>Atalhos:</span>

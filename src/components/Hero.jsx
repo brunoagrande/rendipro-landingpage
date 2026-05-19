@@ -67,9 +67,9 @@ export function Hero() {
                             className="mt-6 text-display-md sm:text-display-lg lg:text-display-xl text-white"
                         >
                             <span className="text-gradient-primary">Professor humano</span>{' '}
-                            corrigindo sua redação —{' '}
+                            corrigindo sua redação.{' '}
                             <span className="text-white/75">
-                                mais cronograma, flashcards, questões e provas. Tudo num plano só.
+                                Mais cronograma, flashcards, questões e provas. Tudo num plano só.
                             </span>
                         </motion.h1>
 
@@ -79,7 +79,7 @@ export function Hero() {
                             transition={{ duration: 0.6, delay: 0.2, ease: easeSpring }}
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
-                            Cronograma, +8.000 flashcards SM-2, +6.000 questões comentadas por alternativa, provas oficiais com cronômetro e correção de redação por professor humano — em até 72h. A partir de R$ 14,99/mês.
+                            Cronograma, +8.000 flashcards SM-2, +6.000 questões comentadas por alternativa, provas oficiais com cronômetro e correção de redação por professor humano, em até 72h. A partir de R$ 14,99/mês.
                         </motion.p>
 
                         <motion.div

@@ -44,7 +44,7 @@ export function LogoMarquee({ className }) {
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <p className="mb-6 text-center text-micro font-semibold uppercase tracking-widest text-white/40">
-                    ENEM, vestibular ou concurso — um cronograma que se adapta ao seu objetivo
+                    ENEM, vestibular ou concurso. Um cronograma que se adapta ao seu objetivo.
                 </p>
 
                 <div

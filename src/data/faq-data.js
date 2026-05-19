@@ -17,7 +17,7 @@ export const faqItems = [
     {
         question: 'A correção da redação é por professor humano mesmo, ou é IA?',
         answer:
-            'Professor humano, sempre. Você fotografa sua redação manuscrita pelo celular. Um professor com formação em Letras e experiência em correção do ENEM lê seu texto, faz marcações em laranja direto na foto (circulando trechos com problema) e devolve em até 72h com nota nas 5 competências do ENEM (C1 a C5), pontos fortes, onde melhorar e um radar de evolução. Nada de IA fingindo ser professor. Nada de bot.',
+            'Professor humano, sempre. Você fotografa sua redação manuscrita pelo celular. Um professor com formação em Letras e experiência em correção do ENEM lê seu texto, faz marcações em laranja direto na foto (circulando trechos com problema) e devolve em até 72h com nota nas 5 competências do ENEM (C1 a C5), pontos fortes, onde melhorar e um radar de evolução. Sem IA fingindo ser professor, sem bot.',
     },
     {
         question: 'Em quanto tempo recebo minha redação corrigida?',
@@ -27,18 +27,18 @@ export const faqItems = [
     {
         question: 'Quantas redações posso enviar por mês?',
         answer:
-            'Depende do plano: 0 no Starter, 2 no Plus, 4 no Pro (mais escolhido), 8 no Ultra. Redação é músculo — treinamento regular bate rajada de última hora. Por isso, o saldo reinicia toda virada de mês para manter sua consistência: você escreve 2, 4 ou 8 redações todo mês, com ritmo, em vez de acumular e enviar tudo de uma vez. Se usar menos do que o plano permite num mês, o saldo reinicia na virada — não acumula.',
+            'Depende do plano: 0 no Starter, 2 no Plus, 4 no Pro (mais escolhido), 8 no Ultra. Redação é igual a treino: ritmo regular funciona melhor que rajada de última hora. Por isso o saldo reinicia toda virada de mês. Você escreve 2, 4 ou 8 redações por mês, com ritmo, em vez de acumular e enviar tudo de uma vez. Se usar menos do que o plano permite num mês, o saldo reinicia na virada e não acumula.',
     },
     {
         question: 'Posso usar pra ENEM e pra concurso ao mesmo tempo?',
         answer:
-            'Sim — e essa é uma das funcionalidades exclusivas do RendiPro. Você cria até 3 cronogramas simultâneos, cada um com seu próprio edital ou plano, suas matérias e sua rotina. Nenhuma outra plataforma faz isso. Suas métricas, redações e flashcards ficam separados entre os planos — não misturam. Alternância 1-clique no dashboard.',
+            'Sim. Essa é uma das funcionalidades exclusivas do RendiPro. Você cria até 3 cronogramas simultâneos, cada um com seu próprio edital ou plano, suas matérias e sua rotina. Nenhuma outra plataforma faz isso. Suas métricas, redações e flashcards ficam separados entre os planos. Não misturam. Alternância 1-clique no dashboard.',
     },
     {
         question:
             'Como funciona a sincronização do PDF da prova com o cartão de respostas?',
         answer:
-            'Você abre uma prova oficial (ex: ENEM 2024). O PDF da prova aparece de um lado da tela, o cartão de respostas do outro. Quando você marca A/B/C/D/E na questão 11 no cartão, o PDF rola automaticamente pra página 8 (onde está a questão 11). Cronômetro com o tempo oficial do exame (5h30 no ENEM) rodando o tempo todo. É o mais próximo possível do dia da prova sem você sair de casa.',
+            'Você abre uma prova oficial (ex: ENEM 2024). O PDF da prova aparece de um lado da tela, o cartão de respostas do outro. Quando você marca A/B/C/D/E na questão 11 no cartão, o PDF rola automaticamente pra página 8 (onde está a questão 11). Cronômetro com o tempo oficial do exame (5h30 no ENEM) rodando junto. Igual ao dia da prova, mas em casa.',
     },
     {
         question:
@@ -49,12 +49,12 @@ export const faqItems = [
     {
         question: 'Como funciona o algoritmo SM-2 dos flashcards?',
         answer:
-            'SM-2 é o algoritmo de repetição espaçada criado pelo dr. Piotr Wozniak nos anos 90 — o mesmo que o Anki usa, cientificamente validado. Funciona assim: depois de ver um flashcard, você marca "Não lembrei", "Difícil", "Bom" ou "Fácil". O algoritmo calcula quando você deve revisar de novo (1 minuto, 1 dia, 3 dias, 1 semana, etc.) pra fixar o conteúdo na memória de longo prazo com o mínimo de tempo. Atalhos de teclado (1/2/3/4) pra quem é rápido.',
+            'SM-2 é o algoritmo de repetição espaçada criado pelo dr. Piotr Wozniak nos anos 90. É o mesmo que o Anki usa, cientificamente validado. Funciona assim: depois de ver um flashcard, você marca "Não lembrei", "Difícil", "Bom" ou "Fácil". O algoritmo calcula quando você deve revisar de novo (1 minuto, 1 dia, 3 dias, 1 semana, etc.) pra fixar o conteúdo na memória de longo prazo com o mínimo de tempo. Atalhos de teclado (1/2/3/4) pra quem é rápido.',
     },
     {
         question: 'Os flashcards já estão prontos ou eu tenho que montar?',
         answer:
-            'Já estão prontos. +8.000 flashcards em 69 baralhos cobrindo as principais matérias do ENEM e ensino médio brasileiro. Você abre o app e estuda. Se quiser, pode criar seus próprios baralhos e cards também — mas não precisa. No Anki você gasta 40h só montando deck antes do primeiro estudo.',
+            'Já estão prontos. +8.000 flashcards em 69 baralhos cobrindo as principais matérias do ENEM e ensino médio brasileiro. Você abre o app e estuda. Se quiser, pode criar seus próprios baralhos e cards também, mas não precisa. No Anki você gasta 40h só montando deck antes do primeiro estudo.',
     },
     {
         question: 'Preciso ser organizado pra usar o RendiPro?',
@@ -64,7 +64,7 @@ export const faqItems = [
     {
         question: 'O RendiPro funciona no celular?',
         answer:
-            'Sim — funciona agora mesmo no seu celular, sem precisar instalar nada. Abra pelo navegador (Android ou iPhone) e você tem acesso completo: revise flashcards no ônibus, fotografe sua redação pra envio, acompanhe seu cronograma. É um web app — sem ocupar espaço no celular, sem atualização manual, sem fila de aprovação em loja.',
+            'Sim. Funciona agora mesmo no seu celular, sem precisar instalar nada. Abra pelo navegador (Android ou iPhone) e você tem acesso completo: revise flashcards no ônibus, fotografe sua redação pra envio, acompanhe seu cronograma. É um web app: não ocupa espaço no celular, não exige atualização manual e não fica na fila de aprovação em loja.',
     },
     {
         question:
@@ -75,6 +75,6 @@ export const faqItems = [
     {
         question: 'Posso cancelar a qualquer momento?',
         answer:
-            'Sim, sem burocracia. No plano mensal você cancela quando quiser pelo painel — sem ligação, sem e-mail, sem perguntas. No plano anual você garante o desconto de 33% e mantém o acesso até o fim do período contratado. Em qualquer caso, dentro dos primeiros 7 dias você tem direito a reembolso integral com 1 clique.',
+            'Sim, sem burocracia. No plano mensal você cancela quando quiser pelo painel: sem ligação, sem e-mail, sem perguntas. No plano anual você garante o desconto de 33% e mantém o acesso até o fim do período contratado. Em qualquer caso, dentro dos primeiros 7 dias você tem direito a reembolso integral com 1 clique.',
     },
 ]

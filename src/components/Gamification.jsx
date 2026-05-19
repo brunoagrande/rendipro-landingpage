@@ -61,7 +61,7 @@ const MECHANICS = [
         border: 'border-info-500/20',
         title: 'Missões e Freeze',
         description:
-            'Desafios diários sustentam o ritmo. Dia impossível? Usa o Freeze e mantém o streak intacto — sem zerar tudo por uma viagem ou virose.',
+            'Desafios diários sustentam o ritmo. Dia impossível? Usa o Freeze e mantém o streak intacto. Não zera tudo por uma viagem ou virose.',
     },
 ]
 
@@ -138,7 +138,7 @@ export function Gamification() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="mx-auto mt-12 max-w-2xl text-center text-body text-white/55"
                 >
-                    Você não precisa de mais força de vontade — você precisa de mecanismos que te mantenham no jogo quando ela some.
+                    Força de vontade some em todo mundo. O que diferencia é ter um sistema que continua te empurrando quando ela some.
                 </motion.p>
             </div>
         </section>

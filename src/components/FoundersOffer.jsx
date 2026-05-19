@@ -110,14 +110,14 @@ export function FoundersOffer() {
                     <div className="mb-10 text-center">
                         <Eyebrow variant="warning" className="mb-6">
                             <Medal size={14} />
-                            Vagas de Fundador — Oferta por tempo limitado
+                            Vagas de Fundador · Oferta por tempo limitado
                         </Eyebrow>
                         <h2 className="text-display-md font-extrabold tracking-tight text-white sm:text-display-lg">
                             Trave o menor preço{' '}
                             <span className="text-gradient-primary">para sempre.</span>
                         </h2>
                         <p className="mx-auto mt-4 max-w-lg text-body-lg text-white/55">
-                            20% OFF em todos os planos anuais. O preço de Fundador é permanente — não sobe quando o plano subir.
+                            20% OFF em todos os planos anuais. O preço de Fundador é permanente. Não sobe quando o plano subir.
                         </p>
                     </div>
 
@@ -238,7 +238,7 @@ export function FoundersOffer() {
                     {/* Footer guarantee */}
                     <p className="mt-8 flex items-center justify-center gap-2 text-sm text-white/35">
                         <Shield size={13} />
-                        Todos os planos com garantia incondicional de 7 dias — 1 clique e devolvemos 100%
+                        Todos os planos com garantia incondicional de 7 dias. 1 clique e devolvemos 100%.
                     </p>
                 </motion.div>
             </div>

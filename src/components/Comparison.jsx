@@ -89,7 +89,7 @@ export function Comparison() {
                         usa 1 que faz tudo.
                     </h2>
                     <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/60">
-                        Você provavelmente já paga por algumas dessas coisas em apps diferentes — somando contas, senhas, boletos e tempo. RendiPro reúne tudo num plano só, geralmente por menos de 1/3 do total.
+                        Você provavelmente já paga por algumas dessas coisas em apps diferentes. Soma contas, senhas, boletos e tempo. RendiPro reúne tudo num plano só, geralmente por menos de 1/3 do total.
                     </p>
                 </motion.div>
 
