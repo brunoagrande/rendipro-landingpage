@@ -64,7 +64,7 @@ export function FinalCTA() {
                     </h2>
 
                     <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/65">
-                        Os mesmos 7 dias que custam nada pra testar custam meses se você adiar. Configura em 5 minutos hoje, tem cronograma rodando antes do café da manhã de amanhã.
+                        Testa por 7 dias sem risco. Se não for pra você, 1 clique e devolvemos 100%.
                     </p>
 
                     {/* Recap bullets */}

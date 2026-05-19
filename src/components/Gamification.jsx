@@ -34,7 +34,7 @@ const MECHANICS = [
         border: 'border-orange-500/20',
         title: 'Streak diário',
         description:
-            'Cada dia conta. A sequência cria o hábito automático que substitui a força de vontade nos dias difíceis.',
+            'Cada dia conta. A sequência cria o ritmo. O ritmo substitui a motivação nos dias ruins.',
     },
     {
         icon: TrendingUp,
@@ -43,7 +43,7 @@ const MECHANICS = [
         border: 'border-primary-500/20',
         title: 'XP e nível',
         description:
-            'Cada sessão te dá XP. Cada nível desbloqueado é prova visível de que você está construindo, mesmo nos dias em que parece lento.',
+            'Cada sessão te dá XP. Cada nível desbloqueado mostra que você avançou, mesmo nos dias em que não pareceu.',
     },
     {
         icon: Trophy,
@@ -92,7 +92,7 @@ export function Gamification() {
                         Constância vence <span className="text-gradient-primary">talento</span>.
                     </h2>
                     <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/60">
-                        Streak, XP, ligas e missões. As mesmas mecânicas que fazem o Duolingo funcionar — aplicadas a quem tem uma aprovação de verdade na mira.
+                        Streak, XP, ligas e missões. As mesmas mecânicas que fazem o Duolingo funcionar, aplicadas a quem estuda pra prova de verdade.
                     </p>
                 </motion.div>
 

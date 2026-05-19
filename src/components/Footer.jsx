@@ -12,7 +12,7 @@ export function Footer() {
                             />
                         </div>
                         <p className="mt-4 max-w-sm text-body-sm leading-relaxed text-white/55">
-                            Plataforma completa de aprovação. Cronograma, flashcards, questões, provas oficiais e correção de redação manuscrita por professor humano — num plano só.
+                            Plataforma completa de aprovação. Cronograma, flashcards, questões, provas oficiais e correção de redação manuscrita por professor humano. Tudo num plano só.
                         </p>
                     </div>
                     <div>

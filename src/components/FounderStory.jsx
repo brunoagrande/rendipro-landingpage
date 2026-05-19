@@ -56,7 +56,7 @@ export function FounderStory() {
                         Feito por quem <span className="text-gradient-primary">viveu</span> o desafio.
                     </h2>
                     <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/60">
-                        Não é startup de gente que nunca estudou pra prova grande. É produto construído olhando alguém estudar pra valer — e construído por quem entende como software se faz.
+                        Bruno é desenvolvedor. Jessica é Promotora de Justiça. O RendiPro nasceu do meio dessa história.
                     </p>
                 </motion.div>
 
@@ -80,7 +80,7 @@ export function FounderStory() {
                             Fundador
                         </div>
                         <blockquote className="mt-4 text-body-lg italic leading-relaxed text-white/85">
-                            "Acompanhei a Jessica estudando pra provas difíceis por anos. Vi as horas perdidas, as revisões esquecidas, o cronograma refeito do zero toda semana. Trabalho com software há 20 anos, sabia que dava pra resolver. Construí o RendiPro pra que ninguém precisasse perder dois, três anos de estudo por falta de método — e não por falta de inteligência."
+                            "Quando a Jessica decidiu que queria ser Promotora, achei que seria rápido. Ela sempre foi inteligente e estudiosa. Mas vendo ela todo dia, fui percebendo que estudo e inteligência sozinhos não garantem aprovação. Ela ficava horas por semana organizando revisões, decidindo o que estudar, e quando tinha mais de um edital ao mesmo tempo, esse tempo dobrava. Além de não ter clareza sobre suas maiores deficiências, para saber onde focar de verdade. Depois da aprovação, conversando com ela sobre tudo isso, tive a ideia do RendiPro. Para ajudar quem já é disciplinado a ter um rendimento real, sem gastar energia com organização. Para poder simplesmente estudar."
                         </blockquote>
 
                         <div className="mt-8 flex items-center gap-4">
@@ -113,7 +113,7 @@ export function FounderStory() {
                             Co-criadora · A inspiração
                         </div>
                         <blockquote className="mt-4 text-body-lg italic leading-relaxed text-white/85">
-                            "Estudei por 4 anos sem método. Sabia o conteúdo, mas não sabia organizar o que estudar nem quando revisar. Quando o Bruno me mostrou o RendiPro, reconheci imediatamente: é exatamente o que eu precisei desde o início. O cronograma, os flashcards, a correção de redação — tudo que eu montava na mão de forma imperfeita, ali estava pronto."
+                            "Quatro anos de preparação. Provas diferentes, editais diferentes, cada uma com seu cronograma, suas matérias, suas prioridades. Além de estudar, eu passava tempo demais tentando controlar o andamento de cada plano, reorganizando o que tinha ficado pra trás. Reclamava disso todo dia pro Bruno. Quando ele teve a ideia do RendiPro, foi inevitável pensar em quanto tempo eu teria economizado. Para quem busca aprovação em provas difíceis, organização não é um detalhe. É o que define o resultado."
                         </blockquote>
 
                         <div className="mt-8 flex items-center gap-4">
