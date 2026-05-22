@@ -80,7 +80,12 @@ export function Hero() {
                             transition={{ duration: 0.6, delay: 0.2, ease: easeSpring }}
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
-                            Cronograma, +8.000 flashcards SM-2, +6.000 questões comentadas por alternativa, provas oficiais com cronômetro e correção de redação por professor humano, em até 72h. A partir de R$ 14,99/mês.
+                            <span className="md:hidden">
+                                Redação corrigida por professor humano. Cronograma, flashcards, questões e simulados. A partir de R$ 14,99/mês.
+                            </span>
+                            <span className="hidden md:inline">
+                                Cronograma, +8.000 flashcards SM-2, +6.000 questões comentadas por alternativa, provas oficiais com cronômetro e correção de redação por professor humano, em até 72h. A partir de R$ 14,99/mês.
+                            </span>
                         </motion.p>
 
                         <motion.div
