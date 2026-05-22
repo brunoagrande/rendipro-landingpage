@@ -56,7 +56,8 @@ export function Hero() {
                         >
                             <Eyebrow variant="primary">
                                 <Sparkles size={14} />
-                                Criado por Bruno Grande, a partir da jornada de aprovação de Jessica Marques · Promotora MP-RS, 2023
+                                <span className="md:hidden">Criado a partir de uma aprovação real</span>
+                                <span className="hidden md:inline">Criado por Bruno Grande, a partir da jornada de aprovação de Jessica Marques · Promotora MP-RS, 2023</span>
                             </Eyebrow>
                         </motion.div>
 
@@ -64,7 +65,7 @@ export function Hero() {
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: 0, ease: easeSpring }}
-                            className="mt-6 text-display-md sm:text-display-lg lg:text-display-xl text-white"
+                            className="mt-6 text-display-sm sm:text-display-lg lg:text-display-xl text-white"
                         >
                             <span className="text-gradient-primary">Professor humano</span>{' '}
                             corrigindo sua redação.{' '}
