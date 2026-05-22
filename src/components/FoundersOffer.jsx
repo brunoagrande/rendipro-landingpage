@@ -84,11 +84,17 @@ export function FoundersOffer() {
 
     if (!timeLeft) return null
 
-    const trackFounder = (planSlug) => {
+    const trackFounder = (planSlug, planNome) => {
         if (typeof window !== 'undefined' && window.fbq) {
             window.fbq('track', 'InitiateCheckout', {
                 content_name: `Fundador ${planSlug}`,
                 currency: 'BRL',
+            })
+        }
+        if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', 'cta_click', {
+                button_text: `Ser Fundador ${planNome}`,
+                location: 'founders_offer',
             })
         }
     }
@@ -219,7 +225,7 @@ export function FoundersOffer() {
                                     {/* CTA */}
                                     <a
                                         href={url}
-                                        onClick={() => trackFounder(plan.slug)}
+                                        onClick={() => trackFounder(plan.slug, plan.nome)}
                                         className={cn(
                                             'mt-6 inline-flex w-full items-center justify-center gap-1.5 rounded-full py-2.5 text-sm font-bold transition-all active:scale-95',
                                             plan.popular

@@ -6,6 +6,7 @@ import { Eyebrow } from './ui/Eyebrow'
 import { Button } from './ui/Button'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { cn } from '../lib/utils'
+import { trackRegisterCta } from '../lib/tracking'
 
 /**
  * FAQ v3 — polido com novo design system.
@@ -22,11 +23,7 @@ import { cn } from '../lib/utils'
 
 const easeSpring = [0.16, 1, 0.3, 1]
 
-const trackInitiateCheckout = () => {
-    if (typeof window !== 'undefined' && window.fbq) {
-        window.fbq('track', 'InitiateCheckout')
-    }
-}
+const trackFaqCta = () => trackRegisterCta({ buttonText: 'Quero testar', location: 'faq' })
 
 // Índices (1-based) das perguntas críticas que recebem mini-CTA inline.
 // Pergunta 12 é a "já tentei e desisti" — momento ideal pra capturar quem
@@ -91,7 +88,7 @@ function FAQItem({ question, answer, isOpen, onToggle, showCTA, getCheckoutUrl }
                                     href={getCheckoutUrl(
                                         'https://app.rendipro.com.br/register'
                                     )}
-                                    onClick={trackInitiateCheckout}
+                                    onClick={trackFaqCta}
                                     variant="primary"
                                     size="sm"
                                 >

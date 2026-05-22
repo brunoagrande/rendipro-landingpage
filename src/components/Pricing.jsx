@@ -64,13 +64,19 @@ function formatPrice(cents) {
     })
 }
 
-const trackInitiateCheckout = (plan) => {
+const trackPricingCta = (plan) => {
     if (typeof window !== 'undefined' && window.fbq) {
         window.fbq('track', 'InitiateCheckout', {
             content_name: plan.nome,
             content_category: plan.tipo,
             value: plan.preco_centavos / 100,
             currency: 'BRL',
+        })
+    }
+    if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'cta_click', {
+            button_text: `Assinar ${plan.nome}`,
+            location: 'pricing',
         })
     }
 }
@@ -399,7 +405,7 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                 href={getCheckoutUrl(
                     `https://app.rendipro.com.br/register?plano=${plan.slug}`
                 )}
-                onClick={() => trackInitiateCheckout(plan)}
+                onClick={() => trackPricingCta(plan)}
                 variant={isPopular ? 'primary' : 'secondary'}
                 size="md"
             >

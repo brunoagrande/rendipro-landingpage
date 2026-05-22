@@ -1,6 +1,9 @@
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { useInfluencer } from '../contexts/InfluencerContext'
+import { trackRegisterCta } from '../lib/tracking'
+
+const trackNavbarCta = () => trackRegisterCta({ buttonText: 'Comece Agora', location: 'navbar' })
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -48,6 +51,7 @@ export function Navbar() {
                     </a>
                     <a
                         href={getCheckoutUrl("https://app.rendipro.com.br/register")}
+                        onClick={trackNavbarCta}
                         className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-surface-950 transition-all active:scale-95 hover:bg-white/90"
                     >
                         Comece Agora

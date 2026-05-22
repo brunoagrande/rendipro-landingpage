@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Check, Lock, Shield } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
+import { trackRegisterCta } from '../lib/tracking'
 import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
 
@@ -19,11 +20,7 @@ import { Eyebrow } from './ui/Eyebrow'
 
 const easeSpring = [0.16, 1, 0.3, 1]
 
-const trackInitiateCheckout = () => {
-    if (typeof window !== 'undefined' && window.fbq) {
-        window.fbq('track', 'InitiateCheckout')
-    }
-}
+const trackFinalCta = () => trackRegisterCta({ buttonText: 'Quero testar 7 dias', location: 'final_cta' })
 
 const RECAP_ITEMS = [
     '+6.000 questões comentadas por alternativa',
@@ -87,7 +84,7 @@ export function FinalCTA() {
                             href={getCheckoutUrl(
                                 'https://app.rendipro.com.br/register'
                             )}
-                            onClick={trackInitiateCheckout}
+                            onClick={trackFinalCta}
                             variant="primary"
                             size="lg"
                             className="sm:px-12"

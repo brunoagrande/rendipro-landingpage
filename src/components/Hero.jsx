@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Lock, Rocket, Shield, Sparkles } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
+import { trackRegisterCta } from '../lib/tracking'
 import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
 import { ProductWindow } from './ui/ProductWindow'
@@ -26,11 +27,7 @@ import { InteractiveFlashcard } from './ui/InteractiveFlashcard'
  * Mobile: tudo empilha vertical, peek e flashcard escondem em < md.
  */
 
-const trackInitiateCheckout = () => {
-    if (typeof window !== 'undefined' && window.fbq) {
-        window.fbq('track', 'InitiateCheckout')
-    }
-}
+const trackHeroCta = () => trackRegisterCta({ buttonText: 'Quero testar 7 dias', location: 'hero' })
 
 const easeSpring = [0.16, 1, 0.3, 1]
 
@@ -97,7 +94,7 @@ export function Hero() {
                             <Button
                                 as="a"
                                 href={getCheckoutUrl('https://app.rendipro.com.br/register')}
-                                onClick={trackInitiateCheckout}
+                                onClick={trackHeroCta}
                                 variant="primary"
                                 size="lg"
                             >

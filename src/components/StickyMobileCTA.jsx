@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Shield } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { cn } from '../lib/utils'
+import { trackRegisterCta } from '../lib/tracking'
 
 /**
  * Sticky CTA mobile — barra persistente embaixo da tela em mobile/tablet.
@@ -22,11 +23,7 @@ import { cn } from '../lib/utils'
  * Lift esperado: +15% CR mobile.
  */
 
-const trackInitiateCheckout = () => {
-    if (typeof window !== 'undefined' && window.fbq) {
-        window.fbq('track', 'InitiateCheckout')
-    }
-}
+const trackStickyCta = () => trackRegisterCta({ buttonText: 'Começar', location: 'sticky_mobile' })
 
 export function StickyMobileCTA() {
     const [isVisible, setIsVisible] = useState(false)
@@ -93,7 +90,7 @@ export function StickyMobileCTA() {
                             href={getCheckoutUrl(
                                 'https://app.rendipro.com.br/register'
                             )}
-                            onClick={trackInitiateCheckout}
+                            onClick={trackStickyCta}
                             className="group inline-flex shrink-0 items-center gap-1.5 rounded-full bg-primary-500 px-5 py-2.5 text-body-sm font-bold text-surface-950 shadow-lg shadow-primary-500/30 transition-all active:scale-95 hover:bg-primary-400"
                         >
                             Começar
