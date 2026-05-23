@@ -359,8 +359,13 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                     ) : (
                         <>
                             <XIcon size={16} className="mt-0.5 shrink-0 text-white/30" />
-                            <span className="text-white/40">
-                                Sem redação por professor humano
+                            <span className="flex flex-col text-white/40">
+                                <span className="line-through">
+                                    Correção de redação por professor humano
+                                </span>
+                                <span className="text-caption text-white/50">
+                                    Disponível a partir do Plus
+                                </span>
                             </span>
                         </>
                     )}
