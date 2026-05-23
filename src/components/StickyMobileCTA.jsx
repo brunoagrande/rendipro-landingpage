@@ -35,15 +35,13 @@ export function StickyMobileCTA() {
             if (raf) return
             raf = requestAnimationFrame(() => {
                 const scrolled = window.scrollY
-                const total = document.documentElement.scrollHeight - window.innerHeight
-                const percent = total > 0 ? scrolled / total : 0
 
                 const footer = document.querySelector('footer')
                 const footerInView = footer
                     ? footer.getBoundingClientRect().top < window.innerHeight - 80
                     : false
 
-                setIsVisible(percent > 0.3 && !footerInView)
+                setIsVisible(scrolled > 100 && !footerInView)
                 raf = null
             })
         }
@@ -78,14 +76,19 @@ export function StickyMobileCTA() {
                 >
                     <div className="container mx-auto flex items-center gap-3">
                         <div className="min-w-0 flex-1">
-                            <p className="text-body-sm font-bold text-white">
-                                Starter Anual ·{' '}
-                                <span className="font-normal text-white/40 line-through">
+                            <div className="flex flex-wrap items-baseline gap-x-1.5">
+                                <span className="text-body-sm font-bold text-white">
+                                    Starter Anual
+                                </span>
+                                <span className="text-[11px] font-medium text-white/45 line-through decoration-white/45">
                                     R$ 14,99
-                                </span>{' '}
-                                <span className="text-primary-300">R$ 11,99/mês</span>
-                            </p>
-                            <p className="flex items-center gap-1 text-[10px] text-white/55">
+                                </span>
+                                <span className="text-body font-extrabold text-primary-300">
+                                    R$ 11,99
+                                    <span className="text-[11px] font-medium text-white/60">/mês</span>
+                                </span>
+                            </div>
+                            <p className="mt-0.5 flex items-center gap-1 text-[10px] text-white/55">
                                 <Shield size={10} className="text-primary-400" />
                                 Oferta Fundadores · Garantia 7 dias
                             </p>
