@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { ArrowRight, Lock, Rocket, Shield, Sparkles } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { trackRegisterCta } from '../lib/tracking'
@@ -8,34 +7,18 @@ import { ProductWindow } from './ui/ProductWindow'
 import { InteractiveFlashcard } from './ui/InteractiveFlashcard'
 
 /**
- * Hero — asymetric split-screen (55/45)
- *
- * Padrão: Linear (asymetric layout) + Brilliant (interactive proof) + Vercel (ProductWindow)
- *
- * Coluna esquerda:
- *  - Eyebrow (autoridade transferida via Jessica MP-RS)
- *  - H1 em 2 linhas com gradient na frase "professor humano"
- *  - Sub denso (5 provas numéricas)
- *  - 2 CTAs (primário Quero meu cronograma + secundário Ver por dentro)
- *  - Microcopy garantia com Shield
- *
- * Coluna direita (asset stack):
- *  - Peek `redacao-manuscrita.png` no fundo, rotated -8deg, opacity 0.25
- *  - Main: `cronograma-semana.png` em ProductWindow com glow primary
- *  - InteractiveFlashcard flutuando bottom-right, rotated +4deg
- *
- * Mobile: tudo empilha vertical, peek e flashcard escondem em < md.
+ * Hero — animado via CSS (sem framer-motion no path crítico).
+ * Convertido em 2026-05-24 para tirar 127KB do bundle inicial e
+ * reduzir LCP mobile de 4.8s para <2.5s.
  */
 
-const trackHeroCta = () => trackRegisterCta({ buttonText: 'Quero testar 7 dias', location: 'hero' })
-
-const easeSpring = [0.16, 1, 0.3, 1]
+const trackHeroCta = () => trackRegisterCta({ buttonText: 'Garantir preço Fundador', location: 'hero' })
 
 export function Hero() {
     const { getCheckoutUrl } = useInfluencer()
 
     return (
-        <section className="relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28 lg:pt-44 lg:pb-32">
+        <section className="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-24 lg:pt-20 lg:pb-28">
             {/* ─── Background layers ───────────────────────────────────── */}
             <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_top,_var(--color-primary-600)_0%,_transparent_55%)] opacity-10" />
             <div className="pointer-events-none absolute top-0 left-1/2 -z-10 h-[700px] w-[1100px] -translate-x-1/2 rounded-full bg-primary-500/15 blur-[140px]" />
@@ -45,102 +28,84 @@ export function Hero() {
                 <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
                     {/* ─── LEFT · Copy ──────────────────────────────── */}
                     <div className="text-center lg:text-left">
-                        <motion.div
-                            initial={{ opacity: 0, y: 16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, ease: easeSpring }}
-                            className="inline-flex"
-                        >
+                        <div className="inline-flex animate-fade-in-up">
                             <Eyebrow variant="primary">
                                 <Sparkles size={14} />
-                                <span className="md:hidden">Criado a partir de uma aprovação real</span>
-                                <span className="hidden md:inline">Criado por Bruno Grande, a partir da jornada de aprovação de Jessica Marques · Promotora MP-RS, 2023</span>
+                                <span className="md:hidden">Nasceu de uma aprovação real</span>
+                                <span className="hidden md:inline">Nasceu de uma aprovação real no MP-RS em 2023</span>
                             </Eyebrow>
-                        </motion.div>
+                        </div>
 
-                        <motion.h1
-                            initial={{ opacity: 0, y: 8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.3, delay: 0, ease: easeSpring }}
-                            className="mt-6 text-display-sm sm:text-display-lg lg:text-display-xl text-white"
+                        <h1
+                            className="mt-6 text-display-sm sm:text-display-lg lg:text-display-xl text-white animate-fade-in-up-sm"
+                            style={{ animationDelay: '80ms' }}
                         >
-                            <span className="text-gradient-primary">Professor humano</span>{' '}
-                            corrigindo sua redação.{' '}
-                            <span className="text-white/75">
-                                Mais cronograma, flashcards, questões e provas. Tudo num plano só.
+                            Cronograma pronto em <span className="text-gradient-primary">5 minutos</span>.{' '}
+                            <span className="text-white/85">
+                                Redação corrigida por <span className="text-gradient-primary">professor de verdade</span> em até 72h.
                             </span>
-                        </motion.h1>
+                        </h1>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2, ease: easeSpring }}
-                            className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
+                        <p
+                            className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70 animate-fade-in-up"
+                            style={{ animationDelay: '200ms' }}
                         >
                             <span className="md:hidden">
-                                Redação corrigida por professor humano. Cronograma, flashcards, questões e simulados. A partir de R$ 14,99/mês.
+                                Você gera o plano do zero ou importa um que já está fazendo. Pode manter até 3 ao mesmo tempo. Tem 8 mil flashcards, 6 mil questões e provas oficiais. A partir de R$ 11,99/mês.
                             </span>
                             <span className="hidden md:inline">
-                                Cronograma, +8.000 flashcards SM-2, +6.000 questões comentadas por alternativa, provas oficiais com cronômetro e correção de redação por professor humano, em até 72h. A partir de R$ 14,99/mês.
+                                Você gera o plano em poucos minutos ou importa um que já está fazendo. Pode manter <strong className="font-semibold text-white">até 3 cronogramas ao mesmo tempo</strong>. Tem 8 mil flashcards, 6 mil questões comentadas e as provas oficiais com cronômetro. A partir de R$ 11,99/mês.
                             </span>
-                        </motion.p>
+                        </p>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3, ease: easeSpring }}
-                            className="mt-6 sm:mt-10 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-center lg:justify-start"
+                        <div
+                            className="mt-6 sm:mt-10 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-center lg:justify-start animate-fade-in-up"
+                            style={{ animationDelay: '300ms' }}
                         >
                             <Button
                                 as="a"
-                                href={getCheckoutUrl('https://app.rendipro.com.br/register')}
+                                href={getCheckoutUrl('https://app.rendipro.com.br/register?founder=true&utm_content=hero')}
                                 onClick={trackHeroCta}
                                 variant="primary"
                                 size="lg"
                             >
-                                Quero testar 7 dias
+                                Garantir preço Fundador
                                 <Rocket
                                     size={20}
                                     className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
                                 />
                             </Button>
-                            <Button as="a" href="#features" variant="secondary" size="lg">
-                                Ver por dentro
+                            <Button as="a" href="#pricing" variant="secondary" size="lg">
+                                Ver planos
                                 <ArrowRight
                                     size={18}
                                     className="transition-transform group-hover:translate-x-1"
                                 />
                             </Button>
-                        </motion.div>
+                        </div>
 
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.45 }}
-                            className="mt-6 inline-flex items-center gap-2 text-body-sm font-medium text-white/70"
+                        <p
+                            className="mt-6 inline-flex items-center gap-2 text-body-sm font-medium text-white/70 animate-fade-in"
+                            style={{ animationDelay: '450ms' }}
                         >
                             <Shield size={16} className="text-primary-400" />
                             Teste 7 dias. Não gostou? 1 clique e devolvemos 100%.
-                        </motion.p>
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.55 }}
-                            className="mt-2 inline-flex items-center gap-2 text-caption text-white/50"
+                        </p>
+                        <p
+                            className="mt-2 inline-flex items-center gap-2 text-caption text-white/50 animate-fade-in"
+                            style={{ animationDelay: '550ms' }}
                         >
                             <Lock size={14} className="text-white/40" />
                             Pagamento seguro · Acesso imediato após confirmação
-                        </motion.p>
+                        </p>
                     </div>
 
                     {/* ─── RIGHT · Asset stack ──────────────────────── */}
                     <div className="relative mx-auto w-full max-w-2xl lg:max-w-none">
                         {/* Peek: redação manuscrita atrás, rotated, semi-transparent */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -12, rotate: -8 }}
-                            animate={{ opacity: 0.35, x: 0, rotate: -8 }}
-                            transition={{ duration: 0.9, delay: 0.65, ease: easeSpring }}
+                        <div
                             className="pointer-events-none absolute -left-10 top-6 -z-10 hidden lg:block"
+                            style={{ animation: 'fade-in-peek 0.9s cubic-bezier(0.16,1,0.3,1) 0.65s both' }}
                             aria-hidden="true"
                         >
                             <img
@@ -148,13 +113,12 @@ export function Hero() {
                                 alt=""
                                 className="h-[260px] w-auto rounded-xl shadow-elevation-3"
                             />
-                        </motion.div>
+                        </div>
 
                         {/* Main: Cronograma in ProductWindow with primary glow */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.96, y: 28 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.35, ease: easeSpring }}
+                        <div
+                            className="animate-fade-in-scale"
+                            style={{ animationDelay: '350ms' }}
                         >
                             <ProductWindow
                                 url="app.rendipro.com.br/cronograma"
@@ -163,24 +127,21 @@ export function Hero() {
                             >
                                 <img
                                     src="/screenshots/cronograma-semana.webp"
-                                    alt="Cronograma semanal personalizado de estudos no RendiPro — visão semanal com matérias coloridas"
+                                    alt="Cronograma semanal personalizado de estudos no RendiPro, visão semanal com matérias coloridas"
                                     className="block h-auto w-full"
                                     loading="eager"
                                     fetchPriority="high"
                                 />
                             </ProductWindow>
-                        </motion.div>
+                        </div>
 
                         {/* Interactive flashcard floating bottom-right */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 24, rotate: 4 }}
-                            animate={{ opacity: 1, y: 0, rotate: 4 }}
-                            transition={{ duration: 0.7, delay: 0.85, ease: easeSpring }}
+                        <div
                             className="absolute -bottom-6 -right-4 z-20 hidden md:block"
-                            style={{ transformOrigin: 'center' }}
+                            style={{ animation: 'fade-in-rotated 0.7s cubic-bezier(0.16,1,0.3,1) 0.85s both', transformOrigin: 'center' }}
                         >
                             <InteractiveFlashcard />
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </div>

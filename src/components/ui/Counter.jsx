@@ -1,16 +1,21 @@
-import { useEffect, useRef } from 'react'
-import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import { cn } from '../../lib/utils'
 
 /**
  * Anima um número de 0 até `value` quando entra no viewport.
- * Usado na TrustBar e em StatBlocks ao longo da landing.
+ * Convertido para CSS + RAF em 2026-05-24 (era framer-motion).
  *
- * - Dispara uma vez (once: true)
- * - Easing spring (cubic-bezier 0.16, 1, 0.3, 1)
+ * - Dispara uma vez (IntersectionObserver com unobserve no primeiro hit)
+ * - Easing manual cubic-bezier(0.16, 1, 0.3, 1)
  * - Formato pt-BR com separador de milhar
- * - Respeita prefers-reduced-motion (animação some, número fica direto)
+ * - Respeita prefers-reduced-motion (entrega o valor direto, sem animar)
  */
+
+// Approx. cubic-bezier(0.16, 1, 0.3, 1) — easing "out-expo-like"
+function easeOutExpo(t) {
+    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
+}
+
 export function Counter({
     value,
     duration = 1.2,
@@ -19,20 +24,49 @@ export function Counter({
     className,
 }) {
     const ref = useRef(null)
-    const isInView = useInView(ref, { once: true, margin: '-50px' })
-    const count = useMotionValue(0)
-    const rounded = useTransform(count, (latest) =>
-        Math.round(latest).toLocaleString('pt-BR')
-    )
+    const [display, setDisplay] = useState(0)
 
     useEffect(() => {
-        if (!isInView) return
-        const controls = animate(count, value, {
-            duration,
-            ease: [0.16, 1, 0.3, 1],
-        })
-        return () => controls.stop()
-    }, [isInView, value, duration, count])
+        const el = ref.current
+        if (!el) return
+
+        // Respeita reduced-motion: entrega o valor direto.
+        const prefersReduced =
+            typeof window !== 'undefined' &&
+            window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+        if (prefersReduced) {
+            setDisplay(value)
+            return
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const entry = entries[0]
+                if (!entry.isIntersecting) return
+                observer.unobserve(el)
+
+                const start = performance.now()
+                const durationMs = duration * 1000
+                let raf
+
+                const tick = (now) => {
+                    const t = Math.min(1, (now - start) / durationMs)
+                    const eased = easeOutExpo(t)
+                    setDisplay(Math.round(eased * value))
+                    if (t < 1) raf = requestAnimationFrame(tick)
+                }
+                raf = requestAnimationFrame(tick)
+
+                return () => raf && cancelAnimationFrame(raf)
+            },
+            { rootMargin: '-50px', threshold: 0 }
+        )
+        observer.observe(el)
+
+        return () => observer.disconnect()
+    }, [value, duration])
 
     return (
         <span
@@ -40,7 +74,7 @@ export function Counter({
             className={cn('inline-flex items-baseline tabular-nums', className)}
         >
             {prefix}
-            <motion.span>{rounded}</motion.span>
+            <span>{display.toLocaleString('pt-BR')}</span>
             {suffix}
         </span>
     )

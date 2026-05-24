@@ -1,8 +1,8 @@
 import { lazy, Suspense } from 'react'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
-import { TrustBar } from './components/TrustBar'
-import { LogoMarquee } from './components/LogoMarquee'
+import { TrustStrip } from './components/TrustStrip'
+import { MiniPricing } from './components/MiniPricing'
 import { StickyMobileCTA } from './components/StickyMobileCTA'
 import { InfluencerProvider } from './contexts/InfluencerContext'
 import { TopBanner } from './components/TopBanner'
@@ -17,12 +17,8 @@ import { CookieBanner } from './components/CookieBanner'
 // bundle principal mesmo na landing de vendas (modo produção atual).
 const BetaLanding = lazy(() => import('./components/BetaLanding').then(m => ({ default: m.BetaLanding })))
 
-const MoneyShot     = lazy(() => import('./components/MoneyShot').then(m => ({ default: m.MoneyShot })))
 const Features      = lazy(() => import('./components/Features').then(m => ({ default: m.Features })))
-const Comparison    = lazy(() => import('./components/Comparison').then(m => ({ default: m.Comparison })))
-const Gamification  = lazy(() => import('./components/Gamification').then(m => ({ default: m.Gamification })))
 const FounderStory  = lazy(() => import('./components/FounderStory').then(m => ({ default: m.FounderStory })))
-const FoundersOffer = lazy(() => import('./components/FoundersOffer').then(m => ({ default: m.FoundersOffer })))
 const Pricing       = lazy(() => import('./components/Pricing').then(m => ({ default: m.Pricing })))
 const FAQ           = lazy(() => import('./components/FAQ').then(m => ({ default: m.FAQ })))
 const FinalCTA      = lazy(() => import('./components/FinalCTA').then(m => ({ default: m.FinalCTA })))
@@ -66,15 +62,11 @@ function App() {
         <InvalidInfluencerModal />
         <main>
           <Hero />
-          <TrustBar />
-          <LogoMarquee />
+          <TrustStrip />
+          <MiniPricing />
           <Suspense fallback={<div className="h-96 bg-surface-950" />}>
-            <MoneyShot />
             <Features />
             <FounderStory />
-            <Comparison />
-            <Gamification />
-            <FoundersOffer />
             <Pricing />
             <FAQ />
             <FinalCTA />

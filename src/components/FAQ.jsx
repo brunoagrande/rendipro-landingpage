@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, HelpCircle } from 'lucide-react'
+import { ArrowRight, ChevronDown, HelpCircle, Shield } from 'lucide-react'
 import { faqItems } from '../data/faq-data'
 import { Eyebrow } from './ui/Eyebrow'
 import { Button } from './ui/Button'
@@ -9,28 +9,15 @@ import { cn } from '../lib/utils'
 import { trackRegisterCta } from '../lib/tracking'
 
 /**
- * FAQ v3 — polido com novo design system.
- *
- * Mudanças vs v1:
- *  - Header com Eyebrow + H2 com gradient
- *  - 13 perguntas (era 8), ordem otimizada de objeção branda → cínica
- *  - Tipografia usando os novos tokens (text-body-lg, text-body etc)
- *  - Hover state com background sutil
- *  - Indicador de aberto melhor (rotate + cor primary quando ativo)
- *  - CTA inline depois das perguntas críticas (pergunta 12 — "já tentei e desisti")
- *  - Microcopy final apontando pra Pricing
+ * FAQ v4 — 7 perguntas (reduzido de 13 em 2026-05-24).
+ * CTA grande no fim da seção (substitui mini-CTA inline na pergunta 12).
  */
 
 const easeSpring = [0.16, 1, 0.3, 1]
 
-const trackFaqCta = () => trackRegisterCta({ buttonText: 'Quero testar', location: 'faq' })
+const trackFaqCta = () => trackRegisterCta({ buttonText: 'Garantir preço Fundador', location: 'faq' })
 
-// Índices (1-based) das perguntas críticas que recebem mini-CTA inline.
-// Pergunta 12 é a "já tentei e desisti" — momento ideal pra capturar quem
-// hesitou até aqui mas se identificou com a objeção.
-const CTA_AFTER_QUESTIONS = new Set([12])
-
-function FAQItem({ question, answer, isOpen, onToggle, showCTA, getCheckoutUrl }) {
+function FAQItem({ question, answer, isOpen, onToggle }) {
     return (
         <div
             className={cn(
@@ -75,27 +62,6 @@ function FAQItem({ question, answer, isOpen, onToggle, showCTA, getCheckoutUrl }
                         <p className="pb-6 pr-8 text-body text-white/65 leading-relaxed">
                             {answer}
                         </p>
-
-                        {showCTA && (
-                            <div className="mb-6 mr-8 inline-flex items-center gap-3 rounded-xl border border-primary-500/30 bg-primary-500/10 px-4 py-3">
-                                <p className="text-body-sm text-white/85">
-                                    Teste 7 dias.{' '}
-                                    <strong className="text-white">Não funcionou pra você?</strong>{' '}
-                                    1 clique e devolvemos.
-                                </p>
-                                <Button
-                                    as="a"
-                                    href={getCheckoutUrl(
-                                        'https://app.rendipro.com.br/register'
-                                    )}
-                                    onClick={trackFaqCta}
-                                    variant="primary"
-                                    size="sm"
-                                >
-                                    Quero testar
-                                </Button>
-                            </div>
-                        )}
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -150,28 +116,55 @@ export function FAQ() {
                             onToggle={() =>
                                 setOpenIndex(openIndex === index ? null : index)
                             }
-                            showCTA={CTA_AFTER_QUESTIONS.has(index + 1)}
-                            getCheckoutUrl={getCheckoutUrl}
                         />
                     ))}
                 </motion.div>
 
-                {/* Closing CTA hint */}
+                {/* CTA grande no fim do FAQ */}
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="mx-auto mt-12 flex max-w-3xl flex-col items-center gap-3 rounded-2xl border border-primary-500/20 bg-gradient-to-br from-surface-900 via-primary-500/[0.04] to-surface-900 p-6 text-center sm:p-8"
+                >
+                    <p className="text-body sm:text-body-lg text-white/80">
+                        Já tem o que precisa pra decidir?
+                    </p>
+                    <Button
+                        as="a"
+                        href={getCheckoutUrl(
+                            'https://app.rendipro.com.br/register?founder=true&utm_content=faq'
+                        )}
+                        onClick={trackFaqCta}
+                        variant="primary"
+                        size="lg"
+                    >
+                        Garantir preço Fundador
+                        <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                    </Button>
+                    <p className="flex items-center gap-2 text-caption text-white/55">
+                        <Shield size={13} className="text-primary-400" />
+                        Teste 7 dias. Não gostou, devolvemos 100% com 1 clique.
+                    </p>
+                </motion.div>
+
+                {/* Contato */}
                 <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.3 }}
-                    className="mx-auto mt-12 max-w-2xl text-center text-body-sm text-white/55"
+                    className="mx-auto mt-8 max-w-2xl text-center text-body-sm text-white/55"
                 >
-                    Não encontrou sua dúvida?{' '}
+                    Ainda ficou alguma dúvida?{' '}
                     <a
                         href="mailto:contato@rendipro.com.br"
                         className="font-semibold text-primary-400 underline-offset-4 transition-colors hover:text-primary-300 hover:underline"
                     >
                         contato@rendipro.com.br
-                    </a>{' '}
-                    — respondemos em até 24h.
+                    </a>
+                    . A gente responde em até 24h.
                 </motion.p>
             </div>
         </section>

@@ -23,5 +23,14 @@ export default defineConfig({
         },
       },
     },
+    // Em 2026-05-24 framer-motion saiu do path crítico (entries do App não
+    // usam mais). Mas o Vite preload por default todos os chunks atingíveis,
+    // incluindo motion-vendor (~120KB) que só é necessário quando os lazy
+    // components renderizam. Filtramos esses chunks pra parar de adicionar
+    // <link rel="modulepreload"> deles no HTML inicial e segurar o LCP.
+    modulePreload: {
+      resolveDependencies: (_filename, deps) =>
+        deps.filter((d) => !/motion-vendor|supabase-vendor/.test(d)),
+    },
   },
 })

@@ -164,6 +164,14 @@
   --animate-marquee: marquee 30s linear infinite;
   --animate-float:   float 6s ease-in-out infinite;
   --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+
+  /* Entrance animations (replaced framer-motion in eager components in 2026-05-24
+     to remove ~127KB from critical bundle and improve LCP from 4.8s to <2.5s). */
+  --animate-fade-in:        fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in-up:     fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in-up-sm:  fade-in-up-sm 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in-scale:  fade-in-scale 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-in-down:  slide-in-down 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* ─── KEYFRAMES ─────────────────────────────────────────────────────────── */
@@ -185,6 +193,42 @@
 @keyframes pulse-soft {
   0%, 100% { opacity: 1; }
   50%      { opacity: 0.7; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-up-sm {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-scale {
+  from { opacity: 0; transform: scale(0.96) translateY(28px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes slide-in-down {
+  from { opacity: 0; transform: translateY(-40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero-specific (preserva rotate/opacity finais) */
+@keyframes fade-in-peek {
+  from { opacity: 0; transform: translateX(-12px) rotate(-8deg); }
+  to   { opacity: 0.35; transform: translateX(0) rotate(-8deg); }
+}
+
+@keyframes fade-in-rotated {
+  from { opacity: 0; transform: translateY(24px) rotate(4deg); }
+  to   { opacity: 1; transform: translateY(0) rotate(4deg); }
 }
 
 /* ─── GLOBAL ────────────────────────────────────────────────────────────── */

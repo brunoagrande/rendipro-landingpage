@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Shield } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { cn } from '../lib/utils'
@@ -56,24 +55,23 @@ export function StickyMobileCTA() {
     }, [])
 
     return (
-        <AnimatePresence>
-            {isVisible && (
-                <motion.div
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 100, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className={cn(
-                        'fixed inset-x-0 bottom-0 z-40 border-t border-white/10',
-                        'bg-surface-950/95 px-4 py-3 backdrop-blur-md',
-                        'lg:hidden'
-                    )}
-                    style={{
-                        paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))',
-                    }}
-                    role="complementary"
-                    aria-label="Atalho de assinatura"
-                >
+        <div
+            className={cn(
+                'fixed inset-x-0 bottom-0 z-40 border-t border-white/10',
+                'bg-surface-950/95 px-4 py-3 backdrop-blur-md',
+                'lg:hidden',
+                'transition-[transform,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]',
+                isVisible
+                    ? 'translate-y-0 opacity-100 pointer-events-auto'
+                    : 'translate-y-full opacity-0 pointer-events-none'
+            )}
+            style={{
+                paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))',
+            }}
+            role="complementary"
+            aria-label="Atalho de assinatura"
+            aria-hidden={!isVisible}
+        >
                     <div className="container mx-auto flex items-center gap-3">
                         <div className="min-w-0 flex-1">
                             <div className="flex flex-wrap items-baseline gap-x-1.5">
@@ -107,8 +105,6 @@ export function StickyMobileCTA() {
                             />
                         </a>
                     </div>
-                </motion.div>
-            )}
-        </AnimatePresence>
+        </div>
     )
 }

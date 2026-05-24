@@ -17,7 +17,7 @@ export function Navbar() {
 
     return (
         <header className="w-full border-b border-white/5 bg-surface-950/80 backdrop-blur-md">
-            <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto flex h-14 md:h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
                 <a href="/" className="flex items-center">
                     <img
                         src="/LogoRendiPro-v05-2026-sem-fundo.png"

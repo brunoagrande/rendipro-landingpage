@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
     ArrowRight,
     Check,
     Crown,
+    Lock,
+    Medal,
     Shield,
     Sparkles,
     X as XIcon,
@@ -13,11 +15,25 @@ import { useInfluencer } from '../contexts/InfluencerContext'
 import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
 import { cn } from '../lib/utils'
+import { FOUNDERS_DEADLINE } from '../lib/founders'
 import {
     ANNUAL_DISCOUNT_LABEL,
     getMonthlyEquivalent,
     getPlansByTipo,
 } from '../data/pricing-plans'
+
+const FOUNDER_DISCOUNT = 0.20
+
+function getTimeLeft() {
+    const diff = FOUNDERS_DEADLINE - new Date()
+    if (diff <= 0) return null
+    return {
+        days: Math.floor(diff / 864e5),
+        hours: Math.floor((diff % 864e5) / 36e5),
+        minutes: Math.floor((diff % 36e5) / 6e4),
+        seconds: Math.floor((diff % 6e4) / 1e3),
+    }
+}
 
 /**
  * Pricing v3 — 100% reescrito.
@@ -83,7 +99,16 @@ const trackPricingCta = (plan) => {
 
 export function Pricing() {
     const [billingPeriod, setBillingPeriod] = useState('anual')
+    const [timeLeft, setTimeLeft] = useState(getTimeLeft)
     const { influencerData, applyDiscount, getCheckoutUrl } = useInfluencer()
+
+    useEffect(() => {
+        const id = setInterval(() => setTimeLeft(getTimeLeft()), 1000)
+        return () => clearInterval(id)
+    }, [])
+
+    const foundersActive = !!timeLeft
+    const isFounderPricing = foundersActive && billingPeriod === 'anual'
 
     const plans = getPlansByTipo(billingPeriod)
 
@@ -103,18 +128,65 @@ export function Pricing() {
                     whileInView="show"
                     viewport={{ once: true, margin: '-80px' }}
                     transition={{ duration: 0.7, ease: easeSpring }}
-                    className="mb-12 text-center"
+                    className="mb-10 text-center"
                 >
-                    <Eyebrow variant="primary" className="mb-4">
-                        <Sparkles size={14} />
-                        Planos
+                    <Eyebrow variant={foundersActive ? 'warning' : 'primary'} className="mb-4">
+                        {foundersActive ? <Medal size={14} /> : <Sparkles size={14} />}
+                        {foundersActive ? 'Vagas de Fundador · Oferta por tempo limitado' : 'Planos'}
                     </Eyebrow>
                     <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        Quanto custa adiar a sua{' '}
-                        <span className="text-gradient-primary">aprovação</span>?
+                        {foundersActive ? (
+                            <>Trave o menor preço{' '}<span className="text-gradient-primary">para sempre.</span></>
+                        ) : (
+                            <>Quanto custa adiar a sua{' '}<span className="text-gradient-primary">aprovação</span>?</>
+                        )}
                     </h2>
                     <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/60">
-                        Quatro planos. Mesma plataforma. A diferença está no quanto você usa o que importa mais: redação corrigida por professor humano.
+                        {foundersActive
+                            ? 'Todos os planos anuais com 20% OFF. Quem entra agora paga o mesmo valor mesmo quando o preço subir lá na frente.'
+                            : 'Quatro planos, mesma plataforma. A diferença está no quanto você usa o que mais importa: a redação corrigida por professor humano.'}
+                    </p>
+                </motion.div>
+
+                {/* ─── Countdown (founder urgency) ──────────────────────── */}
+                {foundersActive && (
+                    <div className="mb-8 flex justify-center gap-2 sm:gap-3">
+                        {[
+                            { value: timeLeft.days, label: 'dias' },
+                            { value: timeLeft.hours, label: 'horas' },
+                            { value: timeLeft.minutes, label: 'min' },
+                            { value: timeLeft.seconds, label: 'seg' },
+                        ].map(({ value, label }) => (
+                            <div
+                                key={label}
+                                className="flex min-w-[58px] flex-col items-center rounded-xl border border-white/10 bg-surface-900 px-3 py-2.5 sm:min-w-[72px] sm:px-4 sm:py-3"
+                            >
+                                <span className="font-mono text-xl font-bold text-amber-400 sm:text-2xl">
+                                    {String(value).padStart(2, '0')}
+                                </span>
+                                <span className="mt-0.5 text-[10px] uppercase tracking-wider text-white/35">
+                                    {label}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {/* ─── Callout "vs 4 apps" ─────────────────────────────── */}
+                <motion.div
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: '-50px' }}
+                    transition={{ duration: 0.5, ease: easeSpring }}
+                    className="mx-auto mb-8 max-w-3xl rounded-2xl border border-white/10 bg-surface-900/60 px-5 py-4 text-center backdrop-blur-sm sm:text-left"
+                >
+                    <p className="text-body-sm leading-relaxed text-white/70">
+                        <span className="text-white/45">Hoje você junta</span>{' '}
+                        Anki, planilha, plataforma de questões e correção avulsa por{' '}
+                        <strong className="font-semibold text-white/85">~R$ 100–160/mês</strong>.{' '}
+                        <span className="text-white/45">No RendiPro,</span>{' '}
+                        <strong className="font-semibold text-white">tudo num plano só a partir de R$ 11,99/mês</strong>.
                     </p>
                 </motion.div>
 
@@ -143,9 +215,27 @@ export function Pricing() {
                             influencerData={influencerData}
                             applyDiscount={applyDiscount}
                             getCheckoutUrl={getCheckoutUrl}
+                            isFounderPricing={isFounderPricing}
                         />
                     ))}
                 </div>
+
+                {/* ─── Founder benefits strip ───────────────────────────── */}
+                {isFounderPricing && (
+                    <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
+                        {[
+                            { Icon: Lock, text: 'Preço travado para sempre' },
+                            { Icon: Medal, text: 'Selo Fundador no perfil' },
+                            { Icon: Zap, text: 'Acesso antecipado a novas features' },
+                            { Icon: Shield, text: 'Garantia de 7 dias' },
+                        ].map(({ Icon, text }) => (
+                            <span key={text} className="flex items-center gap-1.5 text-sm text-white/65">
+                                <Icon size={13} className="text-amber-400 shrink-0" />
+                                {text}
+                            </span>
+                        ))}
+                    </div>
+                )}
 
                 {/* ─── Common features banner ───────────────────────────── */}
                 <motion.div
@@ -245,13 +335,21 @@ function BillingToggle({ billingPeriod, setBillingPeriod }) {
     )
 }
 
-function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }) {
+function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, isFounderPricing }) {
     const isPopular = plan.popular === true
     const monthlyEq = plan.tipo === 'anual' ? getMonthlyEquivalent(plan) : null
 
-    const discountedPrice = applyDiscount(plan.preco_centavos)
+    // Influencer applica primeiro; Fundador (-20%) só rola sobre Anual quando ativo
+    const afterInfluencer = applyDiscount(plan.preco_centavos)
+    const discountedPrice = isFounderPricing
+        ? Math.round(afterInfluencer * (1 - FOUNDER_DISCOUNT))
+        : afterInfluencer
     const hasInfluencerDiscount =
-        influencerData && discountedPrice < plan.preco_centavos
+        influencerData && afterInfluencer < plan.preco_centavos
+    const showFounderBadge = isFounderPricing && plan.tipo === 'anual'
+    const founderSavingsAno = showFounderBadge
+        ? Math.round(afterInfluencer * FOUNDER_DISCOUNT)
+        : 0
 
     let savings = 0
     if (monthlyEq && plan.tipo === 'anual') {
@@ -293,11 +391,11 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
 
             {/* Price */}
             <div className="mb-6">
-                {hasInfluencerDiscount && (
+                {(hasInfluencerDiscount || showFounderBadge) && (
                     <p className="mb-1 text-caption text-white/40">
                         De{' '}
                         <span className="line-through">
-                            {formatPrice(plan.preco_centavos)}
+                            {formatPrice(showFounderBadge ? afterInfluencer : plan.preco_centavos)}
                         </span>
                     </p>
                 )}
@@ -310,9 +408,11 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                             <span
                                 className={cn(
                                     'text-display-sm font-extrabold',
-                                    hasInfluencerDiscount
-                                        ? 'text-success-400'
-                                        : 'text-white'
+                                    showFounderBadge
+                                        ? 'text-amber-400'
+                                        : hasInfluencerDiscount
+                                            ? 'text-success-400'
+                                            : 'text-white'
                                 )}
                             >
                                 {formatPrice(discountedPrice / 12)}
@@ -321,7 +421,13 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                         <p className="mt-1.5 text-caption text-white/45">
                             ou {formatPrice(discountedPrice)} à vista/ano
                         </p>
-                        {savings > 0 && !hasInfluencerDiscount && (
+                        {showFounderBadge && (
+                            <p className="mt-2.5 inline-flex items-center gap-1 rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-caption font-bold text-amber-400">
+                                <Lock size={10} />
+                                Travado p/ sempre · economiza {formatPrice(founderSavingsAno)}/ano
+                            </p>
+                        )}
+                        {savings > 0 && !hasInfluencerDiscount && !showFounderBadge && (
                             <p className="mt-2.5 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-caption font-bold text-emerald-400">
                                 Economize {formatPrice(savings)}/ano
                             </p>
@@ -408,13 +514,15 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
             <Button
                 as="a"
                 href={getCheckoutUrl(
-                    `https://app.rendipro.com.br/register?plano=${plan.slug}`
+                    showFounderBadge
+                        ? `https://app.rendipro.com.br/register?founder=true&plano=${plan.slug}&utm_content=fundador`
+                        : `https://app.rendipro.com.br/register?plano=${plan.slug}`
                 )}
                 onClick={() => trackPricingCta(plan)}
                 variant={isPopular ? 'primary' : 'secondary'}
                 size="md"
             >
-                Quero o {plan.nome_curto}
+                {showFounderBadge ? `Ser Fundador ${plan.nome_curto}` : `Quero o ${plan.nome_curto}`}
                 <ArrowRight
                     size={16}
                     className="transition-transform group-hover:translate-x-0.5"

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { RotateCcw } from 'lucide-react'
 import { cn } from '../../lib/utils'
 import { Kbd } from './KbdKeys'
@@ -61,11 +60,12 @@ export function InteractiveFlashcard({ className }) {
             {/* Glow underneath (premium feel) */}
             <div className="absolute -inset-8 -z-10 rounded-3xl bg-primary-500/20 blur-3xl" />
 
-            <motion.div
-                className="relative h-[280px] w-full"
-                animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                style={{ transformStyle: 'preserve-3d' }}
+            <div
+                className="relative h-[280px] w-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                style={{
+                    transformStyle: 'preserve-3d',
+                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                }}
             >
                 {/* FRONT — Pergunta */}
                 <div
@@ -141,7 +141,7 @@ export function InteractiveFlashcard({ className }) {
                         </div>
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </div>
     )
 }
