@@ -16,6 +16,8 @@ import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
 import { cn } from '../lib/utils'
 import { FOUNDERS_DEADLINE } from '../lib/founders'
+import { useSectionView } from '../lib/useSectionView'
+import { trackPricingToggle } from '../lib/tracking'
 import {
     ANNUAL_DISCOUNT_LABEL,
     getMonthlyEquivalent,
@@ -98,9 +100,15 @@ const trackPricingCta = (plan) => {
 }
 
 export function Pricing() {
-    const [billingPeriod, setBillingPeriod] = useState('anual')
+    const [billingPeriod, setBillingPeriodRaw] = useState('anual')
     const [timeLeft, setTimeLeft] = useState(getTimeLeft)
     const { influencerData, applyDiscount, getCheckoutUrl } = useInfluencer()
+    const sectionRef = useSectionView('pricing')
+
+    const setBillingPeriod = (period) => {
+        setBillingPeriodRaw(period)
+        trackPricingToggle(period)
+    }
 
     useEffect(() => {
         const id = setInterval(() => setTimeLeft(getTimeLeft()), 1000)
@@ -114,6 +122,7 @@ export function Pricing() {
 
     return (
         <section
+            ref={sectionRef}
             id="pricing"
             className="relative overflow-hidden py-24 sm:py-32"
         >

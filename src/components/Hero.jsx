@@ -1,6 +1,7 @@
 import { ArrowRight, Lock, Rocket, Shield, Sparkles } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { trackRegisterCta } from '../lib/tracking'
+import { useSectionView } from '../lib/useSectionView'
 import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
 import { ProductWindow } from './ui/ProductWindow'
@@ -16,9 +17,10 @@ const trackHeroCta = () => trackRegisterCta({ buttonText: 'Garantir preço Funda
 
 export function Hero() {
     const { getCheckoutUrl } = useInfluencer()
+    const sectionRef = useSectionView('hero')
 
     return (
-        <section className="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-24 lg:pt-20 lg:pb-28">
+        <section ref={sectionRef} className="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-24 lg:pt-20 lg:pb-28">
             {/* ─── Background layers ───────────────────────────────────── */}
             <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_top,_var(--color-primary-600)_0%,_transparent_55%)] opacity-10" />
             <div className="pointer-events-none absolute top-0 left-1/2 -z-10 h-[700px] w-[1100px] -translate-x-1/2 rounded-full bg-primary-500/15 blur-[140px]" />

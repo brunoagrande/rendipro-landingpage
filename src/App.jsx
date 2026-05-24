@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { TrustStrip } from './components/TrustStrip'
@@ -11,6 +11,7 @@ import { InvalidInfluencerModal } from './components/InvalidInfluencerModal'
 import { SEOHead } from './components/SEOHead'
 import { SchemaMarkup } from './components/SchemaMarkup'
 import { CookieBanner } from './components/CookieBanner'
+import { captureUtms, initScrollMilestones } from './lib/tracking'
 
 // BetaLanding é lazy: carrega Supabase (~170KB) e só é renderizado quando
 // VITE_BETA_MODE=true. Mantê-lo como import estático custava 170KB no
@@ -35,6 +36,13 @@ const Footer        = lazy(() => import('./components/Footer').then(m => ({ defa
 const BETA_MODE = import.meta.env.VITE_BETA_MODE === 'true'
 
 function App() {
+  // Captura UTMs no primeiro touch (persistem em sessionStorage) e
+  // engata os scroll milestones (25/50/75/100%) uma vez por load.
+  useEffect(() => {
+    captureUtms()
+    return initScrollMilestones()
+  }, [])
+
   if (BETA_MODE) {
     return (
       <Suspense fallback={<div className="min-h-screen bg-surface-950" />}>

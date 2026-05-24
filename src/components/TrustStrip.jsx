@@ -1,4 +1,5 @@
 import { StatBlock } from './ui/StatBlock'
+import { useSectionView } from '../lib/useSectionView'
 
 /**
  * TrustStrip — funde TrustBar (números) + LogoMarquee (exames) em uma seção só.
@@ -15,8 +16,10 @@ const CATEGORIAS = [
 ]
 
 export function TrustStrip() {
+    const sectionRef = useSectionView('trust_strip')
     return (
         <section
+            ref={sectionRef}
             aria-label="Catálogo de conteúdo e exames cobertos pelo RendiPro"
             className="border-y border-white/5 bg-surface-950/50 py-10 backdrop-blur-sm sm:py-14"
         >

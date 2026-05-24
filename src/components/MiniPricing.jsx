@@ -3,6 +3,7 @@ import { ArrowRight, Lock, Medal } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { FOUNDERS_DEADLINE } from '../lib/founders'
 import { getPlansByTipo } from '../data/pricing-plans'
+import { useSectionView } from '../lib/useSectionView'
 import { cn } from '../lib/utils'
 
 const FOUNDER_DISCOUNT = 0.20
@@ -40,6 +41,7 @@ const trackMiniCta = (planSlug, planNome) => {
 export function MiniPricing() {
     const [timeLeft, setTimeLeft] = useState(getTimeLeft)
     const { getCheckoutUrl } = useInfluencer()
+    const sectionRef = useSectionView('mini_pricing')
 
     useEffect(() => {
         const id = setInterval(() => setTimeLeft(getTimeLeft()), 1000 * 30)
@@ -52,6 +54,7 @@ export function MiniPricing() {
 
     return (
         <section
+            ref={sectionRef}
             aria-label="Oferta Fundador, preview rápido dos planos"
             className="relative overflow-hidden border-y border-amber-500/15 bg-gradient-to-b from-surface-950 via-amber-500/[0.04] to-surface-950 py-10 sm:py-14"
         >

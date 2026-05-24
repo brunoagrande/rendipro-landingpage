@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Quote } from 'lucide-react'
 import { Eyebrow } from './ui/Eyebrow'
+import { useSectionView } from '../lib/useSectionView'
 
 /**
  * FounderStory — substitui o antigo Testimonials.
@@ -31,8 +32,10 @@ const fadeUp = {
 }
 
 export function FounderStory() {
+    const sectionRef = useSectionView('founder_story')
     return (
         <section
+            ref={sectionRef}
             id="founder-story"
             className="relative overflow-hidden py-24 sm:py-32"
         >

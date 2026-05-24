@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Lock, Shield } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { trackRegisterCta } from '../lib/tracking'
+import { useSectionView } from '../lib/useSectionView'
 import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
 
@@ -11,9 +12,10 @@ const trackFinalCta = () => trackRegisterCta({ buttonText: 'Garantir preço Fund
 
 export function FinalCTA() {
     const { getCheckoutUrl } = useInfluencer()
+    const sectionRef = useSectionView('final_cta')
 
     return (
-        <section className="relative overflow-hidden py-20 sm:py-28">
+        <section ref={sectionRef} className="relative overflow-hidden py-20 sm:py-28">
             {/* Background layers */}
             <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--color-primary-600)_0%,_transparent_60%)] opacity-[0.12]" />
             <div className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[600px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-500/10 blur-[140px]" />

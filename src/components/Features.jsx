@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import { Eyebrow } from './ui/Eyebrow'
 import { ProductWindow } from './ui/ProductWindow'
+import { useSectionView } from '../lib/useSectionView'
 
 /**
  * Features v4 — grid 2x2 denso, 4 cards (reduzido de 6 em 2026-05-24).
@@ -31,8 +32,9 @@ const fadeUp = {
 }
 
 export function Features() {
+    const sectionRef = useSectionView('features')
     return (
-        <section id="features" className="relative overflow-hidden py-20 sm:py-28">
+        <section ref={sectionRef} id="features" className="relative overflow-hidden py-20 sm:py-28">
             {/* Subtle background glow */}
             <div className="pointer-events-none absolute top-[20%] left-1/2 -z-10 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-primary-500/[0.04] blur-[140px]" />
 

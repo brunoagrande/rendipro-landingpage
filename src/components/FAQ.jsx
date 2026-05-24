@@ -6,7 +6,8 @@ import { Eyebrow } from './ui/Eyebrow'
 import { Button } from './ui/Button'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { cn } from '../lib/utils'
-import { trackRegisterCta } from '../lib/tracking'
+import { trackRegisterCta, trackFaqOpen } from '../lib/tracking'
+import { useSectionView } from '../lib/useSectionView'
 
 /**
  * FAQ v4 — 7 perguntas (reduzido de 13 em 2026-05-24).
@@ -72,9 +73,16 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
 export function FAQ() {
     const [openIndex, setOpenIndex] = useState(null)
     const { getCheckoutUrl } = useInfluencer()
+    const sectionRef = useSectionView('faq')
+
+    const toggleQuestion = (index, question) => {
+        const willOpen = openIndex !== index
+        setOpenIndex(willOpen ? index : null)
+        if (willOpen) trackFaqOpen(index + 1, question)
+    }
 
     return (
-        <section id="faq" className="relative overflow-hidden py-24 sm:py-32">
+        <section ref={sectionRef} id="faq" className="relative overflow-hidden py-24 sm:py-32">
             {/* Subtle background */}
             <div className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-500/[0.04] blur-[120px]" />
 
@@ -113,9 +121,7 @@ export function FAQ() {
                             question={faq.question}
                             answer={faq.answer}
                             isOpen={openIndex === index}
-                            onToggle={() =>
-                                setOpenIndex(openIndex === index ? null : index)
-                            }
+                            onToggle={() => toggleQuestion(index, faq.question)}
                         />
                     ))}
                 </motion.div>
