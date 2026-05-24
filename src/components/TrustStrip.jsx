@@ -1,3 +1,4 @@
+import { Check } from 'lucide-react'
 import { StatBlock } from './ui/StatBlock'
 import { useSectionView } from '../lib/useSectionView'
 
@@ -40,28 +41,28 @@ export function TrustStrip() {
                     />
                 </div>
 
-                {/* Lista de exames (estática, legível) */}
+                {/* Cobertura — chips visuais com check */}
                 <div
-                    className="mt-10 border-t border-white/5 pt-6 animate-fade-in"
+                    className="mt-10 border-t border-white/5 pt-8 animate-fade-in"
                     style={{ animationDelay: '200ms' }}
                 >
-                    <p className="text-center text-micro font-semibold uppercase tracking-widest text-primary-400">
-                        Funciona pra qualquer prova
+                    <p className="text-center text-h3 sm:text-h2 font-bold tracking-tight text-white">
+                        Funciona pra{' '}
+                        <span className="text-gradient-primary">qualquer prova</span>.
                     </p>
-                    <ul className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-body-sm font-medium text-white/65">
-                        {CATEGORIAS.map((cat, i) => (
-                            <li key={cat} className="flex items-center gap-5">
-                                <span>{cat}</span>
-                                {i < CATEGORIAS.length - 1 && (
-                                    <span className="text-white/20" aria-hidden="true">
-                                        ·
-                                    </span>
-                                )}
+                    <ul className="mx-auto mt-5 flex max-w-3xl flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+                        {CATEGORIAS.map((cat) => (
+                            <li
+                                key={cat}
+                                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-surface-900/60 px-3 py-1.5 text-body-sm font-medium text-white/85 backdrop-blur-sm sm:px-3.5 sm:py-2"
+                            >
+                                <Check size={13} className="text-primary-400 shrink-0" />
+                                {cat}
                             </li>
                         ))}
                     </ul>
-                    <p className="mt-3 text-center text-caption text-white/40">
-                        Inclui FUVEST, UNICAMP, UFRGS, PRF, INSS, TJ, Banco do Brasil, Receita Federal e qualquer outra prova com edital público.
+                    <p className="mx-auto mt-4 max-w-xl text-center text-caption text-white/40">
+                        FUVEST, UNICAMP, UFRGS, PRF, INSS, TJ, Banco do Brasil, Receita Federal e qualquer outra prova com edital público.
                     </p>
                 </div>
             </div>
