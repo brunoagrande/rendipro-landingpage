@@ -3,48 +3,19 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 /**
- * Plugin custom: injeta <link rel="preload" as="font"> no <head> para as fontes
- * Inter latin/latin-ext geradas pelo @fontsource-variable. O nome do arquivo
- * inclui hash de build (ex: inter-latin-wght-normal-Dx4kXJAl.woff2), então
- * não dá pra hard-code no index.html. Esse plugin lê o bundle gerado e injeta
- * os preloads com o nome correto, garantindo que a fonte do LCP comece a
- * baixar antes do CSS ser parsed.
+ * NOTA — Preload de fontes removido em 2026-05-24:
+ * Tentamos injetar <link rel="preload" as="font"> pras fontes Inter latin/latin-ext,
+ * mas em 4G lento (Lighthouse mobile) o preload de ~133KB saturava a banda e o
+ * browser pausava a pintura do texto esperando a fonte (mesmo com font-display:swap),
+ * causando LCP saltar de 3.8s pra 8.0s. Reversão: confiar no font-display:swap
+ * (texto pinta com system-ui de cara, troca quando a fonte chegar).
  */
-function preloadCriticalFonts() {
-  const FONT_PATTERN = /inter-latin(-ext)?-wght-normal-[\w-]+\.woff2$/
-  const fontFiles = []
-
-  return {
-    name: 'preload-critical-fonts',
-    apply: 'build',
-    generateBundle(_, bundle) {
-      fontFiles.length = 0
-      for (const fileName of Object.keys(bundle)) {
-        if (FONT_PATTERN.test(fileName)) fontFiles.push(fileName)
-      }
-    },
-    transformIndexHtml(html) {
-      if (fontFiles.length === 0) return html
-      const links = fontFiles
-        .map(
-          (f) =>
-            `<link rel="preload" as="font" type="font/woff2" href="/${f}" crossorigin />`
-        )
-        .join('\n  ')
-      return html.replace(
-        '<meta name="viewport"',
-        `${links}\n  <meta name="viewport"`
-      )
-    },
-  }
-}
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    preloadCriticalFonts(),
   ],
   build: {
     rollupOptions: {
