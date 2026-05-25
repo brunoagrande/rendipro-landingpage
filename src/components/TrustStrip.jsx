@@ -61,9 +61,6 @@ export function TrustStrip() {
                             </li>
                         ))}
                     </ul>
-                    <p className="mx-auto mt-4 max-w-xl text-center text-caption text-white/40">
-                        FUVEST, UNICAMP, UFRGS, PRF, INSS, TJ, Banco do Brasil, Receita Federal e qualquer outra prova com edital público.
-                    </p>
                 </div>
             </div>
         </section>

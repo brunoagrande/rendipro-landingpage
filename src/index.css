@@ -57,11 +57,11 @@
   --color-info-500:    #3b82f6;
 
   /* ─── FONTS ───────────────────────────────────────────────────────────── */
-  /* Inter is loaded via index.html. "Inter Display" effect is achieved via
-     tighter letter-spacing at display sizes (see --text-display-* below). */
-  --font-sans:    Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: Inter, system-ui, -apple-system, sans-serif;
-  --font-mono:    'JetBrains Mono', ui-monospace, 'Menlo', 'Consolas', monospace;
+  /* Variable fonts self-hosted via @fontsource-variable (importadas em main.jsx).
+     "Inter Display" effect is achieved via tighter letter-spacing at display sizes. */
+  --font-sans:    'Inter Variable', Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Inter Variable', Inter, system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'Menlo', 'Consolas', monospace;
 
   /* ─── TYPE SCALE ──────────────────────────────────────────────────────── */
   /* Display sizes (hero, section headlines) — tight tracking */

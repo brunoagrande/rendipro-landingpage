@@ -28,12 +28,8 @@
     media="(min-width: 1024px)"
   />
 
-  <!-- Fontes via Bunny Fonts (espelho privacy-friendly do Google Fonts) -->
-  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
-  <link rel="preload" as="style"
-    href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800|jetbrains-mono:400,500&display=swap" />
-  <link rel="stylesheet"
-    href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800|jetbrains-mono:400,500&display=swap" />
+  <!-- Fontes self-hosted via @fontsource-variable (importadas em main.jsx).
+       Bunny Fonts removido em 2026-05-24 pra eliminar 1 RTT externo no LCP. -->
 
   <!-- Fallback estático para crawlers sociais (Facebook, WhatsApp, Instagram)
        que não executam JavaScript. O SEOHead sobrescreve no browser. -->

@@ -38,9 +38,10 @@ export function Hero() {
                             </Eyebrow>
                         </div>
 
+                        {/* H1 SEM animação — é o LCP element em mobile, qualquer fade-in c/ opacity:0
+                            inicial atrasa o LCP. Pintura instantânea pra Lighthouse marcar cedo. */}
                         <h1
-                            className="mt-6 text-display-sm sm:text-display-lg lg:text-display-xl text-white animate-fade-in-up-sm"
-                            style={{ animationDelay: '80ms' }}
+                            className="mt-6 text-display-sm sm:text-display-lg lg:text-display-xl text-white"
                         >
                             Cronograma pronto em <span className="text-gradient-primary">5 minutos</span>.{' '}
                             <span className="text-white/85">
@@ -48,9 +49,10 @@ export function Hero() {
                             </span>
                         </h1>
 
+                        {/* Subtitle SEM animação — candidato a LCP em desktop (texto longo).
+                            Pintura instantânea pra Lighthouse marcar cedo. */}
                         <p
-                            className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70 animate-fade-in-up"
-                            style={{ animationDelay: '200ms' }}
+                            className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
                             <span className="md:hidden">
                                 Você gera o plano do zero ou importa um que já está fazendo. Pode manter até 3 ao mesmo tempo. Tem 8 mil flashcards, 6 mil questões e provas oficiais. A partir de R$ 11,99/mês.
@@ -117,11 +119,9 @@ export function Hero() {
                             />
                         </div>
 
-                        {/* Main: Cronograma in ProductWindow with primary glow */}
-                        <div
-                            className="animate-fade-in-scale"
-                            style={{ animationDelay: '350ms' }}
-                        >
+                        {/* Main: Cronograma in ProductWindow — sem animation pra não atrasar
+                            LCP em desktop (em desktop esta imagem é o LCP element). */}
+                        <div>
                             <ProductWindow
                                 url="app.rendipro.com.br/cronograma"
                                 glow
@@ -130,6 +130,8 @@ export function Hero() {
                                 <img
                                     src="/screenshots/cronograma-semana.webp"
                                     alt="Cronograma semanal personalizado de estudos no RendiPro, visão semanal com matérias coloridas"
+                                    width="1920"
+                                    height="1440"
                                     className="block h-auto w-full"
                                     loading="eager"
                                     fetchPriority="high"
