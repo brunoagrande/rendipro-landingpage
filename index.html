@@ -53,15 +53,27 @@
   <meta name="twitter:image" content="https://rendipro.com.br/og-oficial.jpg" />
   <meta name="twitter:site" content="@rendipro" />
 
-  <!-- Meta Pixel — snippet padrão posicionado no <head> conforme recomendação Meta -->
+  <!-- Meta Pixel — stub síncrono (eventos vão pra queue antes da lib chegar),
+       mas o fetch do fbevents.js (~100KB) é deferido pra window.load para não
+       competir com o LCP por bandwidth. -->
   <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    (function (f) {
+      if (f.fbq) return;
+      var n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+    })(window);
     fbq('init', '963747769968663');
     fbq('track', 'PageView');
+    window.addEventListener('load', function () {
+      var t = document.createElement('script');
+      t.async = true;
+      t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    });
   </script>
   <noscript><img height="1" width="1" style="display:none" alt=""
     src="https://www.facebook.com/tr?id=963747769968663&ev=PageView&noscript=1"

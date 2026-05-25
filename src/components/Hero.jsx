@@ -130,8 +130,8 @@ export function Hero() {
                                 <img
                                     src="/screenshots/cronograma-semana.webp"
                                     alt="Cronograma semanal personalizado de estudos no RendiPro, visão semanal com matérias coloridas"
-                                    width="1920"
-                                    height="1440"
+                                    width="1200"
+                                    height="900"
                                     className="block h-auto w-full"
                                     loading="eager"
                                     fetchPriority="high"
