@@ -22,7 +22,7 @@ export function TrustStrip() {
         <section
             ref={sectionRef}
             aria-label="Catálogo de conteúdo e exames cobertos pelo RendiPro"
-            className="border-y border-white/5 bg-surface-950/50 py-10 backdrop-blur-sm sm:py-14"
+            className="border-y border-white/5 bg-surface-950/50 py-8 backdrop-blur-sm sm:py-12"
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* 4 stats */}
@@ -47,7 +47,7 @@ export function TrustStrip() {
                     style={{ animationDelay: '200ms' }}
                 >
                     <p className="text-center text-h3 sm:text-h2 font-bold tracking-tight text-white">
-                        Funciona pra{' '}
+                        Funciona para{' '}
                         <span className="text-gradient-primary">qualquer prova</span>.
                     </p>
                     <ul className="mx-auto mt-5 flex max-w-3xl flex-wrap items-center justify-center gap-2 sm:gap-2.5">

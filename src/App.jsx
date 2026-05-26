@@ -2,7 +2,6 @@ import { lazy, Suspense, useEffect } from 'react'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { TrustStrip } from './components/TrustStrip'
-import { MiniPricing } from './components/MiniPricing'
 import { StickyMobileCTA } from './components/StickyMobileCTA'
 import { InfluencerProvider } from './contexts/InfluencerContext'
 import { TopBanner } from './components/TopBanner'
@@ -68,11 +67,10 @@ function App() {
           <Navbar />
         </div>
         <InvalidInfluencerModal />
-        <main>
+        <main className="pb-24 lg:pb-0">
           <Hero />
           <TrustStrip />
-          <MiniPricing />
-          <Suspense fallback={<div className="h-96 bg-surface-950" />}>
+          <Suspense fallback={<div className="h-12 bg-surface-950" />}>
             <Features />
             <FounderStory />
             <Pricing />

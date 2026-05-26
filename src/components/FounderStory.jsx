@@ -37,7 +37,7 @@ export function FounderStory() {
         <section
             ref={sectionRef}
             id="founder-story"
-            className="relative overflow-hidden py-24 sm:py-32"
+            className="relative overflow-hidden py-14 sm:py-24"
         >
             {/* Background — glow subtle behind */}
             <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--color-primary-700)_0%,_transparent_60%)] opacity-[0.07]" />
@@ -116,7 +116,7 @@ export function FounderStory() {
                             Co-criadora · A inspiração
                         </div>
                         <blockquote className="mt-4 text-body-lg italic leading-relaxed text-white/85">
-                            "Quatro anos de preparação. Provas diferentes, editais diferentes, cada uma com seu cronograma, suas matérias, suas prioridades. Além de estudar, eu passava tempo demais tentando controlar o andamento de cada plano, reorganizando o que tinha ficado pra trás. Reclamava disso todo dia pro Bruno. Quando ele teve a ideia do RendiPro, foi inevitável pensar em quanto tempo eu teria economizado. Para quem busca aprovação em provas difíceis, organização não é um detalhe. É o que define o resultado."
+                            "Quatro anos de preparação. Provas diferentes, editais diferentes, cada uma com seu cronograma, suas matérias, suas prioridades. Além de estudar, eu passava tempo demais tentando controlar o andamento de cada plano, reorganizando o que tinha ficado para trás. Reclamava disso todo dia para o Bruno. Quando ele teve a ideia do RendiPro, foi inevitável pensar em quanto tempo eu teria economizado. Para quem busca aprovação em provas difíceis, organização não é um detalhe. É o que define o resultado."
                         </blockquote>
 
                         <div className="mt-8 flex items-center gap-4">

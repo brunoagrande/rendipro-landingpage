@@ -82,7 +82,7 @@ export function FAQ() {
     }
 
     return (
-        <section ref={sectionRef} id="faq" className="relative overflow-hidden py-24 sm:py-32">
+        <section ref={sectionRef} id="faq" className="relative overflow-hidden py-14 sm:py-24">
             {/* Subtle background */}
             <div className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-500/[0.04] blur-[120px]" />
 
@@ -135,7 +135,7 @@ export function FAQ() {
                     className="mx-auto mt-12 flex max-w-3xl flex-col items-center gap-3 rounded-2xl border border-primary-500/20 bg-gradient-to-br from-surface-900 via-primary-500/[0.04] to-surface-900 p-6 text-center sm:p-8"
                 >
                     <p className="text-body sm:text-body-lg text-white/80">
-                        Já tem o que precisa pra decidir?
+                        Já tem o que precisa para decidir?
                     </p>
                     <Button
                         as="a"

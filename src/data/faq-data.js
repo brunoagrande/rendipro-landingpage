@@ -25,7 +25,7 @@ export const faqItems = [
             'Depende do plano: 0 no Starter, 2 no Plus, 4 no Pro (mais escolhido), 8 no Ultra. Redação é igual a treino: ritmo regular funciona melhor que rajada de última hora. Por isso o saldo reinicia toda virada de mês. Você escreve 2, 4 ou 8 redações por mês, com ritmo, em vez de acumular e enviar tudo de uma vez. Se usar menos do que o plano permite num mês, o saldo reinicia na virada e não acumula.',
     },
     {
-        question: 'Posso usar pra ENEM e pra concurso ao mesmo tempo?',
+        question: 'Posso usar para ENEM e para concurso ao mesmo tempo?',
         answer:
             'Sim. Essa é uma das funcionalidades exclusivas do RendiPro. Você cria até 3 cronogramas simultâneos, cada um com seu próprio edital ou plano, suas matérias e sua rotina. Nenhuma outra plataforma faz isso. Suas métricas, redações e flashcards ficam separados entre os planos. Não misturam. Alternância 1-clique no dashboard.',
     },
@@ -33,13 +33,13 @@ export const faqItems = [
         question:
             'Como o RendiPro se compara com plataformas só de redação ou só de questões?',
         answer:
-            'Se você usa hoje uma plataforma de redação + uma de questões + Anki pra flashcards + planilha pra cronograma, está pagando 3-4 mensalidades separadas e gastando tempo trocando de aba. O RendiPro reúne tudo num plano só: redação corrigida por professor humano, +6.000 questões comentadas por alternativa, +8.000 flashcards SM-2 prontos, cronograma adaptado ao edital e provas oficiais. Geralmente sai por menos de 1/3 do total que você paga somando os outros apps.',
+            'Se você usa hoje uma plataforma de redação + uma de questões + Anki para flashcards + planilha para cronograma, está pagando 3-4 mensalidades separadas e gastando tempo trocando de aba. O RendiPro reúne tudo num plano só: redação corrigida por professor humano, +6.000 questões comentadas por alternativa, +8.000 flashcards SM-2 prontos, cronograma adaptado ao edital e provas oficiais. Geralmente sai por menos de 1/3 do total que você paga somando os outros apps.',
     },
     {
         question:
             'Já tentei outras plataformas e desisti em 2 semanas. Como sei que com o RendiPro vai ser diferente?',
         answer:
-            'Honesto: o que faz aluno desistir é setup chato no começo + falta de método pra continuar quando o ânimo passa. O RendiPro ataca os dois: setup leva 5 minutos (cola edital, escolhe formato, pronto), e tem mecanismos de constância (streak diário, freeze quando você precisa de folga, missões leves) pra te manter no jogo nos dias ruins. Mais: garantia de 7 dias. Se em 7 dias você sentir que não funciona pra você, devolvemos 100% com 1 clique. Você não perde nada por testar.',
+            'Honesto: o que faz aluno desistir é setup chato no começo + falta de método para continuar quando o ânimo passa. O RendiPro ataca os dois: setup leva 5 minutos (cola edital, escolhe formato, pronto), e tem mecanismos de constância (streak diário, freeze quando você precisa de folga, missões leves) para te manter no jogo nos dias ruins. Mais: garantia de 7 dias. Se em 7 dias você sentir que não funciona para você, devolvemos 100% com 1 clique. Você não perde nada por testar.',
     },
     {
         question: 'Posso cancelar a qualquer momento?',

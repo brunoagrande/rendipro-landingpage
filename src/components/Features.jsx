@@ -34,7 +34,7 @@ const fadeUp = {
 export function Features() {
     const sectionRef = useSectionView('features')
     return (
-        <section ref={sectionRef} id="features" className="relative overflow-hidden py-20 sm:py-28">
+        <section ref={sectionRef} id="features" className="relative overflow-hidden py-12 sm:py-20">
             {/* Subtle background glow */}
             <div className="pointer-events-none absolute top-[20%] left-1/2 -z-10 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-primary-500/[0.04] blur-[140px]" />
 
@@ -129,7 +129,7 @@ export function Features() {
                             <span className="text-gradient-primary">3 em paralelo</span>.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Gera do zero pelas horas que você tem por dia, ou importa o plano que você já está seguindo (PDF ou planilha). Estuda pra ENEM e concurso ao mesmo tempo sem misturar matérias.
+                            Gera do zero pelas horas que você tem por dia, ou importa o plano que você já está seguindo (PDF ou planilha). Estuda para ENEM e concurso ao mesmo tempo sem misturar matérias.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -221,7 +221,7 @@ export function Features() {
                             <span className="text-gradient-primary">algoritmo do Anki</span>.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            O algoritmo SM-2 decide quando você deve revisar cada card pra fixar na memória de longo prazo. 69 baralhos cobrindo todas as matérias do ENEM e ensino médio. Você abre o app e começa, sem montar deck antes.
+                            O algoritmo SM-2 decide quando você deve revisar cada card para fixar na memória de longo prazo. 69 baralhos cobrindo todas as matérias do ENEM e ensino médio. Você abre o app e começa, sem montar deck antes.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -234,7 +234,7 @@ export function Features() {
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span>Atalhos 1/2/3/4 no teclado pra revisar rápido</span>
+                                <span>Atalhos 1/2/3/4 no teclado para revisar rápido</span>
                             </li>
                         </ul>
                         <div className="mt-5 grid grid-cols-2 gap-3">

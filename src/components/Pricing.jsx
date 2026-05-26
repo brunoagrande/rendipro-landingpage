@@ -124,7 +124,7 @@ export function Pricing() {
         <section
             ref={sectionRef}
             id="pricing"
-            className="relative overflow-hidden py-24 sm:py-32"
+            className="relative overflow-hidden py-14 sm:py-24"
         >
             {/* Background glow */}
             <div className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[700px] w-[1100px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-500/[0.05] blur-[140px]" />
