@@ -107,23 +107,34 @@
     });
   </script>
 
+  <!-- GA4 — stub SÍNCRONO no head (define window.gtag que enfileira em
+       dataLayer). A lib gtag/js carrega no <body> via load event (não bloqueia
+       LCP); quando ela chega, consome o dataLayer e processa tudo que foi
+       enfileirado antes. Sem esse stub, todos os section_view/cta_click que
+       disparam ANTES do load eram silenciosamente perdidos. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-XCS1ES8VZY');
+  </script>
+
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 
-  <!-- Google Analytics 4 — carregado após o conteúdo principal para não bloquear LCP -->
+  <!-- Google Analytics 4 — fetch da lib gtag/js deferido pra window.load (não
+       bloqueia LCP). O stub window.gtag e config('G-...') estão no <head>, então
+       eventos disparados antes do load são enfileirados em dataLayer e
+       processados quando a lib chega. -->
   <script>
     window.addEventListener('load', function () {
       var s = document.createElement('script');
       s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XCS1ES8VZY';
       s.async = true;
       document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XCS1ES8VZY');
     });
   </script>
 </body>
