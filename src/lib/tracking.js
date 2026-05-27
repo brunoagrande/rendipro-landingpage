@@ -2,21 +2,35 @@
  * Tracking helpers — GA4 + Meta Pixel.
  *
  * Eventos disparados:
- *  - cta_click (já existia): button_text + location + utm_*
- *  - section_view (novo): section_name quando 50% da seção entra no viewport
- *  - scroll_milestone (novo): percent (25 | 50 | 75 | 100)
- *  - faq_open (novo): question_index + question (primeiros 80 chars)
- *  - pricing_toggle (novo): period (mensal | anual)
- *
- * Meta Pixel continua disparando InitiateCheckout nos CTAs de checkout.
+ *  - cta_click (GA4): button_text + location + utm_*
+ *  - section_view (GA4): section_name quando 50% da seção entra no viewport
+ *  - scroll_milestone (GA4): percent (25 | 50 | 75 | 100)
+ *  - faq_open (GA4): question_index + question (primeiros 80 chars)
+ *  - pricing_toggle (GA4): period (mensal | anual)
+ *  - InitiateCheckout (Meta Pixel): value + currency + content_ids + content_name +
+ *    content_type + num_items, com eventID UUID v4 pra deduplicação futura com CAPI.
  *
  * UTMs (utm_source/medium/campaign/content/term) são capturados na primeira
  * navegação e persistidos em sessionStorage para enriquecer todos os eventos
  * subsequentes da mesma sessão.
+ *
+ * O event_id do último InitiateCheckout fica em sessionStorage. Quando o app
+ * (app.rendipro.com.br) for ter Purchase no CAPI sincronizado com este Pixel,
+ * vamos passar esse event_id via query param no redirect (?fb_event_id=...).
+ * Por ora só persistimos pra ter o hook pronto.
  */
 
 const UTM_KEY = 'rp_utm_v1'
 const UTM_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
+const CHECKOUT_EVENT_ID_KEY = 'rp_checkout_event_id_v1'
+
+function generateEventId() {
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+        return crypto.randomUUID()
+    }
+    // Fallback pra browsers muito antigos (sem crypto.randomUUID)
+    return 'rp-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10)
+}
 
 /**
  * Lê UTMs da URL e persiste em sessionStorage (uma vez por sessão).
@@ -54,22 +68,87 @@ function getUtms() {
 }
 
 /**
- * CTA de registro — dispara Meta Pixel InitiateCheckout + GA4 cta_click.
- * Enriquece com UTMs da sessão.
+ * Dispara o Meta Pixel InitiateCheckout com parâmetros enriquecidos
+ * (value, content_ids, etc) e eventID UUID pra deduplicação futura com CAPI.
+ *
+ * Use isso em qualquer botão que leve o usuário pra um fluxo de checkout/registro.
+ * Quando o usuário já escolheu um plano específico (ex: clicou "Garantir Pro"
+ * no Pricing), passe `plan` pra enriquecer o evento com value/content_ids.
+ * Quando ainda não escolheu (ex: CTA do Hero), passe sem plan que mandamos
+ * só currency + num_items (sem value falso).
+ *
+ * Retorna o eventId gerado — quem chama pode passar via query param pro
+ * checkout (ex: ?fb_event_id=<uuid>) pra correlação com CAPI server-side.
  */
-export function trackRegisterCta({ buttonText, location }) {
-    if (typeof window === 'undefined') return
+export function fireInitiateCheckout({ plan } = {}) {
+    if (typeof window === 'undefined' || !window.fbq) return null
 
-    if (window.fbq) {
-        window.fbq('track', 'InitiateCheckout')
+    const eventId = generateEventId()
+
+    try {
+        sessionStorage.setItem(CHECKOUT_EVENT_ID_KEY, eventId)
+    } catch {
+        // private mode / storage bloqueado — segue sem persistir
     }
+
+    const params = {
+        currency: 'BRL',
+        num_items: 1,
+    }
+
+    if (plan) {
+        params.value = plan.preco_centavos / 100
+        params.content_ids = [plan.slug]
+        params.content_name = plan.nome
+        params.content_type = 'subscription'
+        params.content_category = plan.tipo || 'subscription'
+    }
+    // Sem plan: NÃO enviamos value (não inflar com 0 ou valor falso —
+    // Meta interpreta value=0 como conversão sem valor, polui aprendizado).
+
+    window.fbq('track', 'InitiateCheckout', params, { eventID: eventId })
+
+    return eventId
+}
+
+/**
+ * Retorna o eventId do último InitiateCheckout disparado nesta sessão.
+ * Usado pra passar via query param pro checkout, correlacionando com CAPI.
+ */
+export function getLastCheckoutEventId() {
+    if (typeof window === 'undefined') return null
+    try {
+        return sessionStorage.getItem(CHECKOUT_EVENT_ID_KEY) || null
+    } catch {
+        return null
+    }
+}
+
+/**
+ * CTA de registro — dispara Meta Pixel InitiateCheckout (via fireInitiateCheckout)
+ * + GA4 cta_click. Enriquece com UTMs da sessão.
+ *
+ * Quando o CTA tem um plano específico associado (Pricing cards), passe `plan`
+ * pra Meta receber value/content_ids. Sem plan, só dispara o evento básico.
+ */
+export function trackRegisterCta({ buttonText, location, plan }) {
+    if (typeof window === 'undefined') return null
+
+    const eventId = fireInitiateCheckout({ plan })
+
     if (window.gtag) {
         window.gtag('event', 'cta_click', {
             button_text: buttonText,
             location,
+            ...(plan && {
+                plan_slug: plan.slug,
+                plan_value: plan.preco_centavos / 100,
+            }),
             ...getUtms(),
         })
     }
+
+    return eventId
 }
 
 /**

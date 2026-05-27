@@ -17,7 +17,7 @@ import { Eyebrow } from './ui/Eyebrow'
 import { cn } from '../lib/utils'
 import { FOUNDERS_DEADLINE } from '../lib/founders'
 import { useSectionView } from '../lib/useSectionView'
-import { trackPricingToggle } from '../lib/tracking'
+import { trackPricingToggle, trackRegisterCta } from '../lib/tracking'
 import {
     ANNUAL_DISCOUNT_LABEL,
     getMonthlyEquivalent,
@@ -83,20 +83,14 @@ function formatPrice(cents) {
 }
 
 const trackPricingCta = (plan) => {
-    if (typeof window !== 'undefined' && window.fbq) {
-        window.fbq('track', 'InitiateCheckout', {
-            content_name: plan.nome,
-            content_category: plan.tipo,
-            value: plan.preco_centavos / 100,
-            currency: 'BRL',
-        })
-    }
-    if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'cta_click', {
-            button_text: `Assinar ${plan.nome}`,
-            location: 'pricing',
-        })
-    }
+    // Centralizado em trackRegisterCta: dispara Meta InitiateCheckout
+    // (value + content_ids + content_name + content_type + num_items + currency + eventID UUID)
+    // e GA4 cta_click (com plan_slug/plan_value + UTMs).
+    trackRegisterCta({
+        buttonText: `Assinar ${plan.nome}`,
+        location: 'pricing',
+        plan,
+    })
 }
 
 export function Pricing() {

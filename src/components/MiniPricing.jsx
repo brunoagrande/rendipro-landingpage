@@ -4,6 +4,7 @@ import { useInfluencer } from '../contexts/InfluencerContext'
 import { FOUNDERS_DEADLINE } from '../lib/founders'
 import { getPlansByTipo } from '../data/pricing-plans'
 import { useSectionView } from '../lib/useSectionView'
+import { trackRegisterCta } from '../lib/tracking'
 import { cn } from '../lib/utils'
 
 const FOUNDER_DISCOUNT = 0.20
@@ -23,19 +24,15 @@ function formatBRL(cents) {
     return (cents / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 }
 
-const trackMiniCta = (planSlug, planNome) => {
-    if (typeof window !== 'undefined' && window.fbq) {
-        window.fbq('track', 'InitiateCheckout', {
-            content_name: `Fundador ${planSlug}`,
-            currency: 'BRL',
-        })
-    }
-    if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'cta_click', {
-            button_text: `Garantir Fundador ${planNome}`,
-            location: 'mini_pricing',
-        })
-    }
+const trackMiniCta = (plan) => {
+    // Centralizado em trackRegisterCta: dispara Meta InitiateCheckout
+    // enriquecido (value + content_ids + content_name + content_type + num_items + eventID UUID)
+    // e GA4 cta_click.
+    trackRegisterCta({
+        buttonText: `Garantir Fundador ${plan.nome_curto}`,
+        location: 'mini_pricing',
+        plan,
+    })
 }
 
 export function MiniPricing() {
@@ -91,7 +88,7 @@ export function MiniPricing() {
                                 <a
                                     key={plan.id_plano}
                                     href={url}
-                                    onClick={() => trackMiniCta(plan.slug, plan.nome_curto)}
+                                    onClick={() => trackMiniCta(plan)}
                                     className={cn(
                                         'group relative flex w-[200px] shrink-0 flex-col justify-between rounded-2xl border p-4 transition-all sm:w-auto',
                                         'active:scale-[0.98]',
