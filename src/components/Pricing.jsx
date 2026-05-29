@@ -6,6 +6,7 @@ import {
     Crown,
     Lock,
     Medal,
+    Plus as PlusIcon,
     Shield,
     Sparkles,
     X as XIcon,
@@ -377,11 +378,11 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
                     : 'border border-white/10 bg-surface-900/60 backdrop-blur-sm'
             )}
         >
-            {/* Popular badge */}
+            {/* Popular badge — Starter como entry point recomendado */}
             {isPopular && (
                 <div className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-primary-500 px-3 py-1 text-micro font-bold uppercase tracking-wider text-surface-950 shadow-elevation-2">
                     <Crown size={11} />
-                    Mais escolhido
+                    Comece aqui
                 </div>
             )}
 
@@ -467,13 +468,11 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
                         </>
                     ) : (
                         <>
-                            <XIcon size={16} className="mt-0.5 shrink-0 text-white/30" />
-                            <span className="flex flex-col text-white/40">
-                                <span className="line-through">
-                                    Correção de redação por professor humano
-                                </span>
-                                <span className="text-caption text-white/50">
-                                    Disponível a partir do Plus
+                            <PlusIcon size={16} className="mt-0.5 shrink-0 text-primary-400" />
+                            <span className="flex flex-col text-white/70">
+                                <span>Quer redação corrigida por humano?</span>
+                                <span className="text-caption text-white/55">
+                                    Faça upgrade pro Plus quando precisar
                                 </span>
                             </span>
                         </>

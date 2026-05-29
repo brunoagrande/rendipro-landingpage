@@ -13,7 +13,7 @@ import { InteractiveFlashcard } from './ui/InteractiveFlashcard'
  * reduzir LCP mobile de 4.8s para <2.5s.
  */
 
-const trackHeroCta = () => trackRegisterCta({ buttonText: 'Garantir preço Fundador', location: 'hero' })
+const trackHeroCta = () => trackRegisterCta({ buttonText: 'Comece por R$ 11,99/mês', location: 'hero' })
 
 export function Hero() {
     const { getCheckoutUrl } = useInfluencer()
@@ -43,9 +43,9 @@ export function Hero() {
                         <h1
                             className="mt-6 text-display-sm sm:text-display-lg lg:text-display-xl text-white"
                         >
-                            Cronograma pronto em <span className="text-gradient-primary">5 minutos</span>.{' '}
+                            Seu cronograma de estudos pronto em <span className="text-gradient-primary">5 minutos</span>.{' '}
                             <span className="text-white/85">
-                                Redação corrigida por <span className="text-gradient-primary">professor de verdade</span> em até 72h.
+                                Tudo que você precisa para estudar com <span className="text-gradient-primary">método</span>.
                             </span>
                         </h1>
 
@@ -55,10 +55,10 @@ export function Hero() {
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
                             <span className="md:hidden">
-                                Você gera o plano do zero ou importa um que já está fazendo. Pode manter até 3 ao mesmo tempo. Tem 8 mil flashcards, 6 mil questões e provas oficiais. A partir de R$ 11,99/mês.
+                                Plano adaptado em minutos, 8 mil flashcards, 6 mil questões e provas oficiais. Redação corrigida por humano disponível como upgrade. <strong className="font-semibold text-white">A partir de R$ 11,99/mês.</strong>
                             </span>
                             <span className="hidden md:inline">
-                                Você gera o plano em poucos minutos ou importa um que já está fazendo. Pode manter <strong className="font-semibold text-white">até 3 cronogramas ao mesmo tempo</strong>. Tem 8 mil flashcards, 6 mil questões comentadas e as provas oficiais com cronômetro. A partir de R$ 11,99/mês.
+                                Você gera o plano em poucos minutos ou importa um que já está fazendo. Pode manter <strong className="font-semibold text-white">até 3 cronogramas ao mesmo tempo</strong>. Tem 8 mil flashcards, 6 mil questões comentadas e as provas oficiais com cronômetro. Quer redação corrigida por humano? Disponível como upgrade. <strong className="font-semibold text-white">A partir de R$ 11,99/mês.</strong>
                             </span>
                         </p>
 
@@ -68,12 +68,12 @@ export function Hero() {
                         >
                             <Button
                                 as="a"
-                                href={getCheckoutUrl('https://app.rendipro.com.br/register?founder=true&utm_content=hero')}
+                                href={getCheckoutUrl('https://app.rendipro.com.br/register?founder=true&plano=starter-anual&utm_content=hero')}
                                 onClick={trackHeroCta}
                                 variant="primary"
                                 size="lg"
                             >
-                                Garantir preço Fundador
+                                Comece por R$ 11,99/mês
                                 <Rocket
                                     size={20}
                                     className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"

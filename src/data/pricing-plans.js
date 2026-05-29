@@ -23,7 +23,7 @@ export const PRICING_PLANS = [
         nome: 'Starter Mensal',
         nome_curto: 'Starter',
         slug: 'starter-mensal',
-        descricao: 'Cronograma, flashcards e questões completos — ideal para quem não precisa de correção de redação ainda.',
+        descricao: 'Comece pelo essencial: cronograma adaptado, flashcards e questões. Adicione redação corrigida por humano com upgrade pro Plus a qualquer momento.',
         tipo: 'mensal',
         preco_centavos: 2490,
         redacoes_por_mes: 0,
@@ -33,6 +33,7 @@ export const PRICING_PLANS = [
         chat_ia_questao_por_mes: 30,
         ordem: 1,
         ativo: true,
+        popular: true,
     },
     {
         id_plano: 'a48d12ce-7d08-47c6-90e6-2d1ff542a996',
@@ -65,7 +66,6 @@ export const PRICING_PLANS = [
         chat_ia_questao_por_mes: 120,
         ordem: 3,
         ativo: true,
-        popular: true,
     },
     {
         id_plano: '8becb6a4-11e4-4567-8cc6-2abcc2cc120a',
@@ -90,7 +90,7 @@ export const PRICING_PLANS = [
         nome: 'Starter Anual',
         nome_curto: 'Starter',
         slug: 'starter-anual',
-        descricao: 'Cronograma, flashcards e questões completos por um ano — ideal para quem não precisa de correção de redação ainda.',
+        descricao: 'Comece pelo essencial: cronograma adaptado, flashcards e questões por um ano. Adicione redação corrigida por humano com upgrade a qualquer momento.',
         tipo: 'anual',
         preco_centavos: 17990,
         redacoes_por_mes: 0,
@@ -100,6 +100,7 @@ export const PRICING_PLANS = [
         chat_ia_questao_por_mes: 100,
         ordem: 5,
         ativo: true,
+        popular: true,
     },
     {
         id_plano: 'e196bcb3-6997-4f66-b7b9-40f95f56a776',
@@ -132,7 +133,6 @@ export const PRICING_PLANS = [
         chat_ia_questao_por_mes: 400,
         ordem: 7,
         ativo: true,
-        popular: true,
     },
     {
         id_plano: '4fe17fae-3b16-4670-8eec-bbde7f0510af',
