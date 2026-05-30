@@ -53,9 +53,13 @@
   <meta name="twitter:image" content="https://rendipro.com.br/og-oficial.jpg" />
   <meta name="twitter:site" content="@rendipro" />
 
-  <!-- Meta Pixel — stub síncrono (eventos vão pra queue antes da lib chegar),
-       mas o fetch do fbevents.js (~100KB) é deferido pra window.load para não
-       competir com o LCP por bandwidth. -->
+  <!-- Meta Pixel — stub síncrono (eventos vão pra queue antes da lib chegar).
+       O fetch do fbevents.js (~100KB, async) é disparado no DOMContentLoaded
+       em vez de window.load: DCL acontece logo após o HTML ser parsed (~1-2s
+       em 4G), bem antes do load (que espera imagens/fontes — 5-10s em 4G).
+       Antes (defer pra load), ~40% dos PageView se perdiam: usuário saía
+       antes do load disparar e a queue do fbq nunca era despachada. Como
+       a tag é async, não bloqueia o LCP. -->
   <script>
     (function (f) {
       if (f.fbq) return;
@@ -67,13 +71,18 @@
     })(window);
     fbq('init', '963747769968663');
     fbq('track', 'PageView');
-    window.addEventListener('load', function () {
+    function loadFbEventsLib() {
       var t = document.createElement('script');
       t.async = true;
       t.src = 'https://connect.facebook.net/en_US/fbevents.js';
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(t, s);
-    });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadFbEventsLib);
+    } else {
+      loadFbEventsLib();
+    }
   </script>
   <noscript><img height="1" width="1" style="display:none" alt=""
     src="https://www.facebook.com/tr?id=963747769968663&ev=PageView&noscript=1"
