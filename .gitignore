@@ -22,3 +22,16 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Memória institucional — vive no repo privado rendipro-ops
+campanhas/
+audits/
+social-media/
+
+# Config local do Claude Code
+.claude/
+
+# Artefatos de auditoria gerados ad-hoc (rodar de novo se precisar)
+lighthouse-mobile.json
+lighthouse-*.json
+psi-*.json
