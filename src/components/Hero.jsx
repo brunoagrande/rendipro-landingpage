@@ -13,7 +13,7 @@ import { InteractiveFlashcard } from './ui/InteractiveFlashcard'
  * reduzir LCP mobile de 4.8s para <2.5s.
  */
 
-const trackHeroCta = () => trackRegisterCta({ buttonText: 'Comece por R$ 11,99/mês', location: 'hero' })
+const trackHeroCta = () => trackRegisterCta({ buttonText: 'Comece por R$ 14,99/mês', location: 'hero' })
 
 export function Hero() {
     const { getCheckoutUrl } = useInfluencer()
@@ -55,10 +55,10 @@ export function Hero() {
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
                             <span className="md:hidden">
-                                Plano adaptado em minutos, 8 mil flashcards, 6 mil questões e provas oficiais. Redação corrigida por humano disponível como upgrade. <strong className="font-semibold text-white">A partir de R$ 11,99/mês.</strong>
+                                Plano adaptado em minutos, 8 mil flashcards, 6 mil questões e provas oficiais. Redação corrigida por humano disponível como upgrade. <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
                             </span>
                             <span className="hidden md:inline">
-                                Você gera o plano em poucos minutos ou importa um que já está fazendo. Pode manter <strong className="font-semibold text-white">até 3 cronogramas ao mesmo tempo</strong>. Tem 8 mil flashcards, 6 mil questões comentadas e as provas oficiais com cronômetro. Quer redação corrigida por humano? Disponível como upgrade. <strong className="font-semibold text-white">A partir de R$ 11,99/mês.</strong>
+                                Você gera o plano em poucos minutos ou importa um que já está fazendo. Pode manter <strong className="font-semibold text-white">até 3 cronogramas ao mesmo tempo</strong>. Tem 8 mil flashcards, 6 mil questões comentadas e as provas oficiais com cronômetro. Quer redação corrigida por humano? Disponível como upgrade. <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
                             </span>
                         </p>
 
@@ -68,12 +68,12 @@ export function Hero() {
                         >
                             <Button
                                 as="a"
-                                href={getCheckoutUrl('https://app.rendipro.com.br/register?founder=true&plano=starter-anual&utm_content=hero')}
+                                href={getCheckoutUrl('https://app.rendipro.com.br/register?plano=starter-anual&utm_content=hero')}
                                 onClick={trackHeroCta}
                                 variant="primary"
                                 size="lg"
                             >
-                                Comece por R$ 11,99/mês
+                                Comece por R$ 14,99/mês
                                 <Rocket
                                     size={20}
                                     className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"

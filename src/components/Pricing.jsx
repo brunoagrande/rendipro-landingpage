@@ -190,7 +190,7 @@ export function Pricing() {
                         Anki, planilha, plataforma de questões e correção avulsa por{' '}
                         <strong className="font-semibold text-white/85">~R$ 100–160/mês</strong>.{' '}
                         <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">tudo num plano só a partir de R$ 11,99/mês</strong>.
+                        <strong className="font-semibold text-white">tudo num plano só a partir de R$ 14,99/mês</strong>.
                     </p>
                 </motion.div>
 

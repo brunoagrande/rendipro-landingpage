@@ -16,7 +16,7 @@ import { useSectionView } from '../lib/useSectionView'
 
 const easeSpring = [0.16, 1, 0.3, 1]
 
-const trackFaqCta = () => trackRegisterCta({ buttonText: 'Garantir preço Fundador', location: 'faq' })
+const trackFaqCta = () => trackRegisterCta({ buttonText: 'Começar agora', location: 'faq' })
 
 function FAQItem({ question, answer, isOpen, onToggle }) {
     return (
@@ -140,13 +140,13 @@ export function FAQ() {
                     <Button
                         as="a"
                         href={getCheckoutUrl(
-                            'https://app.rendipro.com.br/register?founder=true&utm_content=faq'
+                            'https://app.rendipro.com.br/register?plano=starter-anual&utm_content=faq'
                         )}
                         onClick={trackFaqCta}
                         variant="primary"
                         size="lg"
                     >
-                        Garantir preço Fundador
+                        Começar agora
                         <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                     </Button>
                     <p className="flex items-center gap-2 text-caption text-white/55">

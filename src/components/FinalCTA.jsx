@@ -8,7 +8,7 @@ import { Eyebrow } from './ui/Eyebrow'
 
 const easeSpring = [0.16, 1, 0.3, 1]
 
-const trackFinalCta = () => trackRegisterCta({ buttonText: 'Garantir preço Fundador', location: 'final_cta' })
+const trackFinalCta = () => trackRegisterCta({ buttonText: 'Começar agora', location: 'final_cta' })
 
 export function FinalCTA() {
     const { getCheckoutUrl } = useInfluencer()
@@ -46,14 +46,14 @@ export function FinalCTA() {
                         <Button
                             as="a"
                             href={getCheckoutUrl(
-                                'https://app.rendipro.com.br/register?founder=true&utm_content=final_cta'
+                                'https://app.rendipro.com.br/register?plano=starter-anual&utm_content=final_cta'
                             )}
                             onClick={trackFinalCta}
                             variant="primary"
                             size="lg"
                             className="sm:px-12"
                         >
-                            Garantir preço Fundador
+                            Começar agora
                             <ArrowRight
                                 size={18}
                                 className="transition-transform group-hover:translate-x-1"

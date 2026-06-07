@@ -78,22 +78,19 @@ export function StickyMobileCTA() {
                                 <span className="text-body-sm font-bold text-white">
                                     Starter Anual
                                 </span>
-                                <span className="text-[11px] font-medium text-white/45 line-through decoration-white/45">
-                                    R$ 14,99
-                                </span>
                                 <span className="text-body font-extrabold text-primary-300">
-                                    R$ 11,99
+                                    R$ 14,99
                                     <span className="text-[11px] font-medium text-white/60">/mês</span>
                                 </span>
                             </div>
                             <p className="mt-0.5 flex items-center gap-1 text-[10px] text-white/55">
                                 <Shield size={10} className="text-primary-400" />
-                                Oferta Fundadores · Garantia 7 dias
+                                Cancela quando quiser · Garantia 7 dias
                             </p>
                         </div>
                         <a
                             href={getCheckoutUrl(
-                                'https://app.rendipro.com.br/register?founder=true&plano=starter-anual&utm_content=sticky'
+                                'https://app.rendipro.com.br/register?plano=starter-anual&utm_content=sticky'
                             )}
                             onClick={trackStickyCta}
                             className="group inline-flex shrink-0 items-center gap-1.5 rounded-full bg-primary-500 px-5 py-2.5 text-body-sm font-bold text-surface-950 shadow-lg shadow-primary-500/30 transition-all active:scale-95 hover:bg-primary-400"
