@@ -15,11 +15,6 @@ const targets = [
   'screenshots/flashcard-pergunta.png',
   'screenshots/flashcard-resposta.png',
   'screenshots/planos-estudo.png',
-  'screenshots/prova-cronometro.png',
-  'screenshots/questao-comentada.png',
-  'screenshots/redacao-comentarios.png',
-  'screenshots/redacao-manuscrita.png',
-  'screenshots/redacao-radar.png',
 ]
 
 for (const rel of targets) {
