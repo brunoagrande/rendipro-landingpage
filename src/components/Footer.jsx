@@ -12,7 +12,7 @@ export function Footer() {
                             />
                         </div>
                         <p className="mt-4 max-w-sm text-body-sm leading-relaxed text-white/55">
-                            Plataforma completa de aprovação. Cronograma, flashcards, questões, provas oficiais e correção de redação manuscrita por professor humano. Tudo num plano só.
+                            Plataforma de estudos para concursos, OAB, ENEM e vestibulares. Cronograma montado em minutos, flashcards e revisão no momento certo com repetição espaçada. Tudo num plano só.
                         </p>
                     </div>
                     <div>

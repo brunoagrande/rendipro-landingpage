@@ -23,7 +23,7 @@ export const PRICING_PLANS = [
         nome: 'Starter Mensal',
         nome_curto: 'Starter',
         slug: 'starter-mensal',
-        descricao: 'Comece pelo essencial: cronograma adaptado, flashcards e questões. Adicione redação corrigida por humano com upgrade pro Plus a qualquer momento.',
+        descricao: 'Cronograma montado em minutos, flashcards e revisão no momento certo. Tudo num plano só.',
         tipo: 'mensal',
         preco_centavos: 2490,
         redacoes_por_mes: 0,
@@ -34,6 +34,7 @@ export const PRICING_PLANS = [
         ordem: 1,
         ativo: true,
         popular: true,
+        exibir_landing: true,
     },
     {
         id_plano: 'a48d12ce-7d08-47c6-90e6-2d1ff542a996',
@@ -90,7 +91,7 @@ export const PRICING_PLANS = [
         nome: 'Starter Anual',
         nome_curto: 'Starter',
         slug: 'starter-anual',
-        descricao: 'Comece pelo essencial: cronograma adaptado, flashcards e questões por um ano. Adicione redação corrigida por humano com upgrade a qualquer momento.',
+        descricao: 'Cronograma, flashcards e revisão no momento certo por um ano inteiro. Tudo num plano só.',
         tipo: 'anual',
         preco_centavos: 17990,
         redacoes_por_mes: 0,
@@ -101,6 +102,7 @@ export const PRICING_PLANS = [
         ordem: 5,
         ativo: true,
         popular: true,
+        exibir_landing: true,
     },
     {
         id_plano: 'e196bcb3-6997-4f66-b7b9-40f95f56a776',
@@ -160,11 +162,17 @@ export const PRICING_PLANS = [
 export const ANNUAL_DISCOUNT_LABEL = '-33%'
 
 /**
- * Helper: retorna planos filtrados por tipo e ordenados por `ordem`.
+ * Helper: retorna os planos exibidos na landing, filtrados por tipo e ordenados.
+ *
+ * Pós-pivô (2026-06): a landing vende apenas o Starter (mensal e anual). Os
+ * planos Plus/Pro/Ultra eram diferenciados pela quantidade de redações por mês,
+ * e a redação saiu do produto. Eles continuam no array (e em `tbplanos`) porque
+ * o billing do app ainda os referencia, mas só os marcados com `exibir_landing`
+ * aparecem aqui. Para voltar a exibi-los, basta marcar `exibir_landing: true`.
  */
 export function getPlansByTipo(tipo) {
     return PRICING_PLANS
-        .filter((plan) => plan.ativo && plan.tipo === tipo)
+        .filter((plan) => plan.ativo && plan.exibir_landing && plan.tipo === tipo)
         .sort((a, b) => a.ordem - b.ordem)
 }
 

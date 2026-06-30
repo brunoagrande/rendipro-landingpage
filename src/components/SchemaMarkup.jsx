@@ -30,7 +30,7 @@ export function SchemaMarkup() {
     name: 'RendiPro',
     url: 'https://rendipro.com.br',
     logo: 'https://rendipro.com.br/logo.png',
-    description: 'Plataforma de estudos para ENEM e vestibular com correção de redação por professor humano, cronograma adaptado e +8.000 flashcards.',
+    description: 'Plataforma de estudos para concursos, ENEM, OAB e vestibulares: cronograma montado em minutos, flashcards e revisão no momento certo com repetição espaçada.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'BR',
@@ -56,7 +56,7 @@ export function SchemaMarkup() {
     applicationCategory: 'EducationalApplication',
     operatingSystem: 'Web',
     url: 'https://rendipro.com.br',
-    description: 'Plataforma de organização de estudos com IA: flashcards com repetição espaçada, cronograma automático, questões comentadas e correção de redações.',
+    description: 'Plataforma de organização de estudos com IA: cronograma montado em minutos, flashcards e revisão no momento certo com repetição espaçada.',
     offers: {
       '@type': 'Offer',
       priceCurrency: 'BRL',

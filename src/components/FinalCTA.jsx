@@ -8,7 +8,7 @@ import { Eyebrow } from './ui/Eyebrow'
 
 const easeSpring = [0.16, 1, 0.3, 1]
 
-const trackFinalCta = () => trackRegisterCta({ buttonText: 'Começar agora', location: 'final_cta' })
+const trackFinalCta = () => trackRegisterCta({ buttonText: 'Montar meu plano agora', location: 'final_cta' })
 
 export function FinalCTA() {
     const { getCheckoutUrl } = useInfluencer()
@@ -34,12 +34,9 @@ export function FinalCTA() {
                     </Eyebrow>
 
                     <h2 className="text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        A próxima semana começa{' '}
-                        <span className="text-gradient-primary">com plano</span>.
-                        <br />
-                        <span className="text-white/55">
-                            Ou na correria, como sempre.
-                        </span>
+                        Cada semana sem método é{' '}
+                        <span className="text-gradient-primary">mais uma semana</span>{' '}
+                        longe da aprovação.
                     </h2>
 
                     <div className="mt-9 flex flex-col items-center gap-4">
@@ -53,7 +50,7 @@ export function FinalCTA() {
                             size="lg"
                             className="sm:px-12"
                         >
-                            Começar agora
+                            Montar meu plano agora
                             <ArrowRight
                                 size={18}
                                 className="transition-transform group-hover:translate-x-1"
