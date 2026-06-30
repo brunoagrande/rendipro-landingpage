@@ -17,6 +17,7 @@ import { captureUtms, initScrollMilestones } from './lib/tracking'
 // bundle principal mesmo na landing de vendas (modo produção atual).
 const BetaLanding = lazy(() => import('./components/BetaLanding').then(m => ({ default: m.BetaLanding })))
 
+const ForWhom       = lazy(() => import('./components/ForWhom').then(m => ({ default: m.ForWhom })))
 const Features      = lazy(() => import('./components/Features').then(m => ({ default: m.Features })))
 const FounderStory  = lazy(() => import('./components/FounderStory').then(m => ({ default: m.FounderStory })))
 const Pricing       = lazy(() => import('./components/Pricing').then(m => ({ default: m.Pricing })))
@@ -71,6 +72,7 @@ function App() {
           <Hero />
           <TrustStrip />
           <Suspense fallback={<div className="h-12 bg-surface-950" />}>
+            <ForWhom />
             <Features />
             <FounderStory />
             <Pricing />

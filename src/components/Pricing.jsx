@@ -147,7 +147,7 @@ export function Pricing() {
                     <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/60">
                         {foundersActive
                             ? 'Todos os planos anuais com 20% OFF. Quem entra agora paga o mesmo valor mesmo quando o preço subir lá na frente.'
-                            : 'Um plano só, do jeito que dá pra começar hoje. Cronograma, flashcards e revisão no momento certo a partir de R$ 14,99/mês.'}
+                            : 'Menos que uma hora de cursinho presencial por mês. Com método de verdade.'}
                     </p>
                 </motion.div>
 
@@ -186,9 +186,10 @@ export function Pricing() {
                 >
                     <p className="text-body-sm leading-relaxed text-white/70">
                         <span className="text-white/45">Hoje você junta</span>{' '}
-                        Anki, planilha e lembrete no celular, e ainda perde tempo decidindo o que revisar.{' '}
+                        Anki, planilha e lembrete no celular — e ainda perde tempo decidindo o que revisar.{' '}
                         <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">cronograma, flashcards e revisão num plano só a partir de R$ 14,99/mês</strong>.
+                        <strong className="font-semibold text-white">cronograma, flashcards e revisão num plano só. A partir de R$ 14,99/mês.</strong>{' '}
+                        <span className="text-white/45">Menos que uma hora de cursinho presencial.</span>
                     </p>
                 </motion.div>
 

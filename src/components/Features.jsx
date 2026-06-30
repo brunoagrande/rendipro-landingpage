@@ -80,11 +80,11 @@ export function Features() {
                             Cronograma
                         </Eyebrow>
                         <h3 className="text-h3 sm:text-h2 font-bold leading-tight text-white">
-                            Seu cronograma montado em{' '}
-                            <span className="text-gradient-primary">minutos</span>. Até 3 em paralelo.
+                            Seu edital virou um plano.{' '}
+                            <span className="text-gradient-primary">Pronto em minutos</span>, ajustado automaticamente.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Gera do zero pelas horas que você tem por dia, monta pelo edital, ou importa o plano que já está seguindo (CSV ou PDF). Estuda para mais de um concurso ao mesmo tempo sem misturar matérias.
+                            Cola o edital, define suas horas por dia e o RendiPro distribui as matérias automaticamente. Importa o plano que já segue em CSV ou PDF. Quando você perde um dia, o cronograma redistribui sozinho — sem você precisar refazer nada.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -126,11 +126,11 @@ export function Features() {
                             Flashcards
                         </Eyebrow>
                         <h3 className="text-h3 sm:text-h2 font-bold leading-tight text-white">
-                            Flashcards do seu jeito: crie, importe do{' '}
-                            <span className="text-gradient-primary">Anki</span> ou gere por IA.
+                            Nunca mais esqueça{' '}
+                            <span className="text-gradient-primary">o que estudou</span>.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            São 8.000 cards prontos em 69 baralhos cobrindo todas as matérias. Crie os seus em segundos, traga seus decks do Anki ou gere flashcards por IA a partir de qualquer conteúdo.
+                            8.000 flashcards prontos organizados por matéria — abre o app e já começa. Crie os seus, importe seus decks do Anki ou gere com IA. A repetição espaçada garante que você fixe de verdade, não só memorize para a prova de amanhã.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -176,11 +176,11 @@ export function Features() {
                             Revisão
                         </Eyebrow>
                         <h3 className="text-h3 sm:text-h2 font-bold leading-tight text-white">
-                            Revisão no{' '}
-                            <span className="text-gradient-primary">momento certo</span>. O app te diz o que revisar e quando.
+                            O app te diz{' '}
+                            <span className="text-gradient-primary">o que estudar hoje</span>. Sem decidir, sem improvisar.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            A repetição espaçada com o algoritmo SM-2 (o mesmo do Anki) decide a hora exata de cada revisão pra fixar na memória de longo prazo. Você abre o app e já sabe o que revisar hoje, sem decidir nada.
+                            Abre o app e já tem uma lista do que revisar hoje — calculada pelo algoritmo SM-2, o mesmo do Anki. Não precisa decidir nada. Não precisa lembrar quando estudou o quê. A plataforma controla. Você só estuda.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">

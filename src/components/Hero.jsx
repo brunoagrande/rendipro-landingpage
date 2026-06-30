@@ -13,7 +13,7 @@ import { InteractiveFlashcard } from './ui/InteractiveFlashcard'
  * reduzir LCP mobile de 4.8s para <2.5s.
  */
 
-const trackHeroCta = () => trackRegisterCta({ buttonText: 'Comece por R$ 14,99/mês', location: 'hero' })
+const trackHeroCta = () => trackRegisterCta({ buttonText: 'Montar meu plano de estudos', location: 'hero' })
 
 export function Hero() {
     const { getCheckoutUrl } = useInfluencer()
@@ -43,9 +43,10 @@ export function Hero() {
                         <h1
                             className="mt-6 text-display-sm sm:text-display-lg lg:text-display-xl text-white"
                         >
-                            Seu cronograma pronto em <span className="text-gradient-primary">minutos</span>.{' '}
+                            Você estuda. Mas a aprovação{' '}
+                            <span className="text-gradient-primary">ainda não veio</span>.{' '}
                             <span className="text-white/85">
-                                Flashcards e revisão no <span className="text-gradient-primary">momento certo</span>.
+                                O problema não é dedicação — é <span className="text-gradient-primary">método</span>.
                             </span>
                         </h1>
 
@@ -55,10 +56,12 @@ export function Hero() {
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
                             <span className="md:hidden">
-                                Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só. <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
+                                O RendiPro monta seu cronograma pelo edital, te diz o que revisar hoje e deixa você com só uma tarefa: estudar. <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
                             </span>
                             <span className="hidden md:inline">
-                                Você gera o plano em poucos minutos ou importa um que já está fazendo. Pode manter <strong className="font-semibold text-white">até 3 cronogramas ao mesmo tempo</strong>. Estuda com 8 mil flashcards prontos, cria os seus ou importa do Anki, e a repetição espaçada te diz <strong className="font-semibold text-white">o que revisar e quando</strong>. <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
+                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar, esquece o que revisou e perde tempo organizando em vez de aprendendo. O RendiPro monta seu plano pelo edital em minutos, organiza suas revisões com repetição espaçada e te diz exatamente o que estudar hoje.{' '}
+                                <strong className="font-semibold text-white">Você foca em aprender. A plataforma organiza o resto.</strong>{' '}
+                                <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
                             </span>
                         </p>
 
@@ -73,14 +76,14 @@ export function Hero() {
                                 variant="primary"
                                 size="lg"
                             >
-                                Comece por R$ 14,99/mês
+                                Montar meu plano de estudos
                                 <Rocket
                                     size={20}
                                     className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
                                 />
                             </Button>
-                            <Button as="a" href="#pricing" variant="secondary" size="lg">
-                                Ver planos
+                            <Button as="a" href="#features" variant="secondary" size="lg">
+                                Ver como funciona
                                 <ArrowRight
                                     size={18}
                                     className="transition-transform group-hover:translate-x-1"
@@ -93,7 +96,7 @@ export function Hero() {
                             style={{ animationDelay: '450ms' }}
                         >
                             <Shield size={16} className="text-primary-400" />
-                            Teste 7 dias. Não gostou? 1 clique e devolvemos 100%.
+                            Garantia de 7 dias. Não gostou? 1 clique e devolvemos 100%.
                         </p>
                         <p
                             className="mt-2 inline-flex items-center gap-2 text-caption text-white/50 animate-fade-in"
