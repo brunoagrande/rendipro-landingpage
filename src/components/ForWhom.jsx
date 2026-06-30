@@ -14,19 +14,19 @@ const AVATARS = [
     {
         icon: Briefcase,
         label: 'Concurseiro',
-        copy: 'Estuda para mais de um edital ao mesmo tempo e perde metade do tempo organizando em vez de aprendendo.',
+        copy: 'Dois concursos abertos ao mesmo tempo, planilha que já ficou pra trás e a sensação de que está estudando bastante mas em círculos.',
         accent: 'primary',
     },
     {
         icon: GraduationCap,
         label: 'ENEM e Vestibulares',
-        copy: 'Quer um plano que se adapta à sua rotina real — não uma planilha que você abandona na segunda semana.',
+        copy: 'A rotina muda toda semana e qualquer planilha rígida vai por água abaixo na primeira semana que desanda.',
         accent: 'primary',
     },
     {
         icon: Scale,
         label: 'OAB',
-        copy: 'Precisa dominar um volume enorme em pouco tempo, sem esquecer o que estudou na semana anterior.',
+        copy: 'Volume absurdo de conteúdo e a sensação de que o que estudou no mês passado já sumiu da cabeça.',
         accent: 'primary',
     },
 ]

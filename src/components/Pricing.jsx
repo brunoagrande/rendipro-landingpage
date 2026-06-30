@@ -17,11 +17,10 @@ import { Eyebrow } from './ui/Eyebrow'
 import { cn } from '../lib/utils'
 import { FOUNDERS_DEADLINE } from '../lib/founders'
 import { useSectionView } from '../lib/useSectionView'
-import { trackPricingToggle, trackRegisterCta } from '../lib/tracking'
+import { trackRegisterCta } from '../lib/tracking'
 import {
-    ANNUAL_DISCOUNT_LABEL,
+    getAllLandingPlans,
     getMonthlyEquivalent,
-    getPlansByTipo,
 } from '../data/pricing-plans'
 
 const FOUNDER_DISCOUNT = 0.20
@@ -94,15 +93,9 @@ const trackPricingCta = (plan) => {
 }
 
 export function Pricing() {
-    const [billingPeriod, setBillingPeriodRaw] = useState('anual')
     const [timeLeft, setTimeLeft] = useState(getTimeLeft)
     const { influencerData, applyDiscount, getCheckoutUrl } = useInfluencer()
     const sectionRef = useSectionView('pricing')
-
-    const setBillingPeriod = (period) => {
-        setBillingPeriodRaw(period)
-        trackPricingToggle(period)
-    }
 
     useEffect(() => {
         const id = setInterval(() => setTimeLeft(getTimeLeft()), 1000)
@@ -110,9 +103,9 @@ export function Pricing() {
     }, [])
 
     const foundersActive = !!timeLeft
-    const isFounderPricing = foundersActive && billingPeriod === 'anual'
+    const isFounderPricing = foundersActive
 
-    const plans = getPlansByTipo(billingPeriod)
+    const plans = getAllLandingPlans()
 
     return (
         <section
@@ -193,23 +186,8 @@ export function Pricing() {
                     </p>
                 </motion.div>
 
-                {/* ─── Billing toggle ───────────────────────────────────── */}
-                <motion.div
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: '-50px' }}
-                    transition={{ duration: 0.5, ease: easeSpring }}
-                    className="mb-12 flex justify-center"
-                >
-                    <BillingToggle
-                        billingPeriod={billingPeriod}
-                        setBillingPeriod={setBillingPeriod}
-                    />
-                </motion.div>
-
-                {/* ─── Plano Starter (mensal/anual) ─────────────────────── */}
-                <div className="mx-auto grid max-w-sm grid-cols-1 gap-5">
+                {/* ─── Plano Starter (mensal + anual lado a lado) ───────── */}
+                <div className="mx-auto grid max-w-2xl grid-cols-1 gap-5 md:grid-cols-2">
                     {plans.map((plan, i) => (
                         <PlanCard
                             key={plan.id_plano}
@@ -304,39 +282,6 @@ export function Pricing() {
    Sub-components
    ═══════════════════════════════════════════════════════════════════ */
 
-function BillingToggle({ billingPeriod, setBillingPeriod }) {
-    return (
-        <div className="inline-flex rounded-full border border-white/10 bg-surface-900/60 p-1 backdrop-blur-sm">
-            <button
-                type="button"
-                onClick={() => setBillingPeriod('mensal')}
-                className={cn(
-                    'rounded-full px-5 sm:px-7 py-2 text-body-sm font-semibold transition-all',
-                    billingPeriod === 'mensal'
-                        ? 'bg-white text-surface-950 shadow-sm'
-                        : 'text-white/60 hover:text-white'
-                )}
-            >
-                Mensal
-            </button>
-            <button
-                type="button"
-                onClick={() => setBillingPeriod('anual')}
-                className={cn(
-                    'inline-flex items-center gap-2 rounded-full px-5 sm:px-7 py-2 text-body-sm font-semibold transition-all',
-                    billingPeriod === 'anual'
-                        ? 'bg-white text-surface-950 shadow-sm'
-                        : 'text-white/60 hover:text-white'
-                )}
-            >
-                Anual
-                <span className="rounded-md bg-primary-500 px-1.5 py-0.5 text-[10px] font-bold text-surface-950">
-                    {ANNUAL_DISCOUNT_LABEL}
-                </span>
-            </button>
-        </div>
-    )
-}
 
 function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, isFounderPricing }) {
     const isPopular = plan.popular === true

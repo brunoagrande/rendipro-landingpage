@@ -176,6 +176,13 @@ export function getPlansByTipo(tipo) {
         .sort((a, b) => a.ordem - b.ordem)
 }
 
+/** Retorna todos os planos exibidos na landing (mensal + anual), ordenados. */
+export function getAllLandingPlans() {
+    return PRICING_PLANS
+        .filter((plan) => plan.ativo && plan.exibir_landing)
+        .sort((a, b) => a.ordem - b.ordem)
+}
+
 /**
  * Helper: dado um plano anual, retorna o equivalente mensal (pelo nome_curto)
  * para calcular economia.

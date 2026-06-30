@@ -44,7 +44,7 @@ export const faqItems = [
         question:
             'Já tentei outras plataformas e desisti em 2 semanas. Como sei que com o RendiPro vai ser diferente?',
         answer:
-            'Honesto: o que faz aluno desistir é setup chato no começo + falta de método para continuar quando o ânimo passa. O RendiPro ataca os dois: setup leva 5 minutos (cola edital, escolhe formato, pronto), e tem mecanismos de constância (streak diário, freeze quando você precisa de folga, missões leves) para te manter no jogo nos dias ruins. Mais: garantia de 7 dias. Se em 7 dias você sentir que não funciona para você, devolvemos 100% com 1 clique. Você não perde nada por testar.',
+            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método pra continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (cola edital, escolhe formato, pronto), e tem streak diário, freeze de folga e missões curtas pra te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar pra você, devolve 100% com 1 clique — sem precisar explicar nada.',
     },
     {
         question: 'Posso cancelar a qualquer momento?',

@@ -53,8 +53,8 @@ export function TrustStrip() {
                     style={{ animationDelay: '200ms' }}
                 >
                     <p className="text-center text-h3 sm:text-h2 font-bold tracking-tight text-white">
-                        Feito para quem leva{' '}
-                        <span className="text-gradient-primary">aprovação</span> a sério.
+                        Funciona para{' '}
+                        <span className="text-gradient-primary">qualquer prova</span>.
                     </p>
                     <ul className="mx-auto mt-5 flex max-w-3xl flex-wrap items-center justify-center gap-2 sm:gap-2.5">
                         {CATEGORIAS.map((cat) => (

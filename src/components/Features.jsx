@@ -49,14 +49,14 @@ export function Features() {
                 >
                     <Eyebrow variant="primary" className="mb-4">
                         <Sparkles size={14} />
-                        O que tem dentro
+                        Como funciona
                     </Eyebrow>
                     <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
                         Tudo o que você precisa,{' '}
                         <span className="text-gradient-primary">num plano só</span>.
                     </h2>
                     <p className="mx-auto mt-5 max-w-xl text-body text-white/60">
-                        Sem app extra, sem planilha paralela, sem conta separada.
+                        Uma plataforma. Sem ficar trocando de aba.
                     </p>
                 </motion.div>
 
@@ -84,7 +84,7 @@ export function Features() {
                             <span className="text-gradient-primary">Pronto em minutos</span>, ajustado automaticamente.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Cola o edital, define suas horas por dia e o RendiPro distribui as matérias automaticamente. Importa o plano que já segue em CSV ou PDF. Quando você perde um dia, o cronograma redistribui sozinho — sem você precisar refazer nada.
+                            Cola o edital, define quantas horas tem por dia e o RendiPro distribui tudo. Perdeu um dia? O plano se ajusta sozinho. Não precisa refazer do zero toda vez que a semana desanda.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -180,7 +180,7 @@ export function Features() {
                             <span className="text-gradient-primary">o que estudar hoje</span>. Sem decidir, sem improvisar.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Abre o app e já tem uma lista do que revisar hoje — calculada pelo algoritmo SM-2, o mesmo do Anki. Não precisa decidir nada. Não precisa lembrar quando estudou o quê. A plataforma controla. Você só estuda.
+                            Abre o app e já tem uma lista do que revisar hoje. O sistema decide por você — baseado no SM-2, o mesmo algoritmo do Anki. Não precisa lembrar quando estudou o quê. A plataforma lembra. Você só estuda.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -235,7 +235,7 @@ export function Features() {
                         ))}
                     </ul>
                     <p className="mt-4 text-center text-caption text-white/40">
-                        Quantidade de usos por mês varia conforme o plano. Confere tudo em Preços.
+                        O limite de usos de IA por mês varia com o plano — veja em Preços abaixo.
                     </p>
                 </motion.div>
             </div>
