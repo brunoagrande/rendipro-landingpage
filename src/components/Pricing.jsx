@@ -6,7 +6,6 @@ import {
     Crown,
     Lock,
     Medal,
-    Plus as PlusIcon,
     Shield,
     Sparkles,
     X as XIcon,
@@ -67,12 +66,12 @@ const fadeUp = {
 
 const COMMON_FEATURES = [
     '+8.000 flashcards SM-2 prontos em 69 baralhos',
-    '+6.000 questões comentadas por alternativa',
-    '+10 provas oficiais com PDF sincronizado',
-    '+100 temas de redação atualizados',
-    'Cronograma adaptado (auto, manual ou import PDF/CSV)',
-    'Gamificação completa: streak, XP, ligas e missões',
+    'Crie flashcards ou importe seus decks do Anki',
+    'Revisão no momento certo com repetição espaçada',
+    'Cronograma adaptado (auto, por edital ou import CSV/PDF)',
     'Até 3 cronogramas paralelos (exclusivo)',
+    'Gamificação completa: streak, XP, ligas e missões',
+    'IA pra gerar flashcards e tirar dúvidas nos estudos',
     'Acesso completo no celular (web responsivo)',
 ]
 
@@ -148,7 +147,7 @@ export function Pricing() {
                     <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/60">
                         {foundersActive
                             ? 'Todos os planos anuais com 20% OFF. Quem entra agora paga o mesmo valor mesmo quando o preço subir lá na frente.'
-                            : 'Quatro planos, mesma plataforma. A diferença está no quanto você usa o que mais importa: a redação corrigida por professor humano.'}
+                            : 'Um plano só, do jeito que dá pra começar hoje. Cronograma, flashcards e revisão no momento certo a partir de R$ 14,99/mês.'}
                     </p>
                 </motion.div>
 
@@ -187,10 +186,9 @@ export function Pricing() {
                 >
                     <p className="text-body-sm leading-relaxed text-white/70">
                         <span className="text-white/45">Hoje você junta</span>{' '}
-                        Anki, planilha, plataforma de questões e correção avulsa por{' '}
-                        <strong className="font-semibold text-white/85">~R$ 100–160/mês</strong>.{' '}
+                        Anki, planilha e lembrete no celular, e ainda perde tempo decidindo o que revisar.{' '}
                         <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">tudo num plano só a partir de R$ 14,99/mês</strong>.
+                        <strong className="font-semibold text-white">cronograma, flashcards e revisão num plano só a partir de R$ 14,99/mês</strong>.
                     </p>
                 </motion.div>
 
@@ -209,8 +207,8 @@ export function Pricing() {
                     />
                 </motion.div>
 
-                {/* ─── 4 plan cards ─────────────────────────────────────── */}
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+                {/* ─── Plano Starter (mensal/anual) ─────────────────────── */}
+                <div className="mx-auto grid max-w-sm grid-cols-1 gap-5">
                     {plans.map((plan, i) => (
                         <PlanCard
                             key={plan.id_plano}
@@ -454,29 +452,13 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
 
             {/* Plan-specific features (4 bullets) */}
             <ul className="mb-7 flex-1 space-y-3">
-                {/* Redação — destaque por ser o moat */}
+                {/* Núcleo do produto */}
                 <li className="flex items-start gap-2 text-body-sm">
-                    {plan.redacoes_por_mes > 0 ? (
-                        <>
-                            <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
-                            <span className="text-white/85">
-                                <strong className="font-bold text-white">
-                                    {plan.redacoes_por_mes}
-                                </strong>{' '}
-                                {plan.redacoes_por_mes === 1 ? 'redação' : 'redações'} por professor humano/mês
-                            </span>
-                        </>
-                    ) : (
-                        <>
-                            <PlusIcon size={16} className="mt-0.5 shrink-0 text-primary-400" />
-                            <span className="flex flex-col text-white/70">
-                                <span>Quer redação corrigida por humano?</span>
-                                <span className="text-caption text-white/55">
-                                    Faça upgrade pro Plus quando precisar
-                                </span>
-                            </span>
-                        </>
-                    )}
+                    <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
+                    <span className="text-white/85">
+                        <strong className="font-bold text-white">Tudo da plataforma:</strong>{' '}
+                        cronograma, flashcards e revisão no momento certo
+                    </span>
                 </li>
 
                 {/* IA features */}
@@ -507,7 +489,7 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
                         <strong className="font-bold text-white">
                             {plan.chat_ia_questao_por_mes}
                         </strong>{' '}
-                        tira-dúvidas com IA em questões/mês
+                        tira-dúvidas com IA/mês
                     </span>
                 </li>
             </ul>

@@ -43,9 +43,9 @@ export function Hero() {
                         <h1
                             className="mt-6 text-display-sm sm:text-display-lg lg:text-display-xl text-white"
                         >
-                            Seu cronograma de estudos pronto em <span className="text-gradient-primary">5 minutos</span>.{' '}
+                            Seu cronograma pronto em <span className="text-gradient-primary">minutos</span>.{' '}
                             <span className="text-white/85">
-                                Tudo que você precisa para estudar com <span className="text-gradient-primary">método</span>.
+                                Flashcards e revisão no <span className="text-gradient-primary">momento certo</span>.
                             </span>
                         </h1>
 
@@ -55,10 +55,10 @@ export function Hero() {
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
                             <span className="md:hidden">
-                                Plano adaptado em minutos, 8 mil flashcards, 6 mil questões e provas oficiais. Redação corrigida por humano disponível como upgrade. <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
+                                Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só. <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
                             </span>
                             <span className="hidden md:inline">
-                                Você gera o plano em poucos minutos ou importa um que já está fazendo. Pode manter <strong className="font-semibold text-white">até 3 cronogramas ao mesmo tempo</strong>. Tem 8 mil flashcards, 6 mil questões comentadas e as provas oficiais com cronômetro. Quer redação corrigida por humano? Disponível como upgrade. <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
+                                Você gera o plano em poucos minutos ou importa um que já está fazendo. Pode manter <strong className="font-semibold text-white">até 3 cronogramas ao mesmo tempo</strong>. Estuda com 8 mil flashcards prontos, cria os seus ou importa do Anki, e a repetição espaçada te diz <strong className="font-semibold text-white">o que revisar e quando</strong>. <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
                             </span>
                         </p>
 
@@ -106,19 +106,6 @@ export function Hero() {
 
                     {/* ─── RIGHT · Asset stack ──────────────────────── */}
                     <div className="relative mx-auto w-full max-w-2xl lg:max-w-none">
-                        {/* Peek: redação manuscrita atrás, rotated, semi-transparent */}
-                        <div
-                            className="pointer-events-none absolute -left-10 top-6 -z-10 hidden lg:block"
-                            style={{ animation: 'fade-in-peek 0.9s cubic-bezier(0.16,1,0.3,1) 0.65s both' }}
-                            aria-hidden="true"
-                        >
-                            <img
-                                src="/screenshots/redacao-manuscrita.webp"
-                                alt=""
-                                className="h-[260px] w-auto rounded-xl shadow-elevation-3"
-                            />
-                        </div>
-
                         {/* Main: Cronograma in ProductWindow — sem animation pra não atrasar
                             LCP em desktop (em desktop esta imagem é o LCP element). */}
                         <div>

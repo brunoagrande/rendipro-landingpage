@@ -12,28 +12,28 @@ export const faqItems = [
     {
         question: 'Para qual prova o RendiPro funciona?',
         answer:
-            'ENEM, vestibulares (FUVEST, UNICAMP, UFRGS, etc.), concursos públicos, OAB, Residência Médica e provas escolares. O cronograma se adapta automaticamente ao formato e à banca da sua prova específica.',
+            'Concursos públicos, OAB, ENEM, vestibulares (FUVEST, UNICAMP, UFRGS, etc.), Residência Médica e provas escolares. O cronograma se adapta automaticamente ao edital, ao formato e à banca da sua prova específica.',
     },
     {
-        question: 'A correção da redação é por professor humano mesmo, ou é IA?',
+        question: 'Como funcionam os flashcards? Posso usar os meus?',
         answer:
-            'Professor humano, sempre. Você fotografa sua redação manuscrita pelo celular. Um professor com formação em Letras e experiência em correção do ENEM lê seu texto, faz marcações em laranja direto na foto (circulando trechos com problema) e devolve em até 72h com nota nas 5 competências do ENEM (C1 a C5), pontos fortes, onde melhorar e um radar de evolução. Sem IA fingindo ser professor, sem bot.',
+            'Você tem 8.000 flashcards prontos em 69 baralhos cobrindo todas as matérias e já pode começar a estudar na hora. Quer usar os seus? Crie flashcards em segundos, gere por IA a partir de qualquer conteúdo ou importe os decks que você já tem no Anki. A revisão de todos eles é organizada pela repetição espaçada (algoritmo SM-2), que decide a hora certa de cada card.',
     },
     {
-        question: 'Quantas redações posso enviar por mês?',
+        question: 'Como monto meu cronograma? Dá pra importar o que já tenho?',
         answer:
-            'Depende do plano: 0 no Starter, 2 no Plus, 4 no Pro (mais escolhido), 8 no Ultra. Redação é igual a treino: ritmo regular funciona melhor que rajada de última hora. Por isso o saldo reinicia toda virada de mês. Você escreve 2, 4 ou 8 redações por mês, com ritmo, em vez de acumular e enviar tudo de uma vez. Se usar menos do que o plano permite num mês, o saldo reinicia na virada e não acumula.',
+            'Você monta em minutos de três formas: automático, pelas horas que tem por dia; pelo edital do seu concurso; ou importando um plano que já segue em CSV ou PDF. Dá pra manter até 3 cronogramas em paralelo (por exemplo, dois concursos ao mesmo tempo) sem misturar as matérias, alternando em 1 clique.',
     },
     {
-        question: 'Posso usar para ENEM e para concurso ao mesmo tempo?',
+        question: 'Posso usar para concurso e para ENEM ao mesmo tempo?',
         answer:
-            'Sim. Essa é uma das funcionalidades exclusivas do RendiPro. Você cria até 3 cronogramas simultâneos, cada um com seu próprio edital ou plano, suas matérias e sua rotina. Nenhuma outra plataforma faz isso. Suas métricas, redações e flashcards ficam separados entre os planos. Não misturam. Alternância 1-clique no dashboard.',
+            'Sim. Essa é uma das funcionalidades exclusivas do RendiPro. Você cria até 3 cronogramas simultâneos, cada um com seu próprio edital ou plano, suas matérias e sua rotina. Suas métricas, flashcards e revisões ficam separados entre os planos, não se misturam. Alternância em 1 clique no dashboard.',
     },
     {
         question:
-            'Como o RendiPro se compara com plataformas só de redação ou só de questões?',
+            'Como o RendiPro se compara com Anki + planilha + apps soltos?',
         answer:
-            'Se você usa hoje uma plataforma de redação + uma de questões + Anki para flashcards + planilha para cronograma, está pagando 3-4 mensalidades separadas e gastando tempo trocando de aba. O RendiPro reúne tudo num plano só: redação corrigida por professor humano, +6.000 questões comentadas por alternativa, +8.000 flashcards SM-2 prontos, cronograma adaptado ao edital e provas oficiais. Geralmente sai por menos de 1/3 do total que você paga somando os outros apps.',
+            'Se hoje você usa o Anki para flashcards, uma planilha para o cronograma e lembretes soltos para revisar, está gastando tempo trocando de ferramenta e ainda decidindo na mão o que revisar. O RendiPro reúne tudo num plano só: cronograma adaptado ao edital, 8.000 flashcards SM-2 (mais os seus, importados do Anki ou gerados por IA) e a revisão no momento certo, organizada automaticamente pela repetição espaçada. Menos setup, menos abas, a partir de R$ 14,99/mês.',
     },
     {
         question:

@@ -8,10 +8,10 @@ import { useSectionView } from '../lib/useSectionView'
  */
 
 const CATEGORIAS = [
-    'ENEM',
-    'Qualquer vestibular',
     'Qualquer concurso público',
     'OAB',
+    'ENEM',
+    'Qualquer vestibular',
     'Residência Médica',
     'Provas escolares',
 ]
@@ -27,17 +27,23 @@ export function TrustStrip() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* 4 stats */}
                 <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 animate-fade-in-up">
-                    <StatBlock value={6000} label="questões comentadas" />
+                    <StatBlock value={8000} label="flashcards prontos" />
                     <StatBlock
-                        value={8000}
-                        label="flashcards prontos"
-                        sublabel="em 69 baralhos"
+                        value={69}
+                        label="baralhos"
+                        sublabel="todas as matérias"
                     />
-                    <StatBlock value={100} label="temas de redação" />
                     <StatBlock
-                        value={10}
-                        label="provas oficiais"
-                        sublabel="com gabarito comentado"
+                        value={5}
+                        prefix=""
+                        suffix=" min"
+                        label="pra montar o cronograma"
+                    />
+                    <StatBlock
+                        value={3}
+                        prefix=""
+                        label="cronogramas em paralelo"
+                        sublabel="exclusivo"
                     />
                 </div>
 
