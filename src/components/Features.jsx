@@ -130,7 +130,7 @@ export function Features() {
                             <span className="text-gradient-primary">o que estudou</span>.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            8.000 flashcards prontos organizados por matéria — abre o app e já começa. Crie os seus, importe seus decks do Anki ou gere com IA. A repetição espaçada garante que você fixe de verdade, não só memorize para a prova de amanhã.
+                            8.000 flashcards prontos organizados por matéria — abra o RendiPro e já começa. Crie os seus, importe seus decks do Anki ou gere com IA. A repetição espaçada garante que você fixe de verdade, não só memorize para a prova de amanhã.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -176,11 +176,11 @@ export function Features() {
                             Revisão
                         </Eyebrow>
                         <h3 className="text-h3 sm:text-h2 font-bold leading-tight text-white">
-                            O app te diz{' '}
+                            O RendiPro te diz{' '}
                             <span className="text-gradient-primary">o que estudar hoje</span>. Sem decidir, sem improvisar.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Abre o app e já tem uma lista do que revisar hoje. O sistema decide por você — baseado no SM-2, o mesmo algoritmo do Anki. Não precisa lembrar quando estudou o quê. A plataforma lembra. Você só estuda.
+                            Abra o RendiPro e já tem uma lista do que revisar hoje. O sistema decide por você — baseado no SM-2, o mesmo algoritmo do Anki. Não precisa lembrar quando estudou o quê. A plataforma lembra. Você só estuda.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -226,7 +226,7 @@ export function Features() {
                         {[
                             'Gere flashcards personalizados com IA em segundos',
                             'Cronograma reajustado conforme seu ritmo muda',
-                            'Tire dúvidas com a IA enquanto estuda, sem sair do app',
+                            'Tire dúvidas com a IA enquanto estuda, sem sair da plataforma',
                         ].map((f) => (
                             <li key={f} className="flex items-start gap-2 text-body-sm text-white/70">
                                 <Check size={15} className="mt-0.5 shrink-0 text-accent-300" />

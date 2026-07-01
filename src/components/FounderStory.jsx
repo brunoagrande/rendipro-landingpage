@@ -64,41 +64,8 @@ export function FounderStory() {
                 </motion.div>
 
                 {/* ─── 2 founder cards ─────────────────────────────────── */}
-                <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2 lg:gap-8">
-                    {/* ── Card 1 · Bruno (fundador) ── */}
-                    <motion.article
-                        variants={fadeUp}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: true, margin: '-80px' }}
-                        transition={{ duration: 0.6, ease: easeSpring }}
-                        className="relative flex flex-col rounded-3xl border border-white/10 bg-surface-900/60 p-8 backdrop-blur-sm sm:p-10"
-                    >
-                        <Quote
-                            size={40}
-                            className="absolute top-8 right-8 text-primary-500/15"
-                            aria-hidden="true"
-                        />
-                        <div className="text-micro font-semibold uppercase tracking-widest text-primary-400">
-                            Fundador
-                        </div>
-                        <blockquote className="mt-4 text-body-lg italic leading-relaxed text-white/85">
-                            "Quando a Jessica decidiu que queria ser Promotora, achei que seria rápido. Ela sempre foi inteligente e estudiosa. Mas vendo ela todo dia, fui percebendo que estudo e inteligência sozinhos não garantem aprovação. Ela ficava horas por semana organizando revisões, decidindo o que estudar, e quando tinha mais de um edital ao mesmo tempo, esse tempo dobrava. Além de não ter clareza sobre suas maiores deficiências, para saber onde focar de verdade. Depois da aprovação, conversando com ela sobre tudo isso, tive a ideia do RendiPro. Para ajudar quem já é disciplinado a ter um rendimento real, sem gastar energia com organização. Para poder simplesmente estudar."
-                        </blockquote>
-
-                        <div className="mt-8 flex items-center gap-4">
-                            <img src="/founder-bruno.webp" alt="Bruno Grande, fundador do RendiPro"
-                                 className="h-14 w-14 shrink-0 rounded-full object-cover" />
-                            <div className="min-w-0">
-                                <p className="font-bold text-white">Bruno Grande</p>
-                                <p className="text-body-sm text-white/50">
-                                    Fundador · Desenvolvedor de software · 20 anos construindo produtos digitais
-                                </p>
-                            </div>
-                        </div>
-                    </motion.article>
-
-                    {/* ── Card 2 · Jessica (co-criadora / inspiração) ── */}
+                <div className="mx-auto max-w-2xl">
+                    {/* ── Jessica (co-criadora / inspiração) — prova social principal ── */}
                     <motion.article
                         variants={fadeUp}
                         initial="hidden"
