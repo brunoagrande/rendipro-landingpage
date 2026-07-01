@@ -55,7 +55,7 @@ function App() {
     <InfluencerProvider>
       <SEOHead
         title="RendiPro — Cronograma de Estudos, Flashcards e Revisão no Momento Certo"
-        description="Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só, a partir de R$ 14,99/mês."
+        description="Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só, a partir de R$ 9,90/mês."
         ogImage="/og-oficial.png"
         canonical="https://rendipro.com.br/"
         noindex={false}
