@@ -12,7 +12,7 @@ export const faqItems = [
     {
         question: 'Já tentei me organizar com planilha e desisti em duas semanas.',
         answer:
-            'A planilha falha porque depende de você atualizá-la todo dia. O RendiPro automatiza isso: quando você perde um dia, o plano redistribui sozinho. Quando você termina um tópico, o cronograma avança automaticamente. Quando chega a hora de revisar, o app te avisa. Você não precisa manter nada — só seguir.',
+            'A planilha falha porque depende de você atualizá-la todo dia. O RendiPro automatiza isso: quando você perde um dia, o plano redistribui sozinho. Quando você termina um tópico, o cronograma avança automaticamente. Quando chega a hora de revisar, o RendiPro te avisa. Você não precisa manter nada — só seguir.',
     },
     {
         question: 'Para qual prova o RendiPro funciona?',
