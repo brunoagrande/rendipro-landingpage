@@ -331,8 +331,13 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
             )}
 
             <div className="mb-5">
-                <h3 className="text-h3 font-bold text-white">{plan.nome_curto}</h3>
-                <p className="mt-1.5 min-h-[3em] text-body-sm leading-snug text-white/55">
+                <div className="mb-2 flex items-center gap-2">
+                    <h3 className="text-h3 font-bold text-white">{plan.nome_curto}</h3>
+                    <span className="rounded-md border border-white/15 bg-white/5 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-white/50">
+                        {plan.tipo === 'anual' ? 'Anual' : 'Mensal'}
+                    </span>
+                </div>
+                <p className="min-h-[3em] text-body-sm leading-snug text-white/55">
                     {plan.descricao}
                 </p>
             </div>
@@ -427,15 +432,6 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
                             ? 'cronograma'
                             : 'cronogramas'}{' '}
                         adaptado com IA/mês
-                    </span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                    <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
-                    <span className="text-white/80">
-                        <strong className="font-bold text-white">
-                            {plan.chat_ia_questao_por_mes}
-                        </strong>{' '}
-                        tira-dúvidas com IA/mês
                     </span>
                 </li>
             </ul>
