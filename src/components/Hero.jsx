@@ -46,7 +46,7 @@ export function Hero() {
                             Você estuda. Mas a aprovação{' '}
                             <span className="text-gradient-primary">ainda não veio</span>.{' '}
                             <span className="text-white/85">
-                                O problema não é dedicação — é <span className="text-gradient-primary">método</span>.
+                                O problema não é dedicação. É <span className="text-gradient-primary">método</span>.
                             </span>
                         </h1>
 
@@ -56,12 +56,12 @@ export function Hero() {
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
                             <span className="md:hidden">
-                                O RendiPro monta seu cronograma pelo edital, te diz o que revisar hoje e deixa você com só uma tarefa: estudar. <strong className="font-semibold text-white">A partir de R$ 9,90/mês.</strong>
+                                Monta <strong className="font-semibold text-white">um cronograma feito pra você</strong> pelo seu edital, ou importa o plano que você já tem. E ainda transforma o seu material em questões e flashcards com IA.{' '}
+                                <strong className="font-semibold text-white"><span className="line-through text-white/40">R$ 14,99</span> por R$ 9,90/mês.</strong>
                             </span>
                             <span className="hidden md:inline">
-                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar, esquece o que revisou e perde tempo organizando em vez de aprendendo. O RendiPro monta seu plano pelo edital em minutos, organiza suas revisões com repetição espaçada e te diz exatamente o que estudar hoje.{' '}
-                                <strong className="font-semibold text-white">Você foca em aprender. A plataforma organiza o resto.</strong>{' '}
-                                <strong className="font-semibold text-white">A partir de R$ 9,90/mês.</strong>
+                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar e esquece o que revisou. O RendiPro monta <strong className="font-semibold text-white">um cronograma feito pra você</strong>, pelas suas horas e pelo seu edital, ou <strong className="font-semibold text-white">importa o plano que você já tem</strong>. Em cima disso, a IA vira o seu material em questões e flashcards e reforça sozinho os tópicos onde você vai pior. Assim você não esquece o que estudou.{' '}
+                                <strong className="font-semibold text-white"><span className="line-through text-white/40">R$ 14,99</span> por R$ 9,90/mês.</strong>
                             </span>
                         </p>
 

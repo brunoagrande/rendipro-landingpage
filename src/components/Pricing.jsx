@@ -179,9 +179,9 @@ export function Pricing() {
                 >
                     <p className="text-body-sm leading-relaxed text-white/70">
                         <span className="text-white/45">Hoje você junta</span>{' '}
-                        Anki, planilha e lembrete no celular — e ainda perde tempo decidindo o que revisar.{' '}
+                        Anki, planilha e lembrete no celular, e ainda perde tempo decidindo o que revisar.{' '}
                         <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">cronograma, flashcards e revisão num plano só. A partir de R$ 9,90/mês.</strong>{' '}
+                        <strong className="font-semibold text-white">você monta seu cronograma pelo edital ou importa o que já tem, a IA vira seu material em questões e flashcards, e a revisão chega na hora certa. Tudo num plano só, por R$ 9,90/mês.</strong>{' '}
                         <span className="text-white/45">Menos que uma hora de cursinho presencial.</span>
                     </p>
                 </motion.div>
@@ -294,12 +294,6 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
         : afterInfluencer
     const hasInfluencerDiscount =
         influencerData && afterInfluencer < plan.preco_centavos
-    // Âncora "de/por" de tabela (oferta permanente): só quando não há cupom de
-    // influencer nem preço de fundador ativo sobrescrevendo.
-    const hasTableAnchor =
-        !hasInfluencerDiscount &&
-        !isFounderPricing &&
-        plan.preco_original_centavos > plan.preco_centavos
     const showFounderBadge = isFounderPricing && plan.tipo === 'anual'
     const founderSavingsAno = showFounderBadge
         ? Math.round(afterInfluencer * FOUNDER_DISCOUNT)
@@ -358,18 +352,13 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
                         </span>
                     </p>
                 )}
-                {hasTableAnchor && (
-                    <p className="mb-1 text-caption text-white/40">
-                        De{' '}
-                        <span className="line-through">
-                            {plan.tipo === 'anual'
-                                ? `${formatPrice(plan.preco_original_centavos / 12)}/mês`
-                                : formatPrice(plan.preco_original_centavos)}
-                        </span>
-                    </p>
-                )}
                 {plan.tipo === 'anual' && plan.preco_centavos > 0 ? (
                     <>
+                        {plan.preco_ancora_mes_centavos && !hasInfluencerDiscount && !showFounderBadge && (
+                            <p className="mb-1 text-caption text-white/45">
+                                De <span className="line-through">{formatPrice(plan.preco_ancora_mes_centavos)}</span>/mês por
+                            </p>
+                        )}
                         <div className="flex items-baseline gap-1">
                             <span className="text-caption font-medium text-white/50">
                                 12× de
@@ -403,17 +392,24 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
                         )}
                     </>
                 ) : (
-                    <div className="flex items-baseline gap-1">
-                        <span
-                            className={cn(
-                                'text-display-sm font-extrabold',
-                                hasInfluencerDiscount ? 'text-success-400' : 'text-white'
-                            )}
-                        >
-                            {formatPrice(discountedPrice)}
-                        </span>
-                        <span className="text-caption text-white/50">/mês</span>
-                    </div>
+                    <>
+                        {plan.preco_ancora_mes_centavos && !hasInfluencerDiscount && !showFounderBadge && (
+                            <p className="mb-1 text-caption text-white/45">
+                                De <span className="line-through">{formatPrice(plan.preco_ancora_mes_centavos)}</span>/mês por
+                            </p>
+                        )}
+                        <div className="flex items-baseline gap-1">
+                            <span
+                                className={cn(
+                                    'text-display-sm font-extrabold',
+                                    hasInfluencerDiscount ? 'text-success-400' : 'text-white'
+                                )}
+                            >
+                                {formatPrice(discountedPrice)}
+                            </span>
+                            <span className="text-caption text-white/50">/mês</span>
+                        </div>
+                    </>
                 )}
             </div>
 

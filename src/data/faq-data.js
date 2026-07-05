@@ -12,7 +12,7 @@ export const faqItems = [
     {
         question: 'Já tentei me organizar com planilha e desisti em duas semanas.',
         answer:
-            'A planilha falha porque depende de você atualizá-la todo dia. O RendiPro automatiza isso: quando você perde um dia, o plano redistribui sozinho. Quando você termina um tópico, o cronograma avança automaticamente. Quando chega a hora de revisar, o RendiPro te avisa. Você não precisa manter nada — só seguir.',
+            'A planilha falha porque depende de você atualizá-la todo dia. O RendiPro automatiza isso: quando você perde um dia, o plano redistribui sozinho. Quando você termina um tópico, o cronograma avança automaticamente. Quando chega a hora de revisar, o RendiPro te avisa. Você não precisa manter nada, só seguir.',
     },
     {
         question: 'Para qual prova o RendiPro funciona?',
@@ -38,13 +38,13 @@ export const faqItems = [
         question:
             'Como o RendiPro se compara com Anki + planilha + apps soltos?',
         answer:
-            'Se hoje você usa o Anki para flashcards, uma planilha para o cronograma e lembretes soltos para revisar, está gastando tempo trocando de ferramenta e ainda decidindo na mão o que revisar. O RendiPro reúne tudo num plano só: cronograma adaptado ao edital, 8.000 flashcards SM-2 (mais os seus, importados do Anki ou gerados por IA) e a revisão no momento certo, organizada automaticamente pela repetição espaçada. Menos setup, menos abas, a partir de R$ 9,90/mês.',
+            'Se hoje você usa o Anki para flashcards, uma planilha para o cronograma e lembretes soltos para revisar, está gastando tempo trocando de ferramenta e ainda decidindo na mão o que revisar. O RendiPro reúne tudo num plano só: cronograma adaptado ao edital, flashcards com repetição espaçada (importados do Anki ou gerados por IA), a IA que transforma o seu material em questões e flashcards, e o reforço automático dos tópicos que você mais esquece. Menos setup, menos abas, por R$ 9,90/mês.',
     },
     {
         question:
             'Já tentei outras plataformas e desisti em 2 semanas. Como sei que com o RendiPro vai ser diferente?',
         answer:
-            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método pra continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (cola edital, escolhe formato, pronto), e tem streak diário, freeze de folga e missões curtas pra te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar pra você, devolve 100% com 1 clique — sem precisar explicar nada.',
+            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método pra continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (cola edital, escolhe formato, pronto), e tem streak diário, freeze de folga e missões curtas pra te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar pra você, devolve 100% com 1 clique, sem precisar explicar nada.',
     },
     {
         question: 'Posso cancelar a qualquer momento?',

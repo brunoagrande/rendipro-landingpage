@@ -18,6 +18,8 @@ import { captureUtms, initScrollMilestones } from './lib/tracking'
 const BetaLanding = lazy(() => import('./components/BetaLanding').then(m => ({ default: m.BetaLanding })))
 
 const ForWhom       = lazy(() => import('./components/ForWhom').then(m => ({ default: m.ForWhom })))
+const PlanoShowcase = lazy(() => import('./components/PlanoShowcase').then(m => ({ default: m.PlanoShowcase })))
+const AiSuite       = lazy(() => import('./components/AiSuite').then(m => ({ default: m.AiSuite })))
 const Features      = lazy(() => import('./components/Features').then(m => ({ default: m.Features })))
 const FounderStory  = lazy(() => import('./components/FounderStory').then(m => ({ default: m.FounderStory })))
 const Pricing       = lazy(() => import('./components/Pricing').then(m => ({ default: m.Pricing })))
@@ -54,8 +56,8 @@ function App() {
   return (
     <InfluencerProvider>
       <SEOHead
-        title="RendiPro — Cronograma de Estudos, Flashcards e Revisão no Momento Certo"
-        description="Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só, a partir de R$ 9,90/mês."
+        title="RendiPro — Estude com IA: seu material vira questões e flashcards, e você não esquece"
+        description="A IA transforma o seu material (PDF, foto do caderno) em questões e flashcards, monta seu cronograma pelo edital e reforça o que você esquece. Tudo num plano só, por R$ 9,90/mês."
         ogImage="/og-oficial.png"
         canonical="https://rendipro.com.br/"
         noindex={false}
@@ -73,7 +75,9 @@ function App() {
           <TrustStrip />
           <Suspense fallback={<div className="h-12 bg-surface-950" />}>
             <ForWhom />
+            <PlanoShowcase />
             <Features />
+            <AiSuite />
             <FounderStory />
             <Pricing />
             <FAQ />

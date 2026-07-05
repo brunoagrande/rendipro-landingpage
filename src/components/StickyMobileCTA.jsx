@@ -79,6 +79,7 @@ export function StickyMobileCTA() {
                                     Starter Anual
                                 </span>
                                 <span className="text-body font-extrabold text-primary-300">
+                                    <span className="text-[11px] font-medium text-white/40 line-through mr-1">R$ 14,99</span>
                                     R$ 9,90
                                     <span className="text-[11px] font-medium text-white/60">/mês</span>
                                 </span>
