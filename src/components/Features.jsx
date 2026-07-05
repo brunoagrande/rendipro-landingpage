@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import {
     Bot,
-    Calendar,
     Check,
     Repeat,
     Sparkles,
@@ -61,58 +60,8 @@ export function Features() {
                 </motion.div>
 
                 {/* ─── Grid 3 pilares ────────────────────────────────── */}
-                <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 lg:grid-cols-3 lg:gap-6">
-                    {/* ── Pilar 1 · Cronograma (protagonista) ─ */}
-                    <motion.article
-                        variants={fadeUp}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: true, margin: '-60px' }}
-                        transition={{ duration: 0.6, ease: easeSpring }}
-                        className="group relative flex flex-col overflow-hidden rounded-3xl border border-primary-500/30 bg-gradient-to-br from-surface-900 via-primary-500/[0.05] to-surface-900 p-6 shadow-glow-primary sm:p-8"
-                    >
-                        <div className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full border border-accent-400/40 bg-accent-500/15 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent-300">
-                            <Sparkles size={10} />
-                            Exclusivo
-                        </div>
-                        <Eyebrow variant="primary" className="mb-4">
-                            <Calendar size={14} />
-                            Cronograma
-                        </Eyebrow>
-                        <h3 className="text-h3 sm:text-h2 font-bold leading-tight text-white">
-                            Seu edital virou um plano.{' '}
-                            <span className="text-gradient-primary">Pronto em minutos</span>, ajustado automaticamente.
-                        </h3>
-                        <p className="mt-3 text-body-sm text-white/70">
-                            Cola o edital, define quantas horas tem por dia e o RendiPro distribui tudo. Perdeu um dia? O plano se ajusta sozinho. Não precisa refazer do zero toda vez que a semana desanda.
-                        </p>
-                        <ul className="mt-4 space-y-2 text-body-sm text-white/70">
-                            <li className="flex items-start gap-2">
-                                <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Automático</strong> pelas suas horas disponíveis, ou montado pelo edital</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Importa</strong> o plano que você já tem em CSV ou PDF</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Até 3 cronogramas</strong> paralelos, com alternância em 1 clique</span>
-                            </li>
-                        </ul>
-                        <div className="mt-5">
-                            <ProductWindow url="app.rendipro.com.br/planos-estudo">
-                                <img
-                                    src="/screenshots/planos-estudo.webp"
-                                    alt="Tela de Planos de Estudo mostrando 3 planos paralelos ativos"
-                                    className="block h-auto w-full"
-                                    loading="lazy"
-                                />
-                            </ProductWindow>
-                        </div>
-                    </motion.article>
-
-                    {/* ── Pilar 2 · Flashcards (base da plataforma) ─ */}
+                <div className="mx-auto grid max-w-4xl grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6">
+                    {/* ── Pilar 1 · Flashcards (base da plataforma) ─ */}
                     <motion.article
                         variants={fadeUp}
                         initial="hidden"
@@ -130,7 +79,7 @@ export function Features() {
                             <span className="text-gradient-primary">o que estudou</span>.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            8.000 flashcards prontos organizados por matéria — abra o RendiPro e já começa. Crie os seus, importe seus decks do Anki ou gere com IA. A repetição espaçada garante que você fixe de verdade, não só memorize para a prova de amanhã.
+                            8.000 flashcards prontos organizados por matéria. Abre o RendiPro e já começa. Cria os seus, importa seus decks do Anki ou gera com IA. A repetição espaçada garante que você fixe de verdade, não só memorize para a prova de amanhã.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -143,7 +92,7 @@ export function Features() {
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Gere do SEU material</strong> — mande um PDF ou tire foto do caderno e a IA cria questões e flashcards em segundos</span>
+                                <span><strong className="font-semibold text-white">Gere do SEU material.</strong> Manda um PDF ou tira foto do caderno e a IA cria questões e flashcards em segundos.</span>
                             </li>
                         </ul>
                         <div className="mt-5 grid grid-cols-2 gap-3">
@@ -180,7 +129,7 @@ export function Features() {
                             <span className="text-gradient-primary">o que estudar hoje</span>. Sem decidir, sem improvisar.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Abra o RendiPro e já tem uma lista do que revisar hoje. O sistema decide por você — baseado no SM-2, o mesmo algoritmo do Anki. Não precisa lembrar quando estudou o quê. A plataforma lembra. Você só estuda.
+                            Abre o RendiPro e já tem uma lista do que revisar hoje. O sistema decide por você, com base no SM-2, o mesmo algoritmo do Anki. Não precisa lembrar quando estudou o quê. A plataforma lembra. Você só estuda.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -235,7 +184,7 @@ export function Features() {
                         ))}
                     </ul>
                     <p className="mt-4 text-center text-caption text-white/40">
-                        O limite de usos de IA por mês varia com o plano — veja em Preços abaixo.
+                        O limite de usos de IA por mês varia com o plano. Veja em Preços abaixo.
                     </p>
                 </motion.div>
             </div>

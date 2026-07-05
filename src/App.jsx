@@ -18,6 +18,7 @@ import { captureUtms, initScrollMilestones } from './lib/tracking'
 const BetaLanding = lazy(() => import('./components/BetaLanding').then(m => ({ default: m.BetaLanding })))
 
 const ForWhom       = lazy(() => import('./components/ForWhom').then(m => ({ default: m.ForWhom })))
+const PlanoShowcase = lazy(() => import('./components/PlanoShowcase').then(m => ({ default: m.PlanoShowcase })))
 const AiSuite       = lazy(() => import('./components/AiSuite').then(m => ({ default: m.AiSuite })))
 const Features      = lazy(() => import('./components/Features').then(m => ({ default: m.Features })))
 const FounderStory  = lazy(() => import('./components/FounderStory').then(m => ({ default: m.FounderStory })))
@@ -74,6 +75,7 @@ function App() {
           <TrustStrip />
           <Suspense fallback={<div className="h-12 bg-surface-950" />}>
             <ForWhom />
+            <PlanoShowcase />
             <Features />
             <AiSuite />
             <FounderStory />

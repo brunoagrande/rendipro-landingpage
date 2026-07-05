@@ -94,6 +94,7 @@ export const PRICING_PLANS = [
         descricao: 'Cronograma, flashcards e revisão no momento certo por um ano inteiro. Tudo num plano só.',
         tipo: 'anual',
         preco_centavos: 11880,
+        preco_ancora_mes_centavos: 1499, // "de R$14,99 por R$9,90/mês" (âncora de venda)
         redacoes_por_mes: 0,
         duracao_meses: 12,
         flashcards_ia_por_mes: 100,

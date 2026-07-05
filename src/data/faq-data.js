@@ -12,7 +12,7 @@ export const faqItems = [
     {
         question: 'Já tentei me organizar com planilha e desisti em duas semanas.',
         answer:
-            'A planilha falha porque depende de você atualizá-la todo dia. O RendiPro automatiza isso: quando você perde um dia, o plano redistribui sozinho. Quando você termina um tópico, o cronograma avança automaticamente. Quando chega a hora de revisar, o RendiPro te avisa. Você não precisa manter nada — só seguir.',
+            'A planilha falha porque depende de você atualizá-la todo dia. O RendiPro automatiza isso: quando você perde um dia, o plano redistribui sozinho. Quando você termina um tópico, o cronograma avança automaticamente. Quando chega a hora de revisar, o RendiPro te avisa. Você não precisa manter nada, só seguir.',
     },
     {
         question: 'Para qual prova o RendiPro funciona?',
@@ -44,7 +44,7 @@ export const faqItems = [
         question:
             'Já tentei outras plataformas e desisti em 2 semanas. Como sei que com o RendiPro vai ser diferente?',
         answer:
-            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método pra continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (cola edital, escolhe formato, pronto), e tem streak diário, freeze de folga e missões curtas pra te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar pra você, devolve 100% com 1 clique — sem precisar explicar nada.',
+            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método pra continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (cola edital, escolhe formato, pronto), e tem streak diário, freeze de folga e missões curtas pra te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar pra você, devolve 100% com 1 clique, sem precisar explicar nada.',
     },
     {
         question: 'Posso cancelar a qualquer momento?',

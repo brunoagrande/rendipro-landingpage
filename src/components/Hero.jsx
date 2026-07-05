@@ -46,7 +46,7 @@ export function Hero() {
                             Você estuda. Mas a aprovação{' '}
                             <span className="text-gradient-primary">ainda não veio</span>.{' '}
                             <span className="text-white/85">
-                                O problema não é dedicação — é <span className="text-gradient-primary">método</span>.
+                                O problema não é dedicação. É <span className="text-gradient-primary">método</span>.
                             </span>
                         </h1>
 
