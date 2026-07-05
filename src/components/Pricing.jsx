@@ -392,17 +392,24 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
                         )}
                     </>
                 ) : (
-                    <div className="flex items-baseline gap-1">
-                        <span
-                            className={cn(
-                                'text-display-sm font-extrabold',
-                                hasInfluencerDiscount ? 'text-success-400' : 'text-white'
-                            )}
-                        >
-                            {formatPrice(discountedPrice)}
-                        </span>
-                        <span className="text-caption text-white/50">/mês</span>
-                    </div>
+                    <>
+                        {plan.preco_ancora_mes_centavos && !hasInfluencerDiscount && !showFounderBadge && (
+                            <p className="mb-1 text-caption text-white/45">
+                                De <span className="line-through">{formatPrice(plan.preco_ancora_mes_centavos)}</span>/mês por
+                            </p>
+                        )}
+                        <div className="flex items-baseline gap-1">
+                            <span
+                                className={cn(
+                                    'text-display-sm font-extrabold',
+                                    hasInfluencerDiscount ? 'text-success-400' : 'text-white'
+                                )}
+                            >
+                                {formatPrice(discountedPrice)}
+                            </span>
+                            <span className="text-caption text-white/50">/mês</span>
+                        </div>
+                    </>
                 )}
             </div>
 
