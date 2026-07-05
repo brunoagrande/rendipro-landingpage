@@ -181,7 +181,7 @@ export function Pricing() {
                         <span className="text-white/45">Hoje você junta</span>{' '}
                         Anki, planilha e lembrete no celular — e ainda perde tempo decidindo o que revisar.{' '}
                         <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">a IA transforma seu material em questões e flashcards, monta o cronograma e revisa por você — num plano só, por R$ 9,90/mês.</strong>{' '}
+                        <strong className="font-semibold text-white">você monta seu cronograma pelo edital ou importa o que já tem, a IA vira seu material em questões e flashcards, e a revisão chega na hora certa. Tudo num plano só, por R$ 9,90/mês.</strong>{' '}
                         <span className="text-white/45">Menos que uma hora de cursinho presencial.</span>
                     </p>
                 </motion.div>

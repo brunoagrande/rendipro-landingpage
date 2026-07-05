@@ -8,6 +8,7 @@ import { useSectionView } from '../lib/useSectionView'
  * AiSuite — o diferencial do pivô: a IA que transforma o MATERIAL DO ALUNO em
  * questões (Treino) e flashcards (Snap). Vem logo após o Hero pra liderar com o
  * que ninguém mais faz. Dois blocos split (copy + screenshot), alternando lado.
+ * Copy humanizada (sem travessão / cara de IA) — ver memória do projeto.
  */
 
 const easeSpring = [0.16, 1, 0.3, 1]
@@ -42,11 +43,11 @@ export function AiSuite() {
                         O que ninguém mais faz
                     </Eyebrow>
                     <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        A IA estuda com{' '}
-                        <span className="text-gradient-primary">o seu material</span> — não com genérico.
+                        E em cima do seu plano, uma IA que estuda com o{' '}
+                        <span className="text-gradient-primary">seu material</span>.
                     </h2>
                     <p className="mx-auto mt-5 max-w-2xl text-body text-white/60">
-                        Sua apostila, seu resumo, a foto do quadro. A IA transforma o que <em>você</em> estuda em questões e flashcards — pra você revisar o que de fato caiu na sua aula.
+                        O cronograma organiza a sua semana. Aí entra a parte que ninguém mais faz: sua apostila, seu resumo, a foto do quadro viram questão e flashcard. Você pratica o que de verdade caiu na sua aula.
                     </p>
                 </motion.div>
 
@@ -63,16 +64,16 @@ export function AiSuite() {
                             Treino
                         </Eyebrow>
                         <h3 className="text-h2 sm:text-display-sm font-bold leading-tight text-white">
-                            Mande o seu PDF.{' '}
+                            Manda o seu PDF.{' '}
                             <span className="text-gradient-primary">Ele vira questão</span>.
                         </h3>
                         <p className="mt-4 text-body text-white/70">
-                            Envie uma apostila, um resumo ou a matéria da aula. A IA gera questões de múltipla escolha <strong className="font-semibold text-white">só suas</strong>, com gabarito e explicação — pra você praticar o que estudou de verdade, e não questão genérica da internet.
+                            Envie uma apostila, um resumo ou a matéria da aula. A IA cria questões de múltipla escolha com o seu conteúdo, com gabarito e explicação. Você pratica o que estudou de verdade, não questão genérica da internet.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
-                            <Bullet><strong className="font-semibold text-white">O seu material vira prova:</strong> active recall com o conteúdo que você está estudando agora.</Bullet>
-                            <Bullet><strong className="font-semibold text-white">Gabarito + explicação</strong> em cada questão — você entende por que errou.</Bullet>
-                            <Bullet><strong className="font-semibold text-white">Prioriza o que você nunca respondeu</strong> e o que você errou — foco no ponto fraco.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">O seu material vira prova.</strong> Você treina com o que está estudando agora.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">Gabarito e explicação</strong> em toda questão. Dá pra ver onde você errou.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">Puxa primeiro o que você ainda não respondeu</strong> e o que você errou. O foco vai pro ponto fraco.</Bullet>
                         </ul>
                     </div>
                     <ProductWindow url="app.rendipro.com.br/treino" glow>
@@ -110,12 +111,12 @@ export function AiSuite() {
                             <span className="text-gradient-primary">Vira flashcard</span>.
                         </h3>
                         <p className="mt-4 text-body text-white/70">
-                            Fotografa o quadro da aula ou a página do caderno e a IA transforma em <strong className="font-semibold text-white">flashcards prontos</strong> pra memorizar. Do papel pra revisão espaçada em segundos — sem digitar nada.
+                            Fotografa o quadro da aula ou a página do caderno e a IA monta os flashcards pra você. Do papel pra revisão em segundos, sem digitar nada.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
-                            <Bullet><strong className="font-semibold text-white">Foto → flashcard</strong> na hora, com repetição espaçada já ativada.</Bullet>
-                            <Bullet>Também gera <strong className="font-semibold text-white">a partir de qualquer texto</strong> colado (livro, anotação, resumo).</Bullet>
-                            <Bullet>Você revisa, edita ou descarta — o controle é seu.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">Foto vira flashcard</strong> na hora, já com a repetição espaçada rodando.</Bullet>
+                            <Bullet>Também cria a partir de qualquer texto que você colar. Serve o trecho do livro, sua anotação, um resumo.</Bullet>
+                            <Bullet>Você revisa, edita ou apaga o que quiser. Quem manda é você.</Bullet>
                         </ul>
                     </div>
                 </motion.div>
@@ -127,7 +128,7 @@ export function AiSuite() {
                     className="mx-auto mt-14 flex max-w-xl items-center justify-center gap-2 text-center text-caption text-white/45"
                 >
                     <Target size={14} className="shrink-0 text-primary-400" />
-                    Questões e flashcards gerados por IA a partir do seu material. Você confere o gabarito antes de confiar.
+                    As questões e flashcards são gerados por IA a partir do seu material. Confira o gabarito antes de confiar.
                 </motion.p>
             </div>
         </section>

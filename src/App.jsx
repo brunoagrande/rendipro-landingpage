@@ -74,8 +74,8 @@ function App() {
           <TrustStrip />
           <Suspense fallback={<div className="h-12 bg-surface-950" />}>
             <ForWhom />
-            <AiSuite />
             <Features />
+            <AiSuite />
             <FounderStory />
             <Pricing />
             <FAQ />

@@ -56,11 +56,11 @@ export function Hero() {
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
                             <span className="md:hidden">
-                                Monta seu cronograma pelo edital, transforma o <strong className="font-semibold text-white">seu material</strong> em questões e flashcards com IA, e reforça sozinho o que você anda esquecendo.{' '}
+                                Monta <strong className="font-semibold text-white">um cronograma feito pra você</strong> pelo seu edital, ou importa o plano que você já tem. E ainda transforma o seu material em questões e flashcards com IA.{' '}
                                 <strong className="font-semibold text-white"><span className="line-through text-white/40">R$ 14,99</span> por R$ 9,90/mês.</strong>
                             </span>
                             <span className="hidden md:inline">
-                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar e esquece o que revisou. O RendiPro monta seu plano pelo edital, transforma o <strong className="font-semibold text-white">seu material (o PDF, a foto do caderno)</strong> em questões e flashcards com IA, e reforça sozinho os tópicos onde você vai pior — pra você <strong className="font-semibold text-white">não esquecer o que estudou</strong>.{' '}
+                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar e esquece o que revisou. O RendiPro monta <strong className="font-semibold text-white">um cronograma feito pra você</strong>, pelas suas horas e pelo seu edital, ou <strong className="font-semibold text-white">importa o plano que você já tem</strong>. Em cima disso, a IA vira o seu material em questões e flashcards e reforça sozinho os tópicos onde você vai pior. Assim você não esquece o que estudou.{' '}
                                 <strong className="font-semibold text-white"><span className="line-through text-white/40">R$ 14,99</span> por R$ 9,90/mês.</strong>
                             </span>
                         </p>
