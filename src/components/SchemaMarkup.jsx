@@ -60,7 +60,7 @@ export function SchemaMarkup() {
     offers: {
       '@type': 'Offer',
       priceCurrency: 'BRL',
-      price: '14.99',
+      price: '9.90',
       priceValidUntil: '2026-12-31',
       availability: 'https://schema.org/InStock',
     },

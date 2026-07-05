@@ -143,7 +143,7 @@ export function Features() {
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Gere por IA</strong> em segundos a partir de qualquer matéria</span>
+                                <span><strong className="font-semibold text-white">Gere do SEU material</strong> — mande um PDF ou tire foto do caderno e a IA cria questões e flashcards em segundos</span>
                             </li>
                         </ul>
                         <div className="mt-5 grid grid-cols-2 gap-3">

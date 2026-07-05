@@ -54,8 +54,8 @@ function App() {
   return (
     <InfluencerProvider>
       <SEOHead
-        title="RendiPro — Cronograma de Estudos, Flashcards e Revisão no Momento Certo"
-        description="Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só, a partir de R$ 14,99/mês."
+        title="RendiPro — Estude com IA: seu material vira questões e flashcards, e você não esquece"
+        description="A IA transforma o seu material (PDF, foto do caderno) em questões e flashcards, monta seu cronograma pelo edital e reforça o que você esquece. Tudo num plano só, por R$ 9,90/mês."
         ogImage="/og-oficial.png"
         canonical="https://rendipro.com.br/"
         noindex={false}

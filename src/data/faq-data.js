@@ -38,7 +38,7 @@ export const faqItems = [
         question:
             'Como o RendiPro se compara com Anki + planilha + apps soltos?',
         answer:
-            'Se hoje você usa o Anki para flashcards, uma planilha para o cronograma e lembretes soltos para revisar, está gastando tempo trocando de ferramenta e ainda decidindo na mão o que revisar. O RendiPro reúne tudo num plano só: cronograma adaptado ao edital, 8.000 flashcards SM-2 (mais os seus, importados do Anki ou gerados por IA) e a revisão no momento certo, organizada automaticamente pela repetição espaçada. Menos setup, menos abas, a partir de R$ 14,99/mês.',
+            'Se hoje você usa o Anki para flashcards, uma planilha para o cronograma e lembretes soltos para revisar, está gastando tempo trocando de ferramenta e ainda decidindo na mão o que revisar. O RendiPro reúne tudo num plano só: cronograma adaptado ao edital, flashcards com repetição espaçada (importados do Anki ou gerados por IA), a IA que transforma o seu material em questões e flashcards, e o reforço automático dos tópicos que você mais esquece. Menos setup, menos abas, por R$ 9,90/mês.',
     },
     {
         question:

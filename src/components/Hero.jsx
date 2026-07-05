@@ -56,12 +56,12 @@ export function Hero() {
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
                             <span className="md:hidden">
-                                O RendiPro monta seu cronograma pelo edital, te diz o que revisar hoje e deixa você com só uma tarefa: estudar. <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
+                                Monta seu cronograma pelo edital, transforma o <strong className="font-semibold text-white">seu material</strong> em questões e flashcards com IA, e reforça sozinho o que você anda esquecendo.{' '}
+                                <strong className="font-semibold text-white"><span className="line-through text-white/40">R$ 14,99</span> por R$ 9,90/mês.</strong>
                             </span>
                             <span className="hidden md:inline">
-                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar, esquece o que revisou e perde tempo organizando em vez de aprendendo. O RendiPro monta seu plano pelo edital em minutos, organiza suas revisões com repetição espaçada e te diz exatamente o que estudar hoje.{' '}
-                                <strong className="font-semibold text-white">Você foca em aprender. A plataforma organiza o resto.</strong>{' '}
-                                <strong className="font-semibold text-white">A partir de R$ 14,99/mês.</strong>
+                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar e esquece o que revisou. O RendiPro monta seu plano pelo edital, transforma o <strong className="font-semibold text-white">seu material (o PDF, a foto do caderno)</strong> em questões e flashcards com IA, e reforça sozinho os tópicos onde você vai pior — pra você <strong className="font-semibold text-white">não esquecer o que estudou</strong>.{' '}
+                                <strong className="font-semibold text-white"><span className="line-through text-white/40">R$ 14,99</span> por R$ 9,90/mês.</strong>
                             </span>
                         </p>
 
