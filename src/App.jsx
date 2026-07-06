@@ -5,7 +5,6 @@ import { TrustStrip } from './components/TrustStrip'
 import { StickyMobileCTA } from './components/StickyMobileCTA'
 import { InfluencerProvider } from './contexts/InfluencerContext'
 import { TopBanner } from './components/TopBanner'
-import { FoundersBanner } from './components/FoundersBanner'
 import { InvalidInfluencerModal } from './components/InvalidInfluencerModal'
 import { SEOHead } from './components/SEOHead'
 import { SchemaMarkup } from './components/SchemaMarkup'
@@ -65,7 +64,6 @@ function App() {
       <SchemaMarkup />
       <div className="min-h-screen bg-surface-950 text-white selection:bg-primary-500/30">
         <div className="sticky top-0 z-50">
-          <FoundersBanner />
           <TopBanner />
           <Navbar />
         </div>

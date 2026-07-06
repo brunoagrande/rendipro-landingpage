@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
     ArrowRight,
     Check,
     Crown,
-    Lock,
-    Medal,
     Shield,
     Sparkles,
     X as XIcon,
@@ -15,26 +12,12 @@ import { useInfluencer } from '../contexts/InfluencerContext'
 import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
 import { cn } from '../lib/utils'
-import { FOUNDERS_DEADLINE } from '../lib/founders'
 import { useSectionView } from '../lib/useSectionView'
 import { trackRegisterCta } from '../lib/tracking'
 import {
     getAllLandingPlans,
     getMonthlyEquivalent,
 } from '../data/pricing-plans'
-
-const FOUNDER_DISCOUNT = 0.20
-
-function getTimeLeft() {
-    const diff = FOUNDERS_DEADLINE - new Date()
-    if (diff <= 0) return null
-    return {
-        days: Math.floor(diff / 864e5),
-        hours: Math.floor((diff % 864e5) / 36e5),
-        minutes: Math.floor((diff % 36e5) / 6e4),
-        seconds: Math.floor((diff % 6e4) / 1e3),
-    }
-}
 
 /**
  * Pricing v3 — 100% reescrito.
@@ -93,17 +76,8 @@ const trackPricingCta = (plan) => {
 }
 
 export function Pricing() {
-    const [timeLeft, setTimeLeft] = useState(getTimeLeft)
     const { influencerData, applyDiscount, getCheckoutUrl } = useInfluencer()
     const sectionRef = useSectionView('pricing')
-
-    useEffect(() => {
-        const id = setInterval(() => setTimeLeft(getTimeLeft()), 1000)
-        return () => clearInterval(id)
-    }, [])
-
-    const foundersActive = !!timeLeft
-    const isFounderPricing = foundersActive
 
     const plans = getAllLandingPlans()
 
@@ -126,47 +100,17 @@ export function Pricing() {
                     transition={{ duration: 0.7, ease: easeSpring }}
                     className="mb-10 text-center"
                 >
-                    <Eyebrow variant={foundersActive ? 'warning' : 'primary'} className="mb-4">
-                        {foundersActive ? <Medal size={14} /> : <Sparkles size={14} />}
-                        {foundersActive ? 'Vagas de Fundador · Oferta por tempo limitado' : 'Planos'}
+                    <Eyebrow variant="primary" className="mb-4">
+                        <Sparkles size={14} />
+                        Planos
                     </Eyebrow>
                     <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        {foundersActive ? (
-                            <>Trave o menor preço{' '}<span className="text-gradient-primary">para sempre.</span></>
-                        ) : (
-                            <>Quanto custa adiar a sua{' '}<span className="text-gradient-primary">aprovação</span>?</>
-                        )}
+                        Quanto custa adiar a sua{' '}<span className="text-gradient-primary">aprovação</span>?
                     </h2>
                     <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/60">
-                        {foundersActive
-                            ? 'Todos os planos anuais com 20% OFF. Quem entra agora paga o mesmo valor mesmo quando o preço subir lá na frente.'
-                            : 'Menos que uma hora de cursinho presencial por mês. Com método de verdade.'}
+                        Menos que uma hora de cursinho presencial por mês. Com método de verdade.
                     </p>
                 </motion.div>
-
-                {/* ─── Countdown (founder urgency) ──────────────────────── */}
-                {foundersActive && (
-                    <div className="mb-8 flex justify-center gap-2 sm:gap-3">
-                        {[
-                            { value: timeLeft.days, label: 'dias' },
-                            { value: timeLeft.hours, label: 'horas' },
-                            { value: timeLeft.minutes, label: 'min' },
-                            { value: timeLeft.seconds, label: 'seg' },
-                        ].map(({ value, label }) => (
-                            <div
-                                key={label}
-                                className="flex min-w-[58px] flex-col items-center rounded-xl border border-white/10 bg-surface-900 px-3 py-2.5 sm:min-w-[72px] sm:px-4 sm:py-3"
-                            >
-                                <span className="font-mono text-xl font-bold text-amber-400 sm:text-2xl">
-                                    {String(value).padStart(2, '0')}
-                                </span>
-                                <span className="mt-0.5 text-[10px] uppercase tracking-wider text-white/35">
-                                    {label}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                )}
 
                 {/* ─── Callout "vs 4 apps" ─────────────────────────────── */}
                 <motion.div
@@ -196,27 +140,9 @@ export function Pricing() {
                             influencerData={influencerData}
                             applyDiscount={applyDiscount}
                             getCheckoutUrl={getCheckoutUrl}
-                            isFounderPricing={isFounderPricing}
                         />
                     ))}
                 </div>
-
-                {/* ─── Founder benefits strip ───────────────────────────── */}
-                {isFounderPricing && (
-                    <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
-                        {[
-                            { Icon: Lock, text: 'Preço travado para sempre' },
-                            { Icon: Medal, text: 'Selo Fundador no perfil' },
-                            { Icon: Zap, text: 'Acesso antecipado a novas features' },
-                            { Icon: Shield, text: 'Garantia de 7 dias' },
-                        ].map(({ Icon, text }) => (
-                            <span key={text} className="flex items-center gap-1.5 text-sm text-white/65">
-                                <Icon size={13} className="text-amber-400 shrink-0" />
-                                {text}
-                            </span>
-                        ))}
-                    </div>
-                )}
 
                 {/* ─── Common features banner ───────────────────────────── */}
                 <motion.div
@@ -283,21 +209,13 @@ export function Pricing() {
    ═══════════════════════════════════════════════════════════════════ */
 
 
-function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, isFounderPricing }) {
+function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }) {
     const isPopular = plan.popular === true
     const monthlyEq = plan.tipo === 'anual' ? getMonthlyEquivalent(plan) : null
 
-    // Influencer applica primeiro; Fundador (-20%) só rola sobre Anual quando ativo
-    const afterInfluencer = applyDiscount(plan.preco_centavos)
-    const discountedPrice = isFounderPricing
-        ? Math.round(afterInfluencer * (1 - FOUNDER_DISCOUNT))
-        : afterInfluencer
+    const discountedPrice = applyDiscount(plan.preco_centavos)
     const hasInfluencerDiscount =
-        influencerData && afterInfluencer < plan.preco_centavos
-    const showFounderBadge = isFounderPricing && plan.tipo === 'anual'
-    const founderSavingsAno = showFounderBadge
-        ? Math.round(afterInfluencer * FOUNDER_DISCOUNT)
-        : 0
+        influencerData && discountedPrice < plan.preco_centavos
 
     let savings = 0
     if (monthlyEq && plan.tipo === 'anual') {
@@ -344,17 +262,17 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
 
             {/* Price */}
             <div className="mb-6">
-                {(hasInfluencerDiscount || showFounderBadge) && (
+                {hasInfluencerDiscount && (
                     <p className="mb-1 text-caption text-white/40">
                         De{' '}
                         <span className="line-through">
-                            {formatPrice(showFounderBadge ? afterInfluencer : plan.preco_centavos)}
+                            {formatPrice(plan.preco_centavos)}
                         </span>
                     </p>
                 )}
                 {plan.tipo === 'anual' && plan.preco_centavos > 0 ? (
                     <>
-                        {plan.preco_ancora_mes_centavos && !hasInfluencerDiscount && !showFounderBadge && (
+                        {plan.preco_ancora_mes_centavos && !hasInfluencerDiscount && (
                             <p className="mb-1 text-caption text-white/45">
                                 De <span className="line-through">{formatPrice(plan.preco_ancora_mes_centavos)}</span>/mês por
                             </p>
@@ -366,11 +284,7 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
                             <span
                                 className={cn(
                                     'text-display-sm font-extrabold',
-                                    showFounderBadge
-                                        ? 'text-amber-400'
-                                        : hasInfluencerDiscount
-                                            ? 'text-success-400'
-                                            : 'text-white'
+                                    hasInfluencerDiscount ? 'text-success-400' : 'text-white'
                                 )}
                             >
                                 {formatPrice(discountedPrice / 12)}
@@ -379,13 +293,7 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
                         <p className="mt-1.5 text-caption text-white/45">
                             ou {formatPrice(discountedPrice)} à vista/ano
                         </p>
-                        {showFounderBadge && (
-                            <p className="mt-2.5 inline-flex items-center gap-1 rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-caption font-bold text-amber-400">
-                                <Lock size={10} />
-                                Travado p/ sempre · economiza {formatPrice(founderSavingsAno)}/ano
-                            </p>
-                        )}
-                        {savings > 0 && !hasInfluencerDiscount && !showFounderBadge && (
+                        {savings > 0 && !hasInfluencerDiscount && (
                             <p className="mt-2.5 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-caption font-bold text-emerald-400">
                                 Economize {formatPrice(savings)}/ano
                             </p>
@@ -393,7 +301,7 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
                     </>
                 ) : (
                     <>
-                        {plan.preco_ancora_mes_centavos && !hasInfluencerDiscount && !showFounderBadge && (
+                        {plan.preco_ancora_mes_centavos && !hasInfluencerDiscount && (
                             <p className="mb-1 text-caption text-white/45">
                                 De <span className="line-through">{formatPrice(plan.preco_ancora_mes_centavos)}</span>/mês por
                             </p>
@@ -452,15 +360,13 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl, 
             <Button
                 as="a"
                 href={getCheckoutUrl(
-                    showFounderBadge
-                        ? `https://app.rendipro.com.br/register?founder=true&plano=${plan.slug}&utm_content=fundador`
-                        : `https://app.rendipro.com.br/register?plano=${plan.slug}`
+                    `https://app.rendipro.com.br/register?plano=${plan.slug}`
                 )}
                 onClick={() => trackPricingCta(plan)}
                 variant={isPopular ? 'primary' : 'secondary'}
                 size="md"
             >
-                {showFounderBadge ? `Ser Fundador ${plan.nome_curto}` : `Quero o ${plan.nome_curto}`}
+                {`Quero o ${plan.nome_curto}`}
                 <ArrowRight
                     size={16}
                     className="transition-transform group-hover:translate-x-0.5"
