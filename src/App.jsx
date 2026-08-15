@@ -19,6 +19,7 @@ const BetaLanding = lazy(() => import('./components/BetaLanding').then(m => ({ d
 const ForWhom       = lazy(() => import('./components/ForWhom').then(m => ({ default: m.ForWhom })))
 const PlanoShowcase = lazy(() => import('./components/PlanoShowcase').then(m => ({ default: m.PlanoShowcase })))
 const AiSuite       = lazy(() => import('./components/AiSuite').then(m => ({ default: m.AiSuite })))
+const RedacaoShowcase = lazy(() => import('./components/RedacaoShowcase').then(m => ({ default: m.RedacaoShowcase })))
 const Features      = lazy(() => import('./components/Features').then(m => ({ default: m.Features })))
 const FounderStory  = lazy(() => import('./components/FounderStory').then(m => ({ default: m.FounderStory })))
 const Pricing       = lazy(() => import('./components/Pricing').then(m => ({ default: m.Pricing })))
@@ -76,6 +77,7 @@ function App() {
             <PlanoShowcase />
             <Features />
             <AiSuite />
+            <RedacaoShowcase />
             <FounderStory />
             <Pricing />
             <FAQ />

@@ -111,7 +111,7 @@ export function AiSuite() {
                             <span className="text-gradient-primary">Vira flashcard</span>.
                         </h3>
                         <p className="mt-4 text-body text-white/70">
-                            Fotografa o quadro da aula ou a página do caderno e a IA monta os flashcards pra você. Do papel pra revisão em segundos, sem digitar nada.
+                            Tira uma foto do quadro ou da página do caderno e pronto: a IA monta os flashcards pra você. O que estava no papel entra na sua revisão em segundos, sem digitar nada.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
                             <Bullet><strong className="font-semibold text-white">Foto vira flashcard</strong> na hora, já com a repetição espaçada rodando.</Bullet>

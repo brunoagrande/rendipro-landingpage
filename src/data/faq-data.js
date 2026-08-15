@@ -22,7 +22,12 @@ export const faqItems = [
     {
         question: 'Como funcionam os flashcards? Posso usar os meus?',
         answer:
-            'Você tem 8.000 flashcards prontos em 69 baralhos cobrindo todas as matérias e já pode começar a estudar na hora. Quer usar os seus? Crie flashcards em segundos, gere por IA a partir de qualquer conteúdo ou importe os decks que você já tem no Anki. A revisão de todos eles é organizada pela repetição espaçada (algoritmo SM-2), que decide a hora certa de cada card.',
+            'Você tem mais de 8.000 flashcards prontos cobrindo as principais matérias e já pode começar a estudar na hora. Quer usar os seus? Crie flashcards em segundos, tire foto do caderno, gere por IA a partir de qualquer conteúdo ou importe os decks que você já tem no Anki. A revisão de todos eles é organizada pela repetição espaçada, que calcula o dia certo de rever cada card pra ele não sumir da memória.',
+    },
+    {
+        question: 'A correção de redação é confiável? Quantas posso enviar?',
+        answer:
+            'Você escreve na plataforma e recebe a correção em minutos: nota de 0 a 1000, nota por competência e comentário do que travou cada critério. A régua é calibrada pra ser mais dura que a banca de propósito, porque corretor bonzinho não prepara ninguém. São 2 correções por mês no Starter e 8 por mês no Pro, sem pagar por correção avulsa e sem agendar corretor.',
     },
     {
         question: 'Como monto meu cronograma? Dá pra importar o que já tenho?',
@@ -44,11 +49,11 @@ export const faqItems = [
         question:
             'Já tentei outras plataformas e desisti em 2 semanas. Como sei que com o RendiPro vai ser diferente?',
         answer:
-            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método pra continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (cola edital, escolhe formato, pronto), e tem streak diário, freeze de folga e missões curtas pra te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar pra você, devolve 100% com 1 clique, sem precisar explicar nada.',
+            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método pra continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (cola edital, escolhe formato, pronto), e tem sequência diária, proteção pros dias de folga e missões curtas pra te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar pra você, devolve 100% com 1 clique, sem precisar explicar nada.',
     },
     {
         question: 'Posso cancelar a qualquer momento?',
         answer:
-            'Sim, sem burocracia. No plano mensal você cancela quando quiser pelo painel: sem ligação, sem e-mail, sem perguntas. No plano anual você garante o desconto de 33% e mantém o acesso até o fim do período contratado. Em qualquer caso, dentro dos primeiros 7 dias você tem direito a reembolso integral com 1 clique.',
+            'Sim, sem burocracia. No plano mensal você cancela quando quiser pelo painel: sem ligação, sem e-mail, sem perguntas. No plano anual você garante o desconto de 41% e mantém o acesso até o fim do período contratado. Em qualquer caso, dentro dos primeiros 7 dias você tem direito a reembolso integral com 1 clique.',
     },
 ]

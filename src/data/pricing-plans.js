@@ -172,16 +172,15 @@ export const PRICING_PLANS = [
  * Comunicado no toggle Mensal/Anual da landing.
  * Atual: -33% (verificado contra `tbplanos` em 2026-05-13).
  */
-export const ANNUAL_DISCOUNT_LABEL = '-33%'
+export const ANNUAL_DISCOUNT_LABEL = '-41%' // 9,90 vs 16,90 (Starter); Pro e -43%
 
 /**
  * Helper: retorna os planos exibidos na landing, filtrados por tipo e ordenados.
  *
- * Pós-pivô (2026-06): a landing vende apenas o Starter (mensal e anual). Os
- * planos Plus/Pro/Ultra eram diferenciados pela quantidade de redações por mês,
- * e a redação saiu do produto. Eles continuam no array (e em `tbplanos`) porque
- * o billing do app ainda os referencia, mas só os marcados com `exibir_landing`
- * aparecem aqui. Para voltar a exibi-los, basta marcar `exibir_landing: true`.
+ * Grade v2 (2026-08-15): a landing vende Starter e Pro (mensal e anual). A
+ * redação VOLTOU ao produto (2/mês no Starter, 8/mês no Pro) e é o que separa
+ * os tiers. Plus/Ultra seguem no array só porque assinantes antigos os
+ * referenciam no billing; ficam com ativo: false e fora da vitrine.
  */
 export function getPlansByTipo(tipo) {
     return PRICING_PLANS

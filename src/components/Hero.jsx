@@ -56,12 +56,10 @@ export function Hero() {
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
                             <span className="md:hidden">
-                                Monta <strong className="font-semibold text-white">um cronograma feito pra você</strong> pelo seu edital, ou importa o plano que você já tem. E ainda transforma o seu material em questões e flashcards com IA.{' '}
-                                <strong className="font-semibold text-white"><span className="line-through text-white/40">R$ 14,99</span> por R$ 9,90/mês.</strong>
+                                O RendiPro monta <strong className="font-semibold text-white">o cronograma pelo seu edital</strong>, avisa <strong className="font-semibold text-white">o dia certo de revisar</strong> cada matéria, transforma sua apostila em questões e ainda <strong className="font-semibold text-white">corrige sua redação com nota por competência</strong>. A partir de <strong className="font-semibold text-white">12x de R$ 9,90</strong>.
                             </span>
                             <span className="hidden md:inline">
-                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar e esquece o que revisou. O RendiPro monta <strong className="font-semibold text-white">um cronograma feito pra você</strong>, pelas suas horas e pelo seu edital, ou <strong className="font-semibold text-white">importa o plano que você já tem</strong>. Em cima disso, a IA vira o seu material em questões e flashcards e reforça sozinho os tópicos onde você vai pior. Assim você não esquece o que estudou.{' '}
-                                <strong className="font-semibold text-white"><span className="line-through text-white/40">R$ 14,99</span> por R$ 9,90/mês.</strong>
+                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar e esquece o que revisou. O RendiPro monta <strong className="font-semibold text-white">um cronograma pelo seu edital</strong> e pelas horas que você tem, avisa <strong className="font-semibold text-white">o dia certo de revisar</strong> cada matéria, transforma <strong className="font-semibold text-white">sua apostila em questões</strong> e ainda <strong className="font-semibold text-white">corrige sua redação com nota por competência</strong>. Tudo num lugar só, a partir de <strong className="font-semibold text-white">12x de R$ 9,90</strong>.
                             </span>
                         </p>
 

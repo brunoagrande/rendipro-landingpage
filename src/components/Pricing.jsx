@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
     ArrowRight,
@@ -15,8 +16,9 @@ import { cn } from '../lib/utils'
 import { useSectionView } from '../lib/useSectionView'
 import { trackRegisterCta } from '../lib/tracking'
 import {
-    getAllLandingPlans,
+    getPlansByTipo,
     getMonthlyEquivalent,
+    ANNUAL_DISCOUNT_LABEL,
 } from '../data/pricing-plans'
 
 /**
@@ -25,7 +27,7 @@ import {
  * Mudanças críticas vs v1:
  *  - Fonte de dados: ESTÁTICA (`src/data/pricing-plans.js`). Sem Supabase.
  *    Elimina o 401, elimina o loader infinito, elimina o ponto único de falha.
- *  - Toggle anual mostra -33% (era -20%, errado).
+ *  - Toggle anual mostra o desconto REAL vs mensal (grade v2: -41%).
  *  - 3 features de IA por plano agora visíveis (flashcards IA, cronograma IA,
  *    tira-dúvidas IA).
  *  - Cada CTA é "Quero o [Nome]" (Joel Jota / Bruno Perini pattern).
@@ -36,7 +38,7 @@ import {
  * Decisão locked (Bruno):
  *  - Manter nomes Starter/Plus/Pro/Ultra (não renomear).
  *  - Garantia 7 dias incondicional CDC.
- *  - Desconto anual -33%.
+ *  - Desconto anual = diferenca real anual vs mensal (label em pricing-plans).
  */
 
 const easeSpring = [0.16, 1, 0.3, 1]
@@ -47,14 +49,18 @@ const fadeUp = {
 }
 
 const COMMON_FEATURES = [
-    '+8.000 flashcards SM-2 prontos em 69 baralhos',
-    'Crie flashcards ou importe seus decks do Anki',
-    'Revisão no momento certo com repetição espaçada',
-    'Cronograma adaptado (auto, por edital ou import CSV/PDF)',
-    'Até 3 cronogramas paralelos (exclusivo)',
-    'Gamificação completa: streak, XP, ligas e missões',
-    'IA pra gerar flashcards e tirar dúvidas nos estudos',
-    'Acesso completo no celular (web responsivo)',
+    // Regra: so entra aqui o que TODO plano entrega hoje. Conferido contra o
+    // produto em 15/08/2026 (ligas/loja estao atras de gate: NAO listar).
+    'Redação corrigida todo mês, com nota por competência',
+    'Sua apostila vira questões de treino com gabarito',
+    '+8.000 flashcards prontos, organizados por matéria',
+    'Crie flashcards, tire foto do caderno ou importe do Anki',
+    'Revisão no momento certo, sem planilha',
+    'Cronograma pelo edital, automático ou importado (CSV/PDF)',
+    'Até 3 cronogramas em paralelo',
+    'Sequência de estudos, missões diárias e evolução por XP',
+    'Acesso completo no celular',
+    'Garantia de 7 dias em qualquer plano',
 ]
 
 function formatPrice(cents) {
@@ -79,7 +85,10 @@ export function Pricing() {
     const { influencerData, applyDiscount, getCheckoutUrl } = useInfluencer()
     const sectionRef = useSectionView('pricing')
 
-    const plans = getAllLandingPlans()
+    // Anual-first: e o produto da campanha (caixa antecipado paga o CAC) e o
+    // melhor preco pro aluno. Mensal fica a um clique, nao escondido.
+    const [tipo, setTipo] = useState('anual')
+    const plans = getPlansByTipo(tipo)
 
     return (
         <section
@@ -123,15 +132,49 @@ export function Pricing() {
                 >
                     <p className="text-body-sm leading-relaxed text-white/70">
                         <span className="text-white/45">Hoje você junta</span>{' '}
-                        Anki, planilha e lembrete no celular, e ainda perde tempo decidindo o que revisar.{' '}
+                        Anki, planilha, corretor avulso e lembrete no celular, e ainda perde tempo decidindo o que revisar.{' '}
                         <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">você monta seu cronograma pelo edital ou importa o que já tem, a IA vira seu material em questões e flashcards, e a revisão chega na hora certa. Tudo num plano só, por R$ 9,90/mês.</strong>{' '}
+                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo num plano só, a partir de 12x de R$ 9,90.</strong>{' '}
                         <span className="text-white/45">Menos que uma hora de cursinho presencial.</span>
                     </p>
                 </motion.div>
 
-                {/* ─── Plano Starter (mensal + anual lado a lado) ───────── */}
-                <div className="mx-auto grid max-w-2xl grid-cols-1 gap-5 md:grid-cols-2">
+                {/* ─── Toggle Mensal | Anual (anual default) ────────────── */}
+                <div className="mb-8 flex justify-center">
+                    <div className="inline-flex items-center rounded-full border border-white/10 bg-surface-900/70 p-1 backdrop-blur-sm">
+                        <button
+                            type="button"
+                            onClick={() => setTipo('mensal')}
+                            className={cn(
+                                'rounded-full px-5 py-2 text-body-sm font-semibold transition-colors',
+                                tipo === 'mensal' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white/80'
+                            )}
+                        >
+                            Mensal
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => setTipo('anual')}
+                            className={cn(
+                                'flex items-center gap-2 rounded-full px-5 py-2 text-body-sm font-semibold transition-colors',
+                                tipo === 'anual' ? 'bg-primary-500 text-surface-950' : 'text-white/50 hover:text-white/80'
+                            )}
+                        >
+                            Anual
+                            <span
+                                className={cn(
+                                    'rounded-full px-1.5 py-0.5 text-[11px] font-bold',
+                                    tipo === 'anual' ? 'bg-surface-950/20 text-surface-950' : 'bg-emerald-500/15 text-emerald-400'
+                                )}
+                            >
+                                {ANNUAL_DISCOUNT_LABEL}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                {/* ─── Cards Starter + Pro do período escolhido ─────────── */}
+                <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-2">
                     {plans.map((plan, i) => (
                         <PlanCard
                             key={plan.id_plano}
@@ -372,9 +415,9 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                             {plan.cronograma_ia_por_mes}
                         </strong>{' '}
                         {plan.cronograma_ia_por_mes === 1
-                            ? 'cronograma'
-                            : 'cronogramas'}{' '}
-                        adaptado com IA/mês
+                            ? 'cronograma adaptado'
+                            : 'cronogramas adaptados'}{' '}
+com IA/mês
                     </span>
                 </li>
             </ul>
