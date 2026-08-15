@@ -13,7 +13,7 @@
  * autenticado (billing, plano do usuário, features liberadas). Quando mudar
  * preço aqui, atualizar lá também (manualmente, baixa frequência).
  *
- * Última sincronização com tbplanos: 2026-05-13
+ * Última sincronização com tbplanos: 2026-08-15 (grade v2: Starter+Pro, redação no Starter)
  */
 
 export const PRICING_PLANS = [
@@ -27,11 +27,13 @@ export const PRICING_PLANS = [
         tipo: 'mensal',
         preco_centavos: 1690,
         preco_ancora_mes_centavos: 2490, // "de R$24,90 por R$16,90/mês" (âncora de venda)
-        redacoes_por_mes: 0,
+        redacoes_por_mes: 2,
         duracao_meses: 1,
-        flashcards_ia_por_mes: 30,
-        cronograma_ia_por_mes: 1,
+        flashcards_ia_por_mes: 50,
+        cronograma_ia_por_mes: 2,
         chat_ia_questao_por_mes: 30,
+        questoes_pdf_por_mes: 6,
+        questoes_pdf_max_paginas: 40,
         ordem: 1,
         ativo: true,
         popular: true,
@@ -51,23 +53,26 @@ export const PRICING_PLANS = [
         cronograma_ia_por_mes: 2,
         chat_ia_questao_por_mes: 50,
         ordem: 2,
-        ativo: true,
+        ativo: false, // aposentado na grade v2 (15/08/2026)
     },
     {
         id_plano: 'd1b278bb-a332-456e-884c-64f75b164339',
         nome: 'Pro Mensal',
         nome_curto: 'Pro',
         slug: 'pro-mensal',
-        descricao: 'Acelere sua aprovação com 4 correções de redação por mês',
+        descricao: 'Pra quem treina todo dia: 8 redações corrigidas por mês e o dobro de material virando questão.',
         tipo: 'mensal',
-        preco_centavos: 8990,
-        redacoes_por_mes: 4,
+        preco_centavos: 3490,
+        redacoes_por_mes: 8,
         duracao_meses: 1,
-        flashcards_ia_por_mes: 150,
-        cronograma_ia_por_mes: 3,
-        chat_ia_questao_por_mes: 120,
+        flashcards_ia_por_mes: 200,
+        cronograma_ia_por_mes: 4,
+        chat_ia_questao_por_mes: 150,
+        questoes_pdf_por_mes: 20,
+        questoes_pdf_max_paginas: 60,
         ordem: 3,
         ativo: true,
+        exibir_landing: true,
     },
     {
         id_plano: '8becb6a4-11e4-4567-8cc6-2abcc2cc120a',
@@ -83,7 +88,7 @@ export const PRICING_PLANS = [
         cronograma_ia_por_mes: 5,
         chat_ia_questao_por_mes: 240,
         ordem: 4,
-        ativo: true,
+        ativo: false, // aposentado na grade v2 (15/08/2026)
     },
 
     // ─── ANUAIS ──────────────────────────────────────────────────────────
@@ -95,12 +100,14 @@ export const PRICING_PLANS = [
         descricao: 'Cronograma, flashcards e revisão no momento certo por um ano inteiro. Tudo num plano só.',
         tipo: 'anual',
         preco_centavos: 11880,
-        preco_ancora_mes_centavos: 1499, // "de R$14,99 por R$9,90/mês" (âncora de venda)
-        redacoes_por_mes: 0,
+        preco_ancora_mes_centavos: 1690, // âncora VERDADEIRA: o preço do Starter Mensal
+        redacoes_por_mes: 2,
         duracao_meses: 12,
-        flashcards_ia_por_mes: 100,
-        cronograma_ia_por_mes: 3,
-        chat_ia_questao_por_mes: 100,
+        flashcards_ia_por_mes: 50,
+        cronograma_ia_por_mes: 2,
+        chat_ia_questao_por_mes: 30,
+        questoes_pdf_por_mes: 6,
+        questoes_pdf_max_paginas: 40,
         ordem: 5,
         ativo: true,
         popular: true,
@@ -120,23 +127,27 @@ export const PRICING_PLANS = [
         cronograma_ia_por_mes: 5,
         chat_ia_questao_por_mes: 200,
         ordem: 6,
-        ativo: true,
+        ativo: false, // aposentado na grade v2 (15/08/2026)
     },
     {
         id_plano: 'eaf1b72f-3287-4568-850f-5f88a958b844',
         nome: 'Pro Anual',
         nome_curto: 'Pro',
         slug: 'pro-anual',
-        descricao: 'Um ano acelerado com 4 correções de redação por mês',
+        descricao: 'Pra quem treina todo dia: 8 redações corrigidas por mês e o dobro de material virando questão. Um ano inteiro.',
         tipo: 'anual',
-        preco_centavos: 71880,
-        redacoes_por_mes: 4,
+        preco_centavos: 23880,
+        preco_ancora_mes_centavos: 3490, // âncora VERDADEIRA: o preço do Pro Mensal
+        redacoes_por_mes: 8,
         duracao_meses: 12,
-        flashcards_ia_por_mes: 400,
-        cronograma_ia_por_mes: 8,
-        chat_ia_questao_por_mes: 400,
+        flashcards_ia_por_mes: 200,
+        cronograma_ia_por_mes: 4,
+        chat_ia_questao_por_mes: 150,
+        questoes_pdf_por_mes: 20,
+        questoes_pdf_max_paginas: 60,
         ordem: 7,
         ativo: true,
+        exibir_landing: true,
     },
     {
         id_plano: '4fe17fae-3b16-4670-8eec-bbde7f0510af',
@@ -152,7 +163,7 @@ export const PRICING_PLANS = [
         cronograma_ia_por_mes: 12,
         chat_ia_questao_por_mes: 800,
         ordem: 8,
-        ativo: true,
+        ativo: false, // aposentado na grade v2 (15/08/2026)
     },
 ]
 

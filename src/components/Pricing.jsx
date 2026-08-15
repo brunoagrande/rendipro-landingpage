@@ -332,7 +332,30 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                     </span>
                 </li>
 
-                {/* IA features */}
+                {/* IA features — redação e questões do PDF primeiro: são o que
+                    diferencia os tiers na grade v2 (15/08/2026) */}
+                {plan.redacoes_por_mes > 0 && (
+                    <li className="flex items-start gap-2 text-body-sm">
+                        <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
+                        <span className="text-white/80">
+                            <strong className="font-bold text-white">
+                                {plan.redacoes_por_mes}
+                            </strong>{' '}
+                            {plan.redacoes_por_mes === 1 ? 'redação corrigida' : 'redações corrigidas'}/mês, nota por competência
+                        </span>
+                    </li>
+                )}
+                {plan.questoes_pdf_por_mes > 0 && (
+                    <li className="flex items-start gap-2 text-body-sm">
+                        <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
+                        <span className="text-white/80">
+                            <strong className="font-bold text-white">
+                                {plan.questoes_pdf_por_mes}
+                            </strong>{' '}
+                            apostilas viram questões/mês (até {plan.questoes_pdf_max_paginas} págs cada)
+                        </span>
+                    </li>
+                )}
                 <li className="flex items-start gap-2 text-body-sm">
                     <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
                     <span className="text-white/80">
