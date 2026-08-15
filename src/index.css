@@ -7,18 +7,20 @@
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 @theme {
-  /* ─── COLOR · PRIMARY (cyan-teal) ─────────────────────────────────────── */
-  --color-primary-50:  #ecfeff;
-  --color-primary-100: #cffafe;
-  --color-primary-200: #a5f3fc;
-  --color-primary-300: #67e8f9;
-  --color-primary-400: #22d3ee;
-  --color-primary-500: #06b6d4;
-  --color-primary-600: #0891b2;
-  --color-primary-700: #0e7490;
-  --color-primary-800: #155e75;
-  --color-primary-900: #164e63;
-  --color-primary-950: #083344;
+  /* ─── COLOR · PRIMARY (teal da MARCA, ancorado no logo #00C49A) ───────── */
+  /* Trocado de cyan pra teal em 15/08/2026: o logo e teal, o Instagram e
+     teal; a landing era a unica superficie em cyan-azul. Uma marca, um teal. */
+  --color-primary-50:  #ecfdf8;
+  --color-primary-100: #d0fbec;
+  --color-primary-200: #a5f5dc;
+  --color-primary-300: #6ceac6;
+  --color-primary-400: #33d9ab;
+  --color-primary-500: #00c49a;
+  --color-primary-600: #00a37f;
+  --color-primary-700: #058268;
+  --color-primary-800: #086654;
+  --color-primary-900: #085445;
+  --color-primary-950: #03302a;
 
   /* ─── COLOR · ACCENT (indigo, gradient partner) ───────────────────────── */
   --color-accent-50:  #eef2ff;
@@ -60,7 +62,7 @@
   /* Variable fonts self-hosted via @fontsource-variable (importadas em main.jsx).
      "Inter Display" effect is achieved via tighter letter-spacing at display sizes. */
   --font-sans:    'Inter Variable', Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: 'Inter Variable', Inter, system-ui, -apple-system, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', 'Inter Variable', Inter, system-ui, sans-serif;
   --font-mono:    'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'Menlo', 'Consolas', monospace;
 
   /* ─── TYPE SCALE ──────────────────────────────────────────────────────── */
@@ -251,6 +253,14 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+/* Titulos na fonte display da MARCA (Bricolage, a mesma dos posts do
+   Instagram). Antes o token --font-display existia mas nada o aplicava:
+   todo heading renderizava Inter. h1-h3 cobrem hero, headlines de secao e
+   titulos de bloco; h4+ e corpo seguem na Inter. */
+h1, h2, h3 {
+  font-family: var(--font-display);
 }
 
 /* ─── UTILITIES ─────────────────────────────────────────────────────────── */

@@ -73,9 +73,11 @@ export function Counter({
             ref={ref}
             className={cn('inline-flex items-baseline tabular-nums', className)}
         >
-            {prefix}
+            {/* whitespace-pre: o container e inline-flex, que colapsa espaco
+                de no de texto ("0 a " virava "0 a1.000") */}
+            <span className="whitespace-pre">{prefix}</span>
             <span>{display.toLocaleString('pt-BR')}</span>
-            {suffix}
+            <span className="whitespace-pre">{suffix}</span>
         </span>
     )
 }

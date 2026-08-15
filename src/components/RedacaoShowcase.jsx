@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion'
-import { Check, PenLine, Clock, Target } from 'lucide-react'
+import { ArrowRight, Check, PenLine, Clock, Target } from 'lucide-react'
 import { Eyebrow } from './ui/Eyebrow'
+import { Button } from './ui/Button'
 import { ProductWindow } from './ui/ProductWindow'
+import { useInfluencer } from '../contexts/InfluencerContext'
+import { trackRegisterCta } from '../lib/tracking'
 import { useSectionView } from '../lib/useSectionView'
 
 /**
@@ -26,6 +29,8 @@ function Bullet({ children }) {
 
 export function RedacaoShowcase() {
     const sectionRef = useSectionView('redacao')
+    const { getCheckoutUrl } = useInfluencer()
+    const trackCta = () => trackRegisterCta({ buttonText: 'Corrigir minha primeira redação', location: 'redacao' })
 
     return (
         <section ref={sectionRef} id="redacao" className="relative overflow-hidden py-14 sm:py-24">
@@ -83,6 +88,21 @@ export function RedacaoShowcase() {
                                 <Target size={14} className="text-primary-400" />
                                 Rigor calibrado: aqui a régua é dura de propósito
                             </span>
+                        </div>
+
+                        {/* CTA do meio da pagina: eram ~8.000px de rolagem entre o
+                            hero e o pricing sem nenhum botao de acao. */}
+                        <div className="mt-8">
+                            <Button
+                                as="a"
+                                href={getCheckoutUrl('https://app.rendipro.com.br/register?plano=starter-anual&utm_content=redacao')}
+                                onClick={trackCta}
+                                variant="primary"
+                                size="lg"
+                            >
+                                Corrigir minha primeira redação
+                                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                            </Button>
                         </div>
                     </motion.div>
 

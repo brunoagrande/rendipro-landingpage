@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async'
 // Fontes self-hosted (saiu do Bunny CDN externo em 2026-05-24 pra reduzir RTT no LCP).
 // O `unicode-range` no @font-face faz o browser baixar só os subsets que aparecem no texto (em PT-BR ~ latin + latin-ext).
 import '@fontsource-variable/inter/wght.css'
+import '@fontsource-variable/bricolage-grotesque/wght.css'
 import '@fontsource-variable/jetbrains-mono/wght.css'
 import './index.css'
 import App from './App.jsx'

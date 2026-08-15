@@ -7,6 +7,7 @@ import {
     SquareStack,
 } from 'lucide-react'
 import { Eyebrow } from './ui/Eyebrow'
+import { InteractiveFlashcard } from './ui/InteractiveFlashcard'
 import { ProductWindow } from './ui/ProductWindow'
 import { useSectionView } from '../lib/useSectionView'
 
@@ -14,7 +15,7 @@ import { useSectionView } from '../lib/useSectionView'
  * Features v5 — 3 cards alinhados ao novo posicionamento (pivô 2026-06):
  *  1. Cronograma — montado em minutos (auto, por edital ou import CSV/PDF), até 3 paralelos
  *  2. Flashcards — base da plataforma (criar, importar do Anki ou gerar por IA)
- *  3. Revisão no momento certo — repetição espaçada SM-2 (o que revisar e quando)
+ *  3. Revisão no momento certo — repetição espaçada (o que revisar e quando)
  *
  * Removidos no pivô: card de Redação (correção por humano vira produto à parte)
  * e card de Provas/Questões (banco de questões saiu do produto).
@@ -79,12 +80,12 @@ export function Features() {
                             <span className="text-gradient-primary">o que estudou</span>.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            8.000 flashcards prontos organizados por matéria. Abre o RendiPro e já começa. Cria os seus, importa seus decks do Anki ou gera com IA. A repetição espaçada garante que você fixe de verdade, não só memorize para a prova de amanhã.
+                            Mais de 8.000 flashcards prontos, organizados por matéria. Abre o RendiPro e já começa. Cria os seus, importa seus decks do Anki ou gera com IA. A repetição espaçada garante que você fixe de verdade, não só memorize para a prova de amanhã.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">8.000 prontos</strong> em 69 baralhos, sem 40h de setup do Anki</span>
+                                <span><strong className="font-semibold text-white">Mais de 8.000 prontos</strong>, zero setup: abre e estuda</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
@@ -95,19 +96,11 @@ export function Features() {
                                 <span><strong className="font-semibold text-white">Gere do SEU material.</strong> Manda um PDF ou tira foto do caderno e a IA cria questões e flashcards em segundos.</span>
                             </li>
                         </ul>
-                        <div className="mt-5 grid grid-cols-2 gap-3">
-                            <img
-                                src="/screenshots/flashcard-pergunta.webp"
-                                alt="Flashcard mostrando pergunta sobre Física com botão Revelar Resposta"
-                                className="block h-auto w-full rounded-xl border border-white/10 shadow-elevation-3"
-                                loading="lazy"
-                            />
-                            <img
-                                src="/screenshots/flashcard-resposta.webp"
-                                alt="Flashcard revelado com 4 botões SM-2: Não lembrei, Difícil, Bom, Fácil"
-                                className="block h-auto w-full rounded-xl border border-white/10 shadow-elevation-3"
-                                loading="lazy"
-                            />
+                        {/* Card interativo real (o mesmo do hero): testa aqui na
+                            pagina, no tema da marca. Substituiu 2 thumbs claros
+                            e ilegiveis que destoavam do dark. */}
+                        <div className="mt-6 flex justify-center">
+                            <InteractiveFlashcard />
                         </div>
                     </motion.article>
 
@@ -129,12 +122,12 @@ export function Features() {
                             <span className="text-gradient-primary">o que estudar hoje</span>. Sem decidir, sem improvisar.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Abre o RendiPro e já tem uma lista do que revisar hoje. O sistema decide por você, com base no SM-2, o mesmo algoritmo do Anki. Não precisa lembrar quando estudou o quê. A plataforma lembra. Você só estuda.
+                            Abre o RendiPro e já tem uma lista do que revisar hoje. O sistema decide por você, com o mesmo método de revisão que consagrou o Anki. Não precisa lembrar quando estudou o quê. A plataforma lembra. Você só estuda.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Repetição espaçada SM-2</strong>, cientificamente validada</span>
+                                <span><strong className="font-semibold text-white">Repetição espaçada</strong>, o método de memorização com mais evidência científica</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
