@@ -87,7 +87,7 @@ export function FounderStory() {
                         </blockquote>
 
                         <div className="mt-8 flex items-center gap-4">
-                            <img src="/founder-jessica.webp" alt="Jessica Marques, Promotora de Justiça MP-RS"
+                            <img src="/founder-jessica.webp" loading="lazy" decoding="async" alt="Jessica Marques, Promotora de Justiça MP-RS"
                                  className="h-14 w-14 shrink-0 rounded-full object-cover" />
                             <div className="min-w-0">
                                 <p className="font-bold text-white">Jessica Marques</p>

@@ -20,7 +20,7 @@ export function Navbar() {
             <div className="container mx-auto flex h-14 md:h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
                 <a href="/" className="flex items-center">
                     <img
-                        src="/LogoRendiPro-v05-2026-sem-fundo.png"
+                        src="/LogoRendiPro-v05-2026-sem-fundo.webp"
                         alt="RendiPro"
                         className="h-9 w-auto object-contain"
                     />

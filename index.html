@@ -34,11 +34,11 @@
   <!-- Fallback estático para crawlers sociais (Facebook, WhatsApp, Instagram)
        que não executam JavaScript. O SEOHead sobrescreve no browser. -->
   <title>RendiPro — Cronograma de Estudos, Flashcards e Revisão no Momento Certo</title>
-  <meta name="description" content="Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só, a partir de R$ 14,99/mês." />
+  <meta name="description" content="Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só, a partir de 12x de R$ 9,90." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://rendipro.com.br/" />
   <meta property="og:title" content="RendiPro — Cronograma de Estudos, Flashcards e Revisão no Momento Certo" />
-  <meta property="og:description" content="Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só, a partir de R$ 14,99/mês." />
+  <meta property="og:description" content="Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só, a partir de 12x de R$ 9,90." />
   <meta property="og:image" content="https://rendipro.com.br/og-oficial.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -49,7 +49,7 @@
   <meta property="og:locale" content="pt_BR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="RendiPro — Cronograma de Estudos, Flashcards e Revisão no Momento Certo" />
-  <meta name="twitter:description" content="Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só, a partir de R$ 14,99/mês." />
+  <meta name="twitter:description" content="Monte seu cronograma em minutos, estude com flashcards e revise na hora certa com repetição espaçada. Tudo num plano só, a partir de 12x de R$ 9,90." />
   <meta name="twitter:image" content="https://rendipro.com.br/og-oficial.jpg" />
   <meta name="twitter:site" content="@rendipro" />
 
@@ -128,10 +128,34 @@
     gtag('config', 'G-XCS1ES8VZY');
   </script>
 
+  <!-- Pré-paint: hero estático pinta na chegada do HTML+CSS (~0,5s em 4G),
+       enquanto o bundle React desce. O createRoot substitui tudo ao montar.
+       Motivo: FCP medido em 7,1s no 4G com o #root vazio (auditoria 18/08). -->
+  <style>
+    #rp-prepaint{min-height:100vh;background:#020617;color:#fff;font-family:Inter,system-ui,-apple-system,sans-serif;display:flex;flex-direction:column}
+    #rp-prepaint .nav{padding:18px 24px;font-weight:800;font-size:20px;letter-spacing:-.02em}
+    #rp-prepaint .nav b{color:#00c49a}
+    #rp-prepaint .mid{flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:24px;max-width:720px;margin:0 auto}
+    #rp-prepaint .tag{display:inline-block;margin:0 auto 24px;padding:6px 14px;border:1px solid rgba(0,196,154,.35);border-radius:999px;color:#33d9ab;font-size:13px;font-weight:600}
+    #rp-prepaint h1{margin:0;font-size:clamp(1.9rem,6vw,3.25rem);line-height:1.08;letter-spacing:-.035em;font-weight:700}
+    #rp-prepaint h1 em{font-style:normal;color:#00c49a}
+    #rp-prepaint h1 span{color:rgba(255,255,255,.85)}
+    #rp-prepaint p{margin:24px auto 0;max-width:560px;font-size:1.06rem;line-height:1.55;color:rgba(255,255,255,.7)}
+    #rp-prepaint p b{color:#fff;font-weight:600}
+    #rp-prepaint .cta{display:inline-block;margin:36px auto 0;padding:16px 32px;border-radius:14px;background:#00c49a;color:#020617;font-weight:700;font-size:1.05rem;text-decoration:none}
+  </style>
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root"><div id="rp-prepaint">
+    <div class="nav">Rendi<b>Pro</b></div>
+    <div class="mid">
+      <span class="tag">Nasceu de uma aprovação real</span>
+      <h1>Você estuda. Mas a aprovação <em>ainda não veio</em>. <span>O problema não é dedicação. É <em>método</em>.</span></h1>
+      <p>O RendiPro monta <b>o cronograma pelo seu edital</b>, avisa <b>o dia certo de revisar</b> cada matéria, transforma sua apostila em questões e ainda <b>corrige sua redação com nota por competência</b>. A partir de <b>12x de R$ 9,90</b>.</p>
+      <a class="cta" href="https://app.rendipro.com.br/register?plano=starter-anual&utm_content=hero-prepaint">Montar meu plano de estudos</a>
+    </div>
+  </div></div>
   <script type="module" src="/src/main.jsx"></script>
 
   <!-- Google Analytics 4 — fetch da lib gtag/js deferido pra window.load (não

@@ -6,7 +6,7 @@ export function Footer() {
                     <div className="col-span-2">
                         <div className="flex items-center">
                             <img
-                                src="/LogoRendiPro-v05-2026-sem-fundo.png"
+                                src="/LogoRendiPro-v05-2026-sem-fundo.webp"
                                 alt="RendiPro"
                                 className="h-9 w-auto object-contain"
                             />
