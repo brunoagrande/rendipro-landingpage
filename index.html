@@ -128,32 +128,100 @@
     gtag('config', 'G-XCS1ES8VZY');
   </script>
 
-  <!-- Pré-paint: hero estático pinta na chegada do HTML+CSS (~0,5s em 4G),
+  <!-- Pré-paint: hero estático que pinta na chegada do HTML+CSS (~0,5s em 4G),
        enquanto o bundle React desce. O createRoot substitui tudo ao montar.
-       Motivo: FCP medido em 7,1s no 4G com o #root vazio (auditoria 18/08). -->
+       Motivo: FCP medido em 7,1s no 4G com o #root vazio (auditoria 18/08).
+
+       REGRA (18/08, depois do fundador relatar "pisque" na tela): este bloco
+       existe pra ANTECIPAR o hero, não pra mostrar OUTRA tela. As medidas
+       abaixo foram copiadas do hero real, medido no navegador, pra que a troca
+       aos ~0,5s passe despercebida:
+         celular 390px  -> nav 57px, tarja no topo 97, h1 32/37.76/-0.8 no topo
+                           155, parágrafo 18/27.9 no topo 330, CTA de 56px e
+                           largura cheia no topo 521, tudo centralizado
+         desktop 1440px -> nav 65px, DUAS colunas (texto à esquerda, print à
+                           direita), h1 64/67.2/-2.56 no topo 203
+       Mexeu no Hero.jsx? Remeça e ajuste aqui, senão o "pisque" volta. -->
+  <link rel="preload" as="image" href="/LogoRendiPro-v05-2026-sem-fundo.webp" fetchpriority="high" />
   <style>
-    #rp-prepaint{min-height:100vh;background:#020617;color:#fff;font-family:Inter,system-ui,-apple-system,sans-serif;display:flex;flex-direction:column}
-    #rp-prepaint .nav{padding:18px 24px;font-weight:800;font-size:20px;letter-spacing:-.02em}
-    #rp-prepaint .nav b{color:#00c49a}
-    #rp-prepaint .mid{flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:24px;max-width:720px;margin:0 auto}
-    #rp-prepaint .tag{display:inline-block;margin:0 auto 24px;padding:6px 14px;border:1px solid rgba(0,196,154,.35);border-radius:999px;color:#33d9ab;font-size:13px;font-weight:600}
-    #rp-prepaint h1{margin:0;font-size:clamp(1.9rem,6vw,3.25rem);line-height:1.08;letter-spacing:-.035em;font-weight:700}
-    #rp-prepaint h1 em{font-style:normal;color:#00c49a}
+    #rp-prepaint{--tealx:#00c49a;color:#fff;font-family:Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+    #rp-prepaint *{box-sizing:border-box}
+    #rp-prepaint .nav{height:57px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 16px;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(2,6,23,.8)}
+    #rp-prepaint .nav img{width:124px;height:36px;display:block}
+    #rp-prepaint .nav .links{display:none;gap:28px;font-size:15px;color:rgba(255,255,255,.75)}
+    #rp-prepaint .nav .dir{display:flex;align-items:center;gap:12px}
+    #rp-prepaint .nav .entrar{display:none;font-size:15px;color:rgba(255,255,255,.75)}
+    #rp-prepaint .nav .comece{background:#fff;color:#020617;font-weight:700;font-size:15px;border-radius:999px;padding:9px 18px;text-decoration:none;white-space:nowrap}
+    #rp-prepaint .nav .burger{display:flex;flex-direction:column;gap:5px;padding:4px}
+    #rp-prepaint .nav .burger i{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+    #rp-prepaint .wrap{padding:40px 16px 64px;max-width:1280px;margin:0 auto}
+    #rp-prepaint .col{text-align:center}
+    #rp-prepaint .tarja{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 16px;border-radius:999px;border:1px solid rgba(0,196,154,.3);background:rgba(0,196,154,.1);color:#33d9ab;font-size:14px;font-weight:600}
+    #rp-prepaint h1{margin:24px 0 0;font-size:32px;line-height:37.76px;letter-spacing:-.8px;font-weight:700}
+    #rp-prepaint h1 em{font-style:normal;background:linear-gradient(135deg,#33d9ab,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent}
     #rp-prepaint h1 span{color:rgba(255,255,255,.85)}
-    #rp-prepaint p{margin:24px auto 0;max-width:560px;font-size:1.06rem;line-height:1.55;color:rgba(255,255,255,.7)}
+    #rp-prepaint p{margin:24px auto 0;max-width:672px;font-size:18px;line-height:27.9px;color:rgba(255,255,255,.7)}
     #rp-prepaint p b{color:#fff;font-weight:600}
-    #rp-prepaint .cta{display:inline-block;margin:36px auto 0;padding:16px 32px;border-radius:14px;background:#00c49a;color:#020617;font-weight:700;font-size:1.05rem;text-decoration:none}
+    #rp-prepaint .so-cel{display:inline}
+    #rp-prepaint .so-desk{display:none}
+    #rp-prepaint .ctas{margin-top:24px;display:flex;flex-direction:column;gap:16px}
+    #rp-prepaint .cta{height:56px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:var(--tealx);color:#fff;font-weight:600;font-size:18px;text-decoration:none}
+    #rp-prepaint .cta2{display:none}
+    #rp-prepaint .print{display:none}
+    @media (min-width:768px){
+      #rp-prepaint .so-cel{display:none}
+      #rp-prepaint .so-desk{display:inline}
+      #rp-prepaint h1{font-size:48px;line-height:52px;letter-spacing:-1.6px}
+    }
+    @media (min-width:1024px){
+      #rp-prepaint .nav{height:65px;padding:0 32px}
+      #rp-prepaint .nav .links,#rp-prepaint .nav .entrar{display:flex}
+      #rp-prepaint .nav .burger{display:none}
+      #rp-prepaint .wrap{padding:80px 32px 112px;display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:center}
+      #rp-prepaint .col{text-align:left}
+      #rp-prepaint h1{font-size:64px;line-height:67.2px;letter-spacing:-2.56px}
+      /* 167px = altura exata do paragrafo do hero real no desktop. Sem isto o
+         texto quebra numa linha a menos aqui e o botao sobe 27px na troca. */
+      #rp-prepaint p{margin-left:0;min-height:167px}
+      #rp-prepaint .ctas{flex-direction:row;align-items:center;margin-top:40px}
+      #rp-prepaint .cta{padding:0 40px}
+      #rp-prepaint .cta2{display:flex;height:56px;align-items:center;justify-content:center;padding:0 32px;border-radius:999px;border:1px solid rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:18px;text-decoration:none}
+      #rp-prepaint .print{display:block;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:#0b1220;overflow:hidden}
+      #rp-prepaint .print .barra{height:38px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid rgba(255,255,255,.06)}
+      #rp-prepaint .print .barra u{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.18);display:block}
+      #rp-prepaint .print img{width:100%;height:auto;display:block}
+    }
   </style>
 </head>
 
 <body>
   <div id="root"><div id="rp-prepaint">
-    <div class="nav">Rendi<b>Pro</b></div>
-    <div class="mid">
-      <span class="tag">Nasceu de uma aprovação real</span>
-      <h1>Você estuda. Mas a aprovação <em>ainda não veio</em>. <span>O problema não é dedicação. É <em>método</em>.</span></h1>
-      <p>O RendiPro monta <b>o cronograma pelo seu edital</b>, avisa <b>o dia certo de revisar</b> cada matéria, transforma sua apostila em questões e ainda <b>corrige sua redação com nota por competência</b>. A partir de <b>12x de R$ 9,90</b>.</p>
-      <a class="cta" href="https://app.rendipro.com.br/register?plano=starter-anual&utm_content=hero-prepaint">Montar meu plano de estudos</a>
+    <div class="nav">
+      <img src="/LogoRendiPro-v05-2026-sem-fundo.webp" width="124" height="36" alt="RendiPro" fetchpriority="high" />
+      <div class="links"><span>Recursos</span><span>Preços</span><span>FAQ</span></div>
+      <div class="dir">
+        <span class="entrar">Entrar</span>
+        <a class="comece" href="https://app.rendipro.com.br/register?utm_content=nav-prepaint">Comece Agora</a>
+        <span class="burger"><i></i><i></i><i></i></span>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="col">
+        <span class="tarja"><span class="so-cel">Nasceu de uma aprovação real</span><span class="so-desk">Nasceu de uma aprovação real no MP-RS em 2023</span></span>
+        <h1>Você estuda. Mas a aprovação <em>ainda não veio</em>. <span>O problema não é dedicação. É <em>método</em>.</span></h1>
+        <p>
+          <span class="so-cel">O RendiPro monta <b>o cronograma pelo seu edital</b>, avisa <b>o dia certo de revisar</b> cada matéria, transforma sua apostila em questões e ainda <b>corrige sua redação com nota por competência</b>. A partir de <b>12x de R$ 9,90</b>.</span>
+          <span class="so-desk">Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar e esquece o que revisou. O RendiPro monta <b>um cronograma pelo seu edital</b> e pelas horas que você tem, avisa <b>o dia certo de revisar</b> cada matéria, transforma <b>sua apostila em questões</b> e ainda <b>corrige sua redação com nota por competência</b>. Tudo num lugar só, a partir de <b>12x de R$ 9,90</b>.</span>
+        </p>
+        <div class="ctas">
+          <a class="cta" href="https://app.rendipro.com.br/register?plano=starter-anual&amp;utm_content=hero-prepaint">Montar meu plano de estudos</a>
+          <span class="cta2">Ver como funciona</span>
+        </div>
+      </div>
+      <div class="print">
+        <div class="barra"><u></u><u></u><u></u></div>
+        <img src="/screenshots/cronograma-semana.webp" width="1200" height="750" alt="" />
+      </div>
     </div>
   </div></div>
   <script type="module" src="/src/main.jsx"></script>
