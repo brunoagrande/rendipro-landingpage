@@ -56,9 +56,9 @@ function App() {
   return (
     <InfluencerProvider>
       <SEOHead
-        title="RendiPro — Estude com IA: seu material vira questões e flashcards, e você não esquece"
-        description="A IA transforma o seu material (PDF, foto do caderno) em questões e flashcards, monta seu cronograma pelo edital e reforça o que você esquece. Tudo num plano só, por R$ 9,90/mês."
-        ogImage="/og-oficial.png"
+        title="Estude com IA: cronograma, questões, flashcards e redação"
+        description="Seu material vira questões e flashcards, o cronograma nasce do seu edital e a redação volta corrigida por competência. Tudo num plano só, 12x de R$ 9,90."
+        ogImage="/og-oficial.jpg"
         canonical="https://rendipro.com.br/"
         noindex={false}
       />
