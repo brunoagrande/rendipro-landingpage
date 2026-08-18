@@ -26,7 +26,15 @@ export const PRICING_PLANS = [
         descricao: 'Cronograma montado em minutos, flashcards e revisão no momento certo. Tudo num plano só.',
         tipo: 'mensal',
         preco_centavos: 1690,
-        preco_ancora_mes_centavos: 2490, // "de R$24,90 por R$16,90/mês" (âncora de venda)
+        // ÂNCORA REMOVIDA em 18/08/2026. Aqui havia 2490, montando um "de
+        // R$ 24,90 por R$ 16,90". Conferido em tbplanos: R$ 24,90 NUNCA foi
+        // cobrado em plano nenhum, era o preço FUTURO pretendido. Preço riscado
+        // que nunca existiu é propaganda enganosa (CDC art. 37), e o próprio
+        // plano de vendas já vetava escassez falsa pelo mesmo motivo. As outras
+        // duas âncoras do arquivo ficam: elas comparam o anual com o mensal que
+        // é realmente cobrado. No lugar entrou a promessa de lançamento, que é
+        // verificável e converte melhor que uma mentira sobre o passado.
+        preco_lancamento: true,
         redacoes_por_mes: 2,
         duracao_meses: 1,
         flashcards_ia_por_mes: 50,

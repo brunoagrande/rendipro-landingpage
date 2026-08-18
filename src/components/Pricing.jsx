@@ -187,6 +187,15 @@ export function Pricing() {
                     ))}
                 </div>
 
+                {/* Trava de preco: urgencia REAL no lugar do preco riscado que nunca
+                    existiu. A meta que dispara a subida fica interna (D.1); o que a
+                    pessoa precisa saber e que o preco sobe e que ela fica no de hoje.
+                    O sistema sustenta a promessa: o Asaas cobra o valor guardado na
+                    assinatura, e nada no nosso codigo mexe nele depois. */}
+                <p className="mx-auto mt-6 max-w-3xl text-center text-caption text-white/55">
+                    Estes são preços de lançamento. Quem assinar agora mantém esse valor enquanto for assinante, mesmo quando o preço subir.
+                </p>
+
                 {/* ─── Common features banner ───────────────────────────── */}
                 <motion.div
                     variants={fadeUp}
@@ -347,6 +356,15 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                         {plan.preco_ancora_mes_centavos && !hasInfluencerDiscount && (
                             <p className="mb-1 text-caption text-white/45">
                                 De <span className="line-through">{formatPrice(plan.preco_ancora_mes_centavos)}</span>/mês por
+                            </p>
+                        )}
+                        {/* Promessa sobre o FUTURO no lugar de mentira sobre o passado.
+                            Aqui havia "De R$ 24,90 por R$ 16,90", e R$ 24,90 nunca foi
+                            cobrado. O valor futuro nao e publicado de proposito: a meta
+                            que dispara a subida fica interna (decisao D.1). */}
+                        {plan.preco_lancamento && !hasInfluencerDiscount && (
+                            <p className="mb-1 text-caption font-semibold text-primary-400">
+                                Preço de lançamento
                             </p>
                         )}
                         <div className="flex items-baseline gap-1">
