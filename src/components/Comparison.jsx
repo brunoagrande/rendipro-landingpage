@@ -1,6 +1,26 @@
 import { motion } from 'framer-motion'
 import { Check, Scale, X } from 'lucide-react'
 import { Eyebrow } from './ui/Eyebrow'
+import { PRICING_PLANS, getRedacoesPorMes } from '../data/pricing-plans'
+
+/**
+ * O plano que esta seção usa como comparável.
+ *
+ * ⚠️ Preço e cota vêm de `pricing-plans.js`, NUNCA cravados aqui. Estavam
+ * cravados até 24/08/2026 e envelheceram na grade v2: a seção anunciava
+ * "R$ 59,90/mês · 4 redações", quando o Pro Anual é R$ 19,90/mês. Numa seção
+ * cujo argumento inteiro é "somos mais baratos que a concorrência", o número
+ * velho triplicava o nosso preço e derrubava o próprio argumento.
+ */
+const PLANO_COMPARAVEL = PRICING_PLANS.find((p) => p.slug === 'pro-anual')
+const COMPARAVEL_MES = PLANO_COMPARAVEL
+    ? (PLANO_COMPARAVEL.preco_centavos / PLANO_COMPARAVEL.duracao_meses / 100)
+        .toFixed(2)
+        .replace('.', ',')
+    : null
+const COMPARAVEL_REDACOES = PLANO_COMPARAVEL
+    ? getRedacoesPorMes(PLANO_COMPARAVEL).total
+    : 0
 
 /**
  * Comparison — RendiPro vs stack comportamental (planilha + Anki + plataforma de questões + plataforma de redação).
@@ -179,10 +199,10 @@ export function Comparison() {
                                 Plano comparável <span className="text-white/40">(Pro Anual)</span>
                             </p>
                             <p className="mt-1 text-h2 font-bold text-white">
-                                R$ 59,90<span className="text-body-sm font-medium text-white/60">/mês</span>
+                                R$ {COMPARAVEL_MES}<span className="text-body-sm font-medium text-white/60">/mês</span>
                             </p>
                             <p className="mt-2 text-caption text-primary-300">
-                                4 redações/mês incluídas · 1 login · 1 cobrança
+                                {COMPARAVEL_REDACOES} redações/mês incluídas · 1 login · 1 cobrança
                             </p>
                         </div>
                     </motion.div>

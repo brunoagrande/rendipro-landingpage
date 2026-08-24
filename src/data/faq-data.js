@@ -27,7 +27,7 @@ export const faqItems = [
     {
         question: 'A correção de redação é confiável? Quantas posso enviar?',
         answer:
-            'Você escreve na plataforma e recebe a correção em minutos: nota de 0 a 1000, nota por competência e comentário do que travou cada critério. A régua é calibrada pra ser mais dura que a banca de propósito, porque corretor bonzinho não prepara ninguém. São 2 correções por mês no Starter e 8 por mês no Pro, sem pagar por correção avulsa e sem agendar corretor.',
+            'Você escreve na plataforma e recebe a correção em minutos: nota de 0 a 1000, nota por competência e comentário do que travou cada critério. A régua é calibrada pra ser mais dura que a banca de propósito, porque corretor bonzinho não prepara ninguém. São 2 correções por mês no Starter e 8 por mês no Pro. No plano anual entram 4 a mais por mês, um bônus de lançamento. Sem pagar por correção avulsa e sem agendar corretor.',
     },
     {
         question: 'Como monto meu cronograma? Dá pra importar o que já tenho?',

@@ -212,3 +212,31 @@ export function getMonthlyEquivalent(annualPlan) {
         (p) => p.tipo === 'mensal' && p.nome_curto === annualPlan.nome_curto
     )
 }
+
+/**
+ * Bônus de lançamento do ANUAL: redações extras por mês (decisão D.2, 22/08/2026).
+ *
+ * ⚠️ ESTE NÚMERO É UMA CÓPIA. A fonte de verdade é a chave
+ * `bonus_lancamento_redacoes_anual` em `rendipro_config` (Supabase), lida pelas
+ * edge functions `asaas-subscribe` e `asaas-upgrade` na hora de gravar a
+ * assinatura. Aqui é só o rótulo da vitrine, pelo mesmo motivo dos preços:
+ * página de venda não faz round-trip de banco.
+ *
+ * Se mudar lá, mude aqui. Se divergir, a landing promete um número que a
+ * assinatura não entrega — que é exatamente o tipo de coisa que o cliente
+ * percebe e cobra, com razão.
+ *
+ * Para ENCERRAR a oferta: `bonus_lancamento_redacoes_anual = 0` no banco,
+ * `0` aqui, e `BONUS_ANUAL_ATIVO = false` no app (src/config/lancamento.js).
+ * Quem já assinou não perde nada: o bônus está gravado na assinatura dele.
+ */
+export const BONUS_LANCAMENTO_REDACOES_ANUAL = 4
+
+/**
+ * Quantas redações/mês o plano REALMENTE entrega, já com o bônus do anual.
+ * A vitrine tem que mostrar o que a pessoa recebe, não a linha da tabela.
+ */
+export function getRedacoesPorMes(plan) {
+    const bonus = plan.tipo === 'anual' ? BONUS_LANCAMENTO_REDACOES_ANUAL : 0
+    return { total: (plan.redacoes_por_mes || 0) + bonus, bonus }
+}

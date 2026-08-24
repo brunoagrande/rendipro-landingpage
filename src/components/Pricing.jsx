@@ -18,6 +18,7 @@ import { trackRegisterCta } from '../lib/tracking'
 import {
     getPlansByTipo,
     getMonthlyEquivalent,
+    getRedacoesPorMes,
     ANNUAL_DISCOUNT_LABEL,
 } from '../data/pricing-plans'
 
@@ -274,6 +275,11 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
         savings = monthlyEq.preco_centavos * 12 - plan.preco_centavos
     }
 
+    // O anual leva redações extras (D.2). A vitrine mostra o TOTAL que a pessoa
+    // recebe, não o número cru da tabela de planos: o Pro Anual entrega 12/mês,
+    // e anunciar 8 seria vender menos do que a assinatura já dá.
+    const redacoes = getRedacoesPorMes(plan)
+
     return (
         <motion.article
             variants={fadeUp}
@@ -395,14 +401,19 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
 
                 {/* IA features — redação e questões do PDF primeiro: são o que
                     diferencia os tiers na grade v2 (15/08/2026) */}
-                {plan.redacoes_por_mes > 0 && (
+                {redacoes.total > 0 && (
                     <li className="flex items-start gap-2 text-body-sm">
                         <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
                         <span className="text-white/80">
                             <strong className="font-bold text-white">
-                                {plan.redacoes_por_mes}
+                                {redacoes.total}
                             </strong>{' '}
-                            {plan.redacoes_por_mes === 1 ? 'redação corrigida' : 'redações corrigidas'}/mês, nota por competência
+                            {redacoes.total === 1 ? 'redação corrigida' : 'redações corrigidas'}/mês, nota por competência
+                            {redacoes.bonus > 0 && (
+                                <span className="block text-caption text-primary-400">
+                                    inclui +{redacoes.bonus} de bônus do anual
+                                </span>
+                            )}
                         </span>
                     </li>
                 )}
