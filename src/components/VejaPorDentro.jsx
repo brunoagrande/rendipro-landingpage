@@ -45,7 +45,11 @@ const PROVAS = [
         texto:
             'Conteúdo programático completo de 76 editais, tópico a tópico, do jeito que a banca escreveu. Sem conta, sem e-mail.',
         rotulo: 'Ver os editais',
-        href: `${APP}/editais/previstos?utm_source=landing&utm_content=veja_por_dentro`,
+        // ⚠️ NÃO apontar para /editais/previstos: aquela página é dos editais que
+        // ainda VÃO sair e hoje está vazia ("nenhum edital previsto ativo").
+        // Quem lista os 76 com conteúdo, e leva para cada página individual, é
+        // /editais/por-area — que abre em "todos" sem precisar de parâmetro.
+        href: `${APP}/editais/por-area?utm_source=landing&utm_content=veja_por_dentro`,
         tempo: 'agora',
     },
 ]
