@@ -5,6 +5,7 @@ import { useSectionView } from '../lib/useSectionView'
 import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
 import { ProductWindow } from './ui/ProductWindow'
+import { CAMPANHA_ANUAL_ATIVA } from '../data/campanha-anual'
 import { InteractiveFlashcard } from './ui/InteractiveFlashcard'
 
 /**
@@ -56,10 +57,10 @@ export function Hero() {
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
                             <span className="md:hidden">
-                                O RendiPro monta <strong className="font-semibold text-white">o cronograma pelo seu edital</strong>, avisa <strong className="font-semibold text-white">o dia certo de revisar</strong> cada matéria, transforma sua apostila em questões e ainda <strong className="font-semibold text-white">corrige sua redação com nota por competência</strong>. A partir de <strong className="font-semibold text-white">12x de R$ 9,90</strong>.
+                                O RendiPro monta <strong className="font-semibold text-white">o cronograma pelo seu edital</strong>, avisa <strong className="font-semibold text-white">o dia certo de revisar</strong> cada matéria, transforma sua apostila em questões e ainda <strong className="font-semibold text-white">corrige sua redação com nota por competência</strong>. A partir de <strong className="font-semibold text-white">{CAMPANHA_ANUAL_ATIVA ? '11x de R$ 9,90, com 1 mês de desconto no anual' : '12x de R$ 9,90'}</strong>.
                             </span>
                             <span className="hidden md:inline">
-                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar e esquece o que revisou. O RendiPro monta <strong className="font-semibold text-white">um cronograma pelo seu edital</strong> e pelas horas que você tem, avisa <strong className="font-semibold text-white">o dia certo de revisar</strong> cada matéria, transforma <strong className="font-semibold text-white">sua apostila em questões</strong> e ainda <strong className="font-semibold text-white">corrige sua redação com nota por competência</strong>. Tudo num lugar só, a partir de <strong className="font-semibold text-white">12x de R$ 9,90</strong>.
+                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar e esquece o que revisou. O RendiPro monta <strong className="font-semibold text-white">um cronograma pelo seu edital</strong> e pelas horas que você tem, avisa <strong className="font-semibold text-white">o dia certo de revisar</strong> cada matéria, transforma <strong className="font-semibold text-white">sua apostila em questões</strong> e ainda <strong className="font-semibold text-white">corrige sua redação com nota por competência</strong>. Tudo num lugar só, a partir de <strong className="font-semibold text-white">{CAMPANHA_ANUAL_ATIVA ? '11x de R$ 9,90, com 1 mês de desconto no anual' : '12x de R$ 9,90'}</strong>.
                             </span>
                         </p>
 

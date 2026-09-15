@@ -21,6 +21,7 @@ import {
     getRedacoesPorMes,
     ANNUAL_DISCOUNT_LABEL,
 } from '../data/pricing-plans'
+import { CAMPANHA_ANUAL_ATIVA, CAMPANHA_ANUAL, resumoCampanhaAnual } from '../data/campanha-anual'
 
 /**
  * Pricing v3 — 100% reescrito.
@@ -135,7 +136,7 @@ export function Pricing() {
                         <span className="text-white/45">Hoje você junta</span>{' '}
                         Anki, planilha, corretor avulso e lembrete no celular, e ainda perde tempo decidindo o que revisar.{' '}
                         <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo num plano só, a partir de 12x de R$ 9,90.</strong>{' '}
+                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo num plano só, {CAMPANHA_ANUAL_ATIVA ? 'a partir de 11x de R$ 9,90, com 1 mês de desconto no anual' : 'a partir de 12x de R$ 9,90'}.</strong>{' '}
                         <span className="text-white/45">Menos que uma hora de cursinho presencial.</span>
                     </p>
                 </motion.div>
@@ -241,7 +242,7 @@ export function Pricing() {
                         <Zap size={18} className="text-primary-400" />
                         <span>
                             <strong className="font-semibold text-white">Acesso imediato</strong>{' '}
-                            após o pagamento.
+                            após o pagamento, no Pix ou no cartão.
                         </span>
                     </span>
                     <span className="flex items-center gap-2">
@@ -274,6 +275,11 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
     if (monthlyEq && plan.tipo === 'anual') {
         savings = monthlyEq.preco_centavos * 12 - plan.preco_centavos
     }
+
+    // Campanha só no anual e só sem cupom de influencer (o app não soma os dois).
+    const campanha = CAMPANHA_ANUAL_ATIVA && plan.tipo === 'anual' && !hasInfluencerDiscount
+        ? resumoCampanhaAnual(plan)
+        : null
 
     // O anual leva redações extras (D.2). A vitrine mostra o TOTAL que a pessoa
     // recebe, não o número cru da tabela de planos: o Pro Anual entrega 12/mês,
@@ -328,7 +334,34 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                         </span>
                     </p>
                 )}
-                {plan.tipo === 'anual' && plan.preco_centavos > 0 ? (
+                {plan.tipo === 'anual' && plan.preco_centavos > 0 && campanha ? (
+                    // Campanha "1 mês de desconto no anual": as contas são as do app
+                    // (`resumoCampanhaAnual`). Cartão: 11 cobranças, a 1ª só daqui a
+                    // 30 dias. Pix: o ano menos um mês, de uma vez.
+                    <>
+                        <p className="mb-1 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-caption font-bold text-emerald-400" data-testid="selo-campanha">
+                            {CAMPANHA_ANUAL.nome}
+                        </p>
+                        <div className="flex items-baseline gap-1">
+                            <span className="text-caption font-medium text-white/50">
+                                {campanha.cobrancasCartao}× de
+                            </span>
+                            <span className="text-display-sm font-extrabold text-white">
+                                {formatPrice(campanha.mensalCentavos)}
+                            </span>
+                        </div>
+                        <p className="mt-1.5 text-caption text-white/45">
+                            no cartão, a 1ª cobrança só daqui a 30 dias
+                        </p>
+                        <p className="mt-1 text-caption text-white/45">
+                            ou <span className="line-through">{formatPrice(plan.preco_centavos)}</span>{' '}
+                            <strong className="font-semibold text-white/80">{formatPrice(campanha.pixCentavos)}</strong> à vista no Pix
+                        </p>
+                        <p className="mt-2.5 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-caption font-bold text-emerald-400">
+                            Economize {formatPrice(savings + campanha.descontoCentavos)}/ano
+                        </p>
+                    </>
+                ) : plan.tipo === 'anual' && plan.preco_centavos > 0 ? (
                     <>
                         {plan.preco_ancora_mes_centavos && !hasInfluencerDiscount && (
                             <p className="mb-1 text-caption text-white/45">

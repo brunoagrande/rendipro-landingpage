@@ -18,7 +18,7 @@ const easeSpring = [0.16, 1, 0.3, 1]
 
 const trackFaqCta = () => trackRegisterCta({ buttonText: 'Começar agora', location: 'faq' })
 
-function FAQItem({ question, answer, isOpen, onToggle }) {
+function FAQItem({ question, answer, link, isOpen, onToggle }) {
     return (
         <div
             className={cn(
@@ -62,6 +62,14 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
                     >
                         <p className="pb-6 pr-8 text-body text-white/65 leading-relaxed">
                             {answer}
+                            {link && (
+                                <>
+                                    {' '}
+                                    <a href={link.href} target="_blank" rel="noopener" className="text-primary-300 underline underline-offset-2 hover:text-primary-200">
+                                        {link.label}
+                                    </a>
+                                </>
+                            )}
                         </p>
                     </motion.div>
                 )}
@@ -120,6 +128,7 @@ export function FAQ() {
                             key={index}
                             question={faq.question}
                             answer={faq.answer}
+                            link={faq.link}
                             isOpen={openIndex === index}
                             onToggle={() => toggleQuestion(index, faq.question)}
                         />

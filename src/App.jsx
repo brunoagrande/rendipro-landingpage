@@ -10,11 +10,10 @@ import { SEOHead } from './components/SEOHead'
 import { SchemaMarkup } from './components/SchemaMarkup'
 import { CookieBanner } from './components/CookieBanner'
 import { captureUtms, initScrollMilestones } from './lib/tracking'
+import { CAMPANHA_ANUAL_ATIVA } from './data/campanha-anual'
 
-// BetaLanding é lazy: carrega Supabase (~170KB) e só é renderizado quando
-// VITE_BETA_MODE=true. Mantê-lo como import estático custava 170KB no
-// bundle principal mesmo na landing de vendas (modo produção atual).
-const BetaLanding = lazy(() => import('./components/BetaLanding').then(m => ({ default: m.BetaLanding })))
+// (removido em 15/09/2026: a página de beta e o VITE_BETA_MODE. A fase de
+// fundadores fechou e a indicação está desligada.)
 
 const ForWhom       = lazy(() => import('./components/ForWhom').then(m => ({ default: m.ForWhom })))
 const PlanoShowcase = lazy(() => import('./components/PlanoShowcase').then(m => ({ default: m.PlanoShowcase })))
@@ -28,16 +27,6 @@ const FAQ           = lazy(() => import('./components/FAQ').then(m => ({ default
 const FinalCTA      = lazy(() => import('./components/FinalCTA').then(m => ({ default: m.FinalCTA })))
 const Footer        = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })))
 
-// ┌────────────────────────────────────────────────────────────────────┐
-// │  Controle de modo via variável de ambiente (Vercel + .env.local)  │
-// │  VITE_BETA_MODE=true  → Página de recrutamento de beta (no ar)    │
-// │  VITE_BETA_MODE=false → Landing page de vendas original            │
-// │                                                                    │
-// │  Para lançar: mude VITE_BETA_MODE para false no painel Vercel     │
-// │  e faça um novo deploy — sem precisar alterar código.             │
-// └────────────────────────────────────────────────────────────────────┘
-const BETA_MODE = import.meta.env.VITE_BETA_MODE === 'true'
-
 function App() {
   // Captura UTMs no primeiro touch (persistem em sessionStorage) e
   // engata os scroll milestones (25/50/75/100%) uma vez por load.
@@ -46,19 +35,13 @@ function App() {
     return initScrollMilestones()
   }, [])
 
-  if (BETA_MODE) {
-    return (
-      <Suspense fallback={<div className="min-h-screen bg-surface-950" />}>
-        <BetaLanding />
-      </Suspense>
-    )
-  }
-
   return (
     <InfluencerProvider>
       <SEOHead
         title="Estude com IA: cronograma, questões, flashcards e redação"
-        description="Seu material vira questões e flashcards, o cronograma nasce do seu edital e a redação volta corrigida por competência. Tudo num plano só, 12x de R$ 9,90."
+        description={CAMPANHA_ANUAL_ATIVA
+          ? 'Seu material vira questões e flashcards, o cronograma nasce do seu edital e a redação volta corrigida por competência. Anual com 1 mês de desconto: 11x de R$ 9,90.'
+          : 'Seu material vira questões e flashcards, o cronograma nasce do seu edital e a redação volta corrigida por competência. Tudo num plano só, 12x de R$ 9,90.'}
         ogImage="/og-oficial.jpg"
         canonical="https://rendipro.com.br/"
         noindex={false}

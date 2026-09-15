@@ -3,6 +3,7 @@ import { ArrowRight, Shield } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { cn } from '../lib/utils'
 import { trackRegisterCta } from '../lib/tracking'
+import { CAMPANHA_ANUAL_ATIVA } from '../data/campanha-anual'
 
 /**
  * Sticky CTA mobile — barra persistente embaixo da tela em mobile/tablet.
@@ -81,13 +82,13 @@ export function StickyMobileCTA() {
                                 <span className="text-body font-extrabold text-primary-300">
                                     {/* Âncora VERDADEIRA: o preço do Starter Mensal (grade v2) */}
                                     <span className="text-[11px] font-medium text-white/40 line-through mr-1">R$ 16,90</span>
-                                    12x R$ 9,90
+                                    {CAMPANHA_ANUAL_ATIVA ? '11x R$ 9,90' : '12x R$ 9,90'}
                                     <span className="text-[11px] font-medium text-white/60">/mês</span>
                                 </span>
                             </div>
                             <p className="mt-0.5 flex items-center gap-1 text-[10px] text-white/55">
                                 <Shield size={10} className="text-primary-400" />
-                                Cancela quando quiser · Garantia 7 dias
+                                {CAMPANHA_ANUAL_ATIVA ? '1 mês de desconto no anual · Garantia 7 dias' : 'Cancela quando quiser · Garantia 7 dias'}
                             </p>
                         </div>
                         <a
