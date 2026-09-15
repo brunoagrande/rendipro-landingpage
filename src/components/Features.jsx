@@ -142,7 +142,7 @@ export function Features() {
                             <ProductWindow url="app.rendipro.com.br/revisar">
                                 <img
                                     src="/screenshots/dashboard-final.webp"
-                                    alt="Dashboard do RendiPro mostrando o que revisar hoje com a repetição espaçada"
+                                    alt="Início do RendiPro: sequência de 16 dias, próxima revisão do dia, meta e agenda de hoje"
                                     className="block h-auto w-full"
                                     loading="lazy"
                                 />

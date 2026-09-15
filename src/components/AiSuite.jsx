@@ -79,7 +79,7 @@ export function AiSuite() {
                     <ProductWindow url="app.rendipro.com.br/treino" glow>
                         <img
                             src="/screenshots/treino-quiz.webp"
-                            alt="Questão de múltipla escolha gerada por IA a partir do material do aluno, com a alternativa correta destacada em verde e o gabarito explicado"
+                            alt="Questão de múltipla escolha gerada por IA no Treino, com a alternativa correta destacada e o gabarito explicado"
                             className="block h-auto w-full"
                             loading="lazy"
                         />
@@ -96,7 +96,7 @@ export function AiSuite() {
                     <ProductWindow url="app.rendipro.com.br/flashcards" className="lg:order-1 order-2">
                         <img
                             src="/screenshots/snap-modal.webp"
-                            alt="Modal de geração de flashcards com IA mostrando o botão Enviar foto do quadro ou caderno"
+                            alt="Flashcards gerados por IA a partir da foto de um caderno de Biologia, prontos para salvar no baralho"
                             className="block h-auto w-full"
                             loading="lazy"
                         />
