@@ -28,8 +28,9 @@ export function TopBanner() {
                 <div className="container mx-auto flex items-center justify-center gap-3 text-center">
                     <Sparkles className="h-4 w-4 text-yellow-300 flex-shrink-0" />
                     <p className="text-sm md:text-base font-medium text-white">
-                        <strong className="font-bold">{CAMPANHA_ANUAL.nome}</strong>, no cartão ou no Pix<span className="hidden sm:inline">, só para quem assina pela primeira vez</span>.{' '}
-                        <a href="#pricing" className="underline underline-offset-2 hover:text-yellow-200">Ver planos</a>
+                        <a href="#pricing" className="hover:text-yellow-200">
+                            1 mês <strong className="font-bold">grátis</strong> no <strong className="font-bold">plano</strong> anual
+                        </a>
                     </p>
                 </div>
             </div>

@@ -40,7 +40,7 @@ function App() {
       <SEOHead
         title="Estude com IA: cronograma, questões, flashcards e redação"
         description={CAMPANHA_ANUAL_ATIVA
-          ? 'Seu material vira questões e flashcards, o cronograma nasce do seu edital e a redação volta corrigida por competência. Anual com 1 mês de desconto: 11x de R$ 9,90.'
+          ? 'Seu material vira questões e flashcards, o cronograma nasce do seu edital e a redação volta corrigida por competência. Plano anual com 1 mês grátis: 11x de R$ 9,90.'
           : 'Seu material vira questões e flashcards, o cronograma nasce do seu edital e a redação volta corrigida por competência. Tudo num plano só, 12x de R$ 9,90.'}
         ogImage="/og-oficial.jpg"
         canonical="https://rendipro.com.br/"

@@ -80,12 +80,12 @@ export function Features() {
                             <span className="text-gradient-primary">o que estudou</span>.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Mais de 8.000 flashcards prontos, organizados por matéria. Abre o RendiPro e já começa. Cria os seus, importa seus decks do Anki ou gera com IA. A repetição espaçada garante que você fixe de verdade, não só memorize para a prova de amanhã.
+                            Mais de 8.000 flashcards prontos, organizados por matéria. Abra o RendiPro e já comece. Crie os seus, importe seus decks do Anki ou gere com IA. A repetição espaçada garante que você fixe de verdade, não só memorize para a prova de amanhã.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Mais de 8.000 prontos</strong>, zero setup: abre e estuda</span>
+                                <span><strong className="font-semibold text-white">Mais de 8.000 prontos</strong>, zero setup: abra e estude</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
@@ -93,7 +93,7 @@ export function Features() {
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Gere do SEU material.</strong> Manda um PDF ou tira foto do caderno e a IA cria questões e flashcards em segundos.</span>
+                                <span><strong className="font-semibold text-white">Gere do SEU material.</strong> Mande um PDF ou tire foto do caderno e o RendiPro cria questões e flashcards em segundos.</span>
                             </li>
                         </ul>
                         {/* Card interativo real (o mesmo do hero): testa aqui na

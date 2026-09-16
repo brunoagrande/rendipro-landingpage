@@ -64,16 +64,16 @@ export function AiSuite() {
                             Treino
                         </Eyebrow>
                         <h3 className="text-h2 sm:text-display-sm font-bold leading-tight text-white">
-                            Manda o seu PDF.{' '}
+                            Mande o seu PDF.{' '}
                             <span className="text-gradient-primary">Ele vira questão</span>.
                         </h3>
                         <p className="mt-4 text-body text-white/70">
-                            Envie uma apostila, um resumo ou a matéria da aula. A IA cria questões de múltipla escolha com o seu conteúdo, com gabarito e explicação. Você pratica o que estudou de verdade, não questão genérica da internet.
+                            Envie uma apostila, um resumo ou a matéria da aula. O RendiPro cria questões de múltipla escolha com o seu conteúdo, com gabarito e explicação. Você pratica o que estudou de verdade, não questão genérica da internet.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
                             <Bullet><strong className="font-semibold text-white">O seu material vira prova.</strong> Você treina com o que está estudando agora.</Bullet>
                             <Bullet><strong className="font-semibold text-white">Gabarito e explicação</strong> em toda questão. Dá pra ver onde você errou.</Bullet>
-                            <Bullet><strong className="font-semibold text-white">Puxa primeiro o que você ainda não respondeu</strong> e o que você errou. O foco vai pro ponto fraco.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">O RendiPro puxa primeiro o que você ainda não respondeu</strong> e o que você errou. O foco vai pro ponto fraco.</Bullet>
                         </ul>
                     </div>
                     <ProductWindow url="app.rendipro.com.br/treino" glow>
@@ -111,7 +111,7 @@ export function AiSuite() {
                             <span className="text-gradient-primary">Vira flashcard</span>.
                         </h3>
                         <p className="mt-4 text-body text-white/70">
-                            Tira uma foto do quadro ou da página do caderno e pronto: a IA monta os flashcards pra você. O que estava no papel entra na sua revisão em segundos, sem digitar nada.
+                            Tire uma foto do quadro ou da página do caderno e pronto: o RendiPro monta os flashcards pra você. O que estava no papel entra na sua revisão em segundos, sem digitar nada.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
                             <Bullet><strong className="font-semibold text-white">Foto vira flashcard</strong> na hora, já com a repetição espaçada rodando.</Bullet>

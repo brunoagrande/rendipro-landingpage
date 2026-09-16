@@ -12,13 +12,13 @@
  *    R$ 118,80).
  *  - Só para quem nunca assinou. Sem boleto no anual.
  *
- * Um nome só, em toda parte: "1 mês de desconto no anual".
+ * Um nome só, em toda parte: "1 mês grátis no plano anual" (renomeado em 16/09/2026).
  */
 
 export const CAMPANHA_ANUAL_ATIVA = true
 
 export const CAMPANHA_ANUAL = {
-    nome: '1 mês de desconto no anual',
+    nome: '1 mês grátis no plano anual',
     mesesDeDesconto: 1,
     /** Termos específicos da campanha, no app (cláusulas 5-A e 5-C). */
     termosUrl: 'https://app.rendipro.com.br/termos/anual',

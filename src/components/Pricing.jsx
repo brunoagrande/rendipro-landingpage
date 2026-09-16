@@ -136,7 +136,7 @@ export function Pricing() {
                         <span className="text-white/45">Hoje você junta</span>{' '}
                         Anki, planilha, corretor avulso e lembrete no celular, e ainda perde tempo decidindo o que revisar.{' '}
                         <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo num plano só, {CAMPANHA_ANUAL_ATIVA ? 'a partir de 11x de R$ 9,90, com 1 mês de desconto no anual' : 'a partir de 12x de R$ 9,90'}.</strong>{' '}
+                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo num plano só, {CAMPANHA_ANUAL_ATIVA ? 'a partir de 11x de R$ 9,90, com 1 mês grátis no plano anual' : 'a partir de 12x de R$ 9,90'}.</strong>{' '}
                         <span className="text-white/45">Menos que uma hora de cursinho presencial.</span>
                     </p>
                 </motion.div>
@@ -248,7 +248,7 @@ export function Pricing() {
                     <span className="flex items-center gap-2">
                         <XIcon size={18} className="text-primary-400" />
                         <span>
-                            <strong className="font-semibold text-white">Cancela quando quiser</strong>,
+                            <strong className="font-semibold text-white">Cancele quando quiser</strong>,
                             sem ligação.
                         </span>
                     </span>
@@ -335,7 +335,7 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                     </p>
                 )}
                 {plan.tipo === 'anual' && plan.preco_centavos > 0 && campanha ? (
-                    // Campanha "1 mês de desconto no anual": as contas são as do app
+                    // Campanha "1 mês grátis no plano anual": as contas são as do app
                     // (`resumoCampanhaAnual`). Cartão: 11 cobranças, a 1ª só daqui a
                     // 30 dias. Pix: o ano menos um mês, de uma vez.
                     <>

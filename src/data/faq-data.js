@@ -11,7 +11,7 @@
 import { CAMPANHA_ANUAL_ATIVA, CAMPANHA_ANUAL } from './campanha-anual'
 
 const faqCampanha = {
-    question: 'Como funciona o mês de desconto no anual?',
+    question: 'Como funciona o mês grátis no plano anual?',
     answer:
         'Vale para quem assina o plano anual pela primeira vez, enquanto a campanha estiver no ar. No cartão, a primeira cobrança só acontece daqui a 30 dias e o ano fecha em 11 cobranças em vez de 12. No Pix, você paga de uma vez o ano menos um mês (Starter Anual: R$ 108,90 em vez de R$ 118,80). Os 7 dias de garantia continuam valendo, e as regras completas estão nos termos da campanha.',
     link: { href: CAMPANHA_ANUAL.termosUrl, label: 'Ler os termos da campanha' },
@@ -58,7 +58,7 @@ export const faqItems = [
         question:
             'Já tentei outras plataformas e desisti em 2 semanas. Como sei que com o RendiPro vai ser diferente?',
         answer:
-            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método pra continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (cola edital, escolhe formato, pronto), e tem sequência diária, proteção pros dias de folga e missões curtas pra te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar pra você, devolve 100% com 1 clique, sem precisar explicar nada.',
+            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método pra continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (cole o edital, escolha o formato, pronto), e tem sequência diária, proteção pros dias de folga e missões curtas pra te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar pra você, devolve 100% com 1 clique, sem precisar explicar nada.',
     },
     {
         question: 'Posso cancelar a qualquer momento?',

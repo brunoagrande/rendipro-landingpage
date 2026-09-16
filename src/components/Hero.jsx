@@ -44,11 +44,8 @@ export function Hero() {
                         <h1
                             className="mt-6 text-display-sm sm:text-display-lg lg:text-display-xl text-white"
                         >
-                            Você estuda. Mas a aprovação{' '}
-                            <span className="text-gradient-primary">ainda não veio</span>.{' '}
-                            <span className="text-white/85">
-                                O problema não é dedicação. É <span className="text-gradient-primary">método</span>.
-                            </span>
+                            Monte seu cronograma a partir do seu edital,{' '}
+                            <span className="text-gradient-primary">automaticamente</span>.
                         </h1>
 
                         {/* Subtitle SEM animação — candidato a LCP em desktop (texto longo).
@@ -56,12 +53,7 @@ export function Hero() {
                         <p
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
-                            <span className="md:hidden">
-                                O RendiPro monta <strong className="font-semibold text-white">o cronograma pelo seu edital</strong>, avisa <strong className="font-semibold text-white">o dia certo de revisar</strong> cada matéria, transforma sua apostila em questões e ainda <strong className="font-semibold text-white">corrige sua redação com nota por competência</strong>. A partir de <strong className="font-semibold text-white">{CAMPANHA_ANUAL_ATIVA ? '11x de R$ 9,90, com 1 mês de desconto no anual' : '12x de R$ 9,90'}</strong>.
-                            </span>
-                            <span className="hidden md:inline">
-                                Você não reprova por falta de esforço. Reprova porque estuda sem saber o que priorizar e esquece o que revisou. O RendiPro monta <strong className="font-semibold text-white">um cronograma pelo seu edital</strong> e pelas horas que você tem, avisa <strong className="font-semibold text-white">o dia certo de revisar</strong> cada matéria, transforma <strong className="font-semibold text-white">sua apostila em questões</strong> e ainda <strong className="font-semibold text-white">corrige sua redação com nota por competência</strong>. Tudo num lugar só, a partir de <strong className="font-semibold text-white">{CAMPANHA_ANUAL_ATIVA ? '11x de R$ 9,90, com 1 mês de desconto no anual' : '12x de R$ 9,90'}</strong>.
-                            </span>
+                            Revisões? <strong className="font-semibold text-white">O RendiPro organiza para você.</strong> Questões? <strong className="font-semibold text-white">Teste seu conhecimento a partir da sua apostila.</strong> E, ainda, <strong className="font-semibold text-white">corrija suas redações</strong> com o RendiPro sem pagar a mais por isso.{CAMPANHA_ANUAL_ATIVA ? ' No plano anual, 1 mês grátis.' : ''}
                         </p>
 
                         <div
@@ -91,7 +83,14 @@ export function Hero() {
                         </div>
 
                         <p
-                            className="mt-6 inline-flex items-center gap-2 text-body-sm font-medium text-white/70 animate-fade-in"
+                            className="mt-4 text-body font-semibold text-white animate-fade-in"
+                            style={{ animationDelay: '400ms' }}
+                            data-testid="hero-preco"
+                        >
+                            A partir de R$ 9,90 mensais
+                        </p>
+                        <p
+                            className="mt-3 inline-flex items-center gap-2 text-body-sm font-medium text-white/70 animate-fade-in"
                             style={{ animationDelay: '450ms' }}
                         >
                             <Shield size={16} className="text-primary-400" />
