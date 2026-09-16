@@ -15,7 +15,7 @@
  * Um nome só, em toda parte: "1 mês de desconto no anual".
  */
 
-export const CAMPANHA_ANUAL_ATIVA = false
+export const CAMPANHA_ANUAL_ATIVA = true
 
 export const CAMPANHA_ANUAL = {
     nome: '1 mês de desconto no anual',
