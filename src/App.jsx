@@ -38,10 +38,10 @@ function App() {
   return (
     <InfluencerProvider>
       <SEOHead
-        title="Estude com IA: cronograma, questões, flashcards e redação"
+        title="Cronograma de estudos pelo edital, automático | RendiPro"
         description={CAMPANHA_ANUAL_ATIVA
-          ? 'Seu material vira questões e flashcards, o cronograma nasce do seu edital e a redação volta corrigida por competência. Plano anual com 1 mês grátis: 11x de R$ 9,90.'
-          : 'Seu material vira questões e flashcards, o cronograma nasce do seu edital e a redação volta corrigida por competência. Tudo num plano só, 12x de R$ 9,90.'}
+          ? 'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. 1 mês grátis no plano anual.'
+          : 'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Tudo num plano só, 12x de R$ 9,90.'}
         ogImage="/og-oficial.jpg"
         canonical="https://rendipro.com.br/"
         noindex={false}

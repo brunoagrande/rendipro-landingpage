@@ -23,7 +23,7 @@ export const PRICING_PLANS = [
         nome: 'Starter Mensal',
         nome_curto: 'Starter',
         slug: 'starter-mensal',
-        descricao: 'Cronograma montado em minutos, flashcards e revisão no momento certo. Tudo num plano só.',
+        descricao: 'O estudo inteiro organizado: cronograma pelo edital, revisão no dia certo, 2 redações corrigidas por mês.',
         tipo: 'mensal',
         preco_centavos: 1690,
         // ÂNCORA REMOVIDA em 18/08/2026. Aqui havia 2490, montando um "de
@@ -105,7 +105,7 @@ export const PRICING_PLANS = [
         nome: 'Starter Anual',
         nome_curto: 'Starter',
         slug: 'starter-anual',
-        descricao: 'Cronograma, flashcards e revisão no momento certo por um ano inteiro. Tudo num plano só.',
+        descricao: 'O estudo inteiro organizado por um ano: cronograma pelo edital, revisão no dia certo, 6 redações corrigidas por mês.',
         tipo: 'anual',
         preco_centavos: 11880,
         preco_ancora_mes_centavos: 1690, // âncora VERDADEIRA: o preço do Starter Mensal

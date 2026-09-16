@@ -34,10 +34,12 @@ export function FinalCTA() {
                     </Eyebrow>
 
                     <h2 className="text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        Cada semana sem método é{' '}
-                        <span className="text-gradient-primary">mais uma semana</span>{' '}
-                        longe da aprovação.
+                        Você estuda.{' '}
+                        <span className="text-gradient-primary">O RendiPro organiza o resto</span>.
                     </h2>
+                    <p className="mx-auto mt-5 max-w-2xl text-body-lg text-white/60">
+                        Cole o edital hoje. Amanhã o RendiPro já abre com a lista do dia pronta.
+                    </p>
 
                     <div className="mt-9 flex flex-col items-center gap-4">
                         <Button
@@ -59,7 +61,7 @@ export function FinalCTA() {
 
                         <p className="flex items-center gap-2 text-body-sm font-medium text-white/70">
                             <Shield size={16} className="text-primary-400" />
-                            Teste 7 dias. Não gostou, devolvemos 100% com 1 clique.
+                            <strong className="font-semibold text-white">7 dias de garantia.</strong> Não gostou, devolvemos 100% com 1 clique.
                         </p>
                         <p className="flex items-center gap-2 text-caption text-white/50">
                             <Lock size={14} className="text-white/40" />

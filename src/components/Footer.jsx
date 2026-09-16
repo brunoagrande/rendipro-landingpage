@@ -12,15 +12,15 @@ export function Footer() {
                             />
                         </div>
                         <p className="mt-4 max-w-sm text-body-sm leading-relaxed text-white/55">
-                            Plataforma de estudos para concursos, OAB, ENEM e vestibulares. Cronograma montado em minutos, flashcards e revisão no momento certo com repetição espaçada. Tudo num plano só.
+                            O RendiPro organiza o estudo inteiro de quem se prepara pra concurso, OAB, ENEM ou vestibular: cronograma pelo edital, revisão no dia certo, treino com o seu material e redação corrigida. Tudo num plano só.
                         </p>
                     </div>
                     <div>
-                        <h3 className="mb-6 text-sm font-bold uppercase tracking-wider text-white">Links Rápidos</h3>
+                        <h3 className="mb-6 text-sm font-bold uppercase tracking-wider text-white">Atalhos</h3>
                         <ul className="space-y-4">
-                            <li><a href="#features" className="text-sm text-white/50 hover:text-white transition-colors">Recursos</a></li>
-                            <li><a href="#pricing" className="text-sm text-white/50 hover:text-white transition-colors">Preços</a></li>
-                            <li><a href="https://app.rendipro.com.br/login" className="text-sm text-white/50 hover:text-white transition-colors">Sistema</a></li>
+                            <li><a href="#plano" className="text-sm text-white/50 hover:text-white transition-colors">Como funciona</a></li>
+                            <li><a href="#pricing" className="text-sm text-white/50 hover:text-white transition-colors">Planos</a></li>
+                            <li><a href="https://app.rendipro.com.br/login" className="text-sm text-white/50 hover:text-white transition-colors">Entrar no app</a></li>
                         </ul>
                     </div>
                     <div>

@@ -160,7 +160,7 @@ export function FAQ() {
                     </Button>
                     <p className="flex items-center gap-2 text-caption text-white/55">
                         <Shield size={13} className="text-primary-400" />
-                        Teste 7 dias. Não gostou, devolvemos 100% com 1 clique.
+                        <strong className="font-semibold text-white/80">7 dias de garantia.</strong> Não gostou, devolvemos 100% com 1 clique.
                     </p>
                 </motion.div>
 

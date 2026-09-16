@@ -73,13 +73,13 @@ export function InteractiveFlashcard({ className }) {
                     style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
                 >
                     <div className="inline-flex w-fit items-center rounded-md border border-primary-500/20 bg-primary-500/10 px-2 py-0.5 text-micro font-bold text-primary-300 uppercase tracking-wider">
-                        Física · Relatividade
+                        Direito Constitucional · Art. 5º
                     </div>
                     <div className="mt-3 text-micro font-semibold uppercase tracking-widest text-white/40">
                         Pergunta
                     </div>
                     <p className="mt-3 text-body-lg font-semibold leading-tight text-white">
-                        Qual é a equação que relaciona massa e energia?
+                        Qual remédio constitucional protege a liberdade de locomoção?
                     </p>
 
                     <div className="mt-auto pt-4">
@@ -112,7 +112,7 @@ export function InteractiveFlashcard({ className }) {
                         Resposta
                     </div>
                     <div className="mt-3 text-display-md font-extrabold font-mono text-gradient-primary">
-                        E=mc²
+                        Habeas corpus
                     </div>
 
                     <div className="mt-auto pt-4">

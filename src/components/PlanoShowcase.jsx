@@ -52,13 +52,13 @@ export function PlanoShowcase() {
                             <span className="text-gradient-primary">feito pra você</span>.
                         </h2>
                         <p className="mt-4 text-body text-white/70">
-                            Cole o edital, diga quantas horas você tem no dia para estudar e o RendiPro monta seu cronograma inteiro, <strong className="font-semibold text-white">automaticamente</strong>. Já tem um cronograma que você curte? Importe em PDF ou CSV e ele organiza tudo pra você. Chega de planilha e de decidir na mão o que estudar hoje.
+                            Cole o edital (ou escolha um dos 76 que já estão prontos), diga quantas horas você tem no dia e o RendiPro monta seu cronograma inteiro, <strong className="font-semibold text-white">automaticamente</strong>. Já segue um cronograma que funciona? Importe em PDF ou CSV e ele entra do mesmo jeito. Chega de planilha e de decidir na mão o que estudar hoje.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
                             <Bullet><strong className="font-semibold text-white">Feito pra você</strong>, pelas suas horas e pelo seu edital. Ou importe o plano que você já tem.</Bullet>
-                            <Bullet><strong className="font-semibold text-white">Perdeu um dia?</strong> O plano se reorganiza sozinho. Você não refaz nada do zero.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">Perdeu um dia?</strong> Um clique e o RendiPro redistribui o que ficou pra trás. Você não refaz nada do zero.</Bullet>
                             <Bullet><strong className="font-semibold text-white">Mais de um concurso na mira?</strong> Até 3 planos ao mesmo tempo, e você troca num clique.</Bullet>
-                            <Bullet>Todo dia você abre e já sabe <strong className="font-semibold text-white">o que estudar</strong>. Sem pensar, sem organizar.</Bullet>
+                            <Bullet>Todo dia você abre e a lista do dia <strong className="font-semibold text-white">já está pronta</strong>.</Bullet>
                         </ul>
                     </div>
 

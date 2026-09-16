@@ -13,7 +13,7 @@ export function TopBanner() {
                 <div className="container mx-auto flex items-center justify-center gap-3 text-center">
                     <PartyPopper className="h-5 w-5 text-yellow-300 animate-bounce flex-shrink-0" />
                     <p className="text-sm md:text-base font-medium text-white">
-                        Desconto especial ativado via <strong className="font-bold">{influencerData.nome_influencer}</strong>! Aproveite a oferta abaixo.
+                        Desconto de <strong className="font-bold">{influencerData.nome_influencer}</strong> ativado. O preço já aparece com desconto nos planos.
                     </p>
                 </div>
             </div>

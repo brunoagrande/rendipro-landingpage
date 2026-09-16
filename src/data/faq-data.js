@@ -11,7 +11,7 @@
 import { CAMPANHA_ANUAL_ATIVA, CAMPANHA_ANUAL } from './campanha-anual'
 
 const faqCampanha = {
-    question: 'Como funciona o mês grátis no plano anual?',
+    question: 'Como funciona o "1 mês grátis no plano anual"?',
     answer:
         'Vale para quem assina o plano anual pela primeira vez, enquanto a campanha estiver no ar. No cartão, a primeira cobrança só acontece daqui a 30 dias e o ano fecha em 11 cobranças em vez de 12. No Pix, você paga de uma vez o ano menos um mês (Starter Anual: R$ 108,90 em vez de R$ 118,80). Os 7 dias de garantia continuam valendo, e as regras completas estão nos termos da campanha.',
     link: { href: CAMPANHA_ANUAL.termosUrl, label: 'Ler os termos da campanha' },
@@ -21,17 +21,17 @@ export const faqItems = [
     {
         question: 'Já tentei me organizar com planilha e desisti em duas semanas.',
         answer:
-            'A planilha falha porque depende de você atualizá-la todo dia. O RendiPro automatiza isso: quando você perde um dia, o plano redistribui sozinho. Quando você termina um tópico, o cronograma avança automaticamente. Quando chega a hora de revisar, o RendiPro te avisa. Você não precisa manter nada, só seguir.',
+            'A planilha falha porque depende de você atualizá-la todo dia. O RendiPro faz essa parte: quando você perde um dia, um clique redistribui o que ficou pra trás. Quando você termina um tópico, o cronograma avança sozinho. Quando chega a hora de revisar, o RendiPro te avisa. Você não precisa manter nada, só seguir.',
     },
     {
         question: 'Para qual prova o RendiPro funciona?',
         answer:
-            'Concursos públicos, OAB, ENEM, vestibulares (FUVEST, UNICAMP, UFRGS, etc.), Residência Médica e provas escolares. O cronograma se adapta automaticamente ao edital, ao formato e à banca da sua prova específica.',
+            'Concursos públicos, OAB, ENEM, vestibulares (FUVEST, UNICAMP, UFRGS e outros), Residência Médica e provas escolares. O cronograma nasce do edital da sua prova (76 já estão prontos) ou das horas que você tem por dia, e você também pode importar um plano pronto em CSV ou PDF.',
     },
     {
         question: 'Como funcionam os flashcards? Posso usar os meus?',
         answer:
-            'Você tem mais de 8.000 flashcards prontos cobrindo as principais matérias e já pode começar a estudar na hora. Quer usar os seus? Crie flashcards em segundos, tire foto do caderno, gere por IA a partir de qualquer conteúdo ou importe os decks que você já tem no Anki. A revisão de todos eles é organizada pela repetição espaçada, que calcula o dia certo de rever cada card pra ele não sumir da memória.',
+            'Você tem mais de 8.000 flashcards prontos cobrindo as principais matérias e já pode começar a estudar na hora. Quer usar os seus? Crie flashcards em segundos, tire foto do caderno, gere a partir de qualquer conteúdo ou importe os baralhos que você já tem no Anki. A revisão de todos eles é organizada pela repetição espaçada, que calcula o dia certo de rever cada cartão pra ele não sumir da memória.',
     },
     {
         question: 'A correção de redação é confiável? Quantas posso enviar?',
@@ -46,13 +46,13 @@ export const faqItems = [
     {
         question: 'Posso usar para concurso e para ENEM ao mesmo tempo?',
         answer:
-            'Sim. Essa é uma das funcionalidades exclusivas do RendiPro. Você cria até 3 cronogramas simultâneos, cada um com seu próprio edital ou plano, suas matérias e sua rotina. Suas métricas, flashcards e revisões ficam separados entre os planos, não se misturam. Alternância em 1 clique no dashboard.',
+            'Sim. Você cria até 3 cronogramas ao mesmo tempo, cada um com seu próprio edital ou plano, suas matérias e sua rotina. Métricas, flashcards e revisões ficam separados entre os planos, sem misturar. Você alterna em 1 clique.',
     },
     {
         question:
             'Como o RendiPro se compara com Anki + planilha + apps soltos?',
         answer:
-            'Se hoje você usa o Anki para flashcards, uma planilha para o cronograma e lembretes soltos para revisar, está gastando tempo trocando de ferramenta e ainda decidindo na mão o que revisar. O RendiPro reúne tudo num plano só: cronograma adaptado ao edital, flashcards com repetição espaçada (importados do Anki ou gerados por IA), a IA que transforma o seu material em questões e flashcards, e o reforço automático dos tópicos que você mais esquece. Menos setup, menos abas, por R$ 9,90/mês.',
+            'Se hoje você usa o Anki para flashcards, uma planilha para o cronograma e lembretes soltos para revisar, está gastando tempo trocando de ferramenta e ainda decidindo na mão o que revisar. O RendiPro organiza tudo isso num lugar só: o cronograma nasce do edital, a revisão chega no dia certo, seus baralhos do Anki entram do jeito que estão, e o seu material vira questão e flashcard. A partir de R$ 9,90/mês.',
     },
     {
         question:

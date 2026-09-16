@@ -53,14 +53,14 @@ const fadeUp = {
 const COMMON_FEATURES = [
     // Regra: so entra aqui o que TODO plano entrega hoje. Conferido contra o
     // produto em 15/08/2026 (ligas/loja estao atras de gate: NAO listar).
-    'Redação corrigida todo mês, com nota por competência',
-    'Sua apostila vira questões de treino com gabarito',
+    'Cronograma pelo edital, automático ou importado (CSV/PDF)',
+    'Revisão no dia certo, sem planilha',
+    'Até 3 cronogramas em paralelo',
     '+8.000 flashcards prontos, organizados por matéria',
     'Crie flashcards, tire foto do caderno ou importe do Anki',
-    'Revisão no momento certo, sem planilha',
-    'Cronograma pelo edital, automático ou importado (CSV/PDF)',
-    'Até 3 cronogramas em paralelo',
-    'Sequência de estudos, missões diárias e evolução por XP',
+    'Sua apostila vira questões de treino com gabarito',
+    'Redação corrigida todo mês, com nota por competência',
+    'Sequência de estudos e missões diárias',
     'Acesso completo no celular',
     'Garantia de 7 dias em qualquer plano',
 ]
@@ -116,10 +116,10 @@ export function Pricing() {
                         Planos
                     </Eyebrow>
                     <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        Quanto custa adiar a sua{' '}<span className="text-gradient-primary">aprovação</span>?
+                        Quanto custa ter o estudo inteiro{' '}<span className="text-gradient-primary">organizado</span>?
                     </h2>
                     <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/60">
-                        Menos que uma hora de cursinho presencial por mês. Com método de verdade.
+                        Menos que uma hora de cursinho presencial por mês. E você para de pagar Anki, planilha e corretor avulso separados.
                     </p>
                 </motion.div>
 
@@ -136,8 +136,7 @@ export function Pricing() {
                         <span className="text-white/45">Hoje você junta</span>{' '}
                         Anki, planilha, corretor avulso e lembrete no celular, e ainda perde tempo decidindo o que revisar.{' '}
                         <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo num plano só, {CAMPANHA_ANUAL_ATIVA ? 'a partir de 11x de R$ 9,90, com 1 mês grátis no plano anual' : 'a partir de 12x de R$ 9,90'}.</strong>{' '}
-                        <span className="text-white/45">Menos que uma hora de cursinho presencial.</span>
+                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo num plano só, {CAMPANHA_ANUAL_ATIVA ? 'a partir de 11x de R$ 9,90, com 1 mês grátis no plano anual' : 'a partir de 12x de R$ 9,90'}.</strong>
                     </p>
                 </motion.div>
 
@@ -428,7 +427,7 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                     <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
                     <span className="text-white/85">
                         <strong className="font-bold text-white">Tudo da plataforma:</strong>{' '}
-                        cronograma, flashcards e revisão no momento certo
+                        cronograma, flashcards e revisão no dia certo
                     </span>
                 </li>
 

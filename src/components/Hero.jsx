@@ -44,7 +44,7 @@ export function Hero() {
                         <h1
                             className="mt-6 text-display-sm sm:text-display-lg lg:text-display-xl text-white"
                         >
-                            Monte seu cronograma a partir do seu edital,{' '}
+                            Seu cronograma montado a partir do seu edital,{' '}
                             <span className="text-gradient-primary">automaticamente</span>.
                         </h1>
 
@@ -53,7 +53,7 @@ export function Hero() {
                         <p
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
-                            Revisões? <strong className="font-semibold text-white">O RendiPro organiza para você.</strong> Questões? <strong className="font-semibold text-white">Teste seu conhecimento a partir da sua apostila.</strong> E, ainda, <strong className="font-semibold text-white">corrija suas redações</strong> com o RendiPro sem pagar a mais por isso.{CAMPANHA_ANUAL_ATIVA ? ' No plano anual, 1 mês grátis.' : ''}
+                            Organizar o estudo consome horas que deviam ser de estudo. <strong className="font-semibold text-white">O RendiPro faz essa parte por você:</strong> monta o cronograma pelo edital, marca a revisão no dia certo, transforma sua apostila em questões e corrige sua redação com nota por competência. Tudo num plano só, sem pagar a mais por nada disso.{CAMPANHA_ANUAL_ATIVA ? ' 1 mês grátis no plano anual.' : ''}
                         </p>
 
                         <div
@@ -73,7 +73,7 @@ export function Hero() {
                                     className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
                                 />
                             </Button>
-                            <Button as="a" href="#features" variant="secondary" size="lg">
+                            <Button as="a" href="#plano" variant="secondary" size="lg">
                                 Ver como funciona
                                 <ArrowRight
                                     size={18}

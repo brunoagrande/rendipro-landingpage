@@ -27,16 +27,9 @@ export function TrustStrip() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* 4 stats */}
                 <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 animate-fade-in-up">
-                    {/* O 2o stat era "+69 baralhos": numero de inventario, nao de
-                        beneficio (e a redacao, que vende, nao aparecia). */}
-                    <StatBlock value={8000} label="flashcards prontos" />
-                    <StatBlock
-                        value={1000}
-                        prefix={'0 a '}
-                        suffix=""
-                        label="de nota na redação"
-                        sublabel="corrigida em minutos"
-                    />
+                    {/* Ordem pela regua do porque (16/09/2026): os numeros provam o H1
+                        (organizacao automatica), nao fazem inventario. "0 a 1000 de
+                        nota" saiu: e a escala de qualquer correcao, nao um numero nosso. */}
                     <StatBlock
                         value={5}
                         prefix=""
@@ -44,11 +37,17 @@ export function TrustStrip() {
                         label="pra montar o cronograma"
                     />
                     <StatBlock
+                        value={76}
+                        prefix=""
+                        label="editais já prontos"
+                        sublabel="pra virar cronograma"
+                    />
+                    <StatBlock
                         value={3}
                         prefix=""
                         label="cronogramas em paralelo"
-                        sublabel="exclusivo"
                     />
+                    <StatBlock value={8000} label="flashcards prontos" sublabel="por matéria" />
                 </div>
 
                 {/* Cobertura — chips visuais com check */}

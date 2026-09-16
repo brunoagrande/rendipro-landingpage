@@ -52,11 +52,11 @@ export function Features() {
                         Como funciona
                     </Eyebrow>
                     <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        Tudo o que você precisa,{' '}
-                        <span className="text-gradient-primary">num plano só</span>.
+                        Você estuda.{' '}
+                        <span className="text-gradient-primary">O RendiPro organiza o resto</span>.
                     </h2>
                     <p className="mx-auto mt-5 max-w-xl text-body text-white/60">
-                        Uma plataforma. Sem ficar trocando de aba.
+                        O que estudar hoje, o que revisar e o que treinar já vêm decididos quando você abre. Numa aba só.
                     </p>
                 </motion.div>
 
@@ -76,11 +76,11 @@ export function Features() {
                             Flashcards
                         </Eyebrow>
                         <h3 className="text-h3 sm:text-h2 font-bold leading-tight text-white">
-                            Nunca mais esqueça{' '}
-                            <span className="text-gradient-primary">o que estudou</span>.
+                            O que você estudou{' '}
+                            <span className="text-gradient-primary">volta antes de sumir</span>.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Mais de 8.000 flashcards prontos, organizados por matéria. Abra o RendiPro e já comece. Crie os seus, importe seus decks do Anki ou gere com IA. A repetição espaçada garante que você fixe de verdade, não só memorize para a prova de amanhã.
+                            Mais de 8.000 flashcards prontos, organizados por matéria. Abra o RendiPro e já comece. Crie os seus, importe seus baralhos do Anki ou mande seu material. A repetição espaçada traz cada cartão de volta no dia certo, quando ele está prestes a sair da memória.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -89,7 +89,7 @@ export function Features() {
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Importe seus decks do Anki</strong> e continue de onde parou</span>
+                                <span><strong className="font-semibold text-white">Importe seus baralhos do Anki</strong> e continue de onde parou</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
@@ -104,7 +104,7 @@ export function Features() {
                         </div>
                     </motion.article>
 
-                    {/* ── Pilar 3 · Revisão no momento certo ─ */}
+                    {/* ── Pilar 3 · Revisão no dia certo ─ */}
                     <motion.article
                         variants={fadeUp}
                         initial="hidden"
@@ -118,16 +118,16 @@ export function Features() {
                             Revisão
                         </Eyebrow>
                         <h3 className="text-h3 sm:text-h2 font-bold leading-tight text-white">
-                            O RendiPro te diz{' '}
-                            <span className="text-gradient-primary">o que estudar hoje</span>. Sem decidir, sem improvisar.
+                            O que revisar hoje{' '}
+                            <span className="text-gradient-primary">já vem decidido</span>.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Abre o RendiPro e já tem uma lista do que revisar hoje. O sistema decide por você, com o mesmo método de revisão que consagrou o Anki. Não precisa lembrar quando estudou o quê. A plataforma lembra. Você só estuda.
+                            Abra o RendiPro e a lista de hoje está lá. O RendiPro calcula, pelo dia em que você estudou cada tópico, quando ele precisa voltar, com o mesmo método de revisão que consagrou o Anki. Você não precisa lembrar quando estudou o quê. O RendiPro lembra. Você só estuda.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Repetição espaçada</strong>, o método de memorização com mais evidência científica</span>
+                                <span><strong className="font-semibold text-white">Repetição espaçada</strong>, o método de memorização com mais de um século de pesquisa por trás</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
@@ -162,13 +162,13 @@ export function Features() {
                 >
                     <p className="flex items-center justify-center gap-2 text-micro font-semibold uppercase tracking-widest text-accent-300">
                         <Bot size={14} />
-                        Inteligência artificial integrada em todos os planos
+                        Com IA em todos os planos
                     </p>
                     <ul className="mt-4 grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-3">
                         {[
-                            'Gere flashcards personalizados com IA em segundos',
-                            'Cronograma reajustado conforme seu ritmo muda',
-                            'Tire dúvidas com a IA enquanto estuda, sem sair da plataforma',
+                            'Flashcards gerados do seu material em segundos',
+                            'Cronograma reajustado quando seu ritmo muda',
+                            'Tire dúvidas dentro da questão, sem sair do RendiPro',
                         ].map((f) => (
                             <li key={f} className="flex items-start gap-2 text-body-sm text-white/70">
                                 <Check size={15} className="mt-0.5 shrink-0 text-accent-300" />
@@ -177,7 +177,7 @@ export function Features() {
                         ))}
                     </ul>
                     <p className="mt-4 text-center text-caption text-white/40">
-                        O limite de usos de IA por mês varia com o plano. Veja em Preços abaixo.
+                        O limite de usos de IA por mês varia com o plano. Veja em Planos, abaixo.
                     </p>
                 </motion.div>
             </div>

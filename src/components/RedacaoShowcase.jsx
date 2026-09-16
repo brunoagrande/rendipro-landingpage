@@ -74,8 +74,8 @@ export function RedacaoShowcase() {
                                 Cada redação nova mostra se você subiu e em quê.
                             </Bullet>
                             <Bullet>
-                                Toda semana, sem agendar corretor e sem pagar por correção
-                                avulsa. Já está no plano.
+                                <strong className="font-semibold text-white">Já está no plano</strong>, sem
+                                corretor avulso: 2 redações por mês no Starter, 8 no Pro.
                             </Bullet>
                         </ul>
 

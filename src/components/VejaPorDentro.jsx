@@ -25,7 +25,7 @@ const PROVAS = [
         icone: Layers,
         titulo: 'Estude 10 flashcards agora',
         texto:
-            'O mesmo motor de revisão que o RendiPro usa por dentro. Você responde, ele calcula quando aquele card volta.',
+            'O mesmo motor de revisão que o RendiPro usa por dentro. Você responde, ele calcula quando aquele cartão volta.',
         rotulo: 'Abrir o baralho',
         href: `${APP}/amostra?utm_source=landing&utm_content=veja_por_dentro`,
         tempo: '40 segundos',

@@ -10,9 +10,9 @@ export function Navbar() {
     const { getCheckoutUrl } = useInfluencer()
 
     const navLinks = [
-        { name: 'Recursos', href: '#features' },
-        { name: 'Preços', href: '#pricing' },
-        { name: 'FAQ', href: '#faq' },
+        { name: 'Como funciona', href: '#plano' },
+        { name: 'Planos', href: '#pricing' },
+        { name: 'Dúvidas', href: '#faq' },
     ]
 
     return (
@@ -54,7 +54,7 @@ export function Navbar() {
                         onClick={trackNavbarCta}
                         className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-surface-950 transition-all active:scale-95 hover:bg-white/90"
                     >
-                        Comece Agora
+                        Começar agora
                     </a>
 
                     {/* Mobile Menu Button */}
@@ -90,7 +90,7 @@ export function Navbar() {
                                     href="https://app.rendipro.com.br"
                                     className="block text-lg font-medium text-white/70"
                                 >
-                                    Entrar no sistema
+                                    Entrar
                                 </a>
                             </li>
                         </ul>

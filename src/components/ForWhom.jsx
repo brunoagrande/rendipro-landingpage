@@ -20,7 +20,7 @@ const AVATARS = [
     {
         icon: GraduationCap,
         label: 'ENEM e Vestibulares',
-        copy: 'A rotina muda toda semana e qualquer planilha rígida vai por água abaixo na primeira semana que desanda.',
+        copy: 'A rotina muda toda semana, e qualquer planilha rígida vai por água abaixo no primeiro dia que desanda.',
         accent: 'primary',
     },
     {
@@ -45,12 +45,15 @@ export function ForWhom() {
                     className="mb-10 text-center"
                 >
                     <Eyebrow variant="ghost" className="mb-4">
-                        Para quem é o RendiPro
+                        Por que o RendiPro existe
                     </Eyebrow>
                     <h2 className="mx-auto max-w-2xl text-display-sm sm:text-display-md font-extrabold tracking-tight text-white">
-                        Feito para quem leva{' '}
-                        <span className="text-gradient-primary">aprovação</span> a sério.
+                        Organizar o estudo não devia roubar tempo{' '}
+                        <span className="text-gradient-primary">do estudo</span>.
                     </h2>
+                    <p className="mx-auto mt-5 max-w-2xl text-body text-white/60">
+                        Quem estuda pra prova difícil perde horas por semana montando planilha, decidindo o que revisar e refazendo o plano quando atrasa. O RendiPro foi feito pra devolver essas horas.
+                    </p>
                 </motion.div>
 
                 <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">

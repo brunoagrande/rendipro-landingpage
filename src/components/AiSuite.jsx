@@ -40,14 +40,14 @@ export function AiSuite() {
                 >
                     <Eyebrow variant="primary" className="mb-4">
                         <Sparkles size={14} />
-                        O que ninguém mais faz
+                        Com o seu material
                     </Eyebrow>
                     <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        E em cima do seu plano, uma IA que estuda com o{' '}
+                        E em cima do plano, o RendiPro treina você com o{' '}
                         <span className="text-gradient-primary">seu material</span>.
                     </h2>
                     <p className="mx-auto mt-5 max-w-2xl text-body text-white/60">
-                        O cronograma organiza a sua semana. Aí entra a parte que ninguém mais faz: sua apostila, seu resumo, a foto do quadro viram questão e flashcard. Você pratica o que de verdade caiu na sua aula.
+                        O cronograma diz o que estudar. Esta parte diz se você aprendeu: sua apostila, seu resumo e a foto do quadro viram questão e flashcard, e você pratica com o que caiu na sua aula.
                     </p>
                 </motion.div>
 
@@ -73,7 +73,7 @@ export function AiSuite() {
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
                             <Bullet><strong className="font-semibold text-white">O seu material vira prova.</strong> Você treina com o que está estudando agora.</Bullet>
                             <Bullet><strong className="font-semibold text-white">Gabarito e explicação</strong> em toda questão. Dá pra ver onde você errou.</Bullet>
-                            <Bullet><strong className="font-semibold text-white">O RendiPro puxa primeiro o que você ainda não respondeu</strong> e o que você errou. O foco vai pro ponto fraco.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">O RendiPro puxa primeiro o que você ainda não respondeu.</strong> O foco vai pro que falta.</Bullet>
                         </ul>
                     </div>
                     <ProductWindow url="app.rendipro.com.br/treino" glow>
@@ -86,7 +86,8 @@ export function AiSuite() {
                     </ProductWindow>
                 </motion.div>
 
-                {/* ── Bloco 2 · Snap (print esq · copy dir) ── */}
+                {/* ── Bloco 2 · Foto do caderno (print esq · copy dir). O nome interno
+                    "Snap & Study" não aparece pro aluno no app; a landing não usa. ── */}
                 <motion.div
                     variants={fadeUp} initial="hidden" whileInView="show"
                     viewport={{ once: true, margin: '-60px' }}
@@ -104,7 +105,7 @@ export function AiSuite() {
                     <div className="lg:order-2 order-1">
                         <Eyebrow variant="primary" className="mb-4">
                             <Camera size={14} />
-                            Snap &amp; Study
+                            Foto do caderno
                         </Eyebrow>
                         <h3 className="text-h2 sm:text-display-sm font-bold leading-tight text-white">
                             Tirou foto do quadro?{' '}
