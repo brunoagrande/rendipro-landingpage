@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/ig",
+      "destination": "/?utm_source=instagram&utm_medium=bio",
+      "permanent": false
+    },
+    {
       "source": "/termos",
       "destination": "https://app.rendipro.com.br/termos",
       "permanent": true
