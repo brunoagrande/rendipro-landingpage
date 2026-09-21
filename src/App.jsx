@@ -42,7 +42,7 @@ function App() {
         description={CAMPANHA_ANUAL_ATIVA
           ? 'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. 1 mês grátis no plano anual.'
           : 'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Tudo num plano só, 12x de R$ 9,90.'}
-        ogImage="/og-oficial.jpg"
+        ogImage="/og-2026-09.jpg"
         canonical="https://rendipro.com.br/"
         noindex={false}
       />
