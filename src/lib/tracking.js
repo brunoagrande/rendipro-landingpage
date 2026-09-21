@@ -57,7 +57,7 @@ export function captureUtms() {
     }
 }
 
-function getUtms() {
+export function getUtms() {
     if (typeof window === 'undefined') return {}
     try {
         const raw = sessionStorage.getItem(UTM_KEY)

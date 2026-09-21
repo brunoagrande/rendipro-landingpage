@@ -105,13 +105,22 @@ export function InfluencerProvider({ children }) {
         try {
             const url = new URL(baseUrl)
 
+            // A posição do botão (hero, faq, sticky...) NÃO é utm_content: se
+            // fosse, ela sobrescrevia o utm_content do anúncio e o GA4 perdia
+            // qual criativo trouxe o cadastro (bug vivo até 21/09/2026). Vai em
+            // rp_cta; os UTMs da campanha vencem sempre.
+            if (url.searchParams.has('utm_content') && !url.searchParams.has('utm_source')) {
+                url.searchParams.set('rp_cta', url.searchParams.get('utm_content'))
+                url.searchParams.delete('utm_content')
+            }
+
             if (typeof window !== 'undefined') {
                 const currentParams = new URLSearchParams(window.location.search)
+                let sessionUtms = {}
+                try { sessionUtms = JSON.parse(sessionStorage.getItem('rp_utm_v1') || '{}') } catch (_) {}
                 TRACKING_PARAMS.forEach((param) => {
-                    const value = currentParams.get(param)
-                    if (value && !url.searchParams.has(param)) {
-                        url.searchParams.append(param, value)
-                    }
+                    const value = currentParams.get(param) || sessionUtms[param]
+                    if (value) url.searchParams.set(param, value)
                 })
 
                 // Fallback: fbclid pode ter sumido da URL se o usuário navegou

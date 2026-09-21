@@ -27,7 +27,7 @@ const PROVAS = [
         texto:
             'O mesmo motor de revisão que o RendiPro usa por dentro. Você responde, ele calcula quando aquele cartão volta.',
         rotulo: 'Abrir o baralho',
-        href: `${APP}/amostra?utm_source=landing&utm_content=veja_por_dentro`,
+        href: `${APP}/amostra?rp_origem=veja_por_dentro`,
         tempo: '40 segundos',
     },
     {
@@ -36,7 +36,7 @@ const PROVAS = [
         texto:
             'Redação real, manuscrita, com a nota de cada competência e o comentário que explica cada uma. Ao lado, a nota oficial.',
         rotulo: 'Ver a correção',
-        href: `${APP}/correcao-exemplo?utm_source=landing&utm_content=veja_por_dentro`,
+        href: `${APP}/correcao-exemplo?rp_origem=veja_por_dentro`,
         tempo: '2 minutos',
     },
     {
@@ -49,7 +49,7 @@ const PROVAS = [
         // ainda VÃO sair e hoje está vazia ("nenhum edital previsto ativo").
         // Quem lista os 76 com conteúdo, e leva para cada página individual, é
         // /editais/por-area — que abre em "todos" sem precisar de parâmetro.
-        href: `${APP}/editais/por-area?utm_source=landing&utm_content=veja_por_dentro`,
+        href: `${APP}/editais/por-area?rp_origem=veja_por_dentro`,
         tempo: 'agora',
     },
 ]
