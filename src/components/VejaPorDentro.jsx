@@ -2,7 +2,7 @@ import { Layers, PenLine, FileSearch, ArrowRight } from 'lucide-react'
 import { useSectionView } from '../lib/useSectionView'
 
 /**
- * VejaPorDentro — as três telas em que dá pra usar o produto sem criar conta.
+ * VejaPorDentro — as três telas em que dá para usar o produto sem criar conta.
  *
  * POR QUE ESTA SEÇÃO EXISTE. Até 03/09 a landing tinha oito páginas públicas
  * prontas e funcionando (amostra de flashcards, correção de redação, catálogo

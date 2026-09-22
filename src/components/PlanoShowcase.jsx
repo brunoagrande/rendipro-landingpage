@@ -6,7 +6,7 @@ import { useSectionView } from '../lib/useSectionView'
 
 /**
  * PlanoShowcase — o CORAÇÃO do produto (o planner). Bloco grande e dedicado,
- * com peso visual igual ao da seção de IA, pra o cronograma não ficar tímido.
+ * com peso visual igual ao da seção de IA, para o cronograma não ficar tímido.
  * Vem antes do Features e do AiSuite: primeiro o plano, depois a IA em cima.
  * Copy humanizada (sem travessão / cara de IA) — ver memória do projeto.
  */
@@ -49,15 +49,15 @@ export function PlanoShowcase() {
                         </Eyebrow>
                         <h2 className="text-display-sm sm:text-display-md font-extrabold leading-tight tracking-tight text-white">
                             Seu edital vira um plano{' '}
-                            <span className="text-gradient-primary">feito pra você</span>.
+                            <span className="text-gradient-primary">feito para você</span>.
                         </h2>
                         <p className="mt-4 text-body text-white/70">
                             Cole o edital (ou escolha um dos 76 que já estão prontos), diga quantas horas você tem no dia e o RendiPro monta seu cronograma inteiro, <strong className="font-semibold text-white">automaticamente</strong>. Já segue um cronograma que funciona? Importe em PDF ou CSV e ele entra do mesmo jeito. Chega de planilha e de decidir na mão o que estudar hoje.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
-                            <Bullet><strong className="font-semibold text-white">Feito pra você</strong>, pelas suas horas e pelo seu edital. Ou importe o plano que você já tem.</Bullet>
-                            <Bullet><strong className="font-semibold text-white">Perdeu um dia?</strong> Um clique e o RendiPro redistribui o que ficou pra trás. Você não refaz nada do zero.</Bullet>
-                            <Bullet><strong className="font-semibold text-white">Mais de um concurso na mira?</strong> Até 3 planos ao mesmo tempo, e você troca num clique.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">Feito para você</strong>, pelas suas horas e pelo seu edital. Ou importe o plano que você já tem.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">Perdeu um dia?</strong> Um clique e o RendiPro redistribui o que ficou para trás. Você não refaz nada do zero.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">Mais de um concurso na mira?</strong> Até 3 planos ao mesmo tempo, e você troca em um clique.</Bullet>
                             <Bullet>Todo dia você abre e a lista do dia <strong className="font-semibold text-white">já está pronta</strong>.</Bullet>
                         </ul>
                     </div>

@@ -29,16 +29,16 @@
   />
 
   <!-- Fontes self-hosted via @fontsource-variable (importadas em main.jsx).
-       Bunny Fonts removido em 2026-05-24 pra eliminar 1 RTT externo no LCP. -->
+       Bunny Fonts removido em 2026-05-24 para eliminar 1 RTT externo no LCP. -->
 
   <!-- Fallback estático para crawlers sociais (Facebook, WhatsApp, Instagram)
        que não executam JavaScript. O SEOHead sobrescreve no browser. -->
   <title>Cronograma de estudos pelo edital, automático | RendiPro</title>
-  <meta name="description" content="Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Tudo num plano só, 12x de R$ 9,90." />
+  <meta name="description" content="Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Tudo em um plano só, 12x de R$ 9,90." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://rendipro.com.br/" />
   <meta property="og:title" content="Cronograma de estudos pelo edital, automático | RendiPro" />
-  <meta property="og:description" content="Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Tudo num plano só, 12x de R$ 9,90." />
+  <meta property="og:description" content="Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Tudo em um plano só, 12x de R$ 9,90." />
   <meta property="og:image" content="https://rendipro.com.br/og-2026-09.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -49,15 +49,15 @@
   <meta property="og:locale" content="pt_BR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Cronograma de estudos pelo edital, automático | RendiPro" />
-  <meta name="twitter:description" content="Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Tudo num plano só, 12x de R$ 9,90." />
+  <meta name="twitter:description" content="Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Tudo em um plano só, 12x de R$ 9,90." />
   <meta name="twitter:image" content="https://rendipro.com.br/og-2026-09.jpg" />
   <meta name="twitter:site" content="@rendipro" />
 
-  <!-- Meta Pixel — stub síncrono (eventos vão pra queue antes da lib chegar).
+  <!-- Meta Pixel — stub síncrono (eventos vão para queue antes da lib chegar).
        O fetch do fbevents.js (~100KB, async) é disparado no DOMContentLoaded
        em vez de window.load: DCL acontece logo após o HTML ser parsed (~1-2s
        em 4G), bem antes do load (que espera imagens/fontes — 5-10s em 4G).
-       Antes (defer pra load), ~40% dos PageView se perdiam: usuário saía
+       Antes (defer para load), ~40% dos PageView se perdiam: usuário saía
        antes do load disparar e a queue do fbq nunca era despachada. Como
        a tag é async, não bloqueia o LCP. -->
   <script>
@@ -133,8 +133,8 @@
        Motivo: FCP medido em 7,1s no 4G com o #root vazio (auditoria 18/08).
 
        REGRA (18/08, depois do fundador relatar "pisque" na tela): este bloco
-       existe pra ANTECIPAR o hero, não pra mostrar OUTRA tela. As medidas
-       abaixo foram copiadas do hero real, medido no navegador, pra que a troca
+       existe para ANTECIPAR o hero, não para mostrar OUTRA tela. As medidas
+       abaixo foram copiadas do hero real, medido no navegador, para que a troca
        aos ~0,5s passe despercebida:
          celular 390px  -> nav 57px, tarja no topo 97, h1 32/37.76/-0.8 no topo
                            155, parágrafo 18/27.9 no topo 330, CTA de 56px e
@@ -181,7 +181,7 @@
       #rp-prepaint .col{text-align:left}
       #rp-prepaint h1{font-size:64px;line-height:67.2px;letter-spacing:-2.56px}
       /* 167px = altura exata do paragrafo do hero real no desktop. Sem isto o
-         texto quebra numa linha a menos aqui e o botao sobe 27px na troca. */
+         texto quebra em uma linha a menos aqui e o botao sobe 27px na troca. */
       #rp-prepaint p{margin-left:0;min-height:167px}
       #rp-prepaint .ctas{flex-direction:row;align-items:center;margin-top:40px}
       #rp-prepaint .cta{padding:0 40px}
@@ -214,8 +214,8 @@
         <span class="tarja"><span class="so-cel">Nasceu de uma aprovação real</span><span class="so-desk">Nasceu de uma aprovação real no MP-RS em 2023</span></span>
         <h1>Seu cronograma montado a partir do seu edital, <em>automaticamente</em>.</h1>
         <p>
-          <span class="so-cel">Organizar o estudo consome horas que deviam ser de estudo. <b>O RendiPro faz essa parte por você:</b> monta o cronograma pelo edital, marca a revisão no dia certo, transforma sua apostila em questões e corrige sua redação com nota por competência. Tudo num plano só, sem pagar a mais por nada disso.</span>
-          <span class="so-desk">Organizar o estudo consome horas que deviam ser de estudo. <b>O RendiPro faz essa parte por você:</b> monta o cronograma pelo edital, marca a revisão no dia certo, transforma sua apostila em questões e corrige sua redação com nota por competência. Tudo num plano só, sem pagar a mais por nada disso.</span>
+          <span class="so-cel">Organizar o estudo consome horas que deviam ser de estudo. <b>O RendiPro faz essa parte por você:</b> monta o cronograma pelo edital, marca a revisão no dia certo, transforma sua apostila em questões e corrige sua redação com nota por competência. Tudo em um plano só, sem pagar a mais por nada disso.</span>
+          <span class="so-desk">Organizar o estudo consome horas que deviam ser de estudo. <b>O RendiPro faz essa parte por você:</b> monta o cronograma pelo edital, marca a revisão no dia certo, transforma sua apostila em questões e corrige sua redação com nota por competência. Tudo em um plano só, sem pagar a mais por nada disso.</span>
         </p>
         <div class="ctas">
           <a class="cta" href="https://app.rendipro.com.br/register?plano=starter-anual&amp;utm_content=hero-prepaint">Montar meu plano de estudos</a>
@@ -230,7 +230,7 @@
   </div></div>
   <script type="module" src="/src/main.jsx"></script>
 
-  <!-- Google Analytics 4 — fetch da lib gtag/js deferido pra window.load (não
+  <!-- Google Analytics 4 — fetch da lib gtag/js deferido para window.load (não
        bloqueia LCP). O stub window.gtag e config('G-...') estão no <head>, então
        eventos disparados antes do load são enfileirados em dataLayer e
        processados quando a lib chega. -->

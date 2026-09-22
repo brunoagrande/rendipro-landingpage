@@ -14,7 +14,7 @@ const AVATARS = [
     {
         icon: Briefcase,
         label: 'Concurseiro',
-        copy: 'Dois concursos abertos ao mesmo tempo, planilha que já ficou pra trás e a sensação de que está estudando bastante mas em círculos.',
+        copy: 'Dois concursos abertos ao mesmo tempo, planilha que já ficou para trás e a sensação de que está estudando bastante mas em círculos.',
         accent: 'primary',
     },
     {
@@ -52,7 +52,7 @@ export function ForWhom() {
                         <span className="text-gradient-primary">do estudo</span>.
                     </h2>
                     <p className="mx-auto mt-5 max-w-2xl text-body text-white/60">
-                        Quem estuda pra prova difícil perde horas por semana montando planilha, decidindo o que revisar e refazendo o plano quando atrasa. O RendiPro foi feito pra devolver essas horas.
+                        Quem estuda para prova difícil perde horas por semana montando planilha, decidindo o que revisar e refazendo o plano quando atrasa. O RendiPro foi feito para devolver essas horas.
                     </p>
                 </motion.div>
 

@@ -12,7 +12,7 @@ export function Footer() {
                             />
                         </div>
                         <p className="mt-4 max-w-sm text-body-sm leading-relaxed text-white/55">
-                            O RendiPro organiza o estudo inteiro de quem se prepara pra concurso, OAB, ENEM ou vestibular: cronograma pelo edital, revisão no dia certo, treino com o seu material e redação corrigida. Tudo num plano só.
+                            O RendiPro organiza o estudo inteiro de quem se prepara para concurso, OAB, ENEM ou vestibular: cronograma pelo edital, revisão no dia certo, treino com o seu material e redação corrigida. Tudo em um plano só.
                         </p>
                     </div>
                     <div>

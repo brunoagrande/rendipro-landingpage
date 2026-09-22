@@ -135,7 +135,7 @@ export function Features() {
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span>Atalhos 1/2/3/4 no teclado pra revisar rápido</span>
+                                <span>Atalhos 1/2/3/4 no teclado para revisar rápido</span>
                             </li>
                         </ul>
                         <div className="mt-5">

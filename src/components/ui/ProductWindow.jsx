@@ -30,8 +30,8 @@ export function ProductWindow({
                 className
             )}
         >
-            {/* Browser chrome — escondido em mobile pra dar mais área útil
-                pra imagem (screenshots ficavam ilegíveis em 375px de viewport). */}
+            {/* Browser chrome — escondido em mobile para dar mais área útil
+                para imagem (screenshots ficavam ilegíveis em 375px de viewport). */}
             <div className="hidden md:flex items-center gap-3 border-b border-white/10 bg-surface-950/90 px-4 py-3 backdrop-blur-sm">
                 <div className="flex items-center gap-1.5" aria-hidden="true">
                     <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />

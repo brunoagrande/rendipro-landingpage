@@ -17,7 +17,7 @@ import { CAMPANHA_ANUAL_ATIVA } from '../data/campanha-anual'
  * Performance:
  *  - requestAnimationFrame throttle no scroll handler (evita layout thrash)
  *  - passive listener
- *  - safe-area-inset-bottom respeitado pra iPhone com notch
+ *  - safe-area-inset-bottom respeitado para iPhone com notch
  *
  * Padrão Brilliant.org / SaaS B2C mobile.
  * Lift esperado: +15% CR mobile.

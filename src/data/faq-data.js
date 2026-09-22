@@ -21,7 +21,7 @@ export const faqItems = [
     {
         question: 'Já tentei me organizar com planilha e desisti em duas semanas.',
         answer:
-            'A planilha falha porque depende de você atualizá-la todo dia. O RendiPro faz essa parte: quando você perde um dia, um clique redistribui o que ficou pra trás. Quando você termina um tópico, o cronograma avança sozinho. Quando chega a hora de revisar, o RendiPro te avisa. Você não precisa manter nada, só seguir.',
+            'A planilha falha porque depende de você atualizá-la todo dia. O RendiPro faz essa parte: quando você perde um dia, um clique redistribui o que ficou para trás. Quando você termina um tópico, o cronograma avança sozinho. Quando chega a hora de revisar, o RendiPro te avisa. Você não precisa manter nada, só seguir.',
     },
     {
         question: 'Para qual prova o RendiPro funciona?',
@@ -31,17 +31,17 @@ export const faqItems = [
     {
         question: 'Como funcionam os flashcards? Posso usar os meus?',
         answer:
-            'Você tem mais de 8.000 flashcards prontos cobrindo as principais matérias e já pode começar a estudar na hora. Quer usar os seus? Crie flashcards em segundos, tire foto do caderno, gere a partir de qualquer conteúdo ou importe os baralhos que você já tem no Anki. A revisão de todos eles é organizada pela repetição espaçada, que calcula o dia certo de rever cada cartão pra ele não sumir da memória.',
+            'Você tem mais de 8.000 flashcards prontos cobrindo as principais matérias e já pode começar a estudar na hora. Quer usar os seus? Crie flashcards em segundos, tire foto do caderno, gere a partir de qualquer conteúdo ou importe os baralhos que você já tem no Anki. A revisão de todos eles é organizada pela repetição espaçada, que calcula o dia certo de rever cada cartão para ele não sumir da memória.',
     },
     {
         question: 'A correção de redação é confiável? Quantas posso enviar?',
         answer:
-            'Você escreve na plataforma e recebe a correção em minutos: nota de 0 a 1000, nota por competência e comentário do que travou cada critério. A régua é calibrada pra ser mais dura que a banca de propósito, porque corretor bonzinho não prepara ninguém. São 2 correções por mês no Starter e 8 por mês no Pro. No plano anual entram 4 a mais por mês, um bônus de lançamento. Sem pagar por correção avulsa e sem agendar corretor.',
+            'Você escreve na plataforma e recebe a correção em minutos: nota de 0 a 1000, nota por competência e comentário do que travou cada critério. A régua é calibrada para ser mais dura que a banca de propósito, porque corretor bonzinho não prepara ninguém. São 2 correções por mês no Starter e 8 por mês no Pro. No plano anual entram 4 a mais por mês, um bônus de lançamento. Sem pagar por correção avulsa e sem agendar corretor.',
     },
     {
-        question: 'Como monto meu cronograma? Dá pra importar o que já tenho?',
+        question: 'Como monto meu cronograma? Dá para importar o que já tenho?',
         answer:
-            'Você monta em minutos de três formas: automático, pelas horas que tem por dia; pelo edital do seu concurso; ou importando um plano que já segue em CSV ou PDF. Dá pra manter até 3 cronogramas em paralelo (por exemplo, dois concursos ao mesmo tempo) sem misturar as matérias, alternando em 1 clique.',
+            'Você monta em minutos de três formas: automático, pelas horas que tem por dia; pelo edital do seu concurso; ou importando um plano que já segue em CSV ou PDF. Dá para manter até 3 cronogramas em paralelo (por exemplo, dois concursos ao mesmo tempo) sem misturar as matérias, alternando em 1 clique.',
     },
     {
         question: 'Posso usar para concurso e para ENEM ao mesmo tempo?',
@@ -52,13 +52,13 @@ export const faqItems = [
         question:
             'Como o RendiPro se compara com Anki + planilha + apps soltos?',
         answer:
-            'Se hoje você usa o Anki para flashcards, uma planilha para o cronograma e lembretes soltos para revisar, está gastando tempo trocando de ferramenta e ainda decidindo na mão o que revisar. O RendiPro organiza tudo isso num lugar só: o cronograma nasce do edital, a revisão chega no dia certo, seus baralhos do Anki entram do jeito que estão, e o seu material vira questão e flashcard. A partir de R$ 9,90/mês.',
+            'Se hoje você usa o Anki para flashcards, uma planilha para o cronograma e lembretes soltos para revisar, está gastando tempo trocando de ferramenta e ainda decidindo na mão o que revisar. O RendiPro organiza tudo isso em um lugar só: o cronograma nasce do edital, a revisão chega no dia certo, seus baralhos do Anki entram do jeito que estão, e o seu material vira questão e flashcard. A partir de R$ 9,90/mês.',
     },
     {
         question:
             'Já tentei outras plataformas e desisti em 2 semanas. Como sei que com o RendiPro vai ser diferente?',
         answer:
-            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método pra continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (cole o edital, escolha o formato, pronto), e tem sequência diária, proteção pros dias de folga e missões curtas pra te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar pra você, devolve 100% com 1 clique, sem precisar explicar nada.',
+            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método para continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (cole o edital, escolha o formato, pronto), e tem sequência diária, proteção pros dias de folga e missões curtas para te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar para você, devolve 100% com 1 clique, sem precisar explicar nada.',
     },
     {
         question: 'Posso cancelar a qualquer momento?',

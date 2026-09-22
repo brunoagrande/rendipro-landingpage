@@ -34,13 +34,13 @@ export function TrustStrip() {
                         value={5}
                         prefix=""
                         suffix=" min"
-                        label="pra montar o cronograma"
+                        label="para montar o cronograma"
                     />
                     <StatBlock
                         value={76}
                         prefix=""
                         label="editais já prontos"
-                        sublabel="pra virar cronograma"
+                        sublabel="para virar cronograma"
                     />
                     <StatBlock
                         value={3}

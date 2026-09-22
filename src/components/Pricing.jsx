@@ -34,7 +34,7 @@ import { CAMPANHA_ANUAL_ATIVA, CAMPANHA_ANUAL, resumoCampanhaAnual } from '../da
  *    tira-dúvidas IA).
  *  - Cada CTA é "Quero o [Nome]" (Joel Jota / Bruno Perini pattern).
  *  - Garantia destacada abaixo dos cards em 3 selos.
- *  - InfluencerContext continua funcional pra cupons.
+ *  - InfluencerContext continua funcional para cupons.
  *  - Pixel InitiateCheckout segue disparando em cada CTA.
  *
  * Decisão locked (Bruno):
@@ -136,7 +136,7 @@ export function Pricing() {
                         <span className="text-white/45">Hoje você junta</span>{' '}
                         Anki, planilha, corretor avulso e lembrete no celular, e ainda perde tempo decidindo o que revisar.{' '}
                         <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo num plano só, {CAMPANHA_ANUAL_ATIVA ? 'a partir de R$ 9,90 por mês, com 1 mês grátis no plano anual' : 'a partir de R$ 9,90 por mês'}.</strong>
+                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo em um plano só, {CAMPANHA_ANUAL_ATIVA ? 'a partir de R$ 9,90 por mês, com 1 mês grátis no plano anual' : 'a partir de R$ 9,90 por mês'}.</strong>
                     </p>
                 </motion.div>
 

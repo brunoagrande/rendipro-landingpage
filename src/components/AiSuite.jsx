@@ -6,7 +6,7 @@ import { useSectionView } from '../lib/useSectionView'
 
 /**
  * AiSuite — o diferencial do pivô: a IA que transforma o MATERIAL DO ALUNO em
- * questões (Treino) e flashcards (Snap). Vem logo após o Hero pra liderar com o
+ * questões (Treino) e flashcards (Snap). Vem logo após o Hero para liderar com o
  * que ninguém mais faz. Dois blocos split (copy + screenshot), alternando lado.
  * Copy humanizada (sem travessão / cara de IA) — ver memória do projeto.
  */
@@ -72,7 +72,7 @@ export function AiSuite() {
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
                             <Bullet><strong className="font-semibold text-white">O seu material vira prova.</strong> Você treina com o que está estudando agora.</Bullet>
-                            <Bullet><strong className="font-semibold text-white">Gabarito e explicação</strong> em toda questão. Dá pra ver onde você errou.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">Gabarito e explicação</strong> em toda questão. Dá para ver onde você errou.</Bullet>
                             <Bullet><strong className="font-semibold text-white">O RendiPro puxa primeiro o que você ainda não respondeu.</strong> O foco vai pro que falta.</Bullet>
                         </ul>
                     </div>
@@ -112,7 +112,7 @@ export function AiSuite() {
                             <span className="text-gradient-primary">Vira flashcard</span>.
                         </h3>
                         <p className="mt-4 text-body text-white/70">
-                            Tire uma foto do quadro ou da página do caderno e pronto: o RendiPro monta os flashcards pra você. O que estava no papel entra na sua revisão em segundos, sem digitar nada.
+                            Tire uma foto do quadro ou da página do caderno e pronto: o RendiPro monta os flashcards para você. O que estava no papel entra na sua revisão em segundos, sem digitar nada.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
                             <Bullet><strong className="font-semibold text-white">Foto vira flashcard</strong> na hora, já com a repetição espaçada rodando.</Bullet>

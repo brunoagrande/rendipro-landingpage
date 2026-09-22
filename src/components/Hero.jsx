@@ -40,7 +40,7 @@ export function Hero() {
                         </div>
 
                         {/* H1 SEM animação — é o LCP element em mobile, qualquer fade-in c/ opacity:0
-                            inicial atrasa o LCP. Pintura instantânea pra Lighthouse marcar cedo. */}
+                            inicial atrasa o LCP. Pintura instantânea para Lighthouse marcar cedo. */}
                         <h1
                             className="mt-6 text-display-sm sm:text-display-lg lg:text-display-xl text-white"
                         >
@@ -49,11 +49,11 @@ export function Hero() {
                         </h1>
 
                         {/* Subtitle SEM animação — candidato a LCP em desktop (texto longo).
-                            Pintura instantânea pra Lighthouse marcar cedo. */}
+                            Pintura instantânea para Lighthouse marcar cedo. */}
                         <p
                             className="mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70"
                         >
-                            Organizar o estudo consome horas que deviam ser de estudo. <strong className="font-semibold text-white">O RendiPro faz essa parte por você:</strong> monta o cronograma pelo edital, marca a revisão no dia certo, transforma sua apostila em questões e corrige sua redação com nota por competência. Tudo num plano só, sem pagar a mais por nada disso.{CAMPANHA_ANUAL_ATIVA ? ' 1 mês grátis no plano anual.' : ''}
+                            Organizar o estudo consome horas que deviam ser de estudo. <strong className="font-semibold text-white">O RendiPro faz essa parte por você:</strong> monta o cronograma pelo edital, marca a revisão no dia certo, transforma sua apostila em questões e corrige sua redação com nota por competência. Tudo em um plano só, sem pagar a mais por nada disso.{CAMPANHA_ANUAL_ATIVA ? ' 1 mês grátis no plano anual.' : ''}
                         </p>
 
                         <div
@@ -107,7 +107,7 @@ export function Hero() {
 
                     {/* ─── RIGHT · Asset stack ──────────────────────── */}
                     <div className="relative mx-auto w-full max-w-2xl lg:max-w-none">
-                        {/* Main: Cronograma in ProductWindow — sem animation pra não atrasar
+                        {/* Main: Cronograma in ProductWindow — sem animation para não atrasar
                             LCP em desktop (em desktop esta imagem é o LCP element). */}
                         <div>
                             <ProductWindow

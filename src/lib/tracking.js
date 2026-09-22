@@ -8,7 +8,7 @@
  *  - faq_open (GA4): question_index + question (primeiros 80 chars)
  *  - pricing_toggle (GA4): period (mensal | anual)
  *  - InitiateCheckout (Meta Pixel): value + currency + content_ids + content_name +
- *    content_type + num_items, com eventID UUID v4 pra deduplicação futura com CAPI.
+ *    content_type + num_items, com eventID UUID v4 para deduplicação futura com CAPI.
  *
  * UTMs (utm_source/medium/campaign/content/term) são capturados na primeira
  * navegação e persistidos em sessionStorage para enriquecer todos os eventos
@@ -17,7 +17,7 @@
  * O event_id do último InitiateCheckout fica em sessionStorage. Quando o app
  * (app.rendipro.com.br) for ter Purchase no CAPI sincronizado com este Pixel,
  * vamos passar esse event_id via query param no redirect (?fb_event_id=...).
- * Por ora só persistimos pra ter o hook pronto.
+ * Por ora só persistimos para ter o hook pronto.
  */
 
 const UTM_KEY = 'rp_utm_v1'
@@ -28,7 +28,7 @@ function generateEventId() {
     if (typeof crypto !== 'undefined' && crypto.randomUUID) {
         return crypto.randomUUID()
     }
-    // Fallback pra browsers muito antigos (sem crypto.randomUUID)
+    // Fallback para browsers muito antigos (sem crypto.randomUUID)
     return 'rp-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10)
 }
 
@@ -69,16 +69,16 @@ export function getUtms() {
 
 /**
  * Dispara o Meta Pixel InitiateCheckout com parâmetros enriquecidos
- * (value, content_ids, etc) e eventID UUID pra deduplicação futura com CAPI.
+ * (value, content_ids, etc) e eventID UUID para deduplicação futura com CAPI.
  *
- * Use isso em qualquer botão que leve o usuário pra um fluxo de checkout/registro.
+ * Use isso em qualquer botão que leve o usuário para um fluxo de checkout/registro.
  * Quando o usuário já escolheu um plano específico (ex: clicou "Garantir Pro"
- * no Pricing), passe `plan` pra enriquecer o evento com value/content_ids.
+ * no Pricing), passe `plan` para enriquecer o evento com value/content_ids.
  * Quando ainda não escolheu (ex: CTA do Hero), passe sem plan que mandamos
  * só currency + num_items (sem value falso).
  *
  * Retorna o eventId gerado — quem chama pode passar via query param pro
- * checkout (ex: ?fb_event_id=<uuid>) pra correlação com CAPI server-side.
+ * checkout (ex: ?fb_event_id=<uuid>) para correlação com CAPI server-side.
  */
 export function fireInitiateCheckout({ plan } = {}) {
     if (typeof window === 'undefined' || !window.fbq) return null
@@ -113,7 +113,7 @@ export function fireInitiateCheckout({ plan } = {}) {
 
 /**
  * Retorna o eventId do último InitiateCheckout disparado nesta sessão.
- * Usado pra passar via query param pro checkout, correlacionando com CAPI.
+ * Usado para passar via query param pro checkout, correlacionando com CAPI.
  */
 export function getLastCheckoutEventId() {
     if (typeof window === 'undefined') return null
@@ -129,7 +129,7 @@ export function getLastCheckoutEventId() {
  * + GA4 cta_click. Enriquece com UTMs da sessão.
  *
  * Quando o CTA tem um plano específico associado (Pricing cards), passe `plan`
- * pra Meta receber value/content_ids. Sem plan, só dispara o evento básico.
+ * para Meta receber value/content_ids. Sem plan, só dispara o evento básico.
  */
 export function trackRegisterCta({ buttonText, location, plan }) {
     if (typeof window === 'undefined') return null

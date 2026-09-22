@@ -8,7 +8,7 @@ import { Kbd } from './KbdKeys'
  *
  * Antes mesmo de ler a copy completa, o visitante pode:
  *  1. Ver a pergunta
- *  2. Clicar pra revelar a resposta (flip 3D)
+ *  2. Clicar para revelar a resposta (flip 3D)
  *  3. Avaliar com 4 botões SM-2 (Não lembrei / Difícil / Bom / Fácil)
  *
  * Demonstra o produto E reduz fricção pré-lead.
@@ -42,7 +42,7 @@ export function InteractiveFlashcard({ className }) {
 
     const handleRate = (rating) => {
         setRated(rating)
-        // Volta pra pergunta depois de 1.4s pra deixar o usuário rebrincar
+        // Volta para pergunta depois de 1.4s para deixar o usuário rebrincar
         setTimeout(() => {
             setRated(null)
             setIsFlipped(false)
