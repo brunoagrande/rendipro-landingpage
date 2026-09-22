@@ -136,7 +136,7 @@ export function Pricing() {
                         <span className="text-white/45">Hoje você junta</span>{' '}
                         Anki, planilha, corretor avulso e lembrete no celular, e ainda perde tempo decidindo o que revisar.{' '}
                         <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo num plano só, {CAMPANHA_ANUAL_ATIVA ? 'a partir de 11x de R$ 9,90, com 1 mês grátis no plano anual' : 'a partir de 12x de R$ 9,90'}.</strong>
+                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo num plano só, {CAMPANHA_ANUAL_ATIVA ? 'a partir de R$ 9,90 por mês, com 1 mês grátis no plano anual' : 'a partir de R$ 9,90 por mês'}.</strong>
                     </p>
                 </motion.div>
 
@@ -335,18 +335,21 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                 )}
                 {plan.tipo === 'anual' && plan.preco_centavos > 0 && campanha ? (
                     // Campanha "1 mês grátis no plano anual": as contas são as do app
-                    // (`resumoCampanhaAnual`). Cartão: 11 cobranças, a 1ª só daqui a
-                    // 30 dias. Pix: o ano menos um mês, de uma vez.
+                    // (`resumoCampanhaAnual`). É ASSINATURA, não parcelamento: no
+                    // cartão sai uma mensalidade por mês, e a 1ª só daqui a 30 dias
+                    // (o ano fecha em 11 cobranças, mas isso nunca vira "11x" na
+                    // tela: parcelamento comprometeria o limite de uma vez, e não é
+                    // o que acontece). Pix: o ano menos um mês, de uma vez.
                     <>
                         <p className="mb-1 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-caption font-bold text-emerald-400" data-testid="selo-campanha">
                             {CAMPANHA_ANUAL.nome}
                         </p>
                         <div className="flex items-baseline gap-1">
-                            <span className="text-caption font-medium text-white/50">
-                                {campanha.cobrancasCartao}× de
-                            </span>
                             <span className="text-display-sm font-extrabold text-white">
                                 {formatPrice(campanha.mensalCentavos)}
+                            </span>
+                            <span className="text-caption font-medium text-white/50">
+                                por mês
                             </span>
                         </div>
                         <p className="mt-1.5 text-caption text-white/45">

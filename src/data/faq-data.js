@@ -13,7 +13,7 @@ import { CAMPANHA_ANUAL_ATIVA, CAMPANHA_ANUAL } from './campanha-anual'
 const faqCampanha = {
     question: 'Como funciona o "1 mês grátis no plano anual"?',
     answer:
-        'Vale para quem assina o plano anual pela primeira vez, enquanto a campanha estiver no ar. No cartão, a primeira cobrança só acontece daqui a 30 dias e o ano fecha em 11 cobranças em vez de 12. No Pix, você paga de uma vez o ano menos um mês (Starter Anual: R$ 108,90 em vez de R$ 118,80). Os 7 dias de garantia continuam valendo, e as regras completas estão nos termos da campanha.',
+        'Vale para quem assina o plano anual pela primeira vez, enquanto a campanha estiver no ar. No cartão, a primeira cobrança só acontece daqui a 30 dias: você cadastra o cartão hoje, não paga nada agora, e a mensalidade começa a ser cobrada no mês seguinte. No Pix, você paga de uma vez o ano menos um mês (Starter Anual: R$ 108,90 em vez de R$ 118,80). Os 7 dias de garantia continuam valendo, e as regras completas estão nos termos da campanha.',
     link: { href: CAMPANHA_ANUAL.termosUrl, label: 'Ler os termos da campanha' },
 }
 

@@ -82,7 +82,7 @@ export function StickyMobileCTA() {
                                 <span className="text-body font-extrabold text-primary-300">
                                     {/* Âncora VERDADEIRA: o preço do Starter Mensal (grade v2) */}
                                     <span className="text-[11px] font-medium text-white/40 line-through mr-1">R$ 16,90</span>
-                                    {CAMPANHA_ANUAL_ATIVA ? '11x R$ 9,90' : '12x R$ 9,90'}
+                                    R$ 9,90
                                     <span className="text-[11px] font-medium text-white/60">/mês</span>
                                 </span>
                             </div>
