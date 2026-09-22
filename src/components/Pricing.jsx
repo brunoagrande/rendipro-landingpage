@@ -344,6 +344,9 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                         <p className="mb-1 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-caption font-bold text-emerald-400" data-testid="selo-campanha">
                             {CAMPANHA_ANUAL.nome}
                         </p>
+                        <p className="mt-1 text-caption font-semibold text-emerald-400">
+                            1º mês grátis, depois
+                        </p>
                         <div className="flex items-baseline gap-1">
                             <span className="text-display-sm font-extrabold text-white">
                                 {formatPrice(campanha.mensalCentavos)}

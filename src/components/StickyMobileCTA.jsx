@@ -88,7 +88,7 @@ export function StickyMobileCTA() {
                             </div>
                             <p className="mt-0.5 flex items-center gap-1 text-[10px] text-white/55">
                                 <Shield size={10} className="text-primary-400" />
-                                {CAMPANHA_ANUAL_ATIVA ? '1 mês grátis no plano anual · Garantia 7 dias' : 'Cancele quando quiser · Garantia 7 dias'}
+                                {CAMPANHA_ANUAL_ATIVA ? '1º mês grátis · Garantia de 7 dias' : 'Cancele quando quiser · Garantia 7 dias'}
                             </p>
                         </div>
                         <a
