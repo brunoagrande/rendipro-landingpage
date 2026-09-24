@@ -41,16 +41,23 @@ export function StickyMobileCTA() {
                     ? footer.getBoundingClientRect().top < window.innerHeight - 80
                     : false
 
-                setIsVisible(scrolled > 100 && !footerInView)
+                // O aviso de cookie ocupa a MESMA faixa de baixo e tem z maior:
+                // enquanto ele estiver aberto, esta barra ficaria escondida atrás
+                // dele. Melhor não existir do que existir invisível.
+                const avisoCookieAberto = document.body.dataset.cookieAviso === 'aberto'
+
+                setIsVisible(scrolled > 100 && !footerInView && !avisoCookieAberto)
                 raf = null
             })
         }
 
         window.addEventListener('scroll', handleScroll, { passive: true })
+        window.addEventListener('rendipro:cookie-aceito', handleScroll)
         handleScroll() // initial check
 
         return () => {
             window.removeEventListener('scroll', handleScroll)
+            window.removeEventListener('rendipro:cookie-aceito', handleScroll)
             if (raf) cancelAnimationFrame(raf)
         }
     }, [])
@@ -80,8 +87,11 @@ export function StickyMobileCTA() {
                                     Starter Anual
                                 </span>
                                 <span className="text-body font-extrabold text-primary-300">
-                                    {/* Âncora VERDADEIRA: o preço do Starter Mensal (grade v2) */}
-                                    <span className="text-[11px] font-medium text-white/40 line-through mr-1">R$ 16,90</span>
+                                    {/* Saiu em 24/09/2026 o riscado "R$ 16,90". Ele é o preço
+                                        do Starter MENSAL, e ao lado de "R$ 9,90/mês" fazia
+                                        parecer desconto no mensal, quando os R$ 9,90 são o
+                                        anual dividido por 12. Mesma razão que derrubou a
+                                        âncora de R$ 24,90 em pricing-plans.js. */}
                                     R$ 9,90
                                     <span className="text-[11px] font-medium text-white/60">/mês</span>
                                 </span>

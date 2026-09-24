@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { trackRegisterCta } from '../lib/tracking'
 
-const trackNavbarCta = () => trackRegisterCta({ buttonText: 'Comece Agora', location: 'navbar' })
+const trackNavbarCta = () => trackRegisterCta({ buttonText: 'Começar agora', location: 'navbar' })
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -49,10 +49,16 @@ export function Navbar() {
                     >
                         Entrar
                     </a>
+                    {/* Em celular este botão era o elemento de maior contraste da tela
+                        (branco sólido) e ganhava do CTA de verdade, que é teal. Virou
+                        contorno no celular e volta a ser sólido no desktop, onde não
+                        disputa com nada. O destino também foi unificado: antes ia para
+                        /register SEM plano, enquanto o hero e a barra fixa iam para
+                        starter-anual. Mesma ação, mesmo lugar. */}
                     <a
-                        href={getCheckoutUrl("https://app.rendipro.com.br/register")}
+                        href={getCheckoutUrl("https://app.rendipro.com.br/register?plano=starter-anual&utm_content=navbar")}
                         onClick={trackNavbarCta}
-                        className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-surface-950 transition-all active:scale-95 hover:bg-white/90"
+                        className="rounded-full border border-white/25 px-4 py-2 text-sm font-semibold text-white transition-all active:scale-95 hover:bg-white/10 md:border-transparent md:bg-white md:px-5 md:text-surface-950 md:hover:bg-white/90"
                     >
                         Começar agora
                     </a>

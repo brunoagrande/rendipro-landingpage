@@ -8,7 +8,7 @@ import { Eyebrow } from './ui/Eyebrow'
 
 const easeSpring = [0.16, 1, 0.3, 1]
 
-const trackFinalCta = () => trackRegisterCta({ buttonText: 'Montar meu plano agora', location: 'final_cta' })
+const trackFinalCta = () => trackRegisterCta({ buttonText: 'Montar meu cronograma', location: 'final_cta' })
 
 export function FinalCTA() {
     const { getCheckoutUrl } = useInfluencer()
@@ -52,7 +52,7 @@ export function FinalCTA() {
                             size="lg"
                             className="sm:px-12"
                         >
-                            Montar meu plano agora
+                            Montar meu cronograma
                             <ArrowRight
                                 size={18}
                                 className="transition-transform group-hover:translate-x-1"
