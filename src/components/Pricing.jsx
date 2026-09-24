@@ -35,7 +35,7 @@ import { CAMPANHA_ANUAL_ATIVA, CAMPANHA_ANUAL, resumoCampanhaAnual } from '../da
  *  - Cada CTA é "Quero o [Nome]" (Joel Jota / Bruno Perini pattern).
  *  - Garantia destacada abaixo dos cards em 3 selos.
  *  - InfluencerContext continua funcional para cupons.
- *  - Pixel InitiateCheckout segue disparando em cada CTA.
+ *  - Pixel CTARegisterClick segue disparando em cada CTA (ver nota em lib/tracking.js).
  *
  * Decisão locked (Bruno):
  *  - Manter nomes Starter/Plus/Pro/Ultra (não renomear).
@@ -73,7 +73,7 @@ function formatPrice(cents) {
 }
 
 const trackPricingCta = (plan) => {
-    // Centralizado em trackRegisterCta: dispara Meta InitiateCheckout
+    // Centralizado em trackRegisterCta: dispara Meta CTARegisterClick
     // (value + content_ids + content_name + content_type + num_items + currency + eventID UUID)
     // e GA4 cta_click (com plan_slug/plan_value + UTMs).
     trackRegisterCta({

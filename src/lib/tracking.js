@@ -7,14 +7,29 @@
  *  - scroll_milestone (GA4): percent (25 | 50 | 75 | 100)
  *  - faq_open (GA4): question_index + question (primeiros 80 chars)
  *  - pricing_toggle (GA4): period (mensal | anual)
- *  - InitiateCheckout (Meta Pixel): value + currency + content_ids + content_name +
- *    content_type + num_items, com eventID UUID v4 para deduplicação futura com CAPI.
+ *  - CTARegisterClick (Meta Pixel, evento CUSTOMIZADO): value + currency +
+ *    content_ids + content_name + content_type + num_items, com eventID UUID v4.
+ *
+ * ⚠️ POR QUE NÃO É `InitiateCheckout`.
+ *
+ * Até 24/09/2026 todo clique em CTA desta landing disparava `InitiateCheckout`,
+ * que para a Meta é evento de FUNDO de funil: alguém que escolheu plano e foi
+ * pagar. O painel mostrou 33 "finalizações de compra iniciadas" numa semana em
+ * que o banco registrou ZERO cadastros — eram cliques no botão do topo.
+ *
+ * Isso não é só um número feio no relatório: a Meta usa o evento para procurar
+ * mais gente parecida. Ensinado com clique de botão, ele aprende a trazer quem
+ * clica, não quem assina. Combinado com o objetivo Tráfego, foi o que produziu
+ * CTR de 10% (cinco vezes o normal) e nenhum cadastro.
+ *
+ * `InitiateCheckout` de verdade nasce no app, na tela de pagamento, e vai por
+ * CAPI (a landing tem Pixel, o app não).
  *
  * UTMs (utm_source/medium/campaign/content/term) são capturados na primeira
  * navegação e persistidos em sessionStorage para enriquecer todos os eventos
  * subsequentes da mesma sessão.
  *
- * O event_id do último InitiateCheckout fica em sessionStorage. Quando o app
+ * O event_id do último clique de CTA fica em sessionStorage. Quando o app
  * (app.rendipro.com.br) for ter Purchase no CAPI sincronizado com este Pixel,
  * vamos passar esse event_id via query param no redirect (?fb_event_id=...).
  * Por ora só persistimos para ter o hook pronto.
@@ -68,19 +83,20 @@ export function getUtms() {
 }
 
 /**
- * Dispara o Meta Pixel InitiateCheckout com parâmetros enriquecidos
- * (value, content_ids, etc) e eventID UUID para deduplicação futura com CAPI.
+ * Dispara o evento CUSTOMIZADO `CTARegisterClick` no Meta Pixel.
  *
- * Use isso em qualquer botão que leve o usuário para um fluxo de checkout/registro.
- * Quando o usuário já escolheu um plano específico (ex: clicou "Garantir Pro"
- * no Pricing), passe `plan` para enriquecer o evento com value/content_ids.
- * Quando ainda não escolheu (ex: CTA do Hero), passe sem plan que mandamos
- * só currency + num_items (sem value falso).
+ * É o que um clique em CTA de landing realmente é: intenção declarada, no topo
+ * do funil. Continua servindo para público personalizado e para otimização, mas
+ * sem se passar por um passo de compra que não aconteceu (ver nota no topo do
+ * arquivo).
  *
- * Retorna o eventId gerado — quem chama pode passar via query param pro
- * checkout (ex: ?fb_event_id=<uuid>) para correlação com CAPI server-side.
+ * Quando o usuário já escolheu um plano (cards do Pricing), passe `plan` para
+ * enriquecer com value/content_ids. Sem plano (CTA do Hero), vai só currency +
+ * num_items — nunca value falso.
+ *
+ * Retorna o eventId gerado, para correlação futura com o CAPI do app.
  */
-export function fireInitiateCheckout({ plan } = {}) {
+export function fireCtaRegisterClick({ plan } = {}) {
     if (typeof window === 'undefined' || !window.fbq) return null
 
     const eventId = generateEventId()
@@ -106,13 +122,15 @@ export function fireInitiateCheckout({ plan } = {}) {
     // Sem plan: NÃO enviamos value (não inflar com 0 ou valor falso —
     // Meta interpreta value=0 como conversão sem valor, polui aprendizado).
 
-    window.fbq('track', 'InitiateCheckout', params, { eventID: eventId })
+    // `trackCustom`, não `track`: `track` é reservado aos eventos padrão do
+    // Meta, e usar um deles fora do seu significado é o que criou o problema.
+    window.fbq('trackCustom', 'CTARegisterClick', params, { eventID: eventId })
 
     return eventId
 }
 
 /**
- * Retorna o eventId do último InitiateCheckout disparado nesta sessão.
+ * Retorna o eventId do último clique de CTA desta sessão.
  * Usado para passar via query param pro checkout, correlacionando com CAPI.
  */
 export function getLastCheckoutEventId() {
@@ -125,7 +143,7 @@ export function getLastCheckoutEventId() {
 }
 
 /**
- * CTA de registro — dispara Meta Pixel InitiateCheckout (via fireInitiateCheckout)
+ * CTA de registro — dispara `CTARegisterClick` (via fireCtaRegisterClick)
  * + GA4 cta_click. Enriquece com UTMs da sessão.
  *
  * Quando o CTA tem um plano específico associado (Pricing cards), passe `plan`
@@ -134,7 +152,7 @@ export function getLastCheckoutEventId() {
 export function trackRegisterCta({ buttonText, location, plan }) {
     if (typeof window === 'undefined') return null
 
-    const eventId = fireInitiateCheckout({ plan })
+    const eventId = fireCtaRegisterClick({ plan })
 
     if (window.gtag) {
         window.gtag('event', 'cta_click', {
