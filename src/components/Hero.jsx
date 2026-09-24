@@ -98,16 +98,24 @@ export function Hero() {
                             </Button>
                         </div>
 
-                        {/* Preço: "A partir de R$ 9,90 mensais" omitia que os R$ 9,90 são o
-                            anual dividido por 12 (o mensal de verdade é R$ 16,90). O arquivo
-                            pricing-plans.js já tinha derrubado uma âncora pelo mesmo motivo
-                            (CDC art. 37). Agora a condição vem junto do número. */}
+                        {/* Preço: duas condições, e as duas são obrigatórias.
+                            "no plano anual" porque R$ 9,90 é o anual dividido por 12 (o mensal
+                            de verdade é R$ 16,90). "A partir de" porque 9,90 é o MENOR preço
+                            da grade: o Pro anual dá R$ 19,90/mês. Sem ele, a frase afirma um
+                            preço único que não existe.
+                            Faltava o segundo, e ele é o risco maior. Achado em 24/09 pelo
+                            auditor-ui-ux, ao comparar esta linha com a meta description
+                            (App.jsx), com Pricing.jsx e com os criativos pagos — os três
+                            diziam "a partir de" e só a dobra, que é o que o tráfego pago vê
+                            primeiro, não dizia.
+                            pricing-plans.js já tinha derrubado uma âncora pelo mesmo artigo
+                            (CDC art. 37) em 18/08. */}
                         <p
                             className="mt-4 text-body font-semibold text-white animate-fade-in"
                             style={{ animationDelay: '400ms' }}
                             data-testid="hero-preco"
                         >
-                            R$ 9,90 por mês no plano anual
+                            A partir de R$ 9,90 por mês no plano anual
                         </p>
                         {/* Três linhas de reforço viraram uma: em 16 segundos ninguém lê rodapé
                             de hero, e cada linha empurrava o print do produto para fora da tela. */}
