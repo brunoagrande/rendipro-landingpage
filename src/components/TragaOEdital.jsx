@@ -26,7 +26,7 @@ function Tela({ src, alt, legenda, className = '' }) {
     return (
         <figure className={className}>
             <div className="overflow-hidden rounded-2xl border border-white/10 bg-surface-900 shadow-elevation-5">
-                <img src={src} alt={alt} width="860" height="1149" className="block h-auto w-full" loading="lazy" decoding="async" />
+                <img src={src} alt={alt} width="860" height="1260" className="block h-auto w-full" loading="lazy" decoding="async" />
             </div>
             <figcaption className="mt-3 text-center text-body-sm text-white/60">{legenda}</figcaption>
         </figure>
@@ -75,7 +75,7 @@ export function TragaOEdital() {
                         <Tela
                             className="mx-auto w-full max-w-[340px] md:max-w-none"
                             src="/screenshots/edital-pdf-conferir.webp"
-                            alt="Conferência do RendiPro: 38 de 38 itens do edital entraram no plano, com Língua Portuguesa, Matemática, Noções de Informática, Conhecimentos Gerais e Código de Conduta, cada uma com seus tópicos e sua fatia do plano"
+                            alt="Conferência do RendiPro: 38 de 38 itens do edital entraram no plano, com o aviso de que dá para desmarcar a matéria que não quer estudar agora, e Língua Portuguesa, Matemática, Noções de Informática, Conhecimentos Gerais e Código de Conduta, cada uma com seus tópicos e sua fatia do plano"
                             legenda="Depois, cada matéria antes de criar o plano."
                         />
                     </div>
