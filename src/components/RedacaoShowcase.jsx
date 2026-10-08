@@ -51,12 +51,12 @@ export function RedacaoShowcase() {
                         <h2 className="text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
                             Escreveu, enviou,{' '}
                             <span className="text-gradient-primary">corrigiu</span>.
-                            <br />Nota por competência, na hora.
+                            <br />Nota por competência.
                         </h2>
                         <p className="mt-5 text-body text-white/70">
                             Redação é onde mais se ganha nota e o treino que mais se adia,
                             porque correção de verdade sempre foi cara e demorada. Aqui você
-                            escreve na plataforma e recebe a correção em minutos: nota de 0 a
+                            escreve na plataforma e recebe a correção: nota de 0 a
                             1000, o que pesou em cada competência e por onde melhorar na
                             próxima.
                         </p>
@@ -82,7 +82,7 @@ export function RedacaoShowcase() {
                         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-caption text-white/50">
                             <span className="inline-flex items-center gap-1.5">
                                 <Clock size={14} className="text-primary-400" />
-                                Correção em minutos
+                                Correção dentro da plataforma
                             </span>
                             <span className="inline-flex items-center gap-1.5">
                                 <Target size={14} className="text-primary-400" />
@@ -114,8 +114,8 @@ export function RedacaoShowcase() {
                     >
                         <ProductWindow url="app.rendipro.com.br/redacoes" glow>
                             <img
-                                src="/screenshots/redacao-correcao.webp"
-                                alt="Correção de redação no RendiPro: nota 760 de 1000, radar das cinco competências, comparação com outras redações do mesmo tema e comentário detalhado da competência 1"
+                                src="/screenshots/redacao-760.webp"
+                                alt="Correção de redação no RendiPro: nota 760 de 1000, melhor que 91% das corrigidas no mesmo tema, radar das cinco competências, maior força em Língua Portuguesa e próximo foco na Proposta de intervenção"
                                 className="block h-auto w-full"
                                 loading="lazy"
                             />

@@ -78,8 +78,8 @@ export function AiSuite() {
                     </div>
                     <ProductWindow url="app.rendipro.com.br/treino" glow>
                         <img
-                            src="/screenshots/treino-quiz.webp"
-                            alt="Questão de múltipla escolha gerada por IA no Treino, com a alternativa correta destacada e o gabarito explicado"
+                            src="/screenshots/treino-questao-pdf.webp"
+                            alt="Questão de múltipla escolha gerada de uma apostila de Matemática, com a alternativa correta marcada e o gabarito explicado"
                             className="block h-auto w-full"
                             loading="lazy"
                         />
@@ -96,7 +96,7 @@ export function AiSuite() {
                 >
                     <ProductWindow url="app.rendipro.com.br/flashcards" className="lg:order-1 order-2">
                         <img
-                            src="/screenshots/snap-modal.webp"
+                            src="/screenshots/flashcards-da-foto.webp"
                             alt="Flashcards gerados por IA a partir da foto de um caderno de Biologia, prontos para salvar no baralho"
                             className="block h-auto w-full"
                             loading="lazy"
@@ -115,7 +115,7 @@ export function AiSuite() {
                             Tire uma foto do quadro ou da página do caderno e pronto: o RendiPro monta os flashcards para você. O que estava no papel entra na sua revisão em segundos, sem digitar nada.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
-                            <Bullet><strong className="font-semibold text-white">Foto vira flashcard</strong> na hora, já com a repetição espaçada rodando.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">Foto vira flashcard</strong> na hora, e já entra na revisão no dia certo.</Bullet>
                             <Bullet>Também cria a partir de qualquer texto que você colar. Serve o trecho do livro, sua anotação, um resumo.</Bullet>
                             <Bullet>Você revisa, edita ou apaga o que quiser. Quem manda é você.</Bullet>
                         </ul>

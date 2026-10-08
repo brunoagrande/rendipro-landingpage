@@ -14,7 +14,7 @@ import { Helmet } from 'react-helmet-async'
 export function SEOHead({
   title,
   description,
-  ogImage = '/og-2026-09.jpg',
+  ogImage = '/og-2026-10.jpg',
   ogImageWidth = '1200',
   ogImageHeight = '630',
   canonical = 'https://rendipro.com.br/',

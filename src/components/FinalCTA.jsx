@@ -30,7 +30,7 @@ export function FinalCTA() {
                 >
                     <Eyebrow variant="primary" className="mb-5">
                         <Shield size={14} />
-                        Garantia de 7 dias incondicional
+                        Garantia de 7 dias, sem perguntas
                     </Eyebrow>
 
                     <h2 className="text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
@@ -65,7 +65,7 @@ export function FinalCTA() {
                         </p>
                         <p className="flex items-center gap-2 text-caption text-white/50">
                             <Lock size={14} className="text-white/40" />
-                            Pagamento seguro. Acesso imediato após confirmação.
+                            Pagamento seguro. Você entra na hora, assim que o Pix ou o cartão passar.
                         </p>
                     </div>
                 </motion.div>

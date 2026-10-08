@@ -31,16 +31,16 @@ export function TrustStrip() {
                         (organizacao automatica), nao fazem inventario. "0 a 1000 de
                         nota" saiu: e a escala de qualquer correcao, nao um numero nosso. */}
                     <StatBlock
-                        value={5}
+                        value={2}
                         prefix=""
                         suffix=" min"
                         label="para montar o cronograma"
                     />
                     <StatBlock
-                        value={76}
+                        value={214}
                         prefix=""
                         label="editais já prontos"
-                        sublabel="para virar cronograma"
+                        sublabel="de 62 provas diferentes"
                     />
                     <StatBlock
                         value={3}

@@ -17,6 +17,7 @@ import { CAMPANHA_ANUAL_ATIVA } from './data/campanha-anual'
 
 const ForWhom       = lazy(() => import('./components/ForWhom').then(m => ({ default: m.ForWhom })))
 const PlanoShowcase = lazy(() => import('./components/PlanoShowcase').then(m => ({ default: m.PlanoShowcase })))
+const TragaOEdital  = lazy(() => import('./components/TragaOEdital').then(m => ({ default: m.TragaOEdital })))
 const AiSuite       = lazy(() => import('./components/AiSuite').then(m => ({ default: m.AiSuite })))
 const RedacaoShowcase = lazy(() => import('./components/RedacaoShowcase').then(m => ({ default: m.RedacaoShowcase })))
 const Features      = lazy(() => import('./components/Features').then(m => ({ default: m.Features })))
@@ -42,7 +43,7 @@ function App() {
         description={CAMPANHA_ANUAL_ATIVA
           ? 'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. 1 mês grátis no plano anual, depois a partir de R$ 9,90 por mês.'
           : 'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Tudo em um plano só, a partir de R$ 9,90 por mês.'}
-        ogImage="/og-2026-09.jpg"
+        ogImage="/og-2026-10.jpg"
         canonical="https://rendipro.com.br/"
         noindex={false}
       />
@@ -59,6 +60,7 @@ function App() {
           <Suspense fallback={<div className="h-12 bg-surface-950" />}>
             <ForWhom />
             <PlanoShowcase />
+            <TragaOEdital />
             <Features />
             <AiSuite />
             <RedacaoShowcase />

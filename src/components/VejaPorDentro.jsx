@@ -43,7 +43,7 @@ const PROVAS = [
         icone: FileSearch,
         titulo: 'Procure o seu edital',
         texto:
-            'Conteúdo programático completo de 76 editais, tópico a tópico, do jeito que a banca escreveu. Sem conta, sem e-mail.',
+            'Conteúdo programático completo de 214 editais, tópico a tópico, do jeito que a banca escreveu. Sem conta, sem e-mail.',
         rotulo: 'Ver os editais',
         // ⚠️ NÃO apontar para /editais/previstos: aquela página é dos editais que
         // ainda VÃO sair e hoje está vazia ("nenhum edital previsto ativo").

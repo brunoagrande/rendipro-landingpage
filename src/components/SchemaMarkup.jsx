@@ -18,7 +18,7 @@ export function SchemaMarkup() {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://app.rendipro.com.br/buscar?q={search_term_string}',
+        urlTemplate: 'https://app.rendipro.com.br/editais/por-area?q={search_term_string}',
       },
       'query-input': 'required name=search_term_string',
     },

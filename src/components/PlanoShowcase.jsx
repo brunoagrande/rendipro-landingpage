@@ -52,10 +52,10 @@ export function PlanoShowcase() {
                             <span className="text-gradient-primary">feito para você</span>.
                         </h2>
                         <p className="mt-4 text-body text-white/70">
-                            Cole o edital (ou escolha um dos 76 que já estão prontos), diga quantas horas você tem no dia e o RendiPro monta seu cronograma inteiro, <strong className="font-semibold text-white">automaticamente</strong>. Já segue um cronograma que funciona? Importe em PDF ou CSV e ele entra do mesmo jeito. Chega de planilha e de decidir na mão o que estudar hoje.
+                            São 214 editais prontos. Escolha o seu, diga quantas horas tem por dia e o cronograma sai inteiro, <strong className="font-semibold text-white">automaticamente</strong>. Não achou o seu? Mande o PDF do edital. O RendiPro lê o conteúdo programático, você confere matéria por matéria e o plano fica do jeito da sua prova. Chega de planilha e de decidir na mão o que estudar hoje.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
-                            <Bullet><strong className="font-semibold text-white">Feito para você</strong>, pelas suas horas e pelo seu edital. Ou importe o plano que você já tem.</Bullet>
+                            <Bullet><strong className="font-semibold text-white">Feito para você</strong>, pelas suas horas e pelo seu edital. Ou importe o cronograma que você já segue, em PDF ou CSV.</Bullet>
                             <Bullet><strong className="font-semibold text-white">Perdeu um dia?</strong> Um clique e o RendiPro redistribui o que ficou para trás. Você não refaz nada do zero.</Bullet>
                             <Bullet><strong className="font-semibold text-white">Mais de um concurso na mira?</strong> Até 3 planos ao mesmo tempo, e você troca em um clique.</Bullet>
                             <Bullet>Todo dia você abre e a lista do dia <strong className="font-semibold text-white">já está pronta</strong>.</Bullet>
@@ -65,7 +65,7 @@ export function PlanoShowcase() {
                     {/* Screenshot */}
                     <ProductWindow url="app.rendipro.com.br/cronograma" glow>
                         <img
-                            src="/screenshots/cronograma-semana.webp"
+                            src="/screenshots/cronograma-semana-prf.webp"
                             alt="Cronograma semanal de estudos montado pelo edital, com as matérias distribuídas pelos dias da semana"
                             className="block h-auto w-full"
                             loading="lazy"

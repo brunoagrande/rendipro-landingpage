@@ -80,7 +80,7 @@ export function Features() {
                             <span className="text-gradient-primary">volta antes de sumir</span>.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Mais de 8.000 flashcards prontos, organizados por matéria. Abra o RendiPro e já comece. Crie os seus, importe seus baralhos do Anki ou mande seu material. A repetição espaçada traz cada cartão de volta no dia certo, quando ele está prestes a sair da memória.
+                            Mais de 8.000 flashcards prontos, organizados por matéria. Abra o RendiPro e já comece. Crie os seus, importe seus baralhos do Anki ou mande seu material. O RendiPro traz cada cartão de volta no dia certo, quando ele está prestes a sair da memória.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
@@ -127,7 +127,7 @@ export function Features() {
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Repetição espaçada</strong>, o método de memorização com mais de um século de pesquisa por trás</span>
+                                <span><strong className="font-semibold text-white">Revisão no dia certo</strong>, o método de memorização com mais de um século de pesquisa por trás</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
@@ -139,10 +139,10 @@ export function Features() {
                             </li>
                         </ul>
                         <div className="mt-5">
-                            <ProductWindow url="app.rendipro.com.br/revisar">
+                            <ProductWindow url="app.rendipro.com.br/revisoes">
                                 <img
-                                    src="/screenshots/dashboard-final.webp"
-                                    alt="Início do RendiPro: sequência de 16 dias, próxima revisão do dia, meta e agenda de hoje"
+                                    src="/screenshots/revisoes-hoje.webp"
+                                    alt="Tela de Revisões do RendiPro: quatro tópicos para revisar hoje, cerca de 60 minutos, nada atrasado"
                                     className="block h-auto w-full"
                                     loading="lazy"
                                 />
@@ -164,11 +164,10 @@ export function Features() {
                         <Bot size={14} />
                         Com IA em todos os planos
                     </p>
-                    <ul className="mt-4 grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-3">
+                    <ul className="mt-4 mx-auto max-w-3xl grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
                         {[
                             'Flashcards gerados do seu material em segundos',
-                            'Cronograma reajustado quando seu ritmo muda',
-                            'Tire dúvidas dentro da questão, sem sair do RendiPro',
+                            'Seu edital em PDF vira cronograma, e você confere antes',
                         ].map((f) => (
                             <li key={f} className="flex items-start gap-2 text-body-sm text-white/70">
                                 <Check size={15} className="mt-0.5 shrink-0 text-accent-300" />
@@ -177,7 +176,7 @@ export function Features() {
                         ))}
                     </ul>
                     <p className="mt-4 text-center text-caption text-white/40">
-                        O limite de usos de IA por mês varia com o plano. Veja em Planos, abaixo.
+                        Quanto de IA você usa por mês depende do plano. Os números estão em Planos, logo abaixo.
                     </p>
                 </motion.div>
             </div>

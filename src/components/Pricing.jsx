@@ -7,6 +7,7 @@ import {
     Shield,
     Sparkles,
     X as XIcon,
+    CalendarDays,
     Zap,
 } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
@@ -53,7 +54,7 @@ const fadeUp = {
 const COMMON_FEATURES = [
     // Regra: so entra aqui o que TODO plano entrega hoje. Conferido contra o
     // produto em 15/08/2026 (ligas/loja estao atras de gate: NAO listar).
-    'Cronograma pelo edital, automático ou importado (CSV/PDF)',
+    'Cronograma pelo edital do catálogo, pelo PDF do seu edital ou importado (CSV/PDF)',
     'Revisão no dia certo, sem planilha',
     'Até 3 cronogramas em paralelo',
     '+8.000 flashcards prontos, organizados por matéria',
@@ -194,7 +195,7 @@ export function Pricing() {
                     O sistema sustenta a promessa: o Asaas cobra o valor guardado na
                     assinatura, e nada no nosso codigo mexe nele depois. */}
                 <p className="mx-auto mt-6 max-w-3xl text-center text-caption text-white/55">
-                    Estes são preços de lançamento. Quem assinar agora mantém esse valor enquanto for assinante, mesmo quando o preço subir.
+                    É preço de lançamento: assinando agora, esse valor fica com você enquanto for assinante, mesmo quando o preço subir.
                 </p>
 
                 {/* ─── Common features banner ───────────────────────────── */}
@@ -240,15 +241,21 @@ export function Pricing() {
                     <span className="flex items-center gap-2">
                         <Zap size={18} className="text-primary-400" />
                         <span>
-                            <strong className="font-semibold text-white">Acesso imediato</strong>{' '}
-                            após o pagamento, no Pix ou no cartão.
+                            <strong className="font-semibold text-white">Acesso na hora</strong>,{' '}
+                            assim que o Pix ou o cartão passar.
                         </span>
                     </span>
                     <span className="flex items-center gap-2">
-                        <XIcon size={18} className="text-primary-400" />
+                        {tipo === 'anual'
+                            ? <CalendarDays size={18} className="text-primary-400" />
+                            : <XIcon size={18} className="text-primary-400" />}
                         <span>
-                            <strong className="font-semibold text-white">Cancele quando quiser</strong>,
-                            sem ligação.
+                            {/* F5-a (fundador, 08/10/2026): cada aba diz só o que é verdade
+                                para ela. "Cancele quando quiser" embaixo do anual prometia algo
+                                que o anual não cumpre depois do 7º dia. */}
+                            {tipo === 'anual'
+                                ? <><strong className="font-semibold text-white">12 meses</strong>, com 7 dias para desistir.</>
+                                : <><strong className="font-semibold text-white">Cancele quando quiser.</strong></>}
                         </span>
                     </span>
                 </motion.div>
@@ -361,6 +368,11 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                         <p className="mt-1 text-caption text-white/45">
                             ou <span className="line-through">{formatPrice(plan.preco_centavos)}</span>{' '}
                             <strong className="font-semibold text-white/80">{formatPrice(campanha.pixCentavos)}</strong> à vista no Pix
+                        </p>
+                        {/* F5-b (fundador, 08/10/2026): o compromisso no card onde a pessoa
+                            decide. O detalhe (as mensalidades seguem) fica no FAQ e no checkout. */}
+                        <p className="mt-1 text-caption font-semibold text-white/70">
+                            12 meses. Desista sem custo em até 7 dias.
                         </p>
                         <p className="mt-2.5 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-caption font-bold text-emerald-400">
                             Economize {formatPrice(savings + campanha.descontoCentavos)}/ano

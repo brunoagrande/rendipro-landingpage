@@ -37,8 +37,9 @@ export function Hero() {
                         <div className="inline-flex animate-fade-in-up">
                             <Eyebrow variant="primary">
                                 <Sparkles size={14} />
-                                <span className="md:hidden">Feito por quem passou no <span className="whitespace-nowrap">MP-RS</span></span>
-                                <span className="hidden md:inline">Nasceu de uma aprovação real no MP-RS em 2023</span>
+                                {/* Unificada em 08/10/2026 (fundador, pareceres de engajamento e vendas):
+                                    a frase do anúncio que trouxe a 1ª venda, igual nas duas telas. */}
+                                <span>Feito por quem passou no <span className="whitespace-nowrap">MP-RS</span></span>
                             </Eyebrow>
                         </div>
 
@@ -124,7 +125,7 @@ export function Hero() {
                             style={{ animationDelay: '450ms' }}
                         >
                             <Shield size={13} className="shrink-0 text-primary-400" />
-                            {CAMPANHA_ANUAL_ATIVA ? '1º mês grátis · ' : ''}Garantia de 7 dias · Pagamento seguro
+                            {CAMPANHA_ANUAL_ATIVA ? '1º mês grátis · Garantia de 7 dias' : 'Garantia de 7 dias · Pagamento seguro'}
                         </p>
                     </div>
 
@@ -156,8 +157,8 @@ export function Hero() {
                                     322,87% = 1440/446 · translate = -740/1440 e -380/900. */}
                                 <div className="relative aspect-[446/240] overflow-hidden md:aspect-auto md:overflow-visible">
                                     <img
-                                        src="/screenshots/cronograma-semana.webp"
-                                        alt="Cronograma semanal do RendiPro com as sessões de cada dia: Direito Constitucional, Administrativo, Penal e Processual"
+                                        src="/screenshots/cronograma-semana-prf.webp"
+                                        alt="Semana de estudos de um plano para a PRF no RendiPro: seis sessões por dia, com Direito Administrativo, Constitucional, Penal, Português e Raciocínio Lógico"
                                         width="1440"
                                         height="900"
                                         className="absolute left-0 top-0 block h-auto w-[322.87%] max-w-none translate-x-[-51.389%] translate-y-[-42.222%] md:static md:w-full md:translate-x-0 md:translate-y-0"

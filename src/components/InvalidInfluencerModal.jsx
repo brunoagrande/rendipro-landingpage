@@ -49,18 +49,18 @@ export function InvalidInfluencerModal() {
                     </div>
 
                     <h3 id="invalid-influencer-title" className="mb-4 text-2xl font-bold tracking-tight text-white">
-                        Esta oferta especial não está mais disponível
+                        Esse cupom não vale mais
                     </h3>
 
                     <p className="mb-8 text-white/60 leading-relaxed">
-                        O link ou cupom promocional que você tentou acessar expirou ou é inválido. Mas não se preocupe, você ainda pode conferir nossos planos atuais para acelerar a sua aprovação.
+                        O link ou o cupom que você usou venceu ou não existe. Os planos de hoje continuam aqui, é só escolher.
                     </p>
 
                     <button
                         onClick={dismissInvalidModal}
                         className="w-full rounded-xl bg-primary-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary-600/20 transition-all hover:bg-primary-500 active:scale-95"
                     >
-                        Ver planos disponíveis
+                        Ver os planos
                     </button>
                 </div>
             </div>
