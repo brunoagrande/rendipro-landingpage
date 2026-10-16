@@ -11,6 +11,7 @@ import { SchemaMarkup } from './components/SchemaMarkup'
 import { CookieBanner } from './components/CookieBanner'
 import { captureUtms, initScrollMilestones } from './lib/tracking'
 import { CAMPANHA_ANUAL_ATIVA } from './data/campanha-anual'
+import { CORTESIA_CADASTRO_ATIVA } from './data/cortesia-cadastro'
 
 // (removido em 15/09/2026: a página de beta e o VITE_BETA_MODE. A fase de
 // fundadores fechou e a indicação está desligada.)
@@ -40,8 +41,10 @@ function App() {
     <InfluencerProvider>
       <SEOHead
         title="Cronograma de estudos pelo edital, automático | RendiPro"
-        description={CAMPANHA_ANUAL_ATIVA
-          ? 'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. 1 mês grátis no plano anual, depois a partir de R$ 9,90 por mês.'
+        description={CORTESIA_CADASTRO_ATIVA
+          ? 'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Comece com 7 dias grátis, sem cartão. Depois, a partir de R$ 9,90 por mês.'
+          : CAMPANHA_ANUAL_ATIVA
+          ?'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. 1 mês grátis no plano anual, depois a partir de R$ 9,90 por mês.'
           : 'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Tudo em um plano só, a partir de R$ 9,90 por mês.'}
         ogImage="/og-2026-10.jpg"
         canonical="https://rendipro.com.br/"

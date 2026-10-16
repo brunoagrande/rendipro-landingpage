@@ -8,6 +8,7 @@ import {
     Sparkles,
     X as XIcon,
     CalendarDays,
+    Gift,
     Zap,
 } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
@@ -23,6 +24,7 @@ import {
     ANNUAL_DISCOUNT_LABEL,
 } from '../data/pricing-plans'
 import { CAMPANHA_ANUAL_ATIVA, CAMPANHA_ANUAL, resumoCampanhaAnual } from '../data/campanha-anual'
+import { CORTESIA_CADASTRO_ATIVA, CORTESIA_CADASTRO, CORTESIA_CONDICAO } from '../data/cortesia-cadastro'
 
 /**
  * Pricing v3 — 100% reescrito.
@@ -63,7 +65,9 @@ const COMMON_FEATURES = [
     'Redação corrigida todo mês, com nota por competência',
     'Sequência de estudos e missões diárias',
     'Acesso completo no celular',
-    'Garantia de 7 dias em qualquer plano',
+    // Com a cortesia ligada, "garantia de 7 dias" ficaria perto de "7 dias grátis":
+    // dois 7 dias diferentes na mesma seção confundem (banca de criativos, 16/10).
+    CORTESIA_CADASTRO_ATIVA ? 'Começa grátis, sem cartão' : 'Garantia de 7 dias em qualquer plano',
 ]
 
 function formatPrice(cents) {
@@ -140,6 +144,23 @@ export function Pricing() {
                         <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo em um plano só, {CAMPANHA_ANUAL_ATIVA ? 'a partir de R$ 9,90 por mês, com 1 mês grátis no plano anual' : 'a partir de R$ 9,90 por mês'}.</strong>
                     </p>
                 </motion.div>
+
+                {/* ─── Cortesia de 7 dias no cadastro (16/10/2026) ──────── */}
+                {/* A ordem das duas ofertas, dita uma vez: primeiro os dias grátis do
+                    Starter (todo mundo); depois, quem assinar o anual com a campanha no
+                    ar ainda ganha o 1º mês. As duas somam (fundador: "a cortesia é cortesia"). */}
+                {CORTESIA_CADASTRO_ATIVA && (
+                    <div className="mx-auto mb-8 max-w-3xl rounded-2xl border border-primary-500/30 bg-primary-500/[0.06] px-5 py-4 text-center" data-testid="pricing-cortesia">
+                        <p className="flex items-center justify-center gap-2 text-body font-semibold text-white">
+                            <Gift size={18} className="shrink-0 text-primary-400" />
+                            Comece com {CORTESIA_CADASTRO.dias} dias grátis no Starter, sem cartão.
+                        </p>
+                        <p className="mt-1.5 text-body-sm text-white/65">
+                            {CORTESIA_CONDICAO}
+                            {CAMPANHA_ANUAL_ATIVA && ' Se assinar o plano anual depois, o 1º mês também é grátis.'}
+                        </p>
+                    </div>
+                )}
 
                 {/* ─── Toggle Mensal | Anual (anual default) ────────────── */}
                 <div className="mb-8 flex justify-center">
@@ -239,11 +260,23 @@ export function Pricing() {
                         </span>
                     </span>
                     <span className="flex items-center gap-2">
-                        <Zap size={18} className="text-primary-400" />
-                        <span>
-                            <strong className="font-semibold text-white">Acesso na hora</strong>,{' '}
-                            assim que o Pix ou o cartão passar.
-                        </span>
+                        {CORTESIA_CADASTRO_ATIVA ? (
+                            <>
+                                <Gift size={18} className="text-primary-400" />
+                                <span>
+                                    <strong className="font-semibold text-white">Acesso na hora</strong>,{' '}
+                                    sem cartão para começar.
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                <Zap size={18} className="text-primary-400" />
+                                <span>
+                                    <strong className="font-semibold text-white">Acesso na hora</strong>,{' '}
+                                    assim que o Pix ou o cartão passar.
+                                </span>
+                            </>
+                        )}
                     </span>
                     <span className="flex items-center gap-2">
                         {tipo === 'anual'
@@ -517,6 +550,16 @@ com IA/mês
                     className="transition-transform group-hover:translate-x-0.5"
                 />
             </Button>
+            {/* Cortesia (decisão A do fundador, 16/10/2026): os dias grátis são do
+                Starter para todos. Quem clica no Pro precisa saber disso ANTES de
+                criar a conta; o Pro continua a um toque dentro do app. */}
+            {CORTESIA_CADASTRO_ATIVA && (
+                <p className="mt-2 text-center text-caption text-white/55" data-testid="card-cortesia">
+                    {plan.slug.startsWith('starter-')
+                        ? `Começa com ${CORTESIA_CADASTRO.dias} dias grátis, sem cartão.`
+                        : `Você começa com ${CORTESIA_CADASTRO.dias} dias grátis no Starter. O ${plan.nome_curto} você assina quando quiser.`}
+                </p>
+            )}
         </motion.article>
     )
 }

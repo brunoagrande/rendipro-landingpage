@@ -1,4 +1,4 @@
-import { ArrowRight, Rocket, Shield, Sparkles } from 'lucide-react'
+import { ArrowRight, Gift, Rocket, Shield, Sparkles } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { trackRegisterCta } from '../lib/tracking'
 import { useSectionView } from '../lib/useSectionView'
@@ -6,6 +6,7 @@ import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
 import { ProductWindow } from './ui/ProductWindow'
 import { CAMPANHA_ANUAL_ATIVA } from '../data/campanha-anual'
+import { CORTESIA_CADASTRO_ATIVA, CORTESIA_FRASE } from '../data/cortesia-cadastro'
 import { InteractiveFlashcard } from './ui/InteractiveFlashcard'
 
 /**
@@ -124,8 +125,12 @@ export function Hero() {
                             className="mt-1.5 inline-flex items-center justify-center lg:justify-start gap-1.5 text-caption text-white/55 animate-fade-in"
                             style={{ animationDelay: '450ms' }}
                         >
-                            <Shield size={13} className="shrink-0 text-primary-400" />
-                            {CAMPANHA_ANUAL_ATIVA ? '1º mês grátis · Garantia de 7 dias' : 'Garantia de 7 dias · Pagamento seguro'}
+                            {/* Cortesia de 7 dias no cadastro (16/10/2026): a oferta embaixo do
+                                botão é ela. Sem "garantia de 7 dias" ao lado: dois "7 dias"
+                                diferentes lado a lado confundem (banca de criativos). */}
+                            {CORTESIA_CADASTRO_ATIVA
+                                ? <><Gift size={13} className="shrink-0 text-primary-400" />{CORTESIA_FRASE}</>
+                                : <><Shield size={13} className="shrink-0 text-primary-400" />{CAMPANHA_ANUAL_ATIVA ? '1º mês grátis · Garantia de 7 dias' : 'Garantia de 7 dias · Pagamento seguro'}</>}
                         </p>
                     </div>
 

@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Lock, Shield } from 'lucide-react'
+import { ArrowRight, Gift, Lock, Shield } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { trackRegisterCta } from '../lib/tracking'
 import { useSectionView } from '../lib/useSectionView'
 import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
+import { CORTESIA_CADASTRO_ATIVA, CORTESIA_FRASE, CORTESIA_CONDICAO } from '../data/cortesia-cadastro'
 
 const easeSpring = [0.16, 1, 0.3, 1]
 
@@ -29,8 +30,9 @@ export function FinalCTA() {
                     className="mx-auto max-w-3xl rounded-3xl border border-primary-500/30 bg-gradient-to-br from-surface-900 via-primary-500/[0.06] to-surface-900 p-8 text-center shadow-glow-primary sm:p-12"
                 >
                     <Eyebrow variant="primary" className="mb-5">
-                        <Shield size={14} />
-                        Garantia de 7 dias, sem perguntas
+                        {CORTESIA_CADASTRO_ATIVA
+                            ? <><Gift size={14} />{CORTESIA_FRASE}</>
+                            : <><Shield size={14} />Garantia de 7 dias, sem perguntas</>}
                     </Eyebrow>
 
                     <h2 className="text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
@@ -59,14 +61,32 @@ export function FinalCTA() {
                             />
                         </Button>
 
-                        <p className="flex items-center gap-2 text-body-sm font-medium text-white/70">
-                            <Shield size={16} className="text-primary-400" />
-                            <strong className="font-semibold text-white">7 dias de garantia.</strong> Não gostou, devolvemos 100% com 1 clique.
-                        </p>
-                        <p className="flex items-center gap-2 text-caption text-white/50">
-                            <Lock size={14} className="text-white/40" />
-                            Pagamento seguro. Você entra na hora, assim que o Pix ou o cartão passar.
-                        </p>
+                        {/* Cortesia de 7 dias no cadastro (16/10/2026): "você entra assim que o
+                            Pix ou o cartão passar" virou mentira, porque ninguém paga para entrar.
+                            A condição é a mesma frase dos anúncios. */}
+                        {CORTESIA_CADASTRO_ATIVA ? (
+                            <>
+                                <p className="flex items-center gap-2 text-body-sm font-medium text-white/70">
+                                    <Gift size={16} className="text-primary-400" />
+                                    {CORTESIA_CONDICAO}
+                                </p>
+                                <p className="flex items-center gap-2 text-caption text-white/50">
+                                    <Lock size={14} className="text-white/40" />
+                                    Sem cartão para começar. Você entra na hora.
+                                </p>
+                            </>
+                        ) : (
+                            <>
+                                <p className="flex items-center gap-2 text-body-sm font-medium text-white/70">
+                                    <Shield size={16} className="text-primary-400" />
+                                    <strong className="font-semibold text-white">7 dias de garantia.</strong> Não gostou, devolvemos 100% com 1 clique.
+                                </p>
+                                <p className="flex items-center gap-2 text-caption text-white/50">
+                                    <Lock size={14} className="text-white/40" />
+                                    Pagamento seguro. Você entra na hora, assim que o Pix ou o cartão passar.
+                                </p>
+                            </>
+                        )}
                     </div>
                 </motion.div>
             </div>

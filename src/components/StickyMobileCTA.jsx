@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { ArrowRight, Shield } from 'lucide-react'
+import { ArrowRight, Gift, Shield } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { cn } from '../lib/utils'
 import { trackRegisterCta } from '../lib/tracking'
 import { CAMPANHA_ANUAL_ATIVA } from '../data/campanha-anual'
+import { CORTESIA_CADASTRO_ATIVA, CORTESIA_FRASE } from '../data/cortesia-cadastro'
 
 /**
  * Sticky CTA mobile — barra persistente embaixo da tela em mobile/tablet.
@@ -97,8 +98,9 @@ export function StickyMobileCTA() {
                                 </span>
                             </div>
                             <p className="mt-0.5 flex items-center gap-1 text-[10px] text-white/55">
-                                <Shield size={10} className="text-primary-400" />
-                                {CAMPANHA_ANUAL_ATIVA ? '1º mês grátis · Garantia de 7 dias' : 'Plano de 12 meses · Garantia de 7 dias'}
+                                {CORTESIA_CADASTRO_ATIVA
+                                    ? <><Gift size={10} className="text-primary-400" />{CORTESIA_FRASE}</>
+                                    : <><Shield size={10} className="text-primary-400" />{CAMPANHA_ANUAL_ATIVA ? '1º mês grátis · Garantia de 7 dias' : 'Plano de 12 meses · Garantia de 7 dias'}</>}
                             </p>
                         </div>
                         <a
