@@ -15,8 +15,9 @@
  * Soma com a campanha do anual (decisão do fundador: "a cortesia é cortesia").
  * Quem assinar depois, com a campanha no ar, ganha o 1º mês grátis do anual.
  *
- * Linha de condição: a MESMA dos anúncios (banca de criativos, 16/10/2026), para
- * a pessoa ler na landing exatamente o que leu no anúncio.
+ * ⛔ Sem linha de "condição" (do tipo "acabaram os 7 dias e não quis assinar? não
+ * paga nada"): o fundador VETOU em 16/10/2026, achou estranha. "Sem cartão" já diz
+ * que não há cobrança. Não recolocar sem falar com ele.
  */
 // ⚠ Nasce DESLIGADA no repositório (revisão de 16/10): o Vercel publica a landing
 // a cada push, e um push antes de a chave do app ser ligada já prometeria "grátis".
@@ -31,5 +32,3 @@ export const CORTESIA_CADASTRO_ATIVA = CORTESIA_CADASTRO.ativa
 /** Curta, para microcopy embaixo de botão e banner. */
 export const CORTESIA_FRASE = `${CORTESIA_CADASTRO.dias} dias grátis, sem cartão`
 
-/** A condição, igual à dos anúncios. */
-export const CORTESIA_CONDICAO = `Acabaram os ${CORTESIA_CADASTRO.dias} dias e não quis assinar? Não paga nada.`

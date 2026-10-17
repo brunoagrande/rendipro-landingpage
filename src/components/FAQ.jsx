@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ChevronDown, Gift, HelpCircle, Shield } from 'lucide-react'
 import { faqItems } from '../data/faq-data'
-import { CORTESIA_CADASTRO_ATIVA, CORTESIA_CONDICAO } from '../data/cortesia-cadastro'
+import { CORTESIA_CADASTRO_ATIVA, CORTESIA_FRASE } from '../data/cortesia-cadastro'
 import { Eyebrow } from './ui/Eyebrow'
 import { Button } from './ui/Button'
 import { useInfluencer } from '../contexts/InfluencerContext'
@@ -159,12 +159,13 @@ export function FAQ() {
                         Começar agora
                         <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                     </Button>
-                    {/* Cortesia de 7 dias no cadastro (16/10/2026): a nota é a condição dos
-                        anúncios, não a garantia (dois "7 dias" diferentes confundem). */}
+                    {/* Cortesia de 7 dias no cadastro (16/10/2026): a nota é a oferta, não a
+                        garantia (dois "7 dias" diferentes confundem). Sem linha de
+                        "condição": o fundador vetou (ver cortesia-cadastro.js). */}
                     {CORTESIA_CADASTRO_ATIVA ? (
                         <p className="flex items-center gap-2 text-caption text-white/55">
                             <Gift size={13} className="text-primary-400" />
-                            {CORTESIA_CONDICAO}
+                            {CORTESIA_FRASE}
                         </p>
                     ) : (
                         <p className="flex items-center gap-2 text-caption text-white/55">

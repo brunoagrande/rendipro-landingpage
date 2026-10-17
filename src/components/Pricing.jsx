@@ -24,7 +24,7 @@ import {
     ANNUAL_DISCOUNT_LABEL,
 } from '../data/pricing-plans'
 import { CAMPANHA_ANUAL_ATIVA, CAMPANHA_ANUAL, resumoCampanhaAnual } from '../data/campanha-anual'
-import { CORTESIA_CADASTRO_ATIVA, CORTESIA_CADASTRO, CORTESIA_CONDICAO } from '../data/cortesia-cadastro'
+import { CORTESIA_CADASTRO_ATIVA, CORTESIA_CADASTRO } from '../data/cortesia-cadastro'
 
 /**
  * Pricing v3 — 100% reescrito.
@@ -155,10 +155,12 @@ export function Pricing() {
                             <Gift size={18} className="shrink-0 text-primary-400" />
                             Comece com {CORTESIA_CADASTRO.dias} dias grátis no Starter, sem cartão.
                         </p>
-                        <p className="mt-1.5 text-body-sm text-white/65">
-                            {CORTESIA_CONDICAO}
-                            {CAMPANHA_ANUAL_ATIVA && ' Se assinar o plano anual depois, o 1º mês também é grátis.'}
-                        </p>
+                        {/* Sem linha de "condição": o fundador vetou (ver cortesia-cadastro.js). */}
+                        {CAMPANHA_ANUAL_ATIVA && (
+                            <p className="mt-1.5 text-body-sm text-white/65">
+                                Se assinar o plano anual depois, o 1º mês também é grátis.
+                            </p>
+                        )}
                     </div>
                 )}
 

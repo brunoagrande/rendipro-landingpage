@@ -5,7 +5,7 @@ import { trackRegisterCta } from '../lib/tracking'
 import { useSectionView } from '../lib/useSectionView'
 import { Button } from './ui/Button'
 import { Eyebrow } from './ui/Eyebrow'
-import { CORTESIA_CADASTRO_ATIVA, CORTESIA_FRASE, CORTESIA_CONDICAO } from '../data/cortesia-cadastro'
+import { CORTESIA_CADASTRO_ATIVA, CORTESIA_FRASE } from '../data/cortesia-cadastro'
 
 const easeSpring = [0.16, 1, 0.3, 1]
 
@@ -63,18 +63,12 @@ export function FinalCTA() {
 
                         {/* Cortesia de 7 dias no cadastro (16/10/2026): "você entra assim que o
                             Pix ou o cartão passar" virou mentira, porque ninguém paga para entrar.
-                            A condição é a mesma frase dos anúncios. */}
+                            Sem linha de "condição": o fundador vetou (ver cortesia-cadastro.js). */}
                         {CORTESIA_CADASTRO_ATIVA ? (
-                            <>
-                                <p className="flex items-center gap-2 text-body-sm font-medium text-white/70">
-                                    <Gift size={16} className="text-primary-400" />
-                                    {CORTESIA_CONDICAO}
-                                </p>
-                                <p className="flex items-center gap-2 text-caption text-white/50">
-                                    <Lock size={14} className="text-white/40" />
-                                    Sem cartão para começar. Você entra na hora.
-                                </p>
-                            </>
+                            <p className="flex items-center gap-2 text-caption text-white/50">
+                                <Lock size={14} className="text-white/40" />
+                                Sem cartão para começar. Você entra na hora.
+                            </p>
                         ) : (
                             <>
                                 <p className="flex items-center gap-2 text-body-sm font-medium text-white/70">

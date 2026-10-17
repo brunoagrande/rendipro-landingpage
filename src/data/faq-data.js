@@ -12,13 +12,12 @@ import { CAMPANHA_ANUAL_ATIVA, CAMPANHA_ANUAL } from './campanha-anual'
 import { CORTESIA_CADASTRO_ATIVA, CORTESIA_CADASTRO } from './cortesia-cadastro'
 
 // Cortesia de 7 dias no cadastro (16/10/2026). Primeira pergunta da lista porque
-// é a primeira dúvida de quem chega pelo anúncio. ⚠ "O que você montou fica salvo"
-// é verdade: a cortesia que acaba vira `expirada` e não apaga plano, revisões nem
-// histórico (o aviso do último dia diz o mesmo).
+// é a primeira dúvida de quem chega pelo anúncio. ⛔ Sem a frase "acabaram os 7
+// dias e não quis assinar? não paga nada": o fundador vetou em 16/10/2026.
 const faqCortesia = {
     question: 'Preciso de cartão para começar?',
     answer:
-        `Não. Ao criar a conta você ganha ${CORTESIA_CADASTRO.dias} dias grátis do plano Starter, sem cartão e sem cobrança: monte seu plano, estude pelo cronograma e veja se funciona para você. Acabaram os ${CORTESIA_CADASTRO.dias} dias e não quis assinar? Não paga nada, e o que você montou fica salvo. Se quiser continuar, você escolhe o plano dentro do app, inclusive o Pro.` +
+        `Não. Ao criar a conta você ganha ${CORTESIA_CADASTRO.dias} dias grátis do plano Starter, sem cartão e sem cobrança: monte seu plano, estude pelo cronograma e veja se funciona para você. Se quiser continuar, você escolhe o plano dentro do app, inclusive o Pro.` +
         (CAMPANHA_ANUAL_ATIVA ? ' E quem assina o plano anual enquanto a campanha estiver no ar ainda ganha o 1º mês grátis.' : ''),
 }
 
