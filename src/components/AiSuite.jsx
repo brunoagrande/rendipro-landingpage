@@ -47,7 +47,7 @@ export function AiSuite() {
                         <span className="text-gradient-primary">seu material</span>.
                     </h2>
                     <p className="mx-auto mt-5 max-w-2xl text-body text-white/60">
-                        O cronograma diz o que estudar. Esta parte diz se você aprendeu: sua apostila, seu resumo e a foto do quadro viram questão e flashcard, e você pratica com o que caiu na sua aula.
+                        O cronograma diz o que estudar. Esta parte diz se você aprendeu: seu PDF vira questão, seu resumo e a foto do caderno viram flashcard, e você pratica com o que caiu na sua aula.
                     </p>
                 </motion.div>
 
@@ -78,8 +78,8 @@ export function AiSuite() {
                     </div>
                     <ProductWindow url="app.rendipro.com.br/treino" glow>
                         <img
-                            src="/screenshots/treino-questao-pdf.webp"
-                            alt="Questão de múltipla escolha gerada de uma apostila de Matemática, com a alternativa correta marcada e o gabarito explicado"
+                            src="/screenshots/treino-questao-pdf-v2.webp"
+                            alt="Questão de múltipla escolha gerada de uma apostila de Direito Previdenciário, com a alternativa correta marcada e o gabarito explicado"
                             className="block h-auto w-full"
                             loading="lazy"
                         />
@@ -129,7 +129,7 @@ export function AiSuite() {
                     className="mx-auto mt-14 flex max-w-xl items-center justify-center gap-2 text-center text-caption text-white/45"
                 >
                     <Target size={14} className="shrink-0 text-primary-400" />
-                    As questões e flashcards são gerados por IA a partir do seu material. Confira o gabarito antes de confiar.
+                    Feitos por IA a partir do seu material. Antes de chegar a você, a IA resolve cada questão de novo, sem ver o gabarito, e a que não chega à mesma resposta fica de fora.
                 </motion.p>
             </div>
         </section>

@@ -519,7 +519,7 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                             <strong className="font-bold text-white">
                                 {plan.questoes_pdf_por_mes}
                             </strong>{' '}
-                            apostilas viram questões/mês (até {plan.questoes_pdf_max_paginas} págs cada)
+                            PDFs por mês viram questões (até {plan.questoes_pdf_max_paginas} páginas cada)
                         </span>
                     </li>
                 )}

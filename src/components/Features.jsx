@@ -93,7 +93,7 @@ export function Features() {
                             </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Gere do SEU material.</strong> Mande um PDF ou tire foto do caderno e o RendiPro cria questões e flashcards em segundos.</span>
+                                <span><strong className="font-semibold text-white">Gere do SEU material.</strong> Mande um PDF e ele vira questão. Tire foto do caderno e ela vira flashcard.</span>
                             </li>
                         </ul>
                         {/* Card interativo real (o mesmo do hero): testa aqui na
