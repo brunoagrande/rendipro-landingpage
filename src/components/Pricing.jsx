@@ -123,8 +123,12 @@ export function Pricing() {
                     <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
                         Quanto custa ter o estudo inteiro{' '}<span className="text-gradient-primary">organizado</span>?
                     </h2>
+                    {/* 22/10/2026 (diagnóstico da MD): saiu "menos que uma hora de cursinho
+                        presencial", que punha o RendiPro na mesma prateleira do cursinho. O 1º
+                        pagante que cancelou (09/10) esperava material de estudo: aqui, colado no
+                        preço, a página diz o que o RendiPro NÃO é. */}
                     <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/60">
-                        Menos que uma hora de cursinho presencial por mês. E você para de pagar Anki, planilha e corretor avulso separados.
+                        O RendiPro não é cursinho: não tem aula nem apostila. Você estuda com o material que já usa, e ele organiza o resto.
                     </p>
                 </motion.div>
 
@@ -254,13 +258,19 @@ export function Pricing() {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="mt-10 flex flex-wrap items-center justify-center gap-6 sm:gap-x-10 sm:gap-y-4 text-body-sm text-white/75"
                 >
-                    <span className="flex items-center gap-2">
-                        <Shield size={18} className="text-primary-400" />
-                        <span>
-                            <strong className="font-semibold text-white">Garantia de 7 dias.</strong>{' '}
-                            1 clique e devolvemos 100%.
+                    {/* Com a cortesia ligada, a garantia sai daqui: "7 dias grátis" e
+                        "garantia de 7 dias" na mesma tela são dois prazos diferentes com o
+                        mesmo número (MD, 22/10/2026). A garantia segue valendo e está no FAQ
+                        "Posso cancelar a qualquer momento?". */}
+                    {!CORTESIA_CADASTRO_ATIVA && (
+                        <span className="flex items-center gap-2">
+                            <Shield size={18} className="text-primary-400" />
+                            <span>
+                                <strong className="font-semibold text-white">Garantia de 7 dias.</strong>{' '}
+                                1 clique e devolvemos 100%.
+                            </span>
                         </span>
-                    </span>
+                    )}
                     <span className="flex items-center gap-2">
                         {CORTESIA_CADASTRO_ATIVA ? (
                             <>

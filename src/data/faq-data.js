@@ -28,8 +28,19 @@ const faqCampanha = {
     link: { href: CAMPANHA_ANUAL.termosUrl, label: 'Ler os termos da campanha' },
 }
 
+// 22/10/2026 (diagnóstico da MD): a landing não dizia em lugar nenhum que o
+// RendiPro não é cursinho, e o 1º pagante que cancelou (09/10) esperava
+// "algum tipo de material de estudo". Sem prometer questão gerada aqui: essa
+// promessa está em revisão (banca de 22/10, decisão pendente do fundador).
+const faqSemAula = {
+    question: 'O RendiPro tem aulas ou apostilas?',
+    answer:
+        'Não. O RendiPro não é cursinho: não tem aula nem apostila. Ele organiza o seu estudo: monta o plano pelo edital da sua prova, diz o que estudar em cada dia e avisa a hora de revisar. Você estuda com o material que já usa, seja do cursinho, de videoaula, de livro ou de PDF.',
+}
+
 export const faqItems = [
     ...(CORTESIA_CADASTRO_ATIVA ? [faqCortesia] : []),
+    faqSemAula,
     {
         question: 'Já tentei me organizar com planilha e desisti em duas semanas.',
         answer:
@@ -70,7 +81,11 @@ export const faqItems = [
         question:
             'Já tentei outras plataformas e desisti em 2 semanas. Como sei que com o RendiPro vai ser diferente?',
         answer:
-            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método para continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (escolha o seu edital ou mande o PDF, pronto), e tem sequência diária, proteção pros dias de folga e missões curtas para te manter no trilho nos dias ruins. E tem garantia de 7 dias. Se não funcionar para você, devolve 100% com 1 clique, sem precisar explicar nada.',
+            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método para continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (escolha o seu edital ou mande o PDF, pronto), e tem sequência diária, proteção pros dias de folga e missões curtas para te manter no trilho nos dias ruins. ' +
+            // Com a cortesia ligada, "garantia de 7 dias" ao lado de "7 dias grátis" confunde (MD, 22/10/2026).
+            (CORTESIA_CADASTRO_ATIVA
+                ? `E você usa ${CORTESIA_CADASTRO.dias} dias grátis, sem cartão, antes de decidir.`
+                : 'E tem garantia de 7 dias. Se não funcionar para você, devolve 100% com 1 clique, sem precisar explicar nada.'),
     },
     {
         question: 'Posso cancelar a qualquer momento?',
