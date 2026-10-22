@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Página não encontrada | RendiPro</title>
+  <link rel="icon" type="image/png" href="/favicon-icon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- 22/10/2026: antes, endereço errado caía na página de erro genérica do
+       Vercel, sem marca e sem caminho de volta. HTML puro de propósito: não
+       depende do bundle da landing para aparecer. -->
+  <style>
+    :root { --bg: #0F172A; --surface: #1E293B; --texto: #F1F5F9; --suave: #CBD5E1; --teal: #00C49A; }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: var(--bg); color: var(--texto); padding: 32px 20px; text-align: center;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    }
+    .logo { height: 40px; width: auto; margin-bottom: 48px; }
+    h1 { font-size: clamp(30px, 7vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+    p { margin-top: 16px; max-width: 420px; font-size: 18px; line-height: 1.5; color: var(--suave); }
+    .acoes { margin-top: 36px; display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 360px; }
+    a.botao { display: block; padding: 16px 24px; border-radius: 999px; font-weight: 700; font-size: 17px; text-decoration: none; }
+    a.principal { background: var(--teal); color: #06281F; }
+    a.secundario { border: 1px solid rgba(255,255,255,0.18); color: var(--texto); }
+    a:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <a href="/" aria-label="RendiPro, página inicial"><img class="logo" src="/LogoRendiPro-v05-2026-sem-fundo.png" alt="RendiPro"></a>
+  <h1>Essa página não existe.</h1>
+  <p>O endereço pode ter mudado ou ter sido digitado com algum erro.</p>
+  <div class="acoes">
+    <a class="botao principal" href="/">Ir para a página inicial</a>
+    <a class="botao secundario" href="https://app.rendipro.com.br/register?plano=starter-anual&amp;rp_cta=pagina_404">Montar meu cronograma</a>
+  </div>
+</body>
+</html>
