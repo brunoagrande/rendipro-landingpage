@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
 import { cn } from '../lib/utils'
+import { carregarClarity } from '../lib/clarity'
 
-const CONSENT_KEY = 'rendipro_cookie_consent_v1'
+// ⚠ v2 desde 22/10/2026: o "Ok" da v1 foi dado a um texto que só falava de
+// medir anúncios. A gravação da navegação (Clarity) é outra coisa, então quem
+// aceitou a v1 vê o aviso de novo, uma vez, com o texto que cita as duas.
+const CONSENT_KEY = 'rendipro_cookie_consent_v2'
 
 export function CookieBanner() {
     const [visible, setVisible] = useState(false)
@@ -12,7 +16,9 @@ export function CookieBanner() {
     // z-50, a barra z-40), escondendo o preço e o botão "Começar".
     useEffect(() => {
         try {
-            if (!localStorage.getItem(CONSENT_KEY)) {
+            const escolha = localStorage.getItem(CONSENT_KEY)
+            if (escolha === 'accepted') carregarClarity()
+            if (!escolha) {
                 setVisible(true)
                 setMounted(true)
                 document.body.dataset.cookieAviso = 'aberto'
@@ -32,6 +38,7 @@ export function CookieBanner() {
         setVisible(false)
         delete document.body.dataset.cookieAviso
         window.dispatchEvent(new Event('rendipro:cookie-aceito'))
+        carregarClarity()
         // Desmonta após a animação de saída (400ms)
         setTimeout(() => setMounted(false), 450)
     }
@@ -58,7 +65,7 @@ export function CookieBanner() {
                 dobra de uma landing paga. */}
             <div className="container mx-auto flex items-center gap-3">
                 <p className="min-w-0 flex-1 text-caption leading-snug text-white/55 sm:text-body-sm">
-                    Usamos cookies para medir nossos anúncios. Veja a{' '}
+                    Usamos cookies para medir nossos anúncios e entender como o site é usado. Veja a{' '}
                     <a
                         href="https://app.rendipro.com.br/privacidade"
                         target="_blank"
