@@ -8,6 +8,15 @@ import '@fontsource-variable/bricolage-grotesque/wght.css'
 import '@fontsource-variable/jetbrains-mono/wght.css'
 import './index.css'
 import App from './App.jsx'
+import { recarregarUmaVez } from './components/SecaoSegura.jsx'
+
+// O Vite avisa por este evento quando um arquivo carregado sob demanda não
+// chega (ex.: página aberta antes de uma publicação nova). Recarrega UMA vez
+// para pegar a versão atual; se a trava não deixar, o erro segue para o
+// SecaoSegura da seção, que some sozinha sem derrubar a página.
+window.addEventListener('vite:preloadError', (event) => {
+  if (recarregarUmaVez()) event.preventDefault()
+})
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -9,6 +9,7 @@ import { InvalidInfluencerModal } from './components/InvalidInfluencerModal'
 import { SEOHead } from './components/SEOHead'
 import { SchemaMarkup } from './components/SchemaMarkup'
 import { CookieBanner } from './components/CookieBanner'
+import { SecaoSegura } from './components/SecaoSegura'
 import { captureUtms, initScrollMilestones } from './lib/tracking'
 import { CAMPANHA_ANUAL_ATIVA } from './data/campanha-anual'
 import { CORTESIA_CADASTRO_ATIVA } from './data/cortesia-cadastro'
@@ -60,22 +61,25 @@ function App() {
         <main className="pb-24 lg:pb-0">
           <Hero />
           <TrustStrip />
+          {/* Cada seção lazy no seu SecaoSegura: arquivo que falha (publicação
+              nova, rede ruim) derruba só a própria seção, nunca a página
+              inteira (Clarity, 22/10/2026). */}
           <Suspense fallback={<div className="h-12 bg-surface-950" />}>
-            <ForWhom />
-            <PlanoShowcase />
-            <TragaOEdital />
-            <Features />
-            <AiSuite />
-            <RedacaoShowcase />
-            <VejaPorDentro />
-            <FounderStory />
-            <Pricing />
-            <FAQ />
-            <FinalCTA />
+            <SecaoSegura nome="for_whom"><ForWhom /></SecaoSegura>
+            <SecaoSegura nome="plano_showcase"><PlanoShowcase /></SecaoSegura>
+            <SecaoSegura nome="traga_o_edital"><TragaOEdital /></SecaoSegura>
+            <SecaoSegura nome="features"><Features /></SecaoSegura>
+            <SecaoSegura nome="ai_suite"><AiSuite /></SecaoSegura>
+            <SecaoSegura nome="redacao_showcase"><RedacaoShowcase /></SecaoSegura>
+            <SecaoSegura nome="veja_por_dentro"><VejaPorDentro /></SecaoSegura>
+            <SecaoSegura nome="founder_story"><FounderStory /></SecaoSegura>
+            <SecaoSegura nome="pricing"><Pricing /></SecaoSegura>
+            <SecaoSegura nome="faq"><FAQ /></SecaoSegura>
+            <SecaoSegura nome="final_cta"><FinalCTA /></SecaoSegura>
           </Suspense>
         </main>
         <Suspense fallback={null}>
-          <Footer />
+          <SecaoSegura nome="footer"><Footer /></SecaoSegura>
         </Suspense>
         <StickyMobileCTA />
         <CookieBanner />
