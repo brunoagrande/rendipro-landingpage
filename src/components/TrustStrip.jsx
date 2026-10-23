@@ -25,8 +25,9 @@ export function TrustStrip() {
             className="border-y border-white/5 bg-surface-950/50 py-8 backdrop-blur-sm sm:py-12"
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                {/* 4 stats */}
-                <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 animate-fade-in-up">
+                {/* 3 stats. "8.000 flashcards prontos" saiu em 23/10/2026: os baralhos
+                    prontos são de ENEM e vestibular, e a página é de concurso. */}
+                <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3 animate-fade-in-up">
                     {/* Ordem pela regua do porque (16/09/2026): os numeros provam o H1
                         (organizacao automatica), nao fazem inventario. "0 a 1000 de
                         nota" saiu: e a escala de qualquer correcao, nao um numero nosso. */}
@@ -42,12 +43,13 @@ export function TrustStrip() {
                         label="editais já prontos"
                         sublabel="de 62 provas diferentes"
                     />
-                    <StatBlock
-                        value={3}
-                        prefix=""
-                        label="cronogramas em paralelo"
-                    />
-                    <StatBlock value={8000} label="flashcards prontos" sublabel="por matéria" />
+                    <div className="col-span-2 md:col-span-1">
+                        <StatBlock
+                            value={3}
+                            prefix=""
+                            label="cronogramas em paralelo"
+                        />
+                    </div>
                 </div>
 
                 {/* Cobertura — chips visuais com check */}

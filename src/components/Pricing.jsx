@@ -59,7 +59,6 @@ const COMMON_FEATURES = [
     'Cronograma pelo edital do catálogo, pelo PDF do seu edital ou importado (CSV/PDF)',
     'Revisão no dia certo, sem planilha',
     'Até 3 cronogramas em paralelo',
-    '+8.000 flashcards prontos, organizados por matéria',
     'Crie flashcards, tire foto do caderno ou importe do Anki',
     'Sua apostila vira questões de treino com gabarito',
     'Redação corrigida todo mês, com nota por competência',

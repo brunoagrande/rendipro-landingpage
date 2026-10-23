@@ -80,13 +80,9 @@ export function Features() {
                             <span className="text-gradient-primary">volta antes de sumir</span>.
                         </h3>
                         <p className="mt-3 text-body-sm text-white/70">
-                            Mais de 8.000 flashcards prontos, organizados por matéria. Abra o RendiPro e já comece. Crie os seus, importe seus baralhos do Anki ou mande seu material. O RendiPro traz cada cartão de volta no dia certo, quando ele está prestes a sair da memória.
+                            Crie os seus, importe seus baralhos do Anki ou mande seu material. O RendiPro traz cada cartão de volta no dia certo, quando ele está prestes a sair da memória.
                         </p>
                         <ul className="mt-4 space-y-2 text-body-sm text-white/70">
-                            <li className="flex items-start gap-2">
-                                <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span><strong className="font-semibold text-white">Mais de 8.000 prontos</strong>, zero setup: abra e estude</span>
-                            </li>
                             <li className="flex items-start gap-2">
                                 <Check size={15} className="mt-0.5 shrink-0 text-primary-400" />
                                 <span><strong className="font-semibold text-white">Importe seus baralhos do Anki</strong> e continue de onde parou</span>

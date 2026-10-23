@@ -54,7 +54,7 @@ export const faqItems = [
     {
         question: 'Como funcionam os flashcards? Posso usar os meus?',
         answer:
-            'Você tem mais de 8.000 flashcards prontos cobrindo as principais matérias e já pode começar a estudar na hora. Quer usar os seus? Crie flashcards em segundos, tire foto do caderno, gere a partir de qualquer conteúdo ou importe os baralhos que você já tem no Anki. A revisão de todos eles é organizada pela repetição espaçada, que calcula o dia certo de rever cada cartão para ele não sumir da memória.',
+            'Pode. Crie flashcards em segundos, tire foto do caderno, gere a partir de um texto seu ou importe os baralhos que você já tem no Anki. A revisão de todos eles é organizada pela repetição espaçada, que calcula o dia certo de rever cada cartão para ele não sumir da memória.',
     },
     {
         question: 'A correção de redação é confiável? Quantas posso enviar?',
