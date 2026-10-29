@@ -36,7 +36,7 @@ export function FinalCTA() {
                     </Eyebrow>
 
                     <h2 className="text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        Você estuda.{' '}
+                        Você estuda e registra.{' '}
                         <span className="text-gradient-primary">O RendiPro organiza o resto</span>.
                     </h2>
                     <p className="mx-auto mt-5 max-w-2xl text-body-lg text-white/60">

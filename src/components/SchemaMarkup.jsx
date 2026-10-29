@@ -30,7 +30,7 @@ export function SchemaMarkup() {
     name: 'RendiPro',
     url: 'https://rendipro.com.br',
     logo: 'https://rendipro.com.br/logo.png',
-    description: 'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Para concursos, OAB, ENEM e vestibulares.',
+    description: 'Você estuda e registra. O RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Para concursos, OAB, ENEM e vestibulares.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'BR',
@@ -56,7 +56,7 @@ export function SchemaMarkup() {
     applicationCategory: 'EducationalApplication',
     operatingSystem: 'Web',
     url: 'https://rendipro.com.br',
-    description: 'Você estuda, o RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência.',
+    description: 'Você estuda e registra. O RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência.',
     offers: {
       '@type': 'Offer',
       priceCurrency: 'BRL',

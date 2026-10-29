@@ -52,7 +52,7 @@ export function Features() {
                         Como funciona
                     </Eyebrow>
                     <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        Você estuda.{' '}
+                        Você estuda e registra.{' '}
                         <span className="text-gradient-primary">O RendiPro organiza o resto</span>.
                     </h2>
                     <p className="mx-auto mt-5 max-w-xl text-body text-white/60">

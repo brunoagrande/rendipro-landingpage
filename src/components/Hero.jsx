@@ -64,11 +64,15 @@ export function Hero() {
                             Encurtado de ~60 para ~20 palavras em 24/09/2026: a sessão média
                             da campanha do Instagram é de 16s e só este parágrafo levava ~18s
                             para ser lido. Apostila virando questão e redação corrigida saíram
-                            daqui; já têm seção inteira mais abaixo. */}
+                            daqui; já têm seção inteira mais abaixo.
+
+                            29/10/2026: abre com a linha do produto decidida em 28/10 ("Você estuda e
+                            registra. O RendiPro organiza o resto."). Quem saía do app em segundos
+                            esperava encontrar conteúdo pronto; a frase diz logo quem estuda e com o quê. */}
                         <p
                             className="mt-4 md:mt-6 max-w-2xl mx-auto lg:mx-0 text-body-lg text-white/70 text-pretty"
                         >
-                            Escolha o edital e o RendiPro monta a semana inteira:{' '}
+                            Você estuda e registra. O RendiPro organiza o resto:{' '}
                             <strong className="font-semibold text-white">o que estudar hoje, por quanto tempo e quando revisar.</strong>
                         </p>
 
