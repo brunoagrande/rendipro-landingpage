@@ -23,7 +23,7 @@
 // a cada push, e um push antes de a chave do app ser ligada já prometeria "grátis".
 // Vira `true` só no último passo da ordem de ligar.
 export const CORTESIA_CADASTRO = {
-    ativa: true,
+    ativa: false,
     dias: 7,
 }
 
