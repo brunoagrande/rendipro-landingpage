@@ -68,7 +68,7 @@ export function AiSuite() {
                             <span className="text-gradient-primary">Ele vira questão</span>.
                         </h3>
                         <p className="mt-4 text-body text-white/70">
-                            Envie uma apostila, um resumo ou a matéria da aula. O RendiPro cria questões de múltipla escolha com o seu conteúdo, com gabarito e explicação. Você pratica o que estudou de verdade, não questão genérica da internet.
+                            Envie o PDF da apostila ou do resumo que você está usando. O RendiPro cria questões de múltipla escolha com esse conteúdo, com gabarito e explicação. Você pratica o que estudou de verdade, não questão genérica da internet.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
                             <Bullet><strong className="font-semibold text-white">O seu material vira prova.</strong> Você treina com o que está estudando agora.</Bullet>
