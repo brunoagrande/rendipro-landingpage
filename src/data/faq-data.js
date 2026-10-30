@@ -49,12 +49,12 @@ export const faqItems = [
     {
         question: 'Para qual prova o RendiPro funciona?',
         answer:
-            'Concursos públicos, OAB, ENEM, vestibulares (FUVEST, UNICAMP, UFRGS e outros), Residência Médica e provas escolares. O cronograma nasce do edital da sua prova: 214 já estão prontos e novos entram toda semana. Se o seu não estiver na lista, mande o PDF do edital e confira o que o RendiPro leu antes de começar. Também dá para trazer um cronograma que você já segue, em CSV ou PDF.',
+            'Foi feito para concurso: são mais de 250 editais prontos, e chegam novos toda semana. Também serve para OAB, ENEM e vestibular. Se o seu edital não estiver na lista, mande o PDF e confira o que o RendiPro leu antes de começar. Também dá para trazer um cronograma que você já segue, em CSV ou PDF.',
     },
     {
         question: 'Como funcionam os flashcards? Posso usar os meus?',
         answer:
-            'Pode. Crie flashcards em segundos, tire foto do caderno, gere a partir de um texto seu ou importe os baralhos que você já tem no Anki. A revisão de todos eles é organizada pela repetição espaçada, que calcula o dia certo de rever cada cartão para ele não sumir da memória.',
+            'Pode. Crie flashcards em segundos, tire foto do caderno, gere a partir de um texto seu ou importe os baralhos que você já tem no Anki. A revisão de todos eles é marcada pelo RendiPro no dia certo de rever cada cartão, antes de ele sumir da memória.',
     },
     {
         question: 'A correção de redação é confiável? Quantas posso enviar?',
@@ -81,16 +81,16 @@ export const faqItems = [
         question:
             'Já tentei outras plataformas e desisti em 2 semanas. Como sei que com o RendiPro vai ser diferente?',
         answer:
-            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método para continuar quando o ânimo passa. O RendiPro resolve os dois: entrar na plataforma leva 5 minutos (escolha o seu edital ou mande o PDF, pronto), e tem sequência diária, proteção pros dias de folga e missões curtas para te manter no trilho nos dias ruins. ' +
+            'Sincero: o que faz aluno desistir é setup complicado no começo e falta de método para continuar quando o ânimo passa. O RendiPro resolve os dois: montar o plano leva uns 5 minutos (escolha o seu edital ou mande o PDF, pronto), e a sequência de dias estudados, com proteção pros dias de folga, te mantém no trilho nos dias ruins. ' +
             // Com a cortesia ligada, "garantia de 7 dias" ao lado de "7 dias grátis" confunde (MD, 22/10/2026).
             (CORTESIA_CADASTRO_ATIVA
                 ? `E você usa ${CORTESIA_CADASTRO.dias} dias grátis, sem cartão, antes de decidir.`
-                : 'E tem garantia de 7 dias. Se não funcionar para você, devolve 100% com 1 clique, sem precisar explicar nada.'),
+                : 'E tem garantia de 7 dias.'),
     },
     {
         question: 'Posso cancelar a qualquer momento?',
         answer:
-            'No mensal, sim: você cancela pelo painel quando quiser, sem ligação e sem precisar explicar nada. O anual sai 41% mais barato porque é um plano de 12 meses. Nos primeiros 7 dias, cancelar não custa nada: se você já pagou, devolvemos tudo. Depois disso, cancelar só desliga a renovação, e as mensalidades do cartão seguem até completar os 12 meses (no Pix, o ano já está pago e o acesso vai até o fim).',
+            'No mensal, sim: você cancela pelo painel quando quiser, sem ligação e sem precisar explicar nada. O anual sai 41% mais barato porque é um plano de 12 meses. Nos primeiros 7 dias, cancelar não custa nada: se algo já foi cobrado, devolvemos tudo. Depois disso, cancelar só desliga a renovação, e as mensalidades do cartão seguem até completar os 12 meses (no Pix, o ano já está pago e o acesso vai até o fim).',
     },
     {
         question: 'Como funciona o pagamento? Aceita Pix?',

@@ -52,7 +52,7 @@ export function PlanoShowcase() {
                             <span className="text-gradient-primary">feito para você</span>.
                         </h2>
                         <p className="mt-4 text-body text-white/70">
-                            São 214 editais prontos. Escolha o seu, diga quantas horas tem por dia e o cronograma sai inteiro, <strong className="font-semibold text-white">automaticamente</strong>. Não achou o seu? Mande o PDF do edital. O RendiPro lê o conteúdo programático, você confere matéria por matéria e o plano fica do jeito da sua prova. Chega de planilha e de decidir na mão o que estudar hoje.
+                            São mais de 250 editais de concurso prontos, e chegam novos toda semana. Escolha o seu, diga quantas horas tem por dia e o cronograma sai inteiro, <strong className="font-semibold text-white">automaticamente</strong>. Não achou o seu? Mande o PDF do edital. O RendiPro lê o conteúdo programático, você confere matéria por matéria e o plano fica do jeito da sua prova. Chega de planilha e de decidir na mão o que estudar hoje.
                         </p>
                         <ul className="mt-5 space-y-2.5 text-body-sm text-white/70">
                             <Bullet><strong className="font-semibold text-white">Feito para você</strong>, pelas suas horas e pelo seu edital. Ou importe o cronograma que você já segue, em PDF ou CSV.</Bullet>

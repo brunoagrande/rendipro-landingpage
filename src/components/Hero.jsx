@@ -125,17 +125,35 @@ export function Hero() {
                         </p>
                         {/* Três linhas de reforço viraram uma: em 16 segundos ninguém lê rodapé
                             de hero, e cada linha empurrava o print do produto para fora da tela. */}
-                        <p
-                            className="mt-1.5 inline-flex items-center justify-center lg:justify-start gap-1.5 text-caption text-white/55 animate-fade-in"
-                            style={{ animationDelay: '450ms' }}
-                        >
-                            {/* Cortesia de 7 dias no cadastro (16/10/2026): a oferta embaixo do
-                                botão é ela. Sem "garantia de 7 dias" ao lado: dois "7 dias"
-                                diferentes lado a lado confundem (banca de criativos). */}
-                            {CORTESIA_CADASTRO_ATIVA
-                                ? <><Gift size={13} className="shrink-0 text-primary-400" />{CORTESIA_FRASE}</>
-                                : <><Shield size={13} className="shrink-0 text-primary-400" />{CAMPANHA_ANUAL_ATIVA ? '1º mês grátis · Garantia de 7 dias' : 'Garantia de 7 dias · Pagamento seguro'}</>}
-                        </p>
+                        {/* Campanha do anual (auditoria hormozi, 30/10/2026): o botão leva ao
+                            cartão, então a página diz antes quanto sai hoje. "Garantia de 7
+                            dias" curto: "desista sem custo" em destaque convida a cancelar
+                            (fundador). A explicação mora no FAQ "Posso cancelar?". */}
+                        {!CORTESIA_CADASTRO_ATIVA && CAMPANHA_ANUAL_ATIVA ? (
+                            <p
+                                className="mt-1.5 text-body-sm text-white/70 animate-fade-in"
+                                style={{ animationDelay: '450ms' }}
+                                data-testid="hero-risco"
+                            >
+                                <span className="block">1º mês grátis. No cartão, R$ 0 hoje.</span>
+                                <span className="mt-0.5 inline-flex items-center gap-1.5">
+                                    <Shield size={14} className="shrink-0 text-primary-400" />
+                                    Garantia de 7 dias.
+                                </span>
+                            </p>
+                        ) : (
+                            <p
+                                className="mt-1.5 inline-flex items-center justify-center lg:justify-start gap-1.5 text-caption text-white/55 animate-fade-in"
+                                style={{ animationDelay: '450ms' }}
+                            >
+                                {/* Cortesia de 7 dias no cadastro (16/10/2026): a oferta embaixo do
+                                    botão é ela. Sem "garantia de 7 dias" ao lado: dois "7 dias"
+                                    diferentes lado a lado confundem (banca de criativos). */}
+                                {CORTESIA_CADASTRO_ATIVA
+                                    ? <><Gift size={13} className="shrink-0 text-primary-400" />{CORTESIA_FRASE}</>
+                                    : <><Shield size={13} className="shrink-0 text-primary-400" />Garantia de 7 dias · Pagamento seguro</>}
+                            </p>
+                        )}
                     </div>
 
                     {/* ─── RIGHT · Asset stack ──────────────────────── */}

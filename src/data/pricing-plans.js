@@ -142,7 +142,7 @@ export const PRICING_PLANS = [
         nome: 'Pro Anual',
         nome_curto: 'Pro',
         slug: 'pro-anual',
-        descricao: 'Pra quem treina todo dia: 8 redações corrigidas por mês e o dobro de material virando questão. Um ano inteiro.',
+        descricao: 'Pra quem treina todo dia: o dobro de material virando questão e mais redações corrigidas. Um ano inteiro.',
         tipo: 'anual',
         preco_centavos: 23880,
         preco_ancora_mes_centavos: 3490, // âncora VERDADEIRA: o preço do Pro Mensal

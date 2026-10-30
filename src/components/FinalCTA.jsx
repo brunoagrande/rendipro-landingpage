@@ -32,7 +32,7 @@ export function FinalCTA() {
                     <Eyebrow variant="primary" className="mb-5">
                         {CORTESIA_CADASTRO_ATIVA
                             ? <><Gift size={14} />{CORTESIA_FRASE}</>
-                            : <><Shield size={14} />Garantia de 7 dias, sem perguntas</>}
+                            : <><Shield size={14} />Garantia de 7 dias</>}
                     </Eyebrow>
 
                     <h2 className="text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
@@ -73,11 +73,11 @@ export function FinalCTA() {
                             <>
                                 <p className="flex items-center gap-2 text-body-sm font-medium text-white/70">
                                     <Shield size={16} className="text-primary-400" />
-                                    <strong className="font-semibold text-white">7 dias de garantia.</strong> Não gostou, devolvemos 100% com 1 clique.
+                                    <span><strong className="font-semibold text-white">Garantia de 7 dias</strong> em qualquer plano.</span>
                                 </p>
                                 <p className="flex items-center gap-2 text-caption text-white/50">
                                     <Lock size={14} className="text-white/40" />
-                                    Pagamento seguro. Você entra na hora, assim que o Pix ou o cartão passar.
+                                    Pagamento seguro pelo Asaas, no Pix ou no cartão.
                                 </p>
                             </>
                         )}

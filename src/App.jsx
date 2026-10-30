@@ -17,13 +17,11 @@ import { CORTESIA_CADASTRO_ATIVA } from './data/cortesia-cadastro'
 // (removido em 15/09/2026: a página de beta e o VITE_BETA_MODE. A fase de
 // fundadores fechou e a indicação está desligada.)
 
-const ForWhom       = lazy(() => import('./components/ForWhom').then(m => ({ default: m.ForWhom })))
 const PlanoShowcase = lazy(() => import('./components/PlanoShowcase').then(m => ({ default: m.PlanoShowcase })))
 const TragaOEdital  = lazy(() => import('./components/TragaOEdital').then(m => ({ default: m.TragaOEdital })))
 const AiSuite       = lazy(() => import('./components/AiSuite').then(m => ({ default: m.AiSuite })))
 const RedacaoShowcase = lazy(() => import('./components/RedacaoShowcase').then(m => ({ default: m.RedacaoShowcase })))
 const Features      = lazy(() => import('./components/Features').then(m => ({ default: m.Features })))
-const VejaPorDentro = lazy(() => import('./components/VejaPorDentro').then(m => ({ default: m.VejaPorDentro })))
 const FounderStory  = lazy(() => import('./components/FounderStory').then(m => ({ default: m.FounderStory })))
 const Pricing       = lazy(() => import('./components/Pricing').then(m => ({ default: m.Pricing })))
 const FAQ           = lazy(() => import('./components/FAQ').then(m => ({ default: m.FAQ })))
@@ -65,13 +63,14 @@ function App() {
               nova, rede ruim) derruba só a própria seção, nunca a página
               inteira (Clarity, 22/10/2026). */}
           <Suspense fallback={<div className="h-12 bg-surface-950" />}>
-            <SecaoSegura nome="for_whom"><ForWhom /></SecaoSegura>
             <SecaoSegura nome="plano_showcase"><PlanoShowcase /></SecaoSegura>
             <SecaoSegura nome="traga_o_edital"><TragaOEdital /></SecaoSegura>
             <SecaoSegura nome="features"><Features /></SecaoSegura>
             <SecaoSegura nome="ai_suite"><AiSuite /></SecaoSegura>
             <SecaoSegura nome="redacao_showcase"><RedacaoShowcase /></SecaoSegura>
-            <SecaoSegura nome="veja_por_dentro"><VejaPorDentro /></SecaoSegura>
+            {/* Saíram em 30/10/2026 (auditoria hormozi): ForWhom (três públicos ao
+                mesmo tempo; a página é de concurso) e VejaPorDentro (telas de teste
+                diferentes do app real). O catálogo de editais virou link no TrustStrip. */}
             <SecaoSegura nome="founder_story"><FounderStory /></SecaoSegura>
             <SecaoSegura nome="pricing"><Pricing /></SecaoSegura>
             <SecaoSegura nome="faq"><FAQ /></SecaoSegura>

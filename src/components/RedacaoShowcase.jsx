@@ -75,7 +75,7 @@ export function RedacaoShowcase() {
                             </Bullet>
                             <Bullet>
                                 <strong className="font-semibold text-white">Já está no plano</strong>, sem
-                                corretor avulso: 2 redações por mês no Starter, 8 no Pro.
+                                corretor avulso.
                             </Bullet>
                         </ul>
 

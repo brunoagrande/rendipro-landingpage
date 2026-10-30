@@ -170,7 +170,7 @@ export function FAQ() {
                     ) : (
                         <p className="flex items-center gap-2 text-caption text-white/55">
                             <Shield size={13} className="text-primary-400" />
-                            <strong className="font-semibold text-white/80">7 dias de garantia.</strong> Não gostou, devolvemos 100% com 1 clique.
+                            <span><strong className="font-semibold text-white/80">Garantia de 7 dias</strong> em qualquer plano.</span>
                         </p>
                     )}
                 </motion.div>

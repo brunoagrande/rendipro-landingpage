@@ -62,11 +62,12 @@ const COMMON_FEATURES = [
     'Crie flashcards, tire foto do caderno ou importe do Anki',
     'Sua apostila vira questões de treino com gabarito',
     'Redação corrigida todo mês, com nota por competência',
-    'Sequência de estudos e missões diárias',
+    'Sequência de dias estudados',
     'Acesso completo no celular',
     // Com a cortesia ligada, "garantia de 7 dias" ficaria perto de "7 dias grátis":
     // dois 7 dias diferentes na mesma seção confundem (banca de criativos, 16/10).
-    CORTESIA_CADASTRO_ATIVA ? 'Começa grátis, sem cartão' : 'Garantia de 7 dias em qualquer plano',
+    // Garantia não é recurso: ela mora no selo embaixo dos planos (auditoria hormozi, 30/10/2026).
+    ...(CORTESIA_CADASTRO_ATIVA ? ['Começa grátis, sem cartão'] : []),
 ]
 
 function formatPrice(cents) {
@@ -265,8 +266,8 @@ export function Pricing() {
                         <span className="flex items-center gap-2">
                             <Shield size={18} className="text-primary-400" />
                             <span>
-                                <strong className="font-semibold text-white">Garantia de 7 dias.</strong>{' '}
-                                1 clique e devolvemos 100%.
+                                <strong className="font-semibold text-white">Garantia de 7 dias</strong>{' '}
+                                em qualquer plano.
                             </span>
                         </span>
                     )}
@@ -283,8 +284,8 @@ export function Pricing() {
                             <>
                                 <Zap size={18} className="text-primary-400" />
                                 <span>
-                                    <strong className="font-semibold text-white">Acesso na hora</strong>,{' '}
-                                    assim que o Pix ou o cartão passar.
+                                    <strong className="font-semibold text-white">Pagamento seguro</strong>{' '}
+                                    pelo Asaas, no Pix ou no cartão.
                                 </span>
                             </>
                         )}
@@ -298,7 +299,7 @@ export function Pricing() {
                                 para ela. "Cancele quando quiser" embaixo do anual prometia algo
                                 que o anual não cumpre depois do 7º dia. */}
                             {tipo === 'anual'
-                                ? <><strong className="font-semibold text-white">12 meses</strong>, com 7 dias para desistir.</>
+                                ? <><strong className="font-semibold text-white">Plano de 12 meses.</strong></>
                                 : <><strong className="font-semibold text-white">Cancele quando quiser.</strong></>}
                         </span>
                     </span>
@@ -416,7 +417,7 @@ function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }
                         {/* F5-b (fundador, 08/10/2026): o compromisso no card onde a pessoa
                             decide. O detalhe (as mensalidades seguem) fica no FAQ e no checkout. */}
                         <p className="mt-1 text-caption font-semibold text-white/70">
-                            12 meses. Desista sem custo em até 7 dias.
+                            12 meses, com garantia de 7 dias.
                         </p>
                         <p className="mt-2.5 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-caption font-bold text-emerald-400">
                             Economize {formatPrice(savings + campanha.descontoCentavos)}/ano
