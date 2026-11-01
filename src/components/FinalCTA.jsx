@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Gift, Lock, Shield } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
+import { obterOfertaLanding } from '../data/oferta-landing'
 import { trackRegisterCta } from '../lib/tracking'
 import { useSectionView } from '../lib/useSectionView'
 import { Button } from './ui/Button'
@@ -9,10 +10,11 @@ import { CORTESIA_CADASTRO_ATIVA, CORTESIA_FRASE } from '../data/cortesia-cadast
 
 const easeSpring = [0.16, 1, 0.3, 1]
 
-const trackFinalCta = () => trackRegisterCta({ buttonText: 'Montar meu cronograma', location: 'final_cta' })
+const trackFinalCta = () => trackRegisterCta({ buttonText: 'Montar meu plano', location: 'final_cta', plan: 'starter-anual' })
 
 export function FinalCTA() {
-    const { getCheckoutUrl } = useInfluencer()
+    const { getCheckoutUrl, influencerData, applyDiscount } = useInfluencer()
+    const oferta = obterOfertaLanding(influencerData, applyDiscount)
     const sectionRef = useSectionView('final_cta')
 
     return (
@@ -36,11 +38,10 @@ export function FinalCTA() {
                     </Eyebrow>
 
                     <h2 className="text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        Você estuda e registra.{' '}
-                        <span className="text-gradient-primary">O RendiPro organiza o resto</span>.
+                        Daqui a um mês, o seu edital pode estar no mesmo lugar. Ou com um mês de estudo feito e revisado.
                     </h2>
                     <p className="mx-auto mt-5 max-w-2xl text-body-lg text-white/60">
-                        Cole o edital hoje. Amanhã o RendiPro já abre com a lista do dia pronta.
+                        Escolha o edital hoje. Ainda hoje você sabe o que estudar.
                     </p>
 
                     <div className="mt-9 flex flex-col items-center gap-4">
@@ -54,7 +55,7 @@ export function FinalCTA() {
                             size="lg"
                             className="sm:px-12"
                         >
-                            Montar meu cronograma
+                            Montar meu plano
                             <ArrowRight
                                 size={18}
                                 className="transition-transform group-hover:translate-x-1"
@@ -71,9 +72,11 @@ export function FinalCTA() {
                             </p>
                         ) : (
                             <>
+                                {/* 01/11/2026 (landing v2): a linha do protótipo, com os 12 meses
+                                    e o preço vindos de oferta-landing.js (os 3 estados da oferta). */}
                                 <p className="flex items-center gap-2 text-body-sm font-medium text-white/70">
                                     <Shield size={16} className="text-primary-400" />
-                                    <span><strong className="font-semibold text-white">Garantia de 7 dias</strong> em qualquer plano.</span>
+                                    <span>{oferta.textoFechamento}</span>
                                 </p>
                                 <p className="flex items-center gap-2 text-caption text-white/50">
                                     <Lock size={14} className="text-white/40" />

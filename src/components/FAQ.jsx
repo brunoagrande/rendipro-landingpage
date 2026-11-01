@@ -1,13 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ChevronDown, Gift, HelpCircle, Shield } from 'lucide-react'
+import { ChevronDown, HelpCircle } from 'lucide-react'
 import { faqItems } from '../data/faq-data'
-import { CORTESIA_CADASTRO_ATIVA, CORTESIA_FRASE } from '../data/cortesia-cadastro'
 import { Eyebrow } from './ui/Eyebrow'
-import { Button } from './ui/Button'
-import { useInfluencer } from '../contexts/InfluencerContext'
 import { cn } from '../lib/utils'
-import { trackRegisterCta, trackFaqOpen } from '../lib/tracking'
+import { trackFaqOpen } from '../lib/tracking'
 import { useSectionView } from '../lib/useSectionView'
 
 /**
@@ -16,8 +13,6 @@ import { useSectionView } from '../lib/useSectionView'
  */
 
 const easeSpring = [0.16, 1, 0.3, 1]
-
-const trackFaqCta = () => trackRegisterCta({ buttonText: 'Começar agora', location: 'faq' })
 
 function FAQItem({ question, answer, link, isOpen, onToggle }) {
     return (
@@ -80,8 +75,7 @@ function FAQItem({ question, answer, link, isOpen, onToggle }) {
 }
 
 export function FAQ() {
-    const [openIndex, setOpenIndex] = useState(null)
-    const { getCheckoutUrl } = useInfluencer()
+    const [openIndex, setOpenIndex] = useState(0)
     const sectionRef = useSectionView('faq')
 
     const toggleQuestion = (index, question) => {
@@ -106,14 +100,11 @@ export function FAQ() {
                 >
                     <Eyebrow variant="ghost" className="mb-4">
                         <HelpCircle size={14} />
-                        Perguntas frequentes
+                        Dúvidas
                     </Eyebrow>
                     <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        Suas <span className="text-gradient-primary">dúvidas</span>, sem rodeio.
+                        Dúvidas, sem rodeio
                     </h2>
-                    <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/60">
-                        Se você ainda tem dúvidas, provavelmente é uma dessas:
-                    </p>
                 </motion.div>
 
                 {/* FAQ list */}
@@ -136,45 +127,9 @@ export function FAQ() {
                     ))}
                 </motion.div>
 
-                {/* CTA grande no fim do FAQ */}
-                <motion.div
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-40px' }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    className="mx-auto mt-12 flex max-w-3xl flex-col items-center gap-3 rounded-2xl border border-primary-500/20 bg-gradient-to-br from-surface-900 via-primary-500/[0.04] to-surface-900 p-6 text-center sm:p-8"
-                >
-                    <p className="text-body sm:text-body-lg text-white/80">
-                        Já tem o que precisa para decidir?
-                    </p>
-                    <Button
-                        as="a"
-                        href={getCheckoutUrl(
-                            'https://app.rendipro.com.br/register?plano=starter-anual&utm_content=faq'
-                        )}
-                        onClick={trackFaqCta}
-                        variant="primary"
-                        size="lg"
-                    >
-                        Começar agora
-                        <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                    </Button>
-                    {/* Cortesia de 7 dias no cadastro (16/10/2026): a nota é a oferta, não a
-                        garantia (dois "7 dias" diferentes confundem). Sem linha de
-                        "condição": o fundador vetou (ver cortesia-cadastro.js). */}
-                    {CORTESIA_CADASTRO_ATIVA ? (
-                        <p className="flex items-center gap-2 text-caption text-white/55">
-                            <Gift size={13} className="text-primary-400" />
-                            {CORTESIA_FRASE}
-                        </p>
-                    ) : (
-                        <p className="flex items-center gap-2 text-caption text-white/55">
-                            <Shield size={13} className="text-primary-400" />
-                            <span><strong className="font-semibold text-white/80">Garantia de 7 dias</strong> em qualquer plano.</span>
-                        </p>
-                    )}
-                </motion.div>
-
+                {/* 01/11/2026 (landing v2, hormozi): saiu o CTA "Começar agora" do fim do FAQ.
+                    O pedido fica no Fechamento logo abaixo; "em qualquer plano" morreu com o Pro
+                    fora da página. */}
                 {/* Contato */}
                 <motion.p
                     initial={{ opacity: 0 }}
@@ -190,7 +145,7 @@ export function FAQ() {
                     >
                         contato@rendipro.com.br
                     </a>
-                    . A gente responde em até 24h.
+                    .
                 </motion.p>
             </div>
         </section>

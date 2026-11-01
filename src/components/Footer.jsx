@@ -12,7 +12,7 @@ export function Footer() {
                             />
                         </div>
                         <p className="mt-4 max-w-sm text-body-sm leading-relaxed text-white/55">
-                            O RendiPro organiza o estudo de quem se prepara para concurso: cronograma pelo edital, revisão no dia certo e o registro do que você estudou.
+                            O RendiPro organiza o estudo de quem se prepara para concurso: o plano pelo edital, a revisão no dia certo e o registro do que você estudou.
                         </p>
                     </div>
                     <div>

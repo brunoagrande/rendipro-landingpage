@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import { ArrowRight, Gift, Shield } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { cn } from '../lib/utils'
 import { trackRegisterCta } from '../lib/tracking'
-import { CAMPANHA_ANUAL_ATIVA } from '../data/campanha-anual'
-import { CORTESIA_CADASTRO_ATIVA, CORTESIA_FRASE } from '../data/cortesia-cadastro'
+import { obterOfertaLanding } from '../data/oferta-landing'
 
 /**
  * Sticky CTA mobile — barra persistente embaixo da tela em mobile/tablet.
@@ -24,11 +23,12 @@ import { CORTESIA_CADASTRO_ATIVA, CORTESIA_FRASE } from '../data/cortesia-cadast
  * Lift esperado: +15% CR mobile.
  */
 
-const trackStickyCta = () => trackRegisterCta({ buttonText: 'Começar', location: 'sticky_mobile' })
+const trackStickyCta = () => trackRegisterCta({ buttonText: 'Montar meu plano', location: 'sticky_mobile', plan: 'starter-anual' })
 
 export function StickyMobileCTA() {
     const [isVisible, setIsVisible] = useState(false)
-    const { getCheckoutUrl } = useInfluencer()
+    const { influencerData, applyDiscount, getCheckoutUrl } = useInfluencer()
+    const oferta = obterOfertaLanding(influencerData, applyDiscount)
 
     useEffect(() => {
         let raf = null
@@ -84,33 +84,29 @@ export function StickyMobileCTA() {
                     <div className="container mx-auto flex items-center gap-3">
                         <div className="min-w-0 flex-1">
                             <div className="flex flex-wrap items-baseline gap-x-1.5">
-                                <span className="text-body-sm font-bold text-white">
-                                    Starter Anual
-                                </span>
-                                <span className="text-body font-extrabold text-primary-300">
+                                {oferta.campanhaAtiva && <span className="text-body-sm font-bold text-white">1º mês grátis</span>}
+                                <span className="hidden text-body font-extrabold text-primary-300">
                                     {/* Saiu em 24/09/2026 o riscado "R$ 16,90". Ele é o preço
                                         do Starter MENSAL, e ao lado de "R$ 9,90/mês" fazia
                                         parecer desconto no mensal, quando os R$ 9,90 são o
                                         anual dividido por 12. Mesma razão que derrubou a
                                         âncora de R$ 24,90 em pricing-plans.js. */}
-                                    R$ 9,90
+                                    {oferta.precoMensal}
                                     <span className="text-[11px] font-medium text-white/60">/mês</span>
                                 </span>
                             </div>
                             <p className="mt-0.5 flex items-center gap-1 text-[10px] text-white/55">
-                                {CORTESIA_CADASTRO_ATIVA
-                                    ? <><Gift size={10} className="text-primary-400" />{CORTESIA_FRASE}</>
-                                    : <><Shield size={10} className="text-primary-400" />{CAMPANHA_ANUAL_ATIVA ? '1º mês grátis · Garantia de 7 dias' : 'Plano de 12 meses · Garantia de 7 dias'}</>}
+                                {oferta.textoSticky}
                             </p>
                         </div>
                         <a
                             href={getCheckoutUrl(
-                                'https://app.rendipro.com.br/register?plano=starter-anual&utm_content=sticky'
+                                'https://app.rendipro.com.br/register?plano=starter-anual&utm_content=sticky_mobile'
                             )}
                             onClick={trackStickyCta}
                             className="group inline-flex shrink-0 items-center gap-1.5 rounded-full bg-primary-500 px-5 py-2.5 text-body-sm font-bold text-surface-950 shadow-lg shadow-primary-500/30 transition-all active:scale-95 hover:bg-primary-400"
                         >
-                            Começar
+                            Montar meu plano
                             <ArrowRight
                                 size={14}
                                 className="transition-transform group-hover:translate-x-0.5"

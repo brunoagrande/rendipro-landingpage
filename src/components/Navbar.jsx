@@ -3,15 +3,15 @@ import { useState } from 'react'
 import { useInfluencer } from '../contexts/InfluencerContext'
 import { trackRegisterCta } from '../lib/tracking'
 
-const trackNavbarCta = () => trackRegisterCta({ buttonText: 'Começar agora', location: 'navbar' })
+const trackNavbarCta = () => trackRegisterCta({ buttonText: 'Montar meu plano', location: 'navbar', plan: 'starter-anual' })
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
     const { getCheckoutUrl } = useInfluencer()
 
     const navLinks = [
-        { name: 'Como funciona', href: '#plano' },
-        { name: 'Planos', href: '#pricing' },
+        { name: 'Como funciona', href: '#como-funciona' },
+        { name: 'Preço', href: '#oferta' },
         { name: 'Dúvidas', href: '#faq' },
     ]
 
@@ -60,7 +60,7 @@ export function Navbar() {
                         onClick={trackNavbarCta}
                         className="rounded-full border border-white/25 px-4 py-2 text-sm font-semibold text-white transition-all active:scale-95 hover:bg-white/10 md:border-transparent md:bg-white md:px-5 md:text-surface-950 md:hover:bg-white/90"
                     >
-                        Começar agora
+                        Montar meu plano
                     </a>
 
                     {/* Mobile Menu Button */}

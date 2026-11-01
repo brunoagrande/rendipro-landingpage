@@ -1,577 +1,125 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import {
-    ArrowRight,
-    Check,
-    Crown,
-    Shield,
-    Sparkles,
-    X as XIcon,
-    CalendarDays,
-    Gift,
-    Zap,
-} from 'lucide-react'
+import { Check } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
-import { Button } from './ui/Button'
-import { Eyebrow } from './ui/Eyebrow'
-import { cn } from '../lib/utils'
-import { useSectionView } from '../lib/useSectionView'
 import { trackRegisterCta } from '../lib/tracking'
-import {
-    getPlansByTipo,
-    getMonthlyEquivalent,
-    getRedacoesPorMes,
-    ANNUAL_DISCOUNT_LABEL,
-} from '../data/pricing-plans'
-import { CAMPANHA_ANUAL_ATIVA, CAMPANHA_ANUAL, resumoCampanhaAnual } from '../data/campanha-anual'
-import { CORTESIA_CADASTRO_ATIVA, CORTESIA_CADASTRO } from '../data/cortesia-cadastro'
+import { useSectionView } from '../lib/useSectionView'
+import { obterOfertaLanding, SUPORTE_NO_APP_ATIVO } from '../data/oferta-landing'
 
-/**
- * Pricing v3 — 100% reescrito.
- *
- * Mudanças críticas vs v1:
- *  - Fonte de dados: ESTÁTICA (`src/data/pricing-plans.js`). Sem Supabase.
- *    Elimina o 401, elimina o loader infinito, elimina o ponto único de falha.
- *  - Toggle anual mostra o desconto REAL vs mensal (grade v2: -41%).
- *  - 3 features de IA por plano agora visíveis (flashcards IA, cronograma IA,
- *    tira-dúvidas IA).
- *  - Cada CTA é "Quero o [Nome]" (Joel Jota / Bruno Perini pattern).
- *  - Garantia destacada abaixo dos cards em 3 selos.
- *  - InfluencerContext continua funcional para cupons.
- *  - Pixel CTARegisterClick segue disparando em cada CTA (ver nota em lib/tracking.js).
- *
- * Decisão locked (Bruno):
- *  - Manter nomes Starter/Plus/Pro/Ultra (não renomear).
- *  - Garantia 7 dias incondicional CDC.
- *  - Desconto anual = diferenca real anual vs mensal (label em pricing-plans).
- */
-
-const easeSpring = [0.16, 1, 0.3, 1]
-
-const fadeUp = {
-    hidden: { opacity: 0, y: 24 },
-    show: { opacity: 1, y: 0 },
-}
-
-const COMMON_FEATURES = [
-    // Regra: so entra aqui o que TODO plano entrega hoje. Conferido contra o
-    // produto em 15/08/2026 (ligas/loja estao atras de gate: NAO listar).
-    'Cronograma pelo edital do catálogo, pelo PDF do seu edital ou importado (CSV/PDF)',
-    'Revisão no dia certo, sem planilha',
-    'Até 3 cronogramas em paralelo',
-    'Crie flashcards, tire foto do caderno ou importe do Anki',
-    'Sua apostila vira questões de treino com gabarito',
-    'Redação corrigida todo mês, com nota por competência',
-    'Sequência de dias estudados',
-    'Acesso completo no celular',
-    // Com a cortesia ligada, "garantia de 7 dias" ficaria perto de "7 dias grátis":
-    // dois 7 dias diferentes na mesma seção confundem (banca de criativos, 16/10).
-    // Garantia não é recurso: ela mora no selo embaixo dos planos (auditoria hormozi, 30/10/2026).
-    ...(CORTESIA_CADASTRO_ATIVA ? ['Começa grátis, sem cartão'] : []),
+const itens = [
+    'O plano do seu edital, pelo catálogo ou pelo PDF do seu, dividido em dias até a prova.',
+    'A sessão de cada dia: matéria, tópico e tempo.',
+    'Revisão no dia certo de cada tópico que você estuda.',
+    'Replanejar em um clique quando a semana sai do roteiro.',
+    'Até 3 concursos ao mesmo tempo.',
+    'Seu PDF vira questão com gabarito: 6 PDFs por mês.',
+    'Flashcards: foto do caderno vira cartão (50 por mês) e seus baralhos do Anki entram como estão.',
+    'Redação corrigida com nota por competência: 6 por mês.',
 ]
-
-function formatPrice(cents) {
-    return (cents / 100).toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-    })
-}
-
-const trackPricingCta = (plan) => {
-    // Centralizado em trackRegisterCta: dispara Meta CTARegisterClick
-    // (value + content_ids + content_name + content_type + num_items + currency + eventID UUID)
-    // e GA4 cta_click (com plan_slug/plan_value + UTMs).
-    trackRegisterCta({
-        buttonText: `Assinar ${plan.nome}`,
-        location: 'pricing',
-        plan,
-    })
-}
 
 export function Pricing() {
     const { influencerData, applyDiscount, getCheckoutUrl } = useInfluencer()
-    const sectionRef = useSectionView('pricing')
-
-    // Anual-first: e o produto da campanha (caixa antecipado paga o CAC) e o
-    // melhor preco pro aluno. Mensal fica a um clique, nao escondido.
-    const [tipo, setTipo] = useState('anual')
-    const plans = getPlansByTipo(tipo)
+    const oferta = obterOfertaLanding(influencerData, applyDiscount)
+    const sectionRef = useSectionView('oferta')
 
     return (
         <section
             ref={sectionRef}
-            id="pricing"
-            className="relative overflow-hidden py-14 sm:py-24"
+            id="oferta"
+            className="relative border-y border-white/5 bg-gradient-to-b from-surface-900 to-surface-950 py-16 md:py-24"
         >
-            {/* Background glow */}
-            <div className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[700px] w-[1100px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-500/[0.05] blur-[140px]" />
-
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                {/* ─── Header ───────────────────────────────────────────── */}
-                <motion.div
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: '-80px' }}
-                    transition={{ duration: 0.7, ease: easeSpring }}
-                    className="mb-10 text-center"
-                >
-                    <Eyebrow variant="primary" className="mb-4">
-                        <Sparkles size={14} />
-                        Planos
-                    </Eyebrow>
-                    <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        Quanto custa ter o estudo inteiro{' '}<span className="text-gradient-primary">organizado</span>?
-                    </h2>
-                    {/* 22/10/2026 (diagnóstico da MD): saiu "menos que uma hora de cursinho
-                        presencial", que punha o RendiPro na mesma prateleira do cursinho. O 1º
-                        pagante que cancelou (09/10) esperava material de estudo: aqui, colado no
-                        preço, a página diz o que o RendiPro NÃO é. */}
-                    <p className="mx-auto mt-6 max-w-2xl text-body-lg text-white/60">
-                        O RendiPro não é cursinho: não tem aula nem apostila. Você estuda com o material que já usa, e ele organiza o resto.
-                    </p>
-                </motion.div>
-
-                {/* ─── Callout "vs 4 apps" ─────────────────────────────── */}
-                <motion.div
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: '-50px' }}
-                    transition={{ duration: 0.5, ease: easeSpring }}
-                    className="mx-auto mb-8 max-w-3xl rounded-2xl border border-white/10 bg-surface-900/60 px-5 py-4 text-center backdrop-blur-sm sm:text-left"
-                >
-                    <p className="text-body-sm leading-relaxed text-white/70">
-                        <span className="text-white/45">Hoje você junta</span>{' '}
-                        Anki, planilha, corretor avulso e lembrete no celular, e ainda perde tempo decidindo o que revisar.{' '}
-                        <span className="text-white/45">No RendiPro,</span>{' '}
-                        <strong className="font-semibold text-white">o cronograma nasce do seu edital, a revisão chega no dia certo, sua apostila vira questão e sua redação volta corrigida. Tudo em um plano só, {CAMPANHA_ANUAL_ATIVA ? 'a partir de R$ 9,90 por mês, com 1 mês grátis no plano anual' : 'a partir de R$ 9,90 por mês'}.</strong>
-                    </p>
-                </motion.div>
-
-                {/* ─── Cortesia de 7 dias no cadastro (16/10/2026) ──────── */}
-                {/* A ordem das duas ofertas, dita uma vez: primeiro os dias grátis do
-                    Starter (todo mundo); depois, quem assinar o anual com a campanha no
-                    ar ainda ganha o 1º mês. As duas somam (fundador: "a cortesia é cortesia"). */}
-                {CORTESIA_CADASTRO_ATIVA && (
-                    <div className="mx-auto mb-8 max-w-3xl rounded-2xl border border-primary-500/30 bg-primary-500/[0.06] px-5 py-4 text-center" data-testid="pricing-cortesia">
-                        <p className="flex items-center justify-center gap-2 text-body font-semibold text-white">
-                            <Gift size={18} className="shrink-0 text-primary-400" />
-                            Comece com {CORTESIA_CADASTRO.dias} dias grátis no Starter, sem cartão.
+            <span id="pricing" className="absolute top-0" />
+            <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+                <p className="text-center text-micro font-bold uppercase tracking-[0.14em] text-accent-300">
+                    O plano anual
+                </p>
+                <h2 className="mt-3 text-center text-display-md font-extrabold text-white sm:text-display-lg">
+                    Plano Até a Prova
+                </h2>
+                <p className="mx-auto mt-3 max-w-2xl text-center text-body-lg text-white/70">
+                    O seu edital dividido em dias, do primeiro até a prova. Tudo o que vem nele:
+                </p>
+                <div className="mt-10 grid items-start gap-6 md:grid-cols-[1.2fr_1fr]">
+                    <div className="rounded-3xl border border-white/10 bg-surface-800/60 p-6 md:p-8">
+                        <ul className="space-y-4 text-body text-white/80">
+                            {itens.map((item) => (
+                                <li key={item} className="flex gap-3">
+                                    <Check size={20} className="mt-0.5 shrink-0 text-primary-400" />
+                                    {item}
+                                </li>
+                            ))}
+                            {SUPORTE_NO_APP_ATIVO && (
+                                <li className="flex gap-3">
+                                    <Check size={20} className="mt-0.5 shrink-0 text-primary-400" />
+                                    Ajuda para montar o seu plano. Travou em algum passo? Fale com a equipe pelo
+                                    WhatsApp, de dentro do app.
+                                </li>
+                            )}
+                        </ul>
+                        <p className="mt-6 border-t border-white/10 pt-5 text-body-sm leading-relaxed text-white/55">
+                            {oferta.textoPilha}
                         </p>
-                        {/* Sem linha de "condição": o fundador vetou (ver cortesia-cadastro.js). */}
-                        {CAMPANHA_ANUAL_ATIVA && (
-                            <p className="mt-1.5 text-body-sm text-white/65">
-                                Se assinar o plano anual depois, o 1º mês também é grátis.
+                    </div>
+                    <aside className="rounded-3xl border border-primary-500/40 bg-surface-800 p-6 md:sticky md:top-24 md:p-8">
+                        {oferta.campanhaAtiva && (
+                            <p className="inline-flex rounded-full bg-primary-500/15 px-3 py-1 text-caption font-bold text-primary-300">
+                                {oferta.selo}
                             </p>
                         )}
-                    </div>
-                )}
-
-                {/* ─── Toggle Mensal | Anual (anual default) ────────────── */}
-                <div className="mb-8 flex justify-center">
-                    <div className="inline-flex items-center rounded-full border border-white/10 bg-surface-900/70 p-1 backdrop-blur-sm">
-                        <button
-                            type="button"
-                            onClick={() => setTipo('mensal')}
-                            className={cn(
-                                'rounded-full px-5 py-2 text-body-sm font-semibold transition-colors',
-                                tipo === 'mensal' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white/80'
-                            )}
-                        >
-                            Mensal
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => setTipo('anual')}
-                            className={cn(
-                                'flex items-center gap-2 rounded-full px-5 py-2 text-body-sm font-semibold transition-colors',
-                                tipo === 'anual' ? 'bg-primary-500 text-surface-950' : 'text-white/50 hover:text-white/80'
-                            )}
-                        >
-                            Anual
-                            <span
-                                className={cn(
-                                    'rounded-full px-1.5 py-0.5 text-[11px] font-bold',
-                                    tipo === 'anual' ? 'bg-surface-950/20 text-surface-950' : 'bg-emerald-500/15 text-emerald-400'
-                                )}
-                            >
-                                {ANNUAL_DISCOUNT_LABEL}
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                {/* ─── Cards Starter + Pro do período escolhido ─────────── */}
-                <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-2">
-                    {plans.map((plan, i) => (
-                        <PlanCard
-                            key={plan.id_plano}
-                            plan={plan}
-                            index={i}
-                            influencerData={influencerData}
-                            applyDiscount={applyDiscount}
-                            getCheckoutUrl={getCheckoutUrl}
-                        />
-                    ))}
-                </div>
-
-                {/* Trava de preco: urgencia REAL no lugar do preco riscado que nunca
-                    existiu. A meta que dispara a subida fica interna (D.1); o que a
-                    pessoa precisa saber e que o preco sobe e que ela fica no de hoje.
-                    O sistema sustenta a promessa: o Asaas cobra o valor guardado na
-                    assinatura, e nada no nosso codigo mexe nele depois. */}
-                <p className="mx-auto mt-6 max-w-3xl text-center text-caption text-white/55">
-                    É preço de lançamento: assinando agora, esse valor fica com você enquanto for assinante, mesmo quando o preço subir.
-                </p>
-
-                {/* ─── Common features banner ───────────────────────────── */}
-                <motion.div
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: '-50px' }}
-                    transition={{ duration: 0.6, delay: 0.2, ease: easeSpring }}
-                    className="mx-auto mt-14 max-w-4xl rounded-2xl border border-white/10 bg-surface-900/40 p-6 backdrop-blur-sm sm:p-8"
-                >
-                    <p className="text-center text-micro font-semibold uppercase tracking-widest text-primary-400">
-                        Em todos os planos você tem acesso a
-                    </p>
-                    <ul className="mt-5 grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
-                        {COMMON_FEATURES.map((f) => (
-                            <li
-                                key={f}
-                                className="flex items-start gap-2 text-body-sm text-white/70"
-                            >
-                                <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
-                                <span>{f}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </motion.div>
-
-                {/* ─── Guarantee row ────────────────────────────────────── */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    className="mt-10 flex flex-wrap items-center justify-center gap-6 sm:gap-x-10 sm:gap-y-4 text-body-sm text-white/75"
-                >
-                    {/* Com a cortesia ligada, a garantia sai daqui: "7 dias grátis" e
-                        "garantia de 7 dias" na mesma tela são dois prazos diferentes com o
-                        mesmo número (MD, 22/10/2026). A garantia segue valendo e está no FAQ
-                        "Posso cancelar a qualquer momento?". */}
-                    {!CORTESIA_CADASTRO_ATIVA && (
-                        <span className="flex items-center gap-2">
-                            <Shield size={18} className="text-primary-400" />
-                            <span>
-                                <strong className="font-semibold text-white">Garantia de 7 dias</strong>{' '}
-                                em qualquer plano.
-                            </span>
-                        </span>
-                    )}
-                    <span className="flex items-center gap-2">
-                        {CORTESIA_CADASTRO_ATIVA ? (
-                            <>
-                                <Gift size={18} className="text-primary-400" />
-                                <span>
-                                    <strong className="font-semibold text-white">Acesso na hora</strong>,{' '}
-                                    sem cartão para começar.
-                                </span>
-                            </>
-                        ) : (
-                            <>
-                                <Zap size={18} className="text-primary-400" />
-                                <span>
-                                    <strong className="font-semibold text-white">Pagamento seguro</strong>{' '}
-                                    pelo Asaas, no Pix ou no cartão.
-                                </span>
-                            </>
+                        {oferta.comInfluencer && (
+                            <p className="text-body-sm text-white/45">
+                                De <span className="line-through">{oferta.precoMensalSemDesconto}</span> por mês, com o
+                                desconto do seu cupom:
+                            </p>
                         )}
-                    </span>
-                    <span className="flex items-center gap-2">
-                        {tipo === 'anual'
-                            ? <CalendarDays size={18} className="text-primary-400" />
-                            : <XIcon size={18} className="text-primary-400" />}
-                        <span>
-                            {/* F5-a (fundador, 08/10/2026): cada aba diz só o que é verdade
-                                para ela. "Cancele quando quiser" embaixo do anual prometia algo
-                                que o anual não cumpre depois do 7º dia. */}
-                            {tipo === 'anual'
-                                ? <><strong className="font-semibold text-white">Plano de 12 meses.</strong></>
-                                : <><strong className="font-semibold text-white">Cancele quando quiser.</strong></>}
-                        </span>
-                    </span>
-                </motion.div>
+                        <p className="mt-4">
+                            <span className="font-mono text-[48px] font-bold leading-none text-white">
+                                {oferta.precoMensal}
+                            </span>
+                            <span className="ml-1 text-body-lg text-white/55"> por mês</span>
+                        </p>
+                        <p className="mt-3 text-body leading-relaxed text-white/80">{oferta.textoCartao}</p>
+                        <p className="mt-1 text-body-sm text-white/55">{oferta.textoPix}</p>
+                        <a
+                            href={getCheckoutUrl(
+                                'https://app.rendipro.com.br/register?plano=starter-anual&utm_content=oferta',
+                            )}
+                            onClick={() =>
+                                trackRegisterCta({
+                                    buttonText: 'Montar meu plano',
+                                    location: 'oferta',
+                                    plan: 'starter-anual',
+                                })
+                            }
+                            className="mt-6 flex w-full justify-center rounded-2xl bg-primary-500 px-5 py-4 font-extrabold text-surface-950 shadow-glow-primary transition hover:bg-primary-400"
+                        >
+                            Montar meu plano
+                        </a>
+                        <p className="mt-3 text-center text-body-sm text-white/75">Garantia de 7 dias</p>
+                        <p className="mt-5 text-caption leading-relaxed text-white/50">
+                            Preço de lançamento: quem assina agora fica com esse valor enquanto for assinante, mesmo
+                            quando o preço subir.
+                        </p>
+                        <p className="mt-4 border-t border-white/10 pt-4 text-body-sm text-white/55">
+                            Prefere mês a mês?{' '}
+                            <a
+                                href={getCheckoutUrl(
+                                    'https://app.rendipro.com.br/register?plano=starter-mensal&utm_content=oferta_mensal',
+                                )}
+                                onClick={() =>
+                                    trackRegisterCta({
+                                        buttonText: 'Plano mensal',
+                                        location: 'oferta_mensal',
+                                        plan: 'starter-mensal',
+                                    })
+                                }
+                                className="text-white underline underline-offset-4"
+                            >
+                                Plano mensal por {oferta.precoMensalRegular}
+                            </a>
+                            , sem compromisso de 12 meses.
+                        </p>
+                    </aside>
+                </div>
             </div>
         </section>
-    )
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   Sub-components
-   ═══════════════════════════════════════════════════════════════════ */
-
-
-function PlanCard({ plan, index, influencerData, applyDiscount, getCheckoutUrl }) {
-    const isPopular = plan.popular === true
-    const monthlyEq = plan.tipo === 'anual' ? getMonthlyEquivalent(plan) : null
-
-    const discountedPrice = applyDiscount(plan.preco_centavos)
-    const hasInfluencerDiscount =
-        influencerData && discountedPrice < plan.preco_centavos
-
-    let savings = 0
-    if (monthlyEq && plan.tipo === 'anual') {
-        savings = monthlyEq.preco_centavos * 12 - plan.preco_centavos
-    }
-
-    // Campanha só no anual e só sem cupom de influencer (o app não soma os dois).
-    const campanha = CAMPANHA_ANUAL_ATIVA && plan.tipo === 'anual' && !hasInfluencerDiscount
-        ? resumoCampanhaAnual(plan)
-        : null
-
-    // O anual leva redações extras (D.2). A vitrine mostra o TOTAL que a pessoa
-    // recebe, não o número cru da tabela de planos: o Pro Anual entrega 12/mês,
-    // e anunciar 8 seria vender menos do que a assinatura já dá.
-    const redacoes = getRedacoesPorMes(plan)
-
-    return (
-        <motion.article
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{
-                duration: 0.5,
-                delay: index * 0.07,
-                ease: easeSpring,
-            }}
-            className={cn(
-                'relative flex flex-col rounded-3xl p-6 sm:p-7',
-                isPopular
-                    ? 'z-10 border border-primary-500/40 bg-gradient-to-br from-surface-900 via-primary-500/[0.06] to-surface-900 shadow-glow-primary lg:scale-[1.03]'
-                    : 'border border-white/10 bg-surface-900/60 backdrop-blur-sm'
-            )}
-        >
-            {/* Popular badge — Starter como entry point recomendado */}
-            {isPopular && (
-                <div className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-primary-500 px-3 py-1 text-micro font-bold uppercase tracking-wider text-surface-950 shadow-elevation-2">
-                    <Crown size={11} />
-                    Comece aqui
-                </div>
-            )}
-
-            <div className="mb-5">
-                <div className="mb-2 flex items-center gap-2">
-                    <h3 className="text-h3 font-bold text-white">{plan.nome_curto}</h3>
-                    <span className="rounded-md border border-white/15 bg-white/5 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-white/50">
-                        {plan.tipo === 'anual' ? 'Anual' : 'Mensal'}
-                    </span>
-                </div>
-                <p className="min-h-[3em] text-body-sm leading-snug text-white/55">
-                    {plan.descricao}
-                </p>
-            </div>
-
-            {/* Price */}
-            <div className="mb-6">
-                {hasInfluencerDiscount && (
-                    <p className="mb-1 text-caption text-white/40">
-                        De{' '}
-                        <span className="line-through">
-                            {formatPrice(plan.preco_centavos)}
-                        </span>
-                    </p>
-                )}
-                {plan.tipo === 'anual' && plan.preco_centavos > 0 && campanha ? (
-                    // Campanha "1 mês grátis no plano anual": as contas são as do app
-                    // (`resumoCampanhaAnual`). É ASSINATURA, não parcelamento: no
-                    // cartão sai uma mensalidade por mês, e a 1ª só daqui a 30 dias
-                    // (o ano fecha em 11 cobranças, mas isso nunca vira "11x" na
-                    // tela: parcelamento comprometeria o limite de uma vez, e não é
-                    // o que acontece). Pix: o ano menos um mês, de uma vez.
-                    <>
-                        <p className="mb-1 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-caption font-bold text-emerald-400" data-testid="selo-campanha">
-                            {CAMPANHA_ANUAL.nome}
-                        </p>
-                        <p className="mt-1 text-caption font-semibold text-emerald-400">
-                            1º mês grátis, depois
-                        </p>
-                        <div className="flex items-baseline gap-1">
-                            <span className="text-display-sm font-extrabold text-white">
-                                {formatPrice(campanha.mensalCentavos)}
-                            </span>
-                            <span className="text-caption font-medium text-white/50">
-                                por mês
-                            </span>
-                        </div>
-                        <p className="mt-1.5 text-caption text-white/45">
-                            no cartão, a 1ª cobrança só daqui a 30 dias
-                        </p>
-                        <p className="mt-1 text-caption text-white/45">
-                            ou <span className="line-through">{formatPrice(plan.preco_centavos)}</span>{' '}
-                            <strong className="font-semibold text-white/80">{formatPrice(campanha.pixCentavos)}</strong> à vista no Pix
-                        </p>
-                        {/* F5-b (fundador, 08/10/2026): o compromisso no card onde a pessoa
-                            decide. O detalhe (as mensalidades seguem) fica no FAQ e no checkout. */}
-                        <p className="mt-1 text-caption font-semibold text-white/70">
-                            12 meses, com garantia de 7 dias.
-                        </p>
-                        <p className="mt-2.5 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-caption font-bold text-emerald-400">
-                            Economize {formatPrice(savings + campanha.descontoCentavos)}/ano
-                        </p>
-                    </>
-                ) : plan.tipo === 'anual' && plan.preco_centavos > 0 ? (
-                    <>
-                        {plan.preco_ancora_mes_centavos && !hasInfluencerDiscount && (
-                            <p className="mb-1 text-caption text-white/45">
-                                De <span className="line-through">{formatPrice(plan.preco_ancora_mes_centavos)}</span>/mês por
-                            </p>
-                        )}
-                        <div className="flex items-baseline gap-1">
-                            <span className="text-caption font-medium text-white/50">
-                                12× de
-                            </span>
-                            <span
-                                className={cn(
-                                    'text-display-sm font-extrabold',
-                                    hasInfluencerDiscount ? 'text-success-400' : 'text-white'
-                                )}
-                            >
-                                {formatPrice(discountedPrice / 12)}
-                            </span>
-                        </div>
-                        <p className="mt-1.5 text-caption text-white/45">
-                            ou {formatPrice(discountedPrice)} à vista/ano
-                        </p>
-                        {savings > 0 && !hasInfluencerDiscount && (
-                            <p className="mt-2.5 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-caption font-bold text-emerald-400">
-                                Economize {formatPrice(savings)}/ano
-                            </p>
-                        )}
-                    </>
-                ) : (
-                    <>
-                        {plan.preco_ancora_mes_centavos && !hasInfluencerDiscount && (
-                            <p className="mb-1 text-caption text-white/45">
-                                De <span className="line-through">{formatPrice(plan.preco_ancora_mes_centavos)}</span>/mês por
-                            </p>
-                        )}
-                        {/* Promessa sobre o FUTURO no lugar de mentira sobre o passado.
-                            Aqui havia "De R$ 24,90 por R$ 16,90", e R$ 24,90 nunca foi
-                            cobrado. O valor futuro nao e publicado de proposito: a meta
-                            que dispara a subida fica interna (decisao D.1). */}
-                        {plan.preco_lancamento && !hasInfluencerDiscount && (
-                            <p className="mb-1 text-caption font-semibold text-primary-400">
-                                Preço de lançamento
-                            </p>
-                        )}
-                        <div className="flex items-baseline gap-1">
-                            <span
-                                className={cn(
-                                    'text-display-sm font-extrabold',
-                                    hasInfluencerDiscount ? 'text-success-400' : 'text-white'
-                                )}
-                            >
-                                {formatPrice(discountedPrice)}
-                            </span>
-                            <span className="text-caption text-white/50">/mês</span>
-                        </div>
-                    </>
-                )}
-            </div>
-
-            {/* Plan-specific features (4 bullets) */}
-            <ul className="mb-7 flex-1 space-y-3">
-                {/* Núcleo do produto */}
-                <li className="flex items-start gap-2 text-body-sm">
-                    <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
-                    <span className="text-white/85">
-                        <strong className="font-bold text-white">Tudo da plataforma:</strong>{' '}
-                        cronograma, flashcards e revisão no dia certo
-                    </span>
-                </li>
-
-                {/* IA features — redação e questões do PDF primeiro: são o que
-                    diferencia os tiers na grade v2 (15/08/2026) */}
-                {redacoes.total > 0 && (
-                    <li className="flex items-start gap-2 text-body-sm">
-                        <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
-                        <span className="text-white/80">
-                            <strong className="font-bold text-white">
-                                {redacoes.total}
-                            </strong>{' '}
-                            {redacoes.total === 1 ? 'redação corrigida' : 'redações corrigidas'}/mês, nota por competência
-                            {redacoes.bonus > 0 && (
-                                <span className="block text-caption text-primary-400">
-                                    inclui +{redacoes.bonus} de bônus do anual
-                                </span>
-                            )}
-                        </span>
-                    </li>
-                )}
-                {plan.questoes_pdf_por_mes > 0 && (
-                    <li className="flex items-start gap-2 text-body-sm">
-                        <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
-                        <span className="text-white/80">
-                            <strong className="font-bold text-white">
-                                {plan.questoes_pdf_por_mes}
-                            </strong>{' '}
-                            PDFs por mês viram questões (até {plan.questoes_pdf_max_paginas} páginas cada)
-                        </span>
-                    </li>
-                )}
-                <li className="flex items-start gap-2 text-body-sm">
-                    <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
-                    <span className="text-white/80">
-                        <strong className="font-bold text-white">
-                            {plan.flashcards_ia_por_mes}
-                        </strong>{' '}
-                        flashcards gerados com IA/mês
-                    </span>
-                </li>
-                <li className="flex items-start gap-2 text-body-sm">
-                    <Check size={16} className="mt-0.5 shrink-0 text-primary-400" />
-                    <span className="text-white/80">
-                        <strong className="font-bold text-white">
-                            {plan.cronograma_ia_por_mes}
-                        </strong>{' '}
-                        {plan.cronograma_ia_por_mes === 1
-                            ? 'cronograma adaptado'
-                            : 'cronogramas adaptados'}{' '}
-com IA/mês
-                    </span>
-                </li>
-            </ul>
-
-            {/* CTA */}
-            <Button
-                as="a"
-                href={getCheckoutUrl(
-                    `https://app.rendipro.com.br/register?plano=${plan.slug}`
-                )}
-                onClick={() => trackPricingCta(plan)}
-                variant={isPopular ? 'primary' : 'secondary'}
-                size="md"
-            >
-                {`Quero o ${plan.nome_curto}`}
-                <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-0.5"
-                />
-            </Button>
-            {/* Cortesia (decisão A do fundador, 16/10/2026): os dias grátis são do
-                Starter para todos. Quem clica no Pro precisa saber disso ANTES de
-                criar a conta; o Pro continua a um toque dentro do app. */}
-            {CORTESIA_CADASTRO_ATIVA && (
-                <p className="mt-2 text-center text-caption text-white/55" data-testid="card-cortesia">
-                    {plan.slug.startsWith('starter-')
-                        ? `Começa com ${CORTESIA_CADASTRO.dias} dias grátis, sem cartão.`
-                        : `Você começa com ${CORTESIA_CADASTRO.dias} dias grátis no Starter. O ${plan.nome_curto} você assina quando quiser.`}
-                </p>
-            )}
-        </motion.article>
     )
 }

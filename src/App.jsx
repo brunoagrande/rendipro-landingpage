@@ -1,7 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
-import { TrustStrip } from './components/TrustStrip'
 import { StickyMobileCTA } from './components/StickyMobileCTA'
 import { InfluencerProvider } from './contexts/InfluencerContext'
 import { TopBanner } from './components/TopBanner'
@@ -17,13 +16,12 @@ import { CORTESIA_CADASTRO_ATIVA } from './data/cortesia-cadastro'
 // (removido em 15/09/2026: a página de beta e o VITE_BETA_MODE. A fase de
 // fundadores fechou e a indicação está desligada.)
 
-const PlanoShowcase = lazy(() => import('./components/PlanoShowcase').then(m => ({ default: m.PlanoShowcase })))
-const TragaOEdital  = lazy(() => import('./components/TragaOEdital').then(m => ({ default: m.TragaOEdital })))
-const AiSuite       = lazy(() => import('./components/AiSuite').then(m => ({ default: m.AiSuite })))
-const RedacaoShowcase = lazy(() => import('./components/RedacaoShowcase').then(m => ({ default: m.RedacaoShowcase })))
-const Features      = lazy(() => import('./components/Features').then(m => ({ default: m.Features })))
+const Dor            = lazy(() => import('./components/Dor').then(m => ({ default: m.Dor })))
+const ComoFunciona   = lazy(() => import('./components/ComoFunciona').then(m => ({ default: m.ComoFunciona })))
+const DepoisDeEstudar = lazy(() => import('./components/DepoisDeEstudar').then(m => ({ default: m.DepoisDeEstudar })))
 const FounderStory  = lazy(() => import('./components/FounderStory').then(m => ({ default: m.FounderStory })))
 const Pricing       = lazy(() => import('./components/Pricing').then(m => ({ default: m.Pricing })))
+const Garantia      = lazy(() => import('./components/Garantia').then(m => ({ default: m.Garantia })))
 const FAQ           = lazy(() => import('./components/FAQ').then(m => ({ default: m.FAQ })))
 const FinalCTA      = lazy(() => import('./components/FinalCTA').then(m => ({ default: m.FinalCTA })))
 const Footer        = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })))
@@ -58,21 +56,19 @@ function App() {
         <InvalidInfluencerModal />
         <main className="pb-24 lg:pb-0">
           <Hero />
-          <TrustStrip />
           {/* Cada seção lazy no seu SecaoSegura: arquivo que falha (publicação
               nova, rede ruim) derruba só a própria seção, nunca a página
               inteira (Clarity, 22/10/2026). */}
           <Suspense fallback={<div className="h-12 bg-surface-950" />}>
-            <SecaoSegura nome="plano_showcase"><PlanoShowcase /></SecaoSegura>
-            <SecaoSegura nome="traga_o_edital"><TragaOEdital /></SecaoSegura>
-            <SecaoSegura nome="features"><Features /></SecaoSegura>
-            <SecaoSegura nome="ai_suite"><AiSuite /></SecaoSegura>
-            <SecaoSegura nome="redacao_showcase"><RedacaoShowcase /></SecaoSegura>
+            <SecaoSegura nome="dor"><Dor /></SecaoSegura>
+            <SecaoSegura nome="como_funciona"><ComoFunciona /></SecaoSegura>
+            <SecaoSegura nome="depois_de_estudar"><DepoisDeEstudar /></SecaoSegura>
             {/* Saíram em 30/10/2026 (auditoria hormozi): ForWhom (três públicos ao
                 mesmo tempo; a página é de concurso) e VejaPorDentro (telas de teste
                 diferentes do app real). O catálogo de editais virou link no TrustStrip. */}
             <SecaoSegura nome="founder_story"><FounderStory /></SecaoSegura>
             <SecaoSegura nome="pricing"><Pricing /></SecaoSegura>
+            <SecaoSegura nome="garantia"><Garantia /></SecaoSegura>
             <SecaoSegura nome="faq"><FAQ /></SecaoSegura>
             <SecaoSegura nome="final_cta"><FinalCTA /></SecaoSegura>
           </Suspense>
