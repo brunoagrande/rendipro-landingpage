@@ -53,7 +53,7 @@ export function Hero() {
                             </strong>{' '}
                             no plano anual de 12 meses.
                         </p>
-                        <p className="text-white/50">{oferta.textoHeroRodape}</p>
+                        <p className="mt-1 font-semibold text-white/85">{oferta.textoHeroRodape}</p>
                     </div>
                 </div>
                 <div className="relative mx-auto w-full max-w-[420px]">

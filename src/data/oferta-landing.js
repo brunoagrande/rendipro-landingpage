@@ -1,7 +1,7 @@
 import { PRICING_PLANS } from './pricing-plans'
 import { CAMPANHA_ANUAL_ATIVA, resumoCampanhaAnual } from './campanha-anual'
 
-export const SUPORTE_NO_APP_ATIVO = false
+export const SUPORTE_NO_APP_ATIVO = true
 
 const anual = PRICING_PLANS.find((plano) => plano.slug === 'starter-anual')
 const mensal = PRICING_PLANS.find((plano) => plano.slug === 'starter-mensal')

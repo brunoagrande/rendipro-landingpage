@@ -48,7 +48,7 @@ export function TopBanner() {
                     <Sparkles className="h-4 w-4 text-yellow-300 flex-shrink-0" />
                     <p className="text-sm md:text-base font-medium text-white">
                         <a href="#pricing" className="hover:text-yellow-200">
-                            1 mês <strong className="font-bold">grátis</strong> no <strong className="font-bold">plano</strong> anual
+                            1º mês <strong className="font-bold">grátis</strong> no <strong className="font-bold">plano</strong> anual
                         </a>
                     </p>
                 </div>

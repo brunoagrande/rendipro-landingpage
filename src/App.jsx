@@ -41,7 +41,7 @@ function App() {
         description={CORTESIA_CADASTRO_ATIVA
           ? 'Você estuda e registra. O RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Comece com 7 dias grátis, sem cartão. Depois, a partir de R$ 9,90 por mês.'
           : CAMPANHA_ANUAL_ATIVA
-          ?'Você estuda e registra. O RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. 1 mês grátis no plano anual, depois a partir de R$ 9,90 por mês.'
+          ?'Você estuda e registra. O RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. 1º mês grátis no plano anual, depois a partir de R$ 9,90 por mês.'
           : 'Você estuda e registra. O RendiPro organiza o resto: cronograma pelo seu edital, revisão no dia certo, sua apostila virando questão e redação corrigida por competência. Tudo em um plano só, a partir de R$ 9,90 por mês.'}
         ogImage="/og-2026-10.jpg"
         canonical="https://rendipro.com.br/"
