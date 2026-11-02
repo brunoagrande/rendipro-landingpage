@@ -105,6 +105,32 @@
     })();
   </script>
 
+  <!-- Consentimento de cookies vai junto para o app (02/11/2026). Landing e app são
+       domínios diferentes: quem tocou "Ok" aqui via o aviso do app de novo, POR CIMA do
+       preço em /assinar. Se a pessoa já aceitou aqui, todo link para app.rendipro.com.br
+       ganha rp_cookies=ok, e o app grava o mesmo "Aceitar" (sem passar por cima de
+       escolha já feita lá). Decide no CLIQUE, não ao montar a página: a pessoa pode tocar
+       "Ok" depois. Fica no index.html para valer também no botão do topo pré-pintado,
+       antes de o React carregar. Os outros parâmetros (UTMs, plano, rp_cta) ficam. -->
+  <script>
+    (function () {
+      function levarConsentimento(ev) {
+        try {
+          var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
+          if (!a) return;
+          if (localStorage.getItem('rendipro_cookie_consent_v2') !== 'accepted') return;
+          var u = new URL(a.href, window.location.href);
+          if (u.hostname !== 'app.rendipro.com.br') return;
+          if (u.searchParams.get('rp_cookies') === 'ok') return;
+          u.searchParams.set('rp_cookies', 'ok');
+          a.href = u.toString();
+        } catch (_) {}
+      }
+      document.addEventListener('click', levarConsentimento, true);
+      document.addEventListener('auxclick', levarConsentimento, true);
+    })();
+  </script>
+
   <!-- Microsoft Clarity: NÃO carrega aqui desde 22/10/2026. Só depois do aceite
        do aviso de cookies (src/lib/clarity.js, chamado pelo CookieBanner). -->
 
