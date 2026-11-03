@@ -14,15 +14,29 @@
       "source": "/privacidade",
       "destination": "https://app.rendipro.com.br/privacidade",
       "permanent": true
+    },
+    {
+      "source": "/:nome((?!assets$|screenshots$|termos$|privacidade$|ig$|i$|editais$|planos$|precos$|blog$|app$|login$|assinar$)[a-zA-Z0-9-]+)",
+      "destination": "/?utm_source=parceiro&utm_medium=influencer&utm_campaign=:nome",
+      "permanent": false
     }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     }
   ]

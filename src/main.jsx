@@ -9,6 +9,7 @@ import '@fontsource-variable/jetbrains-mono/wght.css'
 import './index.css'
 import App from './App.jsx'
 import { recarregarUmaVez } from './components/SecaoSegura.jsx'
+import { contarCliqueDoParceiro } from './lib/cliqueDoParceiro.js'
 
 // O Vite avisa por este evento quando um arquivo carregado sob demanda não
 // chega (ex.: página aberta antes de uma publicação nova). Recarrega UMA vez
@@ -17,6 +18,10 @@ import { recarregarUmaVez } from './components/SecaoSegura.jsx'
 window.addEventListener('vite:preloadError', (event) => {
   if (recarregarUmaVez()) event.preventDefault()
 })
+
+// ⚠ Parceiros (03/11/2026): conta o clique de quem chega por `rendipro.com.br/<nome>`. Só faz algo com
+//   `utm_source=parceiro`, e nunca atrapalha a página (ver o módulo).
+contarCliqueDoParceiro()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
