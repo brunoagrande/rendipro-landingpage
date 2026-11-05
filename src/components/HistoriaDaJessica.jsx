@@ -1,7 +1,7 @@
 import { useSectionView } from '../lib/useSectionView'
 
-export function FounderStory() {
-    const sectionRef = useSectionView('founder_story')
+export function HistoriaDaJessica() {
+    const sectionRef = useSectionView('historia_jessica')
     return (
         <section ref={sectionRef} className="py-16 md:py-24">
             <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -13,7 +13,7 @@ export function FounderStory() {
                 </h2>
                 <article className="mt-10 grid items-start gap-6 rounded-3xl border border-white/10 bg-surface-900 p-6 md:grid-cols-[180px_1fr] md:p-8">
                     <img
-                        src="/founder-jessica.webp"
+                        src="/jessica-marques.webp"
                         width="320"
                         height="320"
                         loading="lazy"
@@ -28,7 +28,7 @@ export function FounderStory() {
                             reorganizando o que tinha ficado para trás.&quot;
                         </p>
                         <p className="mt-4 font-semibold text-white">Jessica Marques</p>
-                        <p className="text-body-sm text-white/55">Promotora de Justiça · co-criadora do RendiPro</p>
+                        <p className="text-body-sm text-white/55">Promotora de Justiça · a história que inspirou o RendiPro</p>
                         <a
                             href="https://www.mprs.mp.br/media/areas/concursos/arquivos/xlix/ed_051_2023_resultado_definitivo_concurso.pdf"
                             target="_blank"

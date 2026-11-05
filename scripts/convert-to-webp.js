@@ -8,7 +8,7 @@ const PUBLIC = resolve(__dirname, '../public')
 
 const targets = [
   'founder-bruno.png',
-  'founder-jessica.png',
+  'jessica-marques.png',
   'screenshots/cronograma-dia.png',
   'screenshots/cronograma-semana.png',
   'screenshots/dashboard-final.png',
