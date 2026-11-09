@@ -13,9 +13,16 @@
  *  - Só para quem nunca assinou. Sem boleto no anual.
  *
  * Um nome só, em toda parte: "1º mês grátis no plano anual" (renomeado em 16/09/2026; "1º" em 02/11/2026).
+ *
+ * ⚠ DESLIGADA na oferta nova (decisão do fundador em 09/11/2026; app: REGRAS
+ *   v1.55.0). Sai o mês grátis do cartão: 12 mensalidades com a 1ª no dia da
+ *   compra, e o Pix à vista com 1 mensalidade a menos (R$ 108,90). Com a
+ *   constante em false, a landing mostra a oferta nova (oferta-landing.js, ramo
+ *   sem campanha). A troca é no mesmo minuto em que o app liga
+ *   `rendipro_config.oferta_anual_nova` e desliga a campanha no banco.
  */
 
-export const CAMPANHA_ANUAL_ATIVA = true
+export const CAMPANHA_ANUAL_ATIVA = false
 
 export const CAMPANHA_ANUAL = {
     nome: '1º mês grátis no plano anual',

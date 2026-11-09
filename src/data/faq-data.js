@@ -9,7 +9,11 @@ const primeiroMesGratis = {
 export const faqItems = [
     { question: 'O RendiPro tem aulas ou apostilas?', answer: 'Não. O RendiPro não é cursinho. Você estuda com o material que já tem: curso, apostila, PDF ou videoaula. O RendiPro organiza o resto: o que estudar hoje, por quanto tempo e quando revisar. Se você ainda não escolheu o seu material, escolha primeiro e volte depois.' },
     ...(CAMPANHA_ANUAL_ATIVA ? [primeiroMesGratis] : []),
-    { question: 'Posso cancelar?', answer: 'Nos primeiros 7 dias, sim, sem custo: no cartão nada é cobrado nesse prazo e no Pix devolvemos tudo. Depois do 7º dia, cancelar desliga a renovação, e as mensalidades seguem até completar os 12 meses. No plano mensal, você cancela quando quiser pelo próprio app.' },
+    // Oferta nova (09/11/2026): sem o mês grátis, o cartão cobra no dia da compra,
+    // então "nada é cobrado nesse prazo" deixou de ser verdade.
+    CAMPANHA_ANUAL_ATIVA
+        ? { question: 'Posso cancelar?', answer: 'Nos primeiros 7 dias, sim, sem custo: no cartão nada é cobrado nesse prazo e no Pix devolvemos tudo. Depois do 7º dia, cancelar desliga a renovação, e as mensalidades seguem até completar os 12 meses. No plano mensal, você cancela quando quiser pelo próprio app.' }
+        : { question: 'Posso cancelar?', answer: 'Use 7 dias. Não era o que você queria? Cancele no app e devolvemos tudo, no cartão ou no Pix. Depois do 7º dia, o plano anual segue pelos 12 meses: cancelar desliga a renovação, e as mensalidades vão até o fim. No plano mensal, você cancela quando quiser pelo próprio app.' },
     { question: 'Meu concurso não está na lista. E agora?', answer: 'Mande o PDF do edital. O RendiPro lê o conteúdo programático e você confere matéria por matéria antes de começar. Edital escaneado, só imagem, não dá para ler: nesse caso, cole o texto do conteúdo programático. Novos editais entram no catálogo toda semana.' },
     { question: 'Quanto tempo leva para montar o plano?', answer: 'Uns 5 minutos: escolher o edital, dizer suas horas por dia e a data da prova, e conferir.' },
     ...(SUPORTE_NO_APP_ATIVO ? [{ question: 'E se eu travar para montar?', answer: 'Fale com a equipe pelo WhatsApp, de dentro do app. A gente ajuda a deixar o plano do jeito da sua prova.' }] : []),
@@ -18,5 +22,5 @@ export const faqItems = [
     { question: 'Como o RendiPro sabe o que eu estudei?', answer: 'Você registra. Pode usar o cronômetro do app enquanto estuda ou tocar em "Já estudei hoje, registrar" depois. É o registro que faz a revisão ser marcada no dia certo.' },
     { question: 'Já uso Anki e tenho meus resumos.', answer: 'Seus baralhos do Anki entram do jeito que estão. A foto do caderno vira flashcard, e o PDF da sua apostila vira questão. Tudo entra na mesma revisão.' },
     { question: 'Funciona no celular?', answer: 'Sim, com acesso completo no celular e no computador.' },
-    { question: 'Como pago? É seguro?', answer: 'O pagamento é feito pelo Asaas, no Pix ou no cartão.' },
+    { question: 'Como pago? É seguro?', answer: 'O pagamento é feito pelo Asaas, no Pix ou no cartão. No Asaas aparece Successus Tecnologia, a empresa do RendiPro.' },
 ]

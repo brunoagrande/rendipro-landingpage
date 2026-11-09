@@ -1,5 +1,6 @@
 import { ShieldCheck } from 'lucide-react'
 import { useSectionView } from '../lib/useSectionView'
+import { CAMPANHA_ANUAL_ATIVA } from '../data/campanha-anual'
 
 export function Garantia() {
     const sectionRef = useSectionView('garantia')
@@ -12,13 +13,29 @@ export function Garantia() {
                         className="mx-auto rounded-2xl bg-primary-500/15 p-4 box-content text-primary-400"
                     />
                     <h2 className="mt-5 text-display-md font-extrabold text-white">Garantia de 7 dias</h2>
-                    <p className="mx-auto mt-4 max-w-2xl text-body-lg leading-relaxed text-white/80">
-                        Monte o plano, estude os primeiros dias e veja o seu dia decidido na tela. Se nessa semana o
-                        RendiPro não for para você, você sai sem pagar nada.
-                    </p>
-                    <p className="mt-4 text-body-sm text-white/55">
-                        No cartão, nada é cobrado nesses 7 dias. No Pix, o dinheiro volta inteiro.
-                    </p>
+                    {CAMPANHA_ANUAL_ATIVA ? (
+                        <>
+                            <p className="mx-auto mt-4 max-w-2xl text-body-lg leading-relaxed text-white/80">
+                                Monte o plano, estude os primeiros dias e veja o seu dia decidido na tela. Se nessa semana o
+                                RendiPro não for para você, você sai sem pagar nada.
+                            </p>
+                            <p className="mt-4 text-body-sm text-white/55">
+                                No cartão, nada é cobrado nesses 7 dias. No Pix, o dinheiro volta inteiro.
+                            </p>
+                        </>
+                    ) : (
+                        /* Oferta nova (09/11/2026): o cartão cobra no dia da compra. A
+                           garantia vira reversão de risco, com o texto do hormozi. */
+                        <>
+                            <p className="mx-auto mt-4 max-w-2xl text-body-lg leading-relaxed text-white/80">
+                                Monte o plano, estude os primeiros dias e veja o seu dia decidido na tela. Use 7 dias.
+                                Não era o que você queria? Cancele no app e devolvemos tudo.
+                            </p>
+                            <p className="mt-4 text-body-sm text-white/55">
+                                Depois do 7º dia, o plano segue pelos 12 meses.
+                            </p>
+                        </>
+                    )}
                 </div>
             </div>
         </section>

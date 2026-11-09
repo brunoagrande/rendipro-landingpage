@@ -25,6 +25,10 @@ export function obterOfertaLanding(influencerData, applyDiscount = (valor) => va
     const resumo = resumoCampanhaAnual(anual)
     const precoAnual = applyDiscount(anual.preco_centavos)
     const mensalidade = Math.round(precoAnual / 12)
+    // Oferta nova (09/11/2026): o Pix à vista sai com 1 mensalidade a menos, a
+    // mesma conta do app (`_shared/resumoCobranca.ts`, sem campanha). É o prêmio
+    // de pagar o ano de uma vez, não campanha. Starter: R$ 108,90.
+    const pixAVista = precoAnual - mensalidade
 
     if (campanhaAtiva) {
         return {
@@ -52,16 +56,16 @@ export function obterOfertaLanding(influencerData, applyDiscount = (valor) => va
         comInfluencer,
         selo: null,
         precoMensal: formatarMoeda(mensalidade),
-        precoPix: formatarMoeda(precoAnual),
+        precoPix: formatarMoeda(pixAVista),
         precoAnual: formatarMoeda(anual.preco_centavos),
         precoMensalSemDesconto: formatarMoeda(Math.round(anual.preco_centavos / 12)),
         precoMensalRegular: formatarMoeda(mensal.preco_centavos),
         textoHero: 'Você cria a conta, cadastra o cartão e monta o plano em uns 5 minutos.',
         textoHeroDestaque: null,
         textoHeroRodape: 'Garantia de 7 dias',
-        textoCartao: `Plano de 12 meses. No cartão: 12 mensalidades de ${formatarMoeda(mensalidade)}.`,
-        textoPix: `Ou ${formatarMoeda(precoAnual)} no Pix, o ano todo de uma vez.`,
-        textoPilha: `No mensal, o mesmo app sai ${formatarMoeda(mensal.preco_centavos)} por mês, ${formatarMoeda(mensal.preco_centavos * 12)} no ano. No anual, você paga ${formatarMoeda(precoAnual)} pelos 12 meses${porDia(precoAnual)}.`,
+        textoCartao: `Plano de 12 meses. No cartão: 12 mensalidades de ${formatarMoeda(mensalidade)}, a 1ª no dia da compra.`,
+        textoPix: `Ou ${formatarMoeda(pixAVista)} no Pix, o ano todo de uma vez.`,
+        textoPilha: `No mensal, o mesmo app sai ${formatarMoeda(mensal.preco_centavos)} por mês, ${formatarMoeda(mensal.preco_centavos * 12)} no ano. No anual, você paga ${formatarMoeda(pixAVista)} pelos 12 meses no Pix${porDia(pixAVista)}.`,
         textoSticky: `${formatarMoeda(mensalidade)}/mês · 12 meses`,
         textoFechamento: `Plano anual de 12 meses · ${formatarMoeda(mensalidade)} por mês · Garantia de 7 dias`,
     }
