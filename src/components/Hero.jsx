@@ -62,19 +62,19 @@ export function Hero() {
                 </div>
                 <div className="relative mx-auto w-full max-w-[420px]">
                     <p className="mb-3 text-center text-micro font-bold uppercase tracking-[0.14em] text-accent-300 md:text-left">
-                        O seu edital, dividido em dias
+                        O seu edital vira o seu plano
                     </p>
                     <img
-                        src="/screenshots/plano-semana-2dias.webp"
+                        src="/screenshots/edital-38-de-38.webp"
                         width="1000"
-                        height="693"
+                        height="1031"
                         fetchPriority="high"
                         decoding="async"
-                        alt="Tela real do RendiPro: terça e quarta do plano, com 6 matérias por dia, como Direito Administrativo, Direito Constitucional, Direito Penal, Português e Raciocínio Lógico"
+                        alt="Tela real do RendiPro: 38 de 38 itens do seu documento entraram no plano, nenhum ficou de fora; 5 matérias com tópicos e peso, e a opção de desmarcar a matéria que você não quer estudar agora"
                         className="w-full rounded-2xl border border-white/15 shadow-glow-primary"
                     />
                     <p className="mt-3 text-center text-caption text-white/50 md:text-left">
-                        Tela real, plano de um concurso da PRF.
+                        Tela real, edital de um concurso dos Correios.
                     </p>
                 </div>
             </div>
