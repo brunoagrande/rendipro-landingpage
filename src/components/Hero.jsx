@@ -62,7 +62,7 @@ export function Hero() {
                 </div>
                 <div className="relative mx-auto w-full max-w-[420px]">
                     <p className="mb-3 text-center text-micro font-bold uppercase tracking-[0.14em] text-accent-300 md:text-left">
-                        O edital do TJ-SP virou um plano até a prova
+                        O seu edital vira um plano até a prova
                     </p>
                     <img
                         src="/screenshots/tjsp-dia-16-11.webp"
@@ -70,12 +70,11 @@ export function Hero() {
                         height="441"
                         fetchPriority="high"
                         decoding="async"
-                        alt="Tela real do RendiPro com um dia do plano do TJ-SP Escrevente: Direito Administrativo, 60 minutos, e Direito Constitucional, 60 minutos"
+                        alt="Tela real do RendiPro com um dia de um plano de exemplo: Direito Administrativo, 60 minutos, e Direito Constitucional, 60 minutos"
                         className="w-full"
                     />
                     <p className="mt-3 text-center text-caption text-white/50 md:text-left">
-                        Um dia do plano, em tela real do app (plano de exemplo). Prova prevista no edital para
-                        14/03/2027. Você escolhe as matérias de cada dia.
+                        Um dia de um plano de exemplo, em tela real do app. Você escolhe as matérias de cada dia.
                     </p>
                 </div>
             </div>
