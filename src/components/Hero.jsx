@@ -62,19 +62,19 @@ export function Hero() {
                 </div>
                 <div className="relative mx-auto w-full max-w-[420px]">
                     <p className="mb-3 text-center text-micro font-bold uppercase tracking-[0.14em] text-accent-300 md:text-left">
-                        O que você vê ao abrir o app
+                        O seu edital, dividido em dias
                     </p>
                     <img
-                        src="/screenshots/inicio-sessao.webp"
-                        width="840"
-                        height="736"
+                        src="/screenshots/plano-semana-2dias.webp"
+                        width="1000"
+                        height="693"
                         fetchPriority="high"
                         decoding="async"
-                        alt="Tela real do RendiPro: sua primeira sessão, Direito Previdenciário, 60 minutos, com os botões Começar e Já estudei hoje, registrar"
+                        alt="Tela real do RendiPro: terça e quarta do plano, com 6 matérias por dia, como Direito Administrativo, Direito Constitucional, Direito Penal, Português e Raciocínio Lógico"
                         className="w-full rounded-2xl border border-white/15 shadow-glow-primary"
                     />
                     <p className="mt-3 text-center text-caption text-white/50 md:text-left">
-                        Tela real, plano de um concurso do INSS.
+                        Tela real, plano de um concurso da PRF.
                     </p>
                 </div>
             </div>
