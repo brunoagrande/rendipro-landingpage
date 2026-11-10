@@ -25,14 +25,17 @@ export function Garantia() {
                         </>
                     ) : (
                         /* Oferta nova (09/11/2026): o cartão cobra no dia da compra. A
-                           garantia vira reversão de risco, com o texto do hormozi. */
+                           garantia vira reversão de risco. 10/11/2026: o fundador aprovou a
+                           garantia com PROMESSA DE RESULTADO, mesmos 7 dias e a mesma devolução.
+                           ⚠ A devolução continua SEM condição (termos do anual, item 4: "o
+                             cancelamento é livre"): a frase promete o resultado, não pede prova.
+                             Cancelar por qualquer motivo nos 7 dias devolve tudo. */
                         <>
                             <p className="mx-auto mt-4 max-w-2xl text-body-lg leading-relaxed text-white/80">
-                                Monte o plano, estude os primeiros dias e veja o seu dia decidido na tela. Use 7 dias.
-                                Não era o que você queria? Cancele no app e devolvemos tudo.
+                                Use 7 dias. Se não ficar mais fácil saber o que estudar, devolvemos tudo.
                             </p>
                             <p className="mt-4 text-body-sm text-white/55">
-                                Depois do 7º dia, o plano segue pelos 12 meses.
+                                É só cancelar no app. Depois do 7º dia, o plano segue pelos 12 meses.
                             </p>
                         </>
                     )}
