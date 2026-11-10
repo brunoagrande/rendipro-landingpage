@@ -18,12 +18,16 @@ export function Hero() {
                         Para concurso · mais de 250 editais prontos
                     </p>
                     <h1 className="mt-5 text-[33px] font-extrabold leading-[1.08] tracking-tight text-white md:text-[60px]">
-                        Todo dia você abre e já sabe o que estudar.{' '}
-                        <span className="text-primary-400">Até a prova.</span>
+                        Faça o material que você já tem{' '}
+                        <span className="text-primary-400">render até a prova.</span>
                     </h1>
                     <p className="mt-4 text-body-lg leading-relaxed text-white/70 md:text-[20px]">
-                        Escolha o seu concurso e diga quantas horas tem por dia. O RendiPro divide o edital em dias, até
-                        a data da prova, e mostra o que estudar com o seu material, por quanto tempo e o que revisar.
+                        Todo dia você abre e já sabe o que estudar, por quanto tempo e o que revisar. O RendiPro monta o
+                        plano do seu edital até a data da prova.
+                    </p>
+                    <p className="mt-4 text-body-sm leading-relaxed text-white/60">
+                        <span className="font-semibold text-white/80">Funciona com o que você já usa:</span> cursinho ·
+                        apostila · videoaula · questões · PDF
                     </p>
                     <a
                         href={getCheckoutUrl(
