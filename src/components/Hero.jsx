@@ -17,9 +17,9 @@ export function Hero() {
                     <p className="inline-flex rounded-full border border-primary-500/30 bg-primary-500/10 px-3.5 py-1.5 text-body-sm font-semibold text-primary-300">
                         Para concurso · mais de 250 editais prontos
                     </p>
-                    <h1 className="mt-5 text-balance text-[33px] font-extrabold leading-[1.08] tracking-tight text-white md:text-[60px]">
-                        Faça o material que você já tem{' '}
-                        <span className="text-primary-400">render até a prova.</span>
+                    <h1 className="mt-5 text-balance text-[33px] font-extrabold leading-[1.08] tracking-tight text-white md:text-[48px]">
+                        Você estuda com o seu material.{' '}
+                        <span className="text-primary-400">O RendiPro organiza o resto.</span>
                     </h1>
                     <p className="mt-4 text-body-lg leading-relaxed text-white/70 md:text-[20px]">
                         Todo dia você abre e já sabe o que estudar, por quanto tempo e o que revisar. O RendiPro monta o

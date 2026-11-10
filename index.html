@@ -159,9 +159,9 @@
                            largura cheia no topo 521, tudo centralizado
          desktop 1440px -> nav 65px, DUAS colunas (texto à esquerda, print à
                            direita), h1 64/67.2/-2.56 no topo 203
-       Remedido em 10/11/2026 (título "Faça o material...", linha "Funciona com"):
+       Remedido em 10/11/2026 (título "Você estuda com o seu material...", linha "Funciona com"):
          390px -> h1 no topo 139 (3 linhas), CTA no topo 464 (React 466)
-         1440px -> h1 no topo 199 (3 linhas, colunas 1.15fr/1fr), CTA 586 (React 594)
+         1440px -> h1 48px no topo 199 (3 linhas, colunas 1.15fr/1fr), CTA 547 (React 555)
        Mexeu no Hero.jsx? Remeça e ajuste aqui, senão o "pisque" volta. -->
   <link rel="preload" as="image" href="/LogoRendiPro-v05-2026-sem-fundo.webp" fetchpriority="high" />
   <style>
@@ -194,7 +194,7 @@
     @media (min-width:768px){
       #rp-prepaint .so-cel{display:none}
       #rp-prepaint .so-desk{display:inline}
-      #rp-prepaint h1{font-size:48px;line-height:52px;letter-spacing:-1.6px}
+      #rp-prepaint h1{font-size:48px;line-height:51.84px;letter-spacing:-1.2px}
     }
     @media (min-width:1024px){
       #rp-prepaint .nav{height:65px;padding:0 32px}
@@ -202,7 +202,7 @@
       #rp-prepaint .nav .burger{display:none}
       #rp-prepaint .wrap{padding:80px 32px 112px;display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:center}
       #rp-prepaint .col{text-align:left}
-      #rp-prepaint h1{font-size:60px;line-height:64.8px;letter-spacing:-1.5px}
+      #rp-prepaint h1{font-size:48px;line-height:51.84px;letter-spacing:-1.2px}
       /* 167px = altura exata do paragrafo do hero real no desktop. Sem isto o
          texto quebra em uma linha a menos aqui e o botao sobe 27px na troca. */
       #rp-prepaint p{margin-left:0;font-size:20px;line-height:32.5px}
@@ -236,7 +236,7 @@
     <div class="wrap">
       <div class="col">
         <span class="tarja">Para concurso · mais de 250 editais prontos</span>
-        <h1>Faça o material que você já tem <em>render até a prova.</em></h1>
+        <h1>Você estuda com o seu material. <em>O RendiPro organiza o resto.</em></h1>
         <p>
           Todo dia você abre e já sabe o que estudar, por quanto tempo e o que revisar. O RendiPro monta o plano do seu edital, dividido em dias.
         </p>
