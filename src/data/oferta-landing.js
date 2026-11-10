@@ -60,7 +60,10 @@ export function obterOfertaLanding(influencerData, applyDiscount = (valor) => va
         precoAnual: formatarMoeda(anual.preco_centavos),
         precoMensalSemDesconto: formatarMoeda(Math.round(anual.preco_centavos / 12)),
         precoMensalRegular: formatarMoeda(mensal.preco_centavos),
-        textoHero: 'Você cria a conta, cadastra o cartão e monta o plano em uns 5 minutos.',
+        // A ordem é a do app: conta, pagamento (checkout logo após o cadastro) e plano
+        // (o app só abre pago). "Uns 5 minutos": mediana de 5,1 min da conta ao 1º
+        // plano em 23 pagantes de out-nov/2026 (medido em 10/11/2026).
+        textoHero: 'Você cria a conta, paga no cartão em 12x ou no Pix e monta o plano em uns 5 minutos.',
         textoHeroDestaque: null,
         textoHeroRodape: 'Garantia de 7 dias',
         textoCartao: `Plano de 12 meses. No cartão: 12 mensalidades de ${formatarMoeda(mensalidade)}, a 1ª no dia da compra.`,
