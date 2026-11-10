@@ -7,7 +7,7 @@ const primeiroMesGratis = {
 }
 
 export const faqItems = [
-    { question: 'Preciso ter material para usar?', answer: 'Sim, e é essa a ideia: o RendiPro faz render o que você já tem. Cursinho, apostila, videoaula gratuita, site de questões, PDF: tudo vale. Ele organiza o que estudar hoje, por quanto tempo e quando revisar. Se você ainda não escolheu um material, comece por ele, e o RendiPro organiza a partir daí.' },
+    { question: 'Preciso ter material para usar?', answer: 'Sim. O RendiPro organiza o estudo com o que você já usa: cursinho, apostila, videoaula gratuita, site de questões ou PDF. Ele mostra o que estudar hoje, por quanto tempo e quando revisar. Ainda não tem material? Escolha um primeiro, até um gratuito serve, e monte o plano depois.' },
     ...(CAMPANHA_ANUAL_ATIVA ? [primeiroMesGratis] : []),
     // Oferta nova (09/11/2026): sem o mês grátis, o cartão cobra no dia da compra,
     // então "nada é cobrado nesse prazo" deixou de ser verdade.

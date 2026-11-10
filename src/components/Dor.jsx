@@ -26,7 +26,7 @@ export function Dor() {
                 </div>
                 <p className="mt-8 text-body-lg text-white/75">
                     O RendiPro resolve essas quatro coisas.{' '}
-                    <strong className="text-white">O estudo continua sendo seu, com o material que você já tem.</strong>
+                    <strong className="text-white">O estudo continua sendo seu.</strong>
                 </p>
             </div>
         </section>

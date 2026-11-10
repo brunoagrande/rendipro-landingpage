@@ -12,22 +12,22 @@ export function Hero() {
     return (
         <section ref={sectionRef} className="relative overflow-hidden py-7 md:py-20">
             <div className="pointer-events-none absolute right-0 top-0 -z-10 h-[600px] w-[600px] rounded-full bg-primary-500/10 blur-[140px]" />
-            <div className="container mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 md:grid-cols-2 md:gap-14 lg:px-8">
+            <div className="container mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 md:grid-cols-2 md:gap-14 lg:grid-cols-[1.15fr_1fr] lg:px-8">
                 <div>
                     <p className="inline-flex rounded-full border border-primary-500/30 bg-primary-500/10 px-3.5 py-1.5 text-body-sm font-semibold text-primary-300">
                         Para concurso · mais de 250 editais prontos
                     </p>
-                    <h1 className="mt-5 text-[33px] font-extrabold leading-[1.08] tracking-tight text-white md:text-[60px]">
+                    <h1 className="mt-5 text-balance text-[33px] font-extrabold leading-[1.08] tracking-tight text-white md:text-[60px]">
                         Faça o material que você já tem{' '}
                         <span className="text-primary-400">render até a prova.</span>
                     </h1>
                     <p className="mt-4 text-body-lg leading-relaxed text-white/70 md:text-[20px]">
                         Todo dia você abre e já sabe o que estudar, por quanto tempo e o que revisar. O RendiPro monta o
-                        plano do seu edital até a data da prova.
+                        plano do seu edital, dividido em dias.
                     </p>
-                    <p className="mt-4 text-body-sm leading-relaxed text-white/60">
-                        <span className="font-semibold text-white/80">Funciona com o que você já usa:</span> cursinho ·
-                        apostila · videoaula · questões · PDF
+                    <p className="mt-4 text-balance text-body-sm leading-relaxed text-white/60">
+                        <span className="font-semibold text-white/80">Funciona com o que você já usa:</span> cursinho,
+                        apostila, videoaula, site de questões ou PDF.
                     </p>
                     <a
                         href={getCheckoutUrl(

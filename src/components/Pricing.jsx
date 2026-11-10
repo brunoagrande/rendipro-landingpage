@@ -5,7 +5,7 @@ import { useSectionView } from '../lib/useSectionView'
 import { obterOfertaLanding, SUPORTE_NO_APP_ATIVO } from '../data/oferta-landing'
 
 const itens = [
-    'Funciona com o material que você já usa: nada para trocar, nada a mais para assistir.',
+    'Funciona com o material que você já usa: você não troca de cursinho nem paga outro.',
     'O plano do seu edital, pelo catálogo ou pelo PDF do seu, dividido em dias até a prova.',
     'A sessão de cada dia: matéria, tópico e tempo.',
     'Revisão no dia certo de cada tópico que você estuda.',
