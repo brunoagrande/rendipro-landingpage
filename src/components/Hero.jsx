@@ -62,19 +62,20 @@ export function Hero() {
                 </div>
                 <div className="relative mx-auto w-full max-w-[420px]">
                     <p className="mb-3 text-center text-micro font-bold uppercase tracking-[0.14em] text-accent-300 md:text-left">
-                        O seu edital vira o seu plano
+                        O edital do TJ-SP virou um plano até a prova
                     </p>
                     <img
-                        src="/screenshots/edital-38-de-38.webp"
+                        src="/screenshots/tjsp-dia-16-11.webp"
                         width="1000"
-                        height="1031"
+                        height="441"
                         fetchPriority="high"
                         decoding="async"
-                        alt="Tela real do RendiPro: 38 de 38 itens do seu documento entraram no plano, nenhum ficou de fora; 5 matérias com tópicos e peso, e a opção de desmarcar a matéria que você não quer estudar agora"
-                        className="w-full rounded-2xl border border-white/15 shadow-glow-primary"
+                        alt="Tela real do RendiPro com um dia do plano do TJ-SP Escrevente: Direito Administrativo, 60 minutos, e Direito Constitucional, 60 minutos"
+                        className="w-full"
                     />
                     <p className="mt-3 text-center text-caption text-white/50 md:text-left">
-                        Tela real, edital de um concurso dos Correios.
+                        Um dia do plano, em tela real do app (plano de exemplo). Prova prevista no edital para
+                        14/03/2027. Você escolhe as matérias de cada dia.
                     </p>
                 </div>
             </div>
