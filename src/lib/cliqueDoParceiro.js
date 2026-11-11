@@ -15,8 +15,8 @@
  *       `SEGUNDOS_VISIVEL` seguidos (quem lê sem tocar também conta).
  *   O banco filtra a mesma lista de robôs na contagem (`parceiro_clique_de_robo`), para cliques antigos.
  *
- * ⚠ Nunca atrapalha a página: só roda com `utm_source=parceiro`, carrega o Supabase sob demanda (as outras
- *   visitas não baixam nada), conta uma vez por sessão e por nome, e qualquer falha é silenciosa.
+ * ⚠ Nunca atrapalha a página: só roda com `utm_source=parceiro` (as outras visitas não fazem pedido nenhum),
+ *   conta uma vez por sessão e por nome, e qualquer falha é silenciosa.
  * ⚠ Nome que não é de parceiro ativo não conta (a visão pública só tem cupom ativo).
  */
 export const SEGUNDOS_VISIVEL = 4
@@ -73,7 +73,32 @@ export function esperarSinalDePessoa(aoSinal, { segundos = SEGUNDOS_VISIVEL, doc
     return desligar
 }
 
-async function gravarClique(nome) {
+// ⚠⚠ 11/11/2026 (2º teste real do fundador): quem chega e clica LOGO no botão não era contado. O sinal de pessoa costuma ser o
+//   próprio toque no botão; a gravação só começava ali (carregar o Supabase, achar o parceiro, gravar) e o navegador a cortava ao
+//   trocar de página (net::ERR_ABORTED, reproduzido com Playwright). Agora:
+//     - o parceiro é procurado JÁ ao abrir a página (só leitura, não conta nada);
+//     - no sinal, o clique sai num `fetch` com `keepalive`, que o navegador termina mesmo depois de sair da página.
+//   REST direto (sem supabase-js): o pedido fica pequeno e não depende de baixar a biblioteca a tempo.
+const URL_API = import.meta.env.VITE_SUPABASE_URL
+const CHAVE_PUBLICA = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+function cabecalhos() {
+    return { apikey: CHAVE_PUBLICA, Authorization: `Bearer ${CHAVE_PUBLICA}`, 'Content-Type': 'application/json' }
+}
+
+async function buscarIdDoParceiro(nome) {
+    try {
+        const url = `${URL_API}/rest/v1/v_cupons_publico?select=id_cupom&tipo=eq.influencer&slug=eq.${encodeURIComponent(nome)}&limit=1`
+        const resp = await fetch(url, { headers: cabecalhos() })
+        if (!resp.ok) return null
+        const linhas = await resp.json()
+        return linhas?.[0]?.id_cupom ?? null
+    } catch {
+        return null
+    }
+}
+
+async function gravarClique(nome, idDoParceiro) {
     const chave = `rp_parceiro_clique_${nome}`
     try {
         if (sessionStorage.getItem(chave)) return
@@ -82,19 +107,18 @@ async function gravarClique(nome) {
         // Sem sessionStorage (modo privado antigo): conta mesmo assim.
     }
     try {
-        const { supabase } = await import('./supabase')
-        const { data, error } = await supabase
-            .from('v_cupons_publico')
-            .select('id_cupom')
-            .eq('tipo', 'influencer')
-            .eq('slug', nome)
-            .maybeSingle()
-        if (error || !data?.id_cupom) return
-        await supabase.from('tbcupons_cliques').insert([{
-            id_cupom: data.id_cupom,
-            user_agent: navigator.userAgent,
-            referencia: document.referrer || 'direct',
-        }])
+        const id = await idDoParceiro
+        if (!id) return
+        await fetch(`${URL_API}/rest/v1/tbcupons_cliques`, {
+            method: 'POST',
+            keepalive: true,
+            headers: { ...cabecalhos(), Prefer: 'return=minimal' },
+            body: JSON.stringify({
+                id_cupom: id,
+                user_agent: navigator.userAgent,
+                referencia: document.referrer || 'direct',
+            }),
+        })
     } catch {
         // Contagem de clique nunca derruba a landing.
     }
@@ -105,5 +129,7 @@ export function contarCliqueDoParceiro() {
     const nome = nomeDoParceiroNaUrl(window.location.search)
     if (!nome) return
     if (ehRoboConhecido(navigator.userAgent)) return
-    esperarSinalDePessoa(() => { gravarClique(nome) })
+    if (!URL_API || !CHAVE_PUBLICA) return
+    const idDoParceiro = buscarIdDoParceiro(nome)
+    esperarSinalDePessoa(() => { gravarClique(nome, idDoParceiro) })
 }
