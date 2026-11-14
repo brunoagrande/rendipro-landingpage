@@ -22,13 +22,17 @@ export function TrustStrip() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* 3 stats. "8.000 flashcards prontos" saiu em 23/10/2026: os baralhos
                     prontos são de ENEM e vestibular, e a página é de concurso. */}
-                <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3 animate-fade-in-up">
+                <div className="mx-auto grid max-w-2xl grid-cols-2 gap-x-6 gap-y-8 animate-fade-in-up">
                     {/* Ordem pela regua do porque (16/09/2026): os numeros provam o H1
                         (organizacao automatica), nao fazem inventario. "0 a 1000 de
                         nota" saiu: e a escala de qualquer correcao, nao um numero nosso.
                         30/10/2026 (auditoria hormozi): "2 min" virou 5 (mediana real no
-                        banco: 4,7 min) e o total de editais virou "+250" porque entra
-                        edital toda semana; número exato envelhece em dias. */}
+                        banco: 4,7 min).
+                        14/11/2026: o "+250 editais, novos toda semana" SAIU. 121 dos 268
+                        editais do catálogo já tinham prova passada, o app mostra outra
+                        contagem (concursos agrupados) e não entrou edital novo em 02/11 nem
+                        em 09/11. Fundador escolheu a promessa sem número ("qualquer edital
+                        vira plano"). Não voltar com contagem de catálogo aqui. */}
                     <StatBlock
                         value={5}
                         prefix=""
@@ -36,17 +40,10 @@ export function TrustStrip() {
                         label="para montar o plano"
                     />
                     <StatBlock
-                        value={250}
-                        label="editais de concurso prontos"
-                        sublabel="novos toda semana"
+                        value={3}
+                        prefix=""
+                        label="cronogramas em paralelo"
                     />
-                    <div className="col-span-2 md:col-span-1">
-                        <StatBlock
-                            value={3}
-                            prefix=""
-                            label="cronogramas em paralelo"
-                        />
-                    </div>
                 </div>
 
                 {/* Só concurso (auditoria hormozi, 30/10/2026): os chips de 6 públicos

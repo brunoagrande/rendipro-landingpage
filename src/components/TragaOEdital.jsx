@@ -55,7 +55,7 @@ export function TragaOEdital() {
                             <span className="text-gradient-primary">Traga o edital</span>.
                         </h2>
                         <p className="mt-4 text-body text-white/70">
-                            Novos editais entram no catálogo toda semana. Se o seu ainda não chegou, não precisa esperar: importe o PDF do edital. Antes de começar a estudar, você confere o que o RendiPro leu: cada matéria, quantos tópicos ela tem e quanto do plano ela ocupa.
+                            O seu edital ainda não está na lista? Não precisa esperar: importe o PDF dele. Antes de começar a estudar, você confere o que o RendiPro leu: cada matéria, quantos tópicos ela tem e quanto do plano ela ocupa.
                         </p>
                         <p className="mt-5 flex items-start gap-2 text-body-sm text-white/60">
                             <Info size={15} className="mt-0.5 shrink-0 text-white/50" />

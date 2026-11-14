@@ -15,7 +15,7 @@ export function Hero() {
             <div className="container mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 md:grid-cols-2 md:gap-14 lg:grid-cols-[1.15fr_1fr] lg:px-8">
                 <div>
                     <p className="inline-flex rounded-full border border-primary-500/30 bg-primary-500/10 px-3.5 py-1.5 text-body-sm font-semibold text-primary-300">
-                        Para concurso · mais de 250 editais prontos
+                        Para concurso · qualquer edital vira plano
                     </p>
                     <h1 className="mt-5 text-balance text-[33px] font-extrabold leading-[1.08] tracking-tight text-white md:text-[48px]">
                         Você estuda com o seu material.{' '}

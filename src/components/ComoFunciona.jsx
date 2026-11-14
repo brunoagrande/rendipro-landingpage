@@ -8,7 +8,10 @@ const passos = [
         imagem: '/screenshots/passo1-busca-prova.webp',
         width: 840,
         height: 736,
-        texto: 'São mais de 250 editais de concurso prontos, e chegam novos toda semana. Não achou o seu? Mande o PDF do edital. O RendiPro lê o conteúdo programático e você confere matéria por matéria antes de começar.',
+        // 14/11/2026: "mais de 250 editais" saiu (121 dos 268 já tinham prova passada e o app mostra
+        // outra contagem) e "novos toda semana" também (nenhum edital novo em 02/11 e 09/11). O
+        // fundador escolheu a promessa sem número: qualquer edital vira plano.
+        texto: 'Qualquer edital vira plano: escolha o seu na lista ou mande o PDF dele. O RendiPro lê o conteúdo programático e você confere matéria por matéria antes de começar.',
     },
     {
         numero: '02',
