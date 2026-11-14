@@ -63,9 +63,13 @@ export function obterOfertaLanding(influencerData, applyDiscount = (valor) => va
         // A ordem é a do app: conta, pagamento (checkout logo após o cadastro) e plano
         // (o app só abre pago). "Uns 5 minutos": mediana de 5,1 min da conta ao 1º
         // plano em 23 pagantes de out-nov/2026 (medido em 10/11/2026).
-        textoHero: 'Você cria a conta, paga no cartão em 12x ou no Pix e monta o plano em uns 5 minutos.',
-        textoHeroDestaque: null,
-        textoHeroRodape: 'Garantia de 7 dias',
+        // 14/11/2026 (hormozi, ok do fundador "resolver agora"): quem vem do anúncio fica ~11 s e
+        // só lê o topo. Desde 10/11 a linha do botão anunciava a cobrança sem nada que tirasse o
+        // medo, e o clique no topo caiu. A devolução sobe para cá (é a mesma promessa do FAQ e da
+        // seção Garantia); o "como se paga" desce para o rodapé. Sem o verbo desistir (veto 30/10).
+        textoHero: 'Você cria a conta, assina e monta o plano em uns 5 minutos.',
+        textoHeroDestaque: 'Use 7 dias. Se não for o que você queria, devolvemos tudo.',
+        textoHeroRodape: `12x no cartão ou ${formatarMoeda(pixAVista)} no Pix.`,
         textoCartao: `Plano de 12 meses. No cartão: 12 mensalidades de ${formatarMoeda(mensalidade)}, a 1ª no dia da compra.`,
         textoPix: `Ou ${formatarMoeda(pixAVista)} no Pix, o ano todo de uma vez.`,
         textoPilha: `No mensal, o mesmo app sai ${formatarMoeda(mensal.preco_centavos)} por mês, ${formatarMoeda(mensal.preco_centavos * 12)} no ano. No anual, você paga ${formatarMoeda(pixAVista)} pelos 12 meses no Pix${porDia(pixAVista)}.`,
