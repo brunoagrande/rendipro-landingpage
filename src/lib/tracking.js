@@ -170,6 +170,25 @@ export function trackRegisterCta({ buttonText, location, plan }) {
 }
 
 /**
+ * Toque no WhatsApp da landing (18/11/2026, cartão do fundador). Evento PRÓPRIO, separado do
+ * cta_click: o cta_click mede intenção de cadastro (régua do topo) e não pode misturar com dúvida.
+ */
+export function trackWhatsappClick(location) {
+    if (typeof window === 'undefined') return
+    if (window.gtag) {
+        window.gtag('event', 'whatsapp_click', { location, ...getUtms() })
+    }
+}
+
+/** Toque no LinkedIn do fundador (cartão "Quem fez", 18/11/2026). */
+export function trackLinkedinClick(location) {
+    if (typeof window === 'undefined') return
+    if (window.gtag) {
+        window.gtag('event', 'linkedin_click', { location, ...getUtms() })
+    }
+}
+
+/**
  * Vista de seção — dispara quando uma seção entra no viewport (>=50%).
  * Idempotente por sessionId+section (não dispara 2× a mesma seção na mesma sessão).
  */

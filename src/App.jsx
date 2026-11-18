@@ -21,6 +21,7 @@ const Dor            = lazy(() => import('./components/Dor').then(m => ({ defaul
 const ComoFunciona   = lazy(() => import('./components/ComoFunciona').then(m => ({ default: m.ComoFunciona })))
 const DepoisDeEstudar = lazy(() => import('./components/DepoisDeEstudar').then(m => ({ default: m.DepoisDeEstudar })))
 // 18/11/2026: HistoriaDaJessica saiu da página (fundador: "totalmente sem sentido"). O arquivo fica.
+const QuemFez        = lazy(() => import('./components/QuemFez').then(m => ({ default: m.QuemFez })))
 const Pricing       = lazy(() => import('./components/Pricing').then(m => ({ default: m.Pricing })))
 const Garantia      = lazy(() => import('./components/Garantia').then(m => ({ default: m.Garantia })))
 const FAQ           = lazy(() => import('./components/FAQ').then(m => ({ default: m.FAQ })))
@@ -70,6 +71,7 @@ function App() {
             {/* Saíram em 30/10/2026 (auditoria hormozi): ForWhom (três públicos ao
                 mesmo tempo; a página é de concurso) e VejaPorDentro (telas de teste
                 diferentes do app real). O catálogo de editais virou link no TrustStrip. */}
+            <SecaoSegura nome="quem_fez"><QuemFez /></SecaoSegura>
             <SecaoSegura nome="pricing"><Pricing /></SecaoSegura>
             <SecaoSegura nome="garantia"><Garantia /></SecaoSegura>
             <SecaoSegura nome="faq"><FAQ /></SecaoSegura>
