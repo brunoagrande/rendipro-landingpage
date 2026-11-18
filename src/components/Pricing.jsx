@@ -9,7 +9,7 @@ const itens = [
     'O plano do seu edital, pelo catálogo ou pelo PDF do seu, dividido em dias até a prova.',
     'A sessão de cada dia: matéria, tópico e tempo.',
     'Revisão no dia certo de cada tópico que você estuda.',
-    'Replanejar em um clique quando a semana sai do roteiro.',
+    'Replanejar em poucos toques quando a semana sai do roteiro.',
     'Até 3 concursos ao mesmo tempo.',
     'Seu PDF vira questão com gabarito: 6 PDFs por mês.',
     'Flashcards: foto do caderno vira cartão (50 por mês) e seus baralhos do Anki entram como estão.',

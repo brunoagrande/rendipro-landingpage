@@ -3,6 +3,30 @@ import { useInfluencer } from '../contexts/InfluencerContext'
 import { trackRegisterCta } from '../lib/tracking'
 import { useSectionView } from '../lib/useSectionView'
 import { obterOfertaLanding } from '../data/oferta-landing'
+import { Notebook, Celular } from './Aparelhos'
+
+// Capturas de 18/11/2026 na conta de vitrine TJ-SP (conta de teste, uso registrado pela tela
+// do app). As três são do MESMO dia: 2 de 4 sessões feitas hoje nos dois aparelhos.
+const TELAS_HERO = {
+    notebook: {
+        src: '/screenshots/hero-semana-1811.webp',
+        width: 1440,
+        height: 900,
+        alt: 'Tela real do RendiPro no computador: a semana de um plano de exemplo do TJ-SP, com as sessões de cada dia e 2 de 4 feitas hoje',
+    },
+    celular: {
+        src: '/screenshots/hero-inicio-1811.webp',
+        width: 780,
+        height: 1688,
+        alt: 'Tela real do RendiPro no celular: o início do dia com 2 sessões feitas, a próxima revisão de Língua Portuguesa e o botão Começar',
+    },
+    amanha: {
+        src: '/screenshots/hero-amanha-1811.webp',
+        width: 714,
+        height: 234,
+        alt: 'Cartão Amanhã do app: 5 sessões, cerca de 1h55, começa por Direito Administrativo',
+    },
+}
 
 export function Hero() {
     const { influencerData, applyDiscount, getCheckoutUrl } = useInfluencer()
@@ -12,7 +36,7 @@ export function Hero() {
     return (
         <section ref={sectionRef} className="relative overflow-hidden py-7 md:py-20">
             <div className="pointer-events-none absolute right-0 top-0 -z-10 h-[600px] w-[600px] rounded-full bg-primary-500/10 blur-[140px]" />
-            <div className="container mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 md:grid-cols-2 md:gap-14 lg:grid-cols-[1.15fr_1fr] lg:px-8">
+            <div className="container mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 md:grid-cols-2 md:gap-10 lg:grid-cols-[1fr_1.12fr] lg:px-8">
                 <div>
                     <p className="inline-flex rounded-full border border-primary-500/30 bg-primary-500/10 px-3.5 py-1.5 text-body-sm font-semibold text-primary-300">
                         Para concurso · qualquer edital vira plano
@@ -60,21 +84,46 @@ export function Hero() {
                         <p className="mt-1 font-semibold text-white/85">{oferta.textoHeroRodape}</p>
                     </div>
                 </div>
-                <div className="relative mx-auto w-full max-w-[420px]">
-                    <p className="mb-3 text-center text-micro font-bold uppercase tracking-[0.14em] text-accent-300 md:text-left">
-                        O seu edital vira um plano até a prova
-                    </p>
-                    <img
-                        src="/screenshots/tjsp-dia-16-11.webp"
-                        width="1000"
-                        height="441"
-                        fetchPriority="high"
-                        decoding="async"
-                        alt="Tela real do RendiPro com um dia de um plano de exemplo: Direito Administrativo, 60 minutos, e Direito Constitucional, 60 minutos"
-                        className="w-full"
+                <div className="relative mx-auto w-full max-w-[420px] md:max-w-none">
+                    {/* Computador: notebook com a Semana + celular com o Início + cartão "Amanhã".
+                        Imagens lazy de propósito: no celular este bloco fica escondido e não
+                        baixa nada; no computador ele está na tela e carrega na hora. */}
+                    <div className="relative hidden pb-10 pr-[16%] md:block xl:-mr-16 min-[1440px]:-mr-28">
+                        <Notebook
+                            src={TELAS_HERO.notebook.src}
+                            width={TELAS_HERO.notebook.width}
+                            height={TELAS_HERO.notebook.height}
+                            alt={TELAS_HERO.notebook.alt}
+                        />
+                        <Celular
+                            src={TELAS_HERO.celular.src}
+                            width={TELAS_HERO.celular.width}
+                            height={TELAS_HERO.celular.height}
+                            alt={TELAS_HERO.celular.alt}
+                            className="absolute bottom-0 right-0 w-[34%]"
+                        />
+                        {TELAS_HERO.amanha && (
+                            <img
+                                src={TELAS_HERO.amanha.src}
+                                width={TELAS_HERO.amanha.width}
+                                height={TELAS_HERO.amanha.height}
+                                alt={TELAS_HERO.amanha.alt}
+                                loading="lazy"
+                                decoding="async"
+                                className="absolute -left-[6%] bottom-2 w-[46%] rounded-2xl shadow-[0_24px_50px_-20px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.08)]"
+                            />
+                        )}
+                    </div>
+                    {/* Celular: só o aparelho, depois do preço. */}
+                    <Celular
+                        src={TELAS_HERO.celular.src}
+                        width={TELAS_HERO.celular.width}
+                        height={TELAS_HERO.celular.height}
+                        alt={TELAS_HERO.celular.alt}
+                        className="mx-auto w-[76%] max-w-[290px] md:hidden"
                     />
-                    <p className="mt-3 text-center text-caption text-white/50 md:text-left">
-                        Um dia de um plano de exemplo, em tela real do app. Você escolhe as matérias de cada dia.
+                    <p className="mt-4 text-center text-caption text-white/50 md:text-left">
+                        Plano de exemplo, em telas reais do app.
                     </p>
                 </div>
             </div>

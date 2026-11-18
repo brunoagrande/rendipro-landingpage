@@ -35,3 +35,6 @@ social-media/
 lighthouse-mobile.json
 lighthouse-*.json
 psi-*.json
+
+# rascunho local de mockup (18/11), nunca publicar
+public/rascunho/

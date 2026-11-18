@@ -17,7 +17,7 @@ export const faqItems = [
     { question: 'Meu concurso não está na lista. E agora?', answer: 'Mande o PDF do edital. O RendiPro lê o conteúdo programático e você confere matéria por matéria antes de começar. Edital escaneado, só imagem, não dá para ler: nesse caso, cole o texto do conteúdo programático.' },
     { question: 'Quanto tempo leva para montar o plano?', answer: 'Uns 5 minutos: escolher o edital, dizer suas horas por dia e a data da prova, e conferir.' },
     ...(SUPORTE_NO_APP_ATIVO ? [{ question: 'E se eu travar para montar?', answer: 'Fale com a equipe pelo WhatsApp, de dentro do app. A gente ajuda a deixar o plano do jeito da sua prova.' }] : []),
-    { question: 'Perdi dias de estudo. Tenho que refazer tudo?', answer: 'Não. Um clique redistribui o que ficou para trás pelos próximos dias, até a prova.' },
+    { question: 'Perdi dias de estudo. Tenho que refazer tudo?', answer: 'Não. O app mostra o que ficou para trás e reorganiza os próximos dias em poucos toques.' },
     { question: 'Estudo para mais de um concurso.', answer: 'Você pode ter até 3 planos ao mesmo tempo e trocar entre eles em um clique.' },
     { question: 'Como o RendiPro sabe o que eu estudei?', answer: 'Você registra. Pode usar o cronômetro do app enquanto estuda ou tocar em "Já estudei hoje, registrar" depois. É o registro que faz a revisão ser marcada no dia certo.' },
     { question: 'Já uso Anki e tenho meus resumos.', answer: 'Seus baralhos do Anki entram do jeito que estão. A foto do caderno vira flashcard, e o PDF da sua apostila vira questão. Tudo entra na mesma revisão.' },

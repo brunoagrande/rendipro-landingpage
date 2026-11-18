@@ -1,4 +1,8 @@
 import { useSectionView } from '../lib/useSectionView'
+import { Celular, Notebook } from './Aparelhos'
+
+// 18/11/2026: telas reais em aparelho. Revisões e simulado: conta de vitrine TJ-SP. Questão do PDF:
+// conta de vitrine do INSS (a do TJ-SP nunca gerou questões; gerar de novo custaria IA).
 
 export function DepoisDeEstudar() {
     const sectionRef = useSectionView('depois_de_estudar')
@@ -15,14 +19,12 @@ export function DepoisDeEstudar() {
                         <p className="mt-2 text-body leading-relaxed text-white/55">
                             Cada tópico estudado ganha data de revisão. Você abre e a lista de hoje está lá.
                         </p>
-                        <img
-                            src="/screenshots/revisoes-hoje.webp"
-                            width="840"
-                            height="736"
-                            loading="lazy"
-                            decoding="async"
-                            alt="Tela real: revisões de hoje"
-                            className="mt-5 w-full rounded-2xl border border-white/15"
+                        <Celular
+                            src="/screenshots/revisoes-1811.webp"
+                            width={780}
+                            height={1688}
+                            alt="Tela real do RendiPro no celular: Revisões, com 28 assuntos em revisão e a lista dos próximos 7 dias"
+                            className="mx-auto mt-6 w-[78%] max-w-[270px] md:w-[62%] md:max-w-[240px]"
                         />
                     </article>
                     <article className="rounded-2xl border border-white/10 bg-surface-800/60 p-5">
@@ -31,34 +33,38 @@ export function DepoisDeEstudar() {
                             Mande o PDF da sua apostila e treine com questões de múltipla escolha tiradas dele, com
                             gabarito e explicação.
                         </p>
-                        <img
-                            src="/screenshots/treino-questao-pdf-v2.webp"
-                            width="840"
-                            height="736"
-                            loading="lazy"
-                            decoding="async"
-                            alt="Tela real: questão gerada de um PDF"
-                            className="mt-5 w-full rounded-2xl border border-white/15"
+                        <Celular
+                            src="/screenshots/questao-pdf-1811.webp"
+                            width={780}
+                            height={1688}
+                            alt="Tela real do RendiPro no celular: questão de múltipla escolha feita a partir do material, com a alternativa certa e o gabarito explicado"
+                            className="mx-auto mt-6 w-[78%] max-w-[270px] md:w-[62%] md:max-w-[240px]"
                         />
                     </article>
-                    <article className="grid items-center gap-5 rounded-2xl border border-white/10 bg-surface-800/60 p-5 md:col-span-2 md:grid-cols-[1fr_1.1fr] md:gap-8">
+                    <article className="grid items-center gap-5 rounded-2xl border border-white/10 bg-surface-800/60 p-5 md:col-span-2 md:grid-cols-[0.8fr_1.2fr] md:gap-8">
                         <div>
                             <h3 className="text-h3 font-bold text-white">Registre os simulados que você faz</h3>
                             <p className="mt-2 text-body leading-relaxed text-white/55">
                                 Fez um simulado? Lance os acertos de cada matéria e veja qual está puxando sua nota para baixo.
                             </p>
                         </div>
-                        <img
-                            src="/screenshots/simulado-materias-criticas.webp"
-                            width="1074"
-                            height="668"
-                            loading="lazy"
-                            decoding="async"
-                            alt="Tela real: análise de um simulado com 63% de desempenho e Raciocínio Lógico-Matemático como matéria crítica, 5 de 10"
-                            className="w-full rounded-2xl border border-white/15 md:max-w-[460px] md:justify-self-end"
+                        <Notebook
+                            src="/screenshots/simulado-analise-1811.webp"
+                            width={1280}
+                            height={800}
+                            alt="Tela real do RendiPro no computador: análise de um simulado com 73% de desempenho, Raciocínio Lógico como matéria crítica e o desempenho por matéria"
+                            className="mx-auto hidden w-full max-w-[660px] px-[4%] pb-2 md:block md:justify-self-end"
+                        />
+                        <Celular
+                            src="/screenshots/simulado-analise-cel-1811.webp"
+                            width={780}
+                            height={1688}
+                            alt="Tela real do RendiPro no celular: análise de um simulado com 73% de desempenho e Raciocínio Lógico como matéria crítica"
+                            className="mx-auto w-[78%] max-w-[270px] md:hidden"
                         />
                     </article>
                 </div>
+                <p className="mt-5 text-center text-caption text-white/50">Telas reais de contas de exemplo.</p>
             </div>
         </section>
     )
