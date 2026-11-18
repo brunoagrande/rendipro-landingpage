@@ -15,9 +15,10 @@ const LINK_WHATSAPP = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(MENSA
 export function QuemFez() {
     const sectionRef = useSectionView('quem_fez')
     return (
-        <section ref={sectionRef} className="py-16 md:py-20">
-            <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                <article className="grid items-start gap-6 rounded-3xl border border-white/10 bg-surface-900 p-6 md:grid-cols-[150px_1fr] md:gap-8 md:p-8">
+        <section ref={sectionRef} className="py-10 md:py-14">
+            <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+                {/* Celular: foto pequena ao lado do rótulo, texto na largura toda. Computador: foto à esquerda. */}
+                <article className="grid grid-cols-[56px_1fr] items-center gap-x-4 gap-y-3 rounded-2xl border border-white/10 bg-surface-900/70 p-5 md:grid-cols-[88px_1fr] md:items-start md:gap-x-6 md:gap-y-0 md:p-6">
                     <img
                         src="/bruno-grande.webp"
                         width="320"
@@ -25,19 +26,19 @@ export function QuemFez() {
                         loading="lazy"
                         decoding="async"
                         alt="Bruno Grande, fundador do RendiPro"
-                        className="h-28 w-28 rounded-2xl object-cover md:h-[150px] md:w-[150px]"
+                        className="h-14 w-14 rounded-full object-cover ring-1 ring-white/15 md:row-span-2 md:h-[88px] md:w-[88px]"
                     />
-                    <div>
-                        <h2 className="text-h2 font-bold text-white">Quem fez o RendiPro</h2>
-                        <p className="mt-3 text-body-lg leading-relaxed text-white/80">
+                    <h2 className="text-micro font-bold uppercase tracking-[0.14em] text-accent-300 md:mt-1">Quem fez o RendiPro</h2>
+                    <div className="col-span-2 md:col-span-1 md:col-start-2">
+                        <p className="mt-3 text-body leading-relaxed text-white/70">
                             Sou o Bruno Grande e trabalho com software desde 2013. Criei o RendiPro depois de ver de
                             perto alguém estudar anos para concurso e perder horas toda semana refazendo cronograma.
                         </p>
-                        <p className="mt-3 text-body-lg leading-relaxed text-white/80">
+                        <p className="mt-3 text-body leading-relaxed text-white/70">
                             Aqui não tem aula nem apostila: você segue com o seu curso e o seu material, e o RendiPro
                             organiza o resto.
                         </p>
-                        <p className="mt-3 text-body-lg leading-relaxed text-white/80">
+                        <p className="mt-3 text-body leading-relaxed text-white/70">
                             Se em 7 dias não for o que você queria, cancele no app e a devolução é automática. Dúvida
                             antes de assinar?{' '}
                             <a
@@ -50,17 +51,24 @@ export function QuemFez() {
                                 Chame no WhatsApp.
                             </a>
                         </p>
-                        <p className="mt-5 border-t border-white/10 pt-4 font-semibold text-white">
+                        <p className="mt-4 text-body-sm font-semibold text-white">
                             Bruno Grande, fundador do RendiPro
-                            <span className="font-normal text-white/40"> · </span>
                             <a
                                 href={LINKEDIN}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => trackLinkedinClick('quem_fez')}
-                                className="font-normal text-white/70 underline underline-offset-4 hover:text-white"
+                                aria-label="Perfil de Bruno Grande no LinkedIn"
+                                title="LinkedIn"
+                                className="ml-2 inline-flex rounded-[4px] align-[-4px] opacity-90 transition hover:opacity-100"
                             >
-                                LinkedIn
+                                <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                                    <rect width="24" height="24" rx="4" fill="#0A66C2" />
+                                    <path
+                                        fill="#fff"
+                                        d="M7.1 9.5h-2.6V18h2.6V9.5zM5.8 5.4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM18.6 13.3c0-2.3-.5-4-3.2-4-1.3 0-2.2.7-2.5 1.4h-.04V9.5h-2.5V18h2.6v-4.2c0-1.1.2-2.2 1.6-2.2 1.4 0 1.4 1.3 1.4 2.3V18h2.6v-4.7z"
+                                    />
+                                </svg>
                             </a>
                         </p>
                     </div>
