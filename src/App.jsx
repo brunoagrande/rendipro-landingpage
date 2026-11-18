@@ -10,6 +10,7 @@ import { SchemaMarkup } from './components/SchemaMarkup'
 import { CookieBanner } from './components/CookieBanner'
 import { SecaoSegura } from './components/SecaoSegura'
 import { captureUtms, initScrollMilestones } from './lib/tracking'
+import { preCarregarTelas } from './lib/preCarregarTelas'
 import { CAMPANHA_ANUAL_ATIVA } from './data/campanha-anual'
 import { CORTESIA_CADASTRO_ATIVA } from './data/cortesia-cadastro'
 
@@ -19,7 +20,7 @@ import { CORTESIA_CADASTRO_ATIVA } from './data/cortesia-cadastro'
 const Dor            = lazy(() => import('./components/Dor').then(m => ({ default: m.Dor })))
 const ComoFunciona   = lazy(() => import('./components/ComoFunciona').then(m => ({ default: m.ComoFunciona })))
 const DepoisDeEstudar = lazy(() => import('./components/DepoisDeEstudar').then(m => ({ default: m.DepoisDeEstudar })))
-const HistoriaDaJessica = lazy(() => import('./components/HistoriaDaJessica').then(m => ({ default: m.HistoriaDaJessica })))
+// 18/11/2026: HistoriaDaJessica saiu da página (fundador: "totalmente sem sentido"). O arquivo fica.
 const Pricing       = lazy(() => import('./components/Pricing').then(m => ({ default: m.Pricing })))
 const Garantia      = lazy(() => import('./components/Garantia').then(m => ({ default: m.Garantia })))
 const FAQ           = lazy(() => import('./components/FAQ').then(m => ({ default: m.FAQ })))
@@ -33,6 +34,9 @@ function App() {
     captureUtms()
     return initScrollMilestones()
   }, [])
+
+  // Telas das seções de baixo baixam depois que o topo carregou (ver preCarregarTelas.js).
+  useEffect(() => preCarregarTelas(), [])
 
   return (
     <InfluencerProvider>
@@ -66,7 +70,6 @@ function App() {
             {/* Saíram em 30/10/2026 (auditoria hormozi): ForWhom (três públicos ao
                 mesmo tempo; a página é de concurso) e VejaPorDentro (telas de teste
                 diferentes do app real). O catálogo de editais virou link no TrustStrip. */}
-            <SecaoSegura nome="historia_jessica"><HistoriaDaJessica /></SecaoSegura>
             <SecaoSegura nome="pricing"><Pricing /></SecaoSegura>
             <SecaoSegura nome="garantia"><Garantia /></SecaoSegura>
             <SecaoSegura nome="faq"><FAQ /></SecaoSegura>

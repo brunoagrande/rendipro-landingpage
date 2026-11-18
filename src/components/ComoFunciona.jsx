@@ -8,8 +8,8 @@ const passos = [
         titulo: 'Escolha o seu edital',
         // 18/11/2026: telas do assistente real no celular (conta de vitrine TJ-SP), sem concluir o plano.
         imagem: '/screenshots/passo1-tjsp-1811.webp',
-        width: 780,
-        height: 1688,
+        width: 600,
+        height: 1298,
         alt: 'Tela real do assistente do RendiPro no celular: busca por TJ-SP com os cargos e a data da prova',
         // 14/11/2026: "mais de 250 editais" saiu (121 dos 268 já tinham prova passada e o app mostra
         // outra contagem) e "novos toda semana" também (nenhum edital novo em 02/11 e 09/11). O
@@ -20,8 +20,8 @@ const passos = [
         numero: '02',
         titulo: 'Diga suas horas e a data da prova',
         imagem: '/screenshots/passo2-data-horas-1811.webp',
-        width: 780,
-        height: 1688,
+        width: 600,
+        height: 1298,
         alt: 'Tela real do assistente do RendiPro no celular: data da prova 14/03/2027 e 14h por semana para o plano',
         texto: 'O cronograma sai inteiro, dividido em dias, do primeiro até a prova. Estuda para dois concursos? Até 3 planos ao mesmo tempo.',
     },
@@ -29,8 +29,8 @@ const passos = [
         numero: '03',
         titulo: 'Abra, estude e registre',
         imagem: '/screenshots/passo3-registrar-1811.webp',
-        width: 780,
-        height: 1592,
+        width: 600,
+        height: 1225,
         alt: 'Tela real do RendiPro no celular: registrar 60 minutos de estudo, com aula do curso, 16 de 20 questões certas e a 1ª revisão marcada para amanhã',
         itens: [
             'A matéria, o tópico e quanto tempo. Já decididos.',

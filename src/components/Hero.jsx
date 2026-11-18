@@ -10,14 +10,14 @@ import { Notebook, Celular } from './Aparelhos'
 const TELAS_HERO = {
     notebook: {
         src: '/screenshots/hero-semana-1811.webp',
-        width: 1440,
-        height: 900,
+        width: 1280,
+        height: 800,
         alt: 'Tela real do RendiPro no computador: a semana de um plano de exemplo do TJ-SP, com as sessões de cada dia e 2 de 4 feitas hoje',
     },
     celular: {
         src: '/screenshots/hero-inicio-1811.webp',
-        width: 780,
-        height: 1688,
+        width: 600,
+        height: 1298,
         alt: 'Tela real do RendiPro no celular: o início do dia com 2 sessões feitas, a próxima revisão de Língua Portuguesa, o botão Começar e a semana em 4h24 de 14h',
     },
     amanha: {

@@ -21,8 +21,8 @@ export function DepoisDeEstudar() {
                         </p>
                         <Celular
                             src="/screenshots/revisoes-1811.webp"
-                            width={780}
-                            height={1688}
+                            width={600}
+                            height={1298}
                             alt="Tela real do RendiPro no celular: Revisões, com 28 assuntos em revisão e a lista dos próximos 7 dias"
                             className="mx-auto mt-6 w-[78%] max-w-[270px] md:w-[62%] md:max-w-[240px]"
                         />
@@ -35,8 +35,8 @@ export function DepoisDeEstudar() {
                         </p>
                         <Celular
                             src="/screenshots/questao-pdf-1811.webp"
-                            width={780}
-                            height={1688}
+                            width={600}
+                            height={1298}
                             alt="Tela real do RendiPro no celular: questão de múltipla escolha feita a partir do material, com a alternativa certa e o gabarito explicado"
                             className="mx-auto mt-6 w-[78%] max-w-[270px] md:w-[62%] md:max-w-[240px]"
                         />
@@ -57,8 +57,8 @@ export function DepoisDeEstudar() {
                         />
                         <Celular
                             src="/screenshots/simulado-analise-cel-1811.webp"
-                            width={780}
-                            height={1688}
+                            width={600}
+                            height={1298}
                             alt="Tela real do RendiPro no celular: análise de um simulado com 73% de desempenho e Raciocínio Lógico como matéria crítica"
                             className="mx-auto w-[78%] max-w-[270px] md:hidden"
                         />
