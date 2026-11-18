@@ -18,7 +18,7 @@ const TELAS_HERO = {
         src: '/screenshots/hero-inicio-1811.webp',
         width: 780,
         height: 1688,
-        alt: 'Tela real do RendiPro no celular: o início do dia com 2 sessões feitas, a próxima revisão de Língua Portuguesa e o botão Começar',
+        alt: 'Tela real do RendiPro no celular: o início do dia com 2 sessões feitas, a próxima revisão de Língua Portuguesa, o botão Começar e a semana em 4h24 de 14h',
     },
     amanha: {
         src: '/screenshots/hero-amanha-1811.webp',
