@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { slugDoParceiroNaUrl, buscarDescontoDoParceiro } from '../lib/descontoDoParceiro'
 
 const InfluencerContext = createContext()
 
@@ -23,6 +24,13 @@ export function InfluencerProvider({ children }) {
                 }
 
                 if (!slug) {
+                    // Link de parceiro (`rendipro.com.br/<nome>`, ex.: Black Friday): o preço com desconto da ficha.
+                    // Ficha sem desconto, vencida ou inexistente = preço cheio, sem o aviso de cupom inválido.
+                    const slugParceiro = slugDoParceiroNaUrl(window.location.search)
+                    if (slugParceiro) {
+                        const ficha = await buscarDescontoDoParceiro(slugParceiro)
+                        if (ficha) setInfluencerData(ficha)
+                    }
                     setIsLoadingInfluencer(false)
                     return
                 }
@@ -150,14 +158,15 @@ export function InfluencerProvider({ children }) {
                 } catch (_) {}
             }
 
-            if (influencerData?.slug) {
+            // ⚠ Link de parceiro: o app acha o desconto pelos utm acima. `influencerSlug` é o cupom antigo e não vai.
+            if (influencerData?.slug && influencerData.origem !== 'parceiro') {
                 url.searchParams.append('influencerSlug', influencerData.slug)
             }
 
             return url.toString()
         } catch (e) {
             // Fallback para URLs malformadas (caso raríssimo)
-            if (!influencerData?.slug) return baseUrl
+            if (!influencerData?.slug || influencerData.origem === 'parceiro') return baseUrl
             const separator = baseUrl.includes('?') ? '&' : '?'
             return `${baseUrl}${separator}influencerSlug=${influencerData.slug}`
         }

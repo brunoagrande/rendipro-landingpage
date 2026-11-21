@@ -8,6 +8,24 @@ export function TopBanner() {
 
     if (isLoadingInfluencer) return null
 
+    // Link de parceiro com desconto (Black Friday, 21/11/2026): diz o quê, onde vale e até quando.
+    if (influencerData?.origem === 'parceiro') {
+        return (
+            <div className="relative z-[60] w-full bg-gradient-to-r from-primary-600 to-indigo-600 px-4 py-2.5 shadow-lg" data-testid="banner-parceiro">
+                <div className="container mx-auto flex items-center justify-center gap-3 text-center">
+                    <Sparkles className="h-4 w-4 text-yellow-300 flex-shrink-0" />
+                    <p className="text-sm md:text-base font-medium text-white">
+                        <a href="#pricing" className="hover:text-yellow-200">
+                            <strong className="font-bold">{influencerData.nome_influencer}</strong>:{' '}
+                            {influencerData.desconto_porcentagem}% de desconto no plano anual
+                            {influencerData.ultimoDia ? `, até ${influencerData.ultimoDia}` : ''}.
+                        </a>
+                    </p>
+                </div>
+            </div>
+        )
+    }
+
     if (influencerData) {
         return (
             <div className="relative z-[60] w-full bg-gradient-to-r from-primary-600 to-indigo-600 px-4 py-3 shadow-lg animate-slide-in-down">

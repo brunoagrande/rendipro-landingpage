@@ -65,7 +65,12 @@ export function Pricing() {
                                 {oferta.selo}
                             </p>
                         )}
-                        {oferta.comInfluencer && (
+                        {oferta.comInfluencer && influencerData?.origem === 'parceiro' && (
+                            <p className="inline-flex rounded-full bg-primary-500/15 px-3 py-1 text-caption font-bold text-primary-300">
+                                {influencerData.nome_influencer}: {influencerData.desconto_porcentagem}% no 1º ano
+                            </p>
+                        )}
+                        {oferta.comInfluencer && influencerData?.origem !== 'parceiro' && (
                             <p className="text-body-sm text-white/45">
                                 De <span className="line-through">{oferta.precoMensalSemDesconto}</span> por mês, com o
                                 desconto do seu cupom:
@@ -95,10 +100,19 @@ export function Pricing() {
                             Montar meu plano
                         </a>
                         <p className="mt-3 text-center text-body-sm text-white/75">Garantia de 7 dias</p>
-                        <p className="mt-5 text-caption leading-relaxed text-white/50">
-                            Preço de lançamento: quem assina agora fica com esse valor enquanto for assinante, mesmo
-                            quando o preço subir.
-                        </p>
+                        {/* ⚠ Com desconto de link (Black Friday) o 2º ano volta ao preço cheio: a promessa de
+                            "fica com esse valor" seria falsa. Mesmo corte do app (selo some com desconto, 19/11). */}
+                        {oferta.comInfluencer && influencerData?.origem === 'parceiro' ? (
+                            <p className="mt-5 text-caption leading-relaxed text-white/50">
+                                O desconto vale nas 12 mensalidades do 1º ano. Na renovação, o anual volta a{' '}
+                                {oferta.precoMensalSemDesconto} por mês.
+                            </p>
+                        ) : (
+                            <p className="mt-5 text-caption leading-relaxed text-white/50">
+                                Preço de lançamento: quem assina agora fica com esse valor enquanto for assinante, mesmo
+                                quando o preço subir.
+                            </p>
+                        )}
                         <p className="mt-4 border-t border-white/10 pt-4 text-body-sm text-white/55">
                             Prefere mês a mês?{' '}
                             <a
@@ -116,7 +130,8 @@ export function Pricing() {
                             >
                                 Plano mensal por {oferta.precoMensalRegular}
                             </a>
-                            , sem compromisso de 12 meses.
+                            , sem compromisso de 12 meses
+                            {influencerData?.origem === 'parceiro' ? ' (o desconto vale só no anual).' : '.'}
                         </p>
                     </aside>
                 </div>
