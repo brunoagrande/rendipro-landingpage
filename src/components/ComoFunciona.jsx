@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react'
 import { useSectionView } from '../lib/useSectionView'
+import { useInfluencer } from '../contexts/InfluencerContext'
 import { Celular } from './Aparelhos'
 
 const passos = [
@@ -42,6 +43,8 @@ const passos = [
 
 export function ComoFunciona() {
     const sectionRef = useSectionView('como_funciona')
+    // ⚠ 21/11/2026 (Black Friday): o link do catálogo leva os utm, para o link de parceiro chegar ao app.
+    const { getCheckoutUrl } = useInfluencer()
     return (
         <section ref={sectionRef} id="como-funciona" className="py-16 md:py-24">
             <span id="plano" className="absolute" />
@@ -76,7 +79,7 @@ export function ComoFunciona() {
                                 )}
                                 {index === 0 && (
                                     <a
-                                        href="https://app.rendipro.com.br/editais/por-area?rp_origem=landing_v2"
+                                        href={getCheckoutUrl('https://app.rendipro.com.br/editais/por-area?rp_origem=landing_v2')}
                                         className="mt-4 inline-flex font-semibold text-white underline underline-offset-4"
                                     >
                                         Procure o seu edital agora, sem cadastro

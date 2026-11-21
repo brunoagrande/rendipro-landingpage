@@ -44,7 +44,7 @@ export function Navbar() {
 
                 <div className="flex items-center gap-4">
                     <a
-                        href="https://app.rendipro.com.br"
+                        href={getCheckoutUrl('https://app.rendipro.com.br/')}
                         className="hidden text-sm font-medium text-white/70 transition-colors hover:text-white sm:block"
                     >
                         Entrar
@@ -93,7 +93,7 @@ export function Navbar() {
                             ))}
                             <li className="pt-4 border-t border-white/5">
                                 <a
-                                    href="https://app.rendipro.com.br"
+                                    href={getCheckoutUrl('https://app.rendipro.com.br/')}
                                     className="block text-lg font-medium text-white/70"
                                 >
                                     Entrar

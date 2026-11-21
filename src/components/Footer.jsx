@@ -1,4 +1,8 @@
+import { useInfluencer } from '../contexts/InfluencerContext'
+
 export function Footer() {
+    // ⚠ 21/11/2026 (Black Friday): "Entrar no app" leva os utm, para o link de parceiro chegar ao app.
+    const { getCheckoutUrl } = useInfluencer()
     return (
         <footer className="border-t border-white/5 bg-surface-950 py-12">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +24,7 @@ export function Footer() {
                         <ul className="space-y-4">
                             <li><a href="#plano" className="text-sm text-white/50 hover:text-white transition-colors">Como funciona</a></li>
                             <li><a href="#pricing" className="text-sm text-white/50 hover:text-white transition-colors">Planos</a></li>
-                            <li><a href="https://app.rendipro.com.br/login" className="text-sm text-white/50 hover:text-white transition-colors">Entrar no app</a></li>
+                            <li><a href={getCheckoutUrl('https://app.rendipro.com.br/login')} className="text-sm text-white/50 hover:text-white transition-colors">Entrar no app</a></li>
                         </ul>
                     </div>
                     <div>
