@@ -8,6 +8,10 @@ const primeiroMesGratis = {
 
 export const faqItems = [
     { question: 'Preciso ter material para usar?', answer: 'Sim. O RendiPro organiza o estudo com o que você já usa: cursinho, apostila, videoaula gratuita, site de questões ou PDF. Ele mostra o que estudar hoje, por quanto tempo e quando revisar. Ainda não tem material? Escolha um primeiro, até um gratuito serve, e monte o plano depois.' },
+    // 21/11/2026 (hormozi, pedido do fundador): cards prontos ligados ao edital SÓ na FAQ, com escopo explícito
+    // (só Direito Constitucional e Administrativo). Fora do Pricing e do Como Funciona: lá soaria como conteúdo, e o
+    // único pagante de novembro pediu estorno porque esperava conteúdo. Sem contagem de assuntos (muda quase todo dia).
+    { question: 'Vem algum conteúdo pronto?', answer: 'Não tem aula nem apostila: você estuda com o seu material. O que já vem pronto são flashcards de Direito Constitucional e Direito Administrativo, ligados aos assuntos do seu edital. Se o seu plano tem esses assuntos, eles aparecem em Flashcards, na aba "Do meu edital", e entram na sua revisão com um toque. As outras matérias ainda não têm cards prontos.' },
     ...(CAMPANHA_ANUAL_ATIVA ? [primeiroMesGratis] : []),
     // Oferta nova (09/11/2026): sem o mês grátis, o cartão cobra no dia da compra,
     // então "nada é cobrado nesse prazo" deixou de ser verdade.
