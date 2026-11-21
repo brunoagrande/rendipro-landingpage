@@ -1,11 +1,19 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import { slugDoParceiroNaUrl, buscarDescontoDoParceiro } from '../lib/descontoDoParceiro'
+import { BLACK_FRIDAY_SLUG, blackFridayInicial, blackFridayPadraoNestaVisita } from '../data/black-friday'
 
 const InfluencerContext = createContext()
 
+// Black Friday (21/11/2026): a visita sem cupom e sem outro parceiro, e a que vem pelo link da BF, já nascem com a
+// oferta (sem esperar a rede). A ficha é conferida logo depois, no efeito abaixo.
+const bfPadrao = () =>
+    typeof window !== 'undefined' && blackFridayPadraoNestaVisita(window.location.search, window.location.pathname)
+const bfInicial = () =>
+    typeof window !== 'undefined' ? blackFridayInicial(window.location.search, window.location.pathname) : null
+
 export function InfluencerProvider({ children }) {
-    const [influencerData, setInfluencerData] = useState(null)
-    const [isLoadingInfluencer, setIsLoadingInfluencer] = useState(true)
+    const [influencerData, setInfluencerData] = useState(bfInicial)
+    const [isLoadingInfluencer, setIsLoadingInfluencer] = useState(() => !bfInicial())
     const [isInvalidOrExpired, setIsInvalidOrExpired] = useState(false)
 
     useEffect(() => {
@@ -29,7 +37,12 @@ export function InfluencerProvider({ children }) {
                     const slugParceiro = slugDoParceiroNaUrl(window.location.search)
                     if (slugParceiro) {
                         const ficha = await buscarDescontoDoParceiro(slugParceiro)
-                        if (ficha) setInfluencerData(ficha)
+                        // Pelo link da BF a oferta já estava na tela: ficha desligada = volta ao preço cheio.
+                        setInfluencerData(ficha || null)
+                    } else if (bfPadrao()) {
+                        // A BF já está na tela; confere a ficha. Desligada ou vencida = volta ao preço cheio.
+                        const ficha = await buscarDescontoDoParceiro(BLACK_FRIDAY_SLUG)
+                        setInfluencerData(ficha ? { ...ficha, padrao: true } : null)
                     }
                     setIsLoadingInfluencer(false)
                     return
@@ -156,6 +169,11 @@ export function InfluencerProvider({ children }) {
                         url.searchParams.append('_fbp', match[1])
                     }
                 } catch (_) {}
+            }
+
+            // ⚠ BF padrão (sem link na URL): o app acha o desconto pelo `rp_link`, e as utm da visita ficam intactas.
+            if (influencerData?.padrao && influencerData.slug) {
+                url.searchParams.set('rp_link', influencerData.slug)
             }
 
             // ⚠ Link de parceiro: o app acha o desconto pelos utm acima. `influencerSlug` é o cupom antigo e não vai.
