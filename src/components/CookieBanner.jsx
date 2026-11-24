@@ -65,7 +65,7 @@ export function CookieBanner() {
                 dobra de uma landing paga. */}
             <div className="container mx-auto flex items-center gap-3">
                 <p className="min-w-0 flex-1 text-caption leading-snug text-white/55 sm:text-body-sm">
-                    Usamos cookies para medir nossos anúncios e entender como o site é usado. Veja a{' '}
+                    Usamos cookies para medir anúncios e o uso do site.{' '}
                     <a
                         href="https://app.rendipro.com.br/privacidade"
                         target="_blank"
@@ -74,7 +74,6 @@ export function CookieBanner() {
                     >
                         Política de Privacidade
                     </a>
-                    .
                 </p>
                 <button
                     type="button"

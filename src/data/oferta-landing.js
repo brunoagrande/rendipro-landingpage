@@ -13,10 +13,11 @@ function formatarMoeda(centavos) {
     })
 }
 
-// "menos de 30 centavos por dia" só aparece quando a conta fecha (o ano / 365).
-// Se o preço mudar e a conta passar de 30 centavos, a frase some sozinha.
+// "menos de X centavos por dia": X sai da conta (o ano / 365, arredondado para cima).
+// Teto de 30: se o preço mudar e a conta passar disso, a frase some sozinha.
 function porDia(centavosNoAno) {
-    return centavosNoAno / 365 < 30 ? ': menos de 30 centavos por dia' : ''
+    const centavosPorDia = centavosNoAno / 365
+    return centavosPorDia < 30 ? `: menos de ${Math.floor(centavosPorDia) + 1} centavos por dia` : ''
 }
 
 export function obterOfertaLanding(influencerData, applyDiscount = (valor) => valor) {

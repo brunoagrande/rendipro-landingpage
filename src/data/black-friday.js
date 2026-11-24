@@ -19,6 +19,15 @@ export const BLACK_FRIDAY_PADRAO = {
     padrao: true,
 }
 
+/** A oferta que está na tela é a da Black Friday? (no 1º desenho ou depois de conferir a ficha) */
+export function ehBlackFriday(influencerData) {
+    return (
+        influencerData?.origem === 'parceiro' &&
+        ((influencerData.slug || '').toLowerCase() === BLACK_FRIDAY_SLUG ||
+            influencerData.nome_influencer === BLACK_FRIDAY_PADRAO.nome_influencer)
+    )
+}
+
 export function blackFridayNoAr(agora = new Date()) {
     return agora < new Date(BLACK_FRIDAY_FIM)
 }

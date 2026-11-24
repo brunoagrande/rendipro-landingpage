@@ -5,7 +5,7 @@ import { useSectionView } from '../lib/useSectionView'
 import { obterOfertaLanding, SUPORTE_NO_APP_ATIVO } from '../data/oferta-landing'
 
 const itens = [
-    'Funciona com o material que você já usa: você não troca de cursinho nem paga outro.',
+    'Aqui não tem aula nem apostila. Você estuda com o material que já usa e não precisa trocar de cursinho.',
     'O plano do seu edital, pelo catálogo ou pelo PDF do seu, dividido em dias até a prova.',
     'A sessão de cada dia: matéria, tópico e tempo.',
     'Revisão no dia certo de cada tópico que você estuda.',
@@ -50,8 +50,8 @@ export function Pricing() {
                             {SUPORTE_NO_APP_ATIVO && (
                                 <li className="flex gap-3">
                                     <Check size={20} className="mt-0.5 shrink-0 text-primary-400" />
-                                    Ajuda para montar o seu plano. Travou em algum passo? Fale com a equipe pelo
-                                    WhatsApp, de dentro do app.
+                                    Precisou de ajuda para montar o plano? É só chamar a equipe no WhatsApp, de dentro do
+                                    app.
                                 </li>
                             )}
                         </ul>

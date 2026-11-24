@@ -3,6 +3,7 @@ import { useInfluencer } from '../contexts/InfluencerContext'
 import { trackRegisterCta } from '../lib/tracking'
 import { useSectionView } from '../lib/useSectionView'
 import { obterOfertaLanding } from '../data/oferta-landing'
+import { ehBlackFriday } from '../data/black-friday'
 import { Notebook, Celular } from './Aparelhos'
 
 // Capturas de 18/11/2026 na conta de vitrine TJ-SP (conta de teste, uso registrado pela tela
@@ -32,6 +33,9 @@ export function Hero() {
     const { influencerData, applyDiscount, getCheckoutUrl } = useInfluencer()
     const oferta = obterOfertaLanding(influencerData, applyDiscount)
     const sectionRef = useSectionView('hero')
+    // 24/11/2026 (hormozi, ok do fundador): na Black Friday a 1ª tela do celular mostra o preço no Pix inteiro,
+    // acima do botão e do aviso de cookies (provado em 390x844 e 360x740). Sem a BF, o topo é o de sempre.
+    const naBlackFriday = ehBlackFriday(influencerData)
 
     return (
         <section ref={sectionRef} className="relative overflow-hidden py-7 md:py-20">
@@ -46,13 +50,20 @@ export function Hero() {
                         <span className="text-primary-400">O RendiPro organiza o resto.</span>
                     </h1>
                     <p className="mt-4 text-body-lg leading-relaxed text-white/70 md:text-[20px]">
-                        Todo dia você abre e já sabe o que estudar, por quanto tempo e o que revisar. O RendiPro monta o
-                        plano do seu edital, dividido em dias.
+                        Todo dia você abre e já sabe o que estudar, por quanto tempo e o que revisar.
+                        {!naBlackFriday && ' O RendiPro monta o plano do seu edital, dividido em dias.'}
                     </p>
                     <p className="mt-4 text-balance text-body-sm leading-relaxed text-white/60">
                         <span className="font-semibold text-white/80">Funciona com o que você já usa:</span> cursinho,
                         apostila, videoaula, site de questões ou PDF.
                     </p>
+                    {naBlackFriday && (
+                        <p className="mt-4 text-body leading-relaxed text-white/80">
+                            Na Black Friday, o 1º ano do anual sai por{' '}
+                            <strong className="font-bold text-white">{oferta.precoPix} no Pix</strong> ou{' '}
+                            <span className="whitespace-nowrap">12 x {oferta.precoMensal}</span> no cartão.
+                        </p>
+                    )}
                     <a
                         href={getCheckoutUrl(
                             'https://app.rendipro.com.br/register?plano=starter-anual&utm_content=hero',
@@ -74,15 +85,17 @@ export function Hero() {
                             <strong className="font-bold text-white"> {oferta.textoHeroDestaque}</strong>
                         )}
                     </p>
-                    <div className="mt-5 border-t border-white/10 pt-5 text-body-sm leading-relaxed text-white/70">
-                        <p>
-                            <strong className="font-semibold text-white">
-                                A partir de {oferta.precoMensal} por mês
-                            </strong>{' '}
-                            no plano anual de 12 meses.
-                        </p>
-                        <p className="mt-1 font-semibold text-white/85">{oferta.textoHeroRodape}</p>
-                    </div>
+                    {!naBlackFriday && (
+                        <div className="mt-5 border-t border-white/10 pt-5 text-body-sm leading-relaxed text-white/70">
+                            <p>
+                                <strong className="font-semibold text-white">
+                                    A partir de {oferta.precoMensal} por mês
+                                </strong>{' '}
+                                no plano anual de 12 meses.
+                            </p>
+                            <p className="mt-1 font-semibold text-white/85">{oferta.textoHeroRodape}</p>
+                        </div>
+                    )}
                 </div>
                 <div className="relative mx-auto w-full max-w-[420px] md:max-w-none">
                     {/* Computador: notebook com a Semana + celular com o Início + cartão "Amanhã".
