@@ -11,13 +11,13 @@ export function DepoisDeEstudar() {
             <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                 <p className="text-micro font-bold uppercase tracking-[0.14em] text-accent-300">Depois de estudar</p>
                 <h2 className="mt-3 max-w-3xl text-balance text-display-md font-extrabold leading-tight tracking-tight text-white sm:text-display-lg">
-                    Revise no dia certo, treine e veja onde perde ponto.
+                    Revise, treine e veja onde perde ponto
                 </h2>
                 <div className="mt-10 grid gap-6 md:grid-cols-2">
                     <article className="rounded-2xl border border-white/10 bg-surface-800/60 p-5">
                         <h3 className="text-h3 font-bold text-white">Revisão marcada sozinha</h3>
                         <p className="mt-2 text-body leading-relaxed text-white/55">
-                            Cada tópico estudado ganha data de revisão. Você abre e a lista de hoje está lá.
+                            Você abre e a lista de hoje já está lá.
                         </p>
                         <Celular
                             src="/screenshots/revisoes-1811.webp"
@@ -28,10 +28,9 @@ export function DepoisDeEstudar() {
                         />
                     </article>
                     <article className="rounded-2xl border border-white/10 bg-surface-800/60 p-5">
-                        <h3 className="text-h3 font-bold text-white">Questões tiradas da sua apostila</h3>
+                        <h3 className="text-h3 font-bold text-white">Sua apostila vira questão</h3>
                         <p className="mt-2 text-body leading-relaxed text-white/55">
-                            Mande o PDF da sua apostila e treine com questões de múltipla escolha tiradas dele, com
-                            gabarito e explicação.
+                            Mande o PDF e treine com gabarito e explicação.
                         </p>
                         <Celular
                             src="/screenshots/questao-pdf-1811.webp"
@@ -43,9 +42,9 @@ export function DepoisDeEstudar() {
                     </article>
                     <article className="grid items-center gap-5 rounded-2xl border border-white/10 bg-surface-800/60 p-5 md:col-span-2 md:grid-cols-[0.8fr_1.2fr] md:gap-8">
                         <div>
-                            <h3 className="text-h3 font-bold text-white">Registre os simulados que você faz</h3>
+                            <h3 className="text-h3 font-bold text-white">Simulado que mostra o ponto fraco</h3>
                             <p className="mt-2 text-body leading-relaxed text-white/55">
-                                Fez um simulado? Lance os acertos de cada matéria e veja qual está puxando sua nota para baixo.
+                                Lance seus acertos e veja qual matéria puxa sua nota para baixo.
                             </p>
                         </div>
                         <Notebook

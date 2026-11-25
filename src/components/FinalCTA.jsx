@@ -38,11 +38,8 @@ export function FinalCTA() {
                     </Eyebrow>
 
                     <h2 className="text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        Daqui a um mês, o seu edital pode estar no mesmo lugar. Ou com um mês de estudo feito e revisado.
-                    </h2>
-                    <p className="mx-auto mt-5 max-w-2xl text-body-lg text-white/60">
                         Escolha o edital hoje. Ainda hoje você sabe o que estudar.
-                    </p>
+                    </h2>
 
                     <div className="mt-9 flex flex-col items-center gap-4">
                         <Button
@@ -77,10 +74,6 @@ export function FinalCTA() {
                                 <p className="flex items-center gap-2 text-body-sm font-medium text-white/70">
                                     <Shield size={16} className="text-primary-400" />
                                     <span>{oferta.textoFechamento}</span>
-                                </p>
-                                <p className="flex items-center gap-2 text-caption text-white/50">
-                                    <Lock size={14} className="text-white/40" />
-                                    Pagamento seguro pelo Asaas, no Pix ou no cartão.
                                 </p>
                             </>
                         )}

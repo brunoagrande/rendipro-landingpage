@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, HelpCircle } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { faqItems } from '../data/faq-data'
-import { Eyebrow } from './ui/Eyebrow'
 import { cn } from '../lib/utils'
 import { trackFaqOpen } from '../lib/tracking'
 import { useSectionView } from '../lib/useSectionView'
@@ -75,7 +74,7 @@ function FAQItem({ question, answer, link, isOpen, onToggle }) {
 }
 
 export function FAQ() {
-    const [openIndex, setOpenIndex] = useState(0)
+    const [openIndex, setOpenIndex] = useState(null)
     const sectionRef = useSectionView('faq')
 
     const toggleQuestion = (index, question) => {
@@ -98,12 +97,8 @@ export function FAQ() {
                     transition={{ duration: 0.7, ease: easeSpring }}
                     className="mb-16 text-center"
                 >
-                    <Eyebrow variant="ghost" className="mb-4">
-                        <HelpCircle size={14} />
-                        Dúvidas
-                    </Eyebrow>
                     <h2 className="mx-auto max-w-3xl text-display-md sm:text-display-lg font-extrabold tracking-tight text-white">
-                        Dúvidas, sem rodeio
+                        Dúvidas
                     </h2>
                 </motion.div>
 

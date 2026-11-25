@@ -4,6 +4,7 @@ import { useInfluencer } from '../contexts/InfluencerContext'
 import { cn } from '../lib/utils'
 import { trackRegisterCta } from '../lib/tracking'
 import { obterOfertaLanding } from '../data/oferta-landing'
+import { ehBlackFriday } from '../data/black-friday'
 
 /**
  * Sticky CTA mobile — barra persistente embaixo da tela em mobile/tablet.
@@ -95,7 +96,14 @@ export function StickyMobileCTA() {
                                     <span className="text-[11px] font-medium text-white/60">/mês</span>
                                 </span>
                             </div>
-                            <p className="mt-0.5 flex items-center gap-1 text-[10px] text-white/55">
+                            <p
+                                className={cn(
+                                    'mt-0.5',
+                                    ehBlackFriday(influencerData)
+                                        ? 'text-[12px] font-semibold leading-snug text-white/80'
+                                        : 'flex items-center gap-1 text-[10px] text-white/55'
+                                )}
+                            >
                                 {oferta.textoSticky}
                             </p>
                         </div>

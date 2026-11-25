@@ -1,16 +1,14 @@
 import { useSectionView } from '../lib/useSectionView'
 import { trackLinkedinClick, trackWhatsappClick } from '../lib/tracking'
+import { LINK_WHATSAPP } from '../data/contato'
 
 // 18/11/2026: no lugar da seção da Jessica (saiu em f0e3457). Texto = opção A, aprovada pelo
 // hormozi e escolhida pelo fundador. Regras: a Jessica não aparece (nem nome, nem relação);
 // nada de preço, plano, resultado ou "me chama" (não pode parecer empresa de uma pessoa só,
 // nem inventar equipe). O WhatsApp é o mesmo número do suporte do app (src/config/suporte.js).
-const WHATSAPP = '5511974047168'
-const MENSAGEM = 'Oi! Vim do site e tenho uma dúvida antes de assinar.'
 // LinkedIn: incluído a pedido do fundador (18/11) depois de atualizar o perfil (Fundador do RendiPro
 // na Successus Tecnologia Digital). Abre em outra aba, para a landing continuar aberta.
 const LINKEDIN = 'https://www.linkedin.com/in/bruno-grande-694b4649'
-const LINK_WHATSAPP = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(MENSAGEM)}`
 
 export function QuemFez() {
     const sectionRef = useSectionView('quem_fez')
@@ -31,16 +29,8 @@ export function QuemFez() {
                     <h2 className="text-micro font-bold uppercase tracking-[0.14em] text-accent-300 md:mt-1">Quem fez o RendiPro</h2>
                     <div className="col-span-2 md:col-span-1 md:col-start-2">
                         <p className="mt-3 text-body leading-relaxed text-white/70">
-                            Sou o Bruno Grande e trabalho com software desde 2013. Criei o RendiPro depois de ver de
-                            perto alguém estudar anos para concurso e perder horas toda semana refazendo cronograma.
-                        </p>
-                        <p className="mt-3 text-body leading-relaxed text-white/70">
-                            Aqui não tem aula nem apostila: você segue com o seu curso e o seu material, e o RendiPro
-                            organiza o resto.
-                        </p>
-                        <p className="mt-3 text-body leading-relaxed text-white/70">
-                            Se em 7 dias não for o que você queria, cancele no app e a devolução é automática. Dúvida
-                            antes de assinar?{' '}
+                            Trabalho com software desde 2013. Criei o RendiPro depois de ver de perto alguém perder horas
+                            toda semana refazendo cronograma. Dúvida?{' '}
                             <a
                                 href={LINK_WHATSAPP}
                                 target="_blank"

@@ -1,25 +1,26 @@
 import { Check } from 'lucide-react'
 import { useInfluencer } from '../contexts/InfluencerContext'
-import { trackRegisterCta } from '../lib/tracking'
+import { trackRegisterCta, trackWhatsappClick } from '../lib/tracking'
 import { useSectionView } from '../lib/useSectionView'
 import { obterOfertaLanding, SUPORTE_NO_APP_ATIVO } from '../data/oferta-landing'
+import { ehBlackFriday } from '../data/black-friday'
+import { LINK_WHATSAPP } from '../data/contato'
 
 const itens = [
-    'Aqui não tem aula nem apostila. Você estuda com o material que já usa e não precisa trocar de cursinho.',
-    'O plano do seu edital, pelo catálogo ou pelo PDF do seu, dividido em dias até a prova.',
-    'A sessão de cada dia: matéria, tópico e tempo.',
-    'Revisão no dia certo de cada tópico que você estuda.',
-    'Replanejar em poucos toques quando a semana sai do roteiro.',
+    'Sem aula nem apostila: você estuda com as suas.',
+    'Plano do seu edital, dia por dia, até a prova.',
+    'Revisão marcada no dia certo.',
     'Até 3 concursos ao mesmo tempo.',
-    'Seu PDF vira questão com gabarito: 6 PDFs por mês.',
-    'Flashcards: foto do caderno vira cartão (50 por mês) e seus baralhos do Anki entram como estão.',
-    'Redação corrigida com nota por competência: 6 por mês.',
+    '6 PDFs por mês viram questão com gabarito.',
+    '50 flashcards por mês, com a foto do caderno. Seus baralhos do Anki também entram.',
+    '6 redações corrigidas por mês.',
 ]
 
 export function Pricing() {
     const { influencerData, applyDiscount, getCheckoutUrl } = useInfluencer()
     const oferta = obterOfertaLanding(influencerData, applyDiscount)
     const sectionRef = useSectionView('oferta')
+    const naBlackFriday = ehBlackFriday(influencerData)
 
     return (
         <section
@@ -35,9 +36,6 @@ export function Pricing() {
                 <h2 className="mt-3 text-center text-display-md font-extrabold text-white sm:text-display-lg">
                     Plano Até a Prova
                 </h2>
-                <p className="mx-auto mt-3 max-w-2xl text-center text-body-lg text-white/70">
-                    O seu edital dividido em dias, do primeiro até a prova. Tudo o que vem nele:
-                </p>
                 <div className="mt-10 grid items-start gap-6 md:grid-cols-[1.2fr_1fr]">
                     <div className="rounded-3xl border border-white/10 bg-surface-800/60 p-6 md:p-8">
                         <ul className="space-y-4 text-body text-white/80">
@@ -50,14 +48,30 @@ export function Pricing() {
                             {SUPORTE_NO_APP_ATIVO && (
                                 <li className="flex gap-3">
                                     <Check size={20} className="mt-0.5 shrink-0 text-primary-400" />
-                                    Precisou de ajuda para montar o plano? É só chamar a equipe no WhatsApp, de dentro do
-                                    app.
+                                    Ajuda da equipe no WhatsApp para montar o plano.
                                 </li>
                             )}
                         </ul>
-                        <p className="mt-6 border-t border-white/10 pt-5 text-body-sm leading-relaxed text-white/55">
-                            {oferta.textoPilha}
-                        </p>
+                        {naBlackFriday ? (
+                            <dl className="mt-6 space-y-2 border-t border-white/10 pt-5 text-body">
+                                <div className="flex justify-between gap-4 text-white/55">
+                                    <dt>12 meses no mensal</dt>
+                                    <dd>{oferta.comparacao.mensal}</dd>
+                                </div>
+                                <div className="flex justify-between gap-4 font-semibold text-white">
+                                    <dt>Black Friday no Pix</dt>
+                                    <dd>{oferta.comparacao.pix}</dd>
+                                </div>
+                                <div className="flex justify-between gap-4 font-bold text-primary-300">
+                                    <dt>Você economiza</dt>
+                                    <dd>{oferta.comparacao.economia}</dd>
+                                </div>
+                            </dl>
+                        ) : (
+                            <p className="mt-6 border-t border-white/10 pt-5 text-body-sm leading-relaxed text-white/55">
+                                {oferta.textoPilha}
+                            </p>
+                        )}
                     </div>
                     <aside className="rounded-3xl border border-primary-500/40 bg-surface-800 p-6 md:sticky md:top-24 md:p-8">
                         {oferta.campanhaAtiva && (
@@ -76,14 +90,33 @@ export function Pricing() {
                                 desconto do seu cupom:
                             </p>
                         )}
-                        <p className="mt-4">
-                            <span className="font-mono text-[48px] font-bold leading-none text-white">
-                                {oferta.precoMensal}
-                            </span>
-                            <span className="ml-1 text-body-lg text-white/55"> por mês</span>
-                        </p>
-                        <p className="mt-3 text-body leading-relaxed text-white/80">{oferta.textoCartao}</p>
-                        <p className="mt-1 text-body-sm text-white/55">{oferta.textoPix}</p>
+                        {naBlackFriday ? (
+                            <>
+                                <p className="mt-4 font-display text-[40px] font-extrabold leading-none tracking-tight text-white">
+                                    {oferta.cartao}
+                                </p>
+                                <p className="mt-1.5 text-body text-white/60">no cartão</p>
+                                <p className="mt-5 border-t border-white/10 pt-5 text-body text-white/60">
+                                    ou{' '}
+                                    <strong className="font-display text-[26px] font-extrabold tracking-tight text-white">
+                                        {oferta.precoPix}
+                                    </strong>{' '}
+                                    no Pix
+                                </p>
+                                {oferta.porDia && <p className="mt-0.5 text-body text-primary-300">{oferta.porDia}</p>}
+                            </>
+                        ) : (
+                            <>
+                                <p className="mt-4">
+                                    <span className="font-mono text-[48px] font-bold leading-none text-white">
+                                        {oferta.precoMensal}
+                                    </span>
+                                    <span className="ml-1 text-body-lg text-white/55"> por mês</span>
+                                </p>
+                                <p className="mt-3 text-body leading-relaxed text-white/80">{oferta.textoCartao}</p>
+                                <p className="mt-1 text-body-sm text-white/55">{oferta.textoPix}</p>
+                            </>
+                        )}
                         <a
                             href={getCheckoutUrl(
                                 'https://app.rendipro.com.br/register?plano=starter-anual&utm_content=oferta',
@@ -99,17 +132,33 @@ export function Pricing() {
                         >
                             Montar meu plano
                         </a>
-                        <p className="mt-3 text-center text-body-sm text-white/75">Garantia de 7 dias</p>
+                        <p className="mt-3 text-center text-body-sm text-white/75">
+                            Garantia de 7 dias
+                            {naBlackFriday && (
+                                <>
+                                    {' · '}
+                                    <a
+                                        href={LINK_WHATSAPP}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={() => trackWhatsappClick('oferta')}
+                                        className="font-semibold text-white underline underline-offset-4"
+                                    >
+                                        Tirar dúvida no WhatsApp
+                                    </a>
+                                </>
+                            )}
+                        </p>
                         {/* ⚠ Com desconto de link (Black Friday) o 2º ano volta ao preço cheio: a promessa de
                             "fica com esse valor" seria falsa. Mesmo corte do app (selo some com desconto, 19/11). */}
                         {oferta.comInfluencer && influencerData?.origem === 'parceiro' ? (
                             <p className="mt-5 text-caption leading-relaxed text-white/50">
-                                O desconto vale nas 12 mensalidades do 1º ano. Na renovação, o anual volta a{' '}
-                                {oferta.precoMensalSemDesconto} por mês.
+                                {oferta.textoRenovacao ||
+                                    `O desconto vale nas 12 mensalidades do 1º ano. Na renovação, o anual volta a ${oferta.precoMensalSemDesconto} por mês.`}
                             </p>
                         ) : (
                             <p className="mt-5 text-caption leading-relaxed text-white/50">
-                                Preço de lançamento: quem assina agora fica com esse valor enquanto for assinante, mesmo
+                                Depois do 7º dia, as 12 mensalidades vão até o fim. Preço de lançamento: quem assina agora fica com esse valor enquanto for assinante, mesmo
                                 quando o preço subir.
                             </p>
                         )}
@@ -130,8 +179,9 @@ export function Pricing() {
                             >
                                 Plano mensal por {oferta.precoMensalRegular}
                             </a>
-                            , sem compromisso de 12 meses
-                            {influencerData?.origem === 'parceiro' ? ' (o desconto vale só no anual).' : '.'}
+                            {naBlackFriday
+                                ? ', sem desconto.'
+                                : `, sem compromisso de 12 meses${influencerData?.origem === 'parceiro' ? ' (o desconto vale só no anual).' : '.'}`}
                         </p>
                     </aside>
                 </div>

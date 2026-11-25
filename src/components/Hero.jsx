@@ -50,19 +50,21 @@ export function Hero() {
                         <span className="text-primary-400">O RendiPro organiza o resto.</span>
                     </h1>
                     <p className="mt-4 text-body-lg leading-relaxed text-white/70 md:text-[20px]">
-                        Todo dia você abre e já sabe o que estudar, por quanto tempo e o que revisar.
-                        {!naBlackFriday && ' O RendiPro monta o plano do seu edital, dividido em dias.'}
-                    </p>
-                    <p className="mt-4 text-balance text-body-sm leading-relaxed text-white/60">
-                        <span className="font-semibold text-white/80">Funciona com o que você já usa:</span> cursinho,
-                        apostila, videoaula, site de questões ou PDF.
+                        Todo dia você abre e já sabe o que estudar e o que revisar.
                     </p>
                     {naBlackFriday && (
-                        <p className="mt-4 text-body leading-relaxed text-white/80">
-                            Na Black Friday, o 1º ano do anual sai por{' '}
-                            <strong className="font-bold text-white">{oferta.precoPix} no Pix</strong> ou{' '}
-                            <span className="whitespace-nowrap">12 x {oferta.precoMensal}</span> no cartão.
-                        </p>
+                        <div className="mt-5">
+                            <p className="text-body text-white/70">
+                                <strong className="font-display text-[26px] font-extrabold tracking-tight text-white">
+                                    {oferta.cartao}
+                                </strong>{' '}
+                                no cartão
+                            </p>
+                            <p className="mt-0.5 text-body text-white/70">
+                                ou <strong className="font-bold text-white">{oferta.precoPix}</strong> no Pix
+                                {oferta.porDia && <> <span className="inline-block text-primary-300">({oferta.porDia})</span></>}
+                            </p>
+                        </div>
                     )}
                     <a
                         href={getCheckoutUrl(

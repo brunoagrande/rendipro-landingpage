@@ -23,7 +23,7 @@ const DepoisDeEstudar = lazy(() => import('./components/DepoisDeEstudar').then(m
 // 18/11/2026: HistoriaDaJessica saiu da página (fundador: "totalmente sem sentido"). O arquivo fica.
 const QuemFez        = lazy(() => import('./components/QuemFez').then(m => ({ default: m.QuemFez })))
 const Pricing       = lazy(() => import('./components/Pricing').then(m => ({ default: m.Pricing })))
-const Garantia      = lazy(() => import('./components/Garantia').then(m => ({ default: m.Garantia })))
+// 25/11/2026: a seção Garantia saiu (fundador: texto repetido demais). A garantia fica no topo, no cartão e no fim.
 const FAQ           = lazy(() => import('./components/FAQ').then(m => ({ default: m.FAQ })))
 const FinalCTA      = lazy(() => import('./components/FinalCTA').then(m => ({ default: m.FinalCTA })))
 const Footer        = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })))
@@ -73,7 +73,6 @@ function App() {
                 diferentes do app real). O catálogo de editais virou link no TrustStrip. */}
             <SecaoSegura nome="quem_fez"><QuemFez /></SecaoSegura>
             <SecaoSegura nome="pricing"><Pricing /></SecaoSegura>
-            <SecaoSegura nome="garantia"><Garantia /></SecaoSegura>
             <SecaoSegura nome="faq"><FAQ /></SecaoSegura>
             <SecaoSegura nome="final_cta"><FinalCTA /></SecaoSegura>
           </Suspense>

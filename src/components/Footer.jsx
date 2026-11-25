@@ -15,9 +15,6 @@ export function Footer() {
                                 className="h-9 w-auto object-contain"
                             />
                         </div>
-                        <p className="mt-4 max-w-sm text-body-sm leading-relaxed text-white/55">
-                            O RendiPro organiza o estudo de quem se prepara para concurso: o plano pelo edital, a revisão no dia certo e o registro do que você estudou.
-                        </p>
                     </div>
                     <div>
                         <h3 className="mb-6 text-sm font-bold uppercase tracking-wider text-white">Atalhos</h3>

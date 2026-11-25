@@ -1,4 +1,3 @@
-import { Check } from 'lucide-react'
 import { useSectionView } from '../lib/useSectionView'
 import { Celular } from './Aparelhos'
 
@@ -14,7 +13,7 @@ const passos = [
         // 14/11/2026: "mais de 250 editais" saiu (121 dos 268 já tinham prova passada e o app mostra
         // outra contagem) e "novos toda semana" também (nenhum edital novo em 02/11 e 09/11). O
         // fundador escolheu a promessa sem número: qualquer edital vira plano.
-        texto: 'Qualquer edital vira plano: escolha o seu na lista ou mande o PDF dele. O RendiPro lê o conteúdo programático e você confere matéria por matéria antes de começar.',
+        texto: 'Na lista ou pelo PDF dele.',
     },
     {
         numero: '02',
@@ -23,7 +22,7 @@ const passos = [
         width: 600,
         height: 1298,
         alt: 'Tela real do assistente do RendiPro no celular: data da prova 14/03/2027 e 14h por semana para o plano',
-        texto: 'O cronograma sai inteiro, dividido em dias, do primeiro até a prova. Estuda para dois concursos? Até 3 planos ao mesmo tempo.',
+        texto: 'O cronograma sai pronto, dia por dia.',
     },
     {
         numero: '03',
@@ -32,11 +31,7 @@ const passos = [
         width: 600,
         height: 1225,
         alt: 'Tela real do RendiPro no celular: registrar 60 minutos de estudo, com aula do curso, 16 de 20 questões certas e a 1ª revisão marcada para amanhã',
-        itens: [
-            'A matéria, o tópico e quanto tempo. Já decididos.',
-            'Estudou pelo seu curso ou apostila? Você marca o tempo e como estudou. A revisão já sai com data.',
-            'Faltou um dia? O app mostra o que ficou para trás e reorganiza em poucos toques. Você não refaz nada.',
-        ],
+        texto: 'A revisão já sai com data. Faltou um dia? Você reorganiza em poucos toques.',
     },
 ]
 
@@ -50,7 +45,7 @@ export function ComoFunciona() {
             <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                 <p className="text-micro font-bold uppercase tracking-[0.14em] text-accent-300">Como funciona</p>
                 <h2 className="mt-3 text-display-md font-extrabold leading-tight tracking-tight text-white sm:text-display-lg">
-                    Três passos. O terceiro se repete todo dia.
+                    Três passos
                 </h2>
                 {/* 18/11/2026 (auditor-ui-ux): no celular e no tablet, zigue-zague; a partir de lg os três
                     passos ficam lado a lado, celular em cima e texto embaixo, como uma sequência. */}
@@ -65,16 +60,6 @@ export function ComoFunciona() {
                                 <h3 className="mt-2 text-h2 font-bold text-white">{passo.titulo}</h3>
                                 {passo.texto && (
                                     <p className="mt-3 text-body-lg leading-relaxed text-white/70">{passo.texto}</p>
-                                )}
-                                {passo.itens && (
-                                    <ul className="mt-4 space-y-3 text-body-lg text-white/70">
-                                        {passo.itens.map((texto) => (
-                                            <li key={texto} className="flex gap-3">
-                                                <Check size={20} className="mt-1 shrink-0 text-primary-400" />
-                                                {texto}
-                                            </li>
-                                        ))}
-                                    </ul>
                                 )}
                             </div>
                             <Celular

@@ -1,5 +1,6 @@
 import { PRICING_PLANS } from './pricing-plans'
 import { CAMPANHA_ANUAL_ATIVA, resumoCampanhaAnual } from './campanha-anual'
+import { ehBlackFriday } from './black-friday'
 
 export const SUPORTE_NO_APP_ATIVO = true
 
@@ -13,11 +14,34 @@ function formatarMoeda(centavos) {
     })
 }
 
-// "menos de X centavos por dia": X sai da conta (o ano / 365, arredondado para cima).
+// "menos de R$ 0,18 por dia": o valor sai da conta (o ano / 365, arredondado para cima).
 // Teto de 30: se o preço mudar e a conta passar disso, a frase some sozinha.
 function porDia(centavosNoAno) {
     const centavosPorDia = centavosNoAno / 365
-    return centavosPorDia < 30 ? `: menos de ${Math.floor(centavosPorDia) + 1} centavos por dia` : ''
+    return centavosPorDia < 30 ? `menos de ${formatarMoeda(Math.floor(centavosPorDia) + 1)} por dia` : ''
+}
+
+const doisPontos = (frase) => (frase ? `: ${frase}` : '')
+
+// Black Friday (25/11/2026, hormozi e fundador): pouco texto, número à vista. O valor por dia só aparece colado no
+// Pix (no cartão o ano custa mais e a frase seria falsa). Some sozinho com a BF.
+function textosBlackFriday({ pixAVista, mensalidade, anualCheio, mensalNoAno }) {
+    const pix = formatarMoeda(pixAVista)
+    const cartao = `12\u00a0x\u00a0${formatarMoeda(mensalidade)}`
+    return {
+        cartao,
+        porDia: porDia(pixAVista),
+        textoHero: 'Assine, monte o plano e use por 7 dias.',
+        textoHeroDestaque: 'Se não for o que você queria, devolvemos tudo.',
+        textoRenovacao: `Plano de 12 meses. Depois do 7º dia, as 12 mensalidades vão até o fim. No cartão, renova sozinho a ${formatarMoeda(Math.round(anualCheio / 12))} por mês. No Pix, não renova sozinho.`,
+        textoFechamento: `${cartao} ou ${pix} no Pix`,
+        comparacao: {
+            mensal: formatarMoeda(mensalNoAno),
+            pix,
+            economia: formatarMoeda(mensalNoAno - pixAVista),
+        },
+        textoSticky: `${cartao} ou ${pix} no Pix`,
+    }
 }
 
 export function obterOfertaLanding(influencerData, applyDiscount = (valor) => valor) {
@@ -46,7 +70,7 @@ export function obterOfertaLanding(influencerData, applyDiscount = (valor) => va
             textoHeroRodape: '1º mês grátis · Garantia de 7 dias',
             textoCartao: `Plano de 12 meses. No cartão: R$ 0 hoje, e depois ${resumo.cobrancasCartao} mensalidades de ${formatarMoeda(resumo.mensalCentavos)}.`,
             textoPix: `Ou ${formatarMoeda(resumo.pixCentavos)} no Pix, o ano todo de uma vez.`,
-            textoPilha: `No mensal, o mesmo app sai ${formatarMoeda(mensal.preco_centavos)} por mês, ${formatarMoeda(mensal.preco_centavos * 12)} no ano. No anual, com o 1º mês grátis, você paga ${formatarMoeda(resumo.pixCentavos)} pelos 12 meses${porDia(resumo.pixCentavos)}.`,
+            textoPilha: `No mensal, o mesmo app sai ${formatarMoeda(mensal.preco_centavos)} por mês, ${formatarMoeda(mensal.preco_centavos * 12)} no ano. No anual, com o 1º mês grátis, você paga ${formatarMoeda(resumo.pixCentavos)} pelos 12 meses${doisPontos(porDia(resumo.pixCentavos))}.`,
             textoSticky: `Depois ${formatarMoeda(resumo.mensalCentavos)}/mês · 12 meses`,
             textoFechamento: `1º mês grátis no plano anual de 12 meses · depois ${formatarMoeda(resumo.mensalCentavos)} por mês · Garantia de 7 dias`,
         }
@@ -73,8 +97,16 @@ export function obterOfertaLanding(influencerData, applyDiscount = (valor) => va
         textoHeroRodape: `12x no cartão ou ${formatarMoeda(pixAVista)} no Pix.`,
         textoCartao: `Plano de 12 meses. No cartão: 12 mensalidades de ${formatarMoeda(mensalidade)}, a 1ª no dia da compra.`,
         textoPix: `Ou ${formatarMoeda(pixAVista)} no Pix, o ano todo de uma vez.`,
-        textoPilha: `No mensal, o mesmo app sai ${formatarMoeda(mensal.preco_centavos)} por mês, ${formatarMoeda(mensal.preco_centavos * 12)} no ano. No anual, você paga ${formatarMoeda(pixAVista)} pelos 12 meses no Pix${porDia(pixAVista)}.`,
+        textoPilha: `No mensal, o mesmo app sai ${formatarMoeda(mensal.preco_centavos)} por mês, ${formatarMoeda(mensal.preco_centavos * 12)} no ano. No anual, você paga ${formatarMoeda(pixAVista)} pelos 12 meses no Pix${doisPontos(porDia(pixAVista))}.`,
         textoSticky: `${formatarMoeda(mensalidade)}/mês · 12 meses`,
         textoFechamento: `Plano anual de 12 meses · ${formatarMoeda(mensalidade)} por mês · Garantia de 7 dias`,
+        ...(ehBlackFriday(influencerData)
+            ? textosBlackFriday({
+                  pixAVista,
+                  mensalidade,
+                  anualCheio: anual.preco_centavos,
+                  mensalNoAno: mensal.preco_centavos * 12,
+              })
+            : {}),
     }
 }
